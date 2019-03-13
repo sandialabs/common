@@ -1,0 +1,18 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "*": ["types/*"],
+        "moment": ["node_modules/moment/moment.d.ts"]
+      },
+    "module": "AMD",
+    "target": "ES5",
+    "sourceMap": true,
+    "lib": ["es6", "dom"],
+    // "typeRoots": ["./node_modules"],
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": ["node_modules", "bower_components", "lib"],
+  "strict": true
+}

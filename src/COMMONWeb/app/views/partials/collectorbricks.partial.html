@@ -1,0 +1,42 @@
+﻿<div ng-include="'app/views/partials/daystoretrieve.partial.html'"></div>
+<br class="clearfix" />
+<br />
+<div ng-include="'app/views/partials/alerts.partial.html'" class="clearfix"></div>
+<div class="clearfix">
+    <div ng-if="vm.device.isCollectorEnabled(2)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/cpu.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(0)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/memory.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(1)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/disk/disk.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(15)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/disk/diskspeed.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(3)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/nic.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(9)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/services.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(13)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/database.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(6)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/processes.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(8)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/applications.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(14)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div ng-include="'app/views/partials/ups.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(11)" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div ng-include="'app/views/partials/systemerrors.partial.html'"></div>
+    </div>
+    <div ng-if="vm.device.isCollectorEnabled(12)" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div ng-include="'app/views/partials/applicationerrors.partial.html'"></div>
+    </div>
+</div>

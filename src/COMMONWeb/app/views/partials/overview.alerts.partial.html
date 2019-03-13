@@ -1,0 +1,36 @@
+﻿<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h1 class="panel-title" translate="Alerts" />
+    </div>
+    <div class="panel-body">
+        <h3 ng-show="vm.deviceManager.hasAlarms === false" translate="There are no current alerts"></h3>
+        <div ng-repeat="device in vm.devices">
+            <div class="list-group" ng-if="device.alarms.length !== 0">
+                <a ng-if="device.type === 0" class="list-group-item" ng-href="#/server/{{device.id}}">
+                    <div ng-include="'app/views/partials/overview.devicealert.partial.html'"></div>
+                </a>
+                <a ng-if="device.type === 1" class="list-group-item" ng-href="#/workstation/{{device.id}}">
+                    <div ng-include="'app/views/partials/overview.devicealert.partial.html'"></div>
+                </a>
+                <a ng-if="device.type > 1 && device.type <= 5" class="list-group-item" ng-href="#/device/{{device.id}}">
+                    <div ng-include="'app/views/partials/overview.devicealert.partial.html'"></div>
+                </a>
+            </div>
+        </div>
+        <div ng-repeat="group in vm.groups">
+            <div ng-repeat="device in group.devices">
+                <div class="list-group" ng-if="device.alarms.length !== 0">
+                    <a ng-if="device.type === 0" class="list-group-item" ng-href="#/server/{{device.id}}">
+                        <div ng-include="'app/views/partials/overview.devicealert.partial.html'"></div>
+                    </a>
+                    <a ng-if="device.type === 1" class="list-group-item" ng-href="#/workstation/{{device.id}}">
+                        <div ng-include="'app/views/partials/overview.devicealert.partial.html'"></div>
+                    </a>
+                    <a ng-if="device.type > 1 && device.type <= 5" class="list-group-item" ng-href="#/device/{{device.id}}">
+                        <div ng-include="'app/views/partials/overview.devicealert.partial.html'"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

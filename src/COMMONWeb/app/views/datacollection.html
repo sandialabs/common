@@ -1,0 +1,141 @@
+﻿<div class="col-md-12" ng-cloak>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5 class="panel-title" translate="Up Next"></h5>
+        </div>
+        <div class="panel-body">
+            <div class="visible-xs visible-sm">
+                <div ng-repeat="collector in vm.deviceManager.upNext | limitTo:10" ng-if="collector.isEnabled && collector.frequencyInMinutes !== 0">
+                    <dl class="dl-horizontal">
+                        <dt>{{"Name" | translate}}</dt>
+                        <dd>{{collector.fullName}}</dd>
+                        <dt>{{"Next Collection Time" | translate}}</dt>
+                        <dd>{{collector.nextCollectionTime | commonDate}}</dd>
+                        <dt>{{"Last Collection Attempt" | translate}}</dt>
+                        <dd>{{collector.lastCollectionAttempt | commonDate}}</dd>
+                        <dt>{{"Last Successful Collection" | translate}}</dt>
+                        <dd>{{collector.lastCollectedAt | commonDate}}</dd>
+                        <dt>{{"Frequency (minutes)" | translate}}</dt>
+                        <dd>{{collector.frequencyInMinutes}}</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="visible-md visible-lg">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3"><b>{{"Name" | translate}}</b></div>
+                    <div class="col-md-2 col-sm-2 col-xs-2"><b>{{"Next Collection Time" | translate}}</b></div>
+                    <div class="col-md-2 col-sm-2 col-xs-2"><b>{{"Last Collection Attempt" | translate}}</b></div>
+                    <div class="col-md-2 col-sm-2 col-xs-2"><b>{{"Last Successful Collection" | translate}}</b></div>
+                    <div class="col-md-3 col-sm-3 col-xs-3"><b>{{"Frequency (minutes)" | translate}}</b></div>
+                </div>
+                <div class="row" ng-repeat="collector in vm.deviceManager.upNext | limitTo:10">
+                    <div class="col-md-3 col-sm-3 col-xs-3">{{collector.fullName}}</div>
+                    <div class="col-md-2 col-sm-2 col-xs-2">{{collector.nextCollectionTime | commonDate}}</div>
+                    <div class="col-md-2 col-sm-2 col-xs-2">{{collector.lastCollectionAttempt | commonDate}}</div>
+                    <div class="col-md-2 col-sm-2 col-xs-2">{{collector.lastCollectedAt | commonDate}}</div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">{{collector.frequencyInMinutes}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary" ng-repeat="device in vm.devices">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{device.name}}</h5>
+        </div>
+        <div class="panel-body">
+            <dl ng-if="device.type !== 4" class="dl-horizontal">
+                <dt translate="IP Address"></dt>
+                <dd>
+                    <span>{{device.ipAddress}}</span>
+                </dd>
+            </dl>
+            <div class="row visible-md visible-lg">
+                <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <b>{{"Name" | translate}}</b>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <b>{{"Next Collection Time" | translate}}</b>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <b>{{"Last Collection Attempt" | translate}}</b>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <b>{{"Last Successful Collection" | translate}}</b>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                    <b>{{"Frequency (minutes)" | translate}}</b>
+                </div>
+            </div>
+            <div class="row visible-md visible-lg" ng-repeat="collector in device.collectors" ng-if="collector.isEnabled && collector.frequencyInMinutes !== 0">
+                <div class="col-md-1 col-sm-1 col-xs-1">
+                    <a class="btn btn-default btn-xs" ng-click="vm.onCollectNow(collector.id);">{{"Collect Now" |
+                        translate}}</a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2" ng-class="{'text-success':!collector.isBeingCollected && collector.successfullyCollected && collector.lastCollectedAt !== null,'text-danger':collector.successfullyCollected === false}">
+                    <span ng-if="collector.isBeingCollected" class="glyphicon glyphicon-asterisk"></span>
+                    <span ng-if="!collector.isBeingCollected && collector.successfullyCollected && collector.lastCollectedAt !== null"
+                        class="glyphicon glyphicon-ok"></span>
+                    <span ng-if="!collector.isBeingCollected && collector.successfullyCollected && collector.lastCollectedAt === null"
+                        class="glyphicon glyphicon-question-sign"></span>
+                    <span ng-if="!collector.isBeingCollected && !collector.successfullyCollected" class="glyphicon glyphicon-remove"></span>
+                    {{collector.name}}
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2">{{collector.nextCollectionTime | commonDate}}</div>
+                <div class="col-md-2 col-sm-2 col-xs-2">{{collector.lastCollectionAttempt | commonDate}}</div>
+                <div class="col-md-2 col-sm-2 col-xs-2">{{collector.lastCollectedAt | commonDate}}</div>
+                <div class="col-md-3 col-sm-3 col-xs-3">{{collector.frequencyInMinutes}}</div>
+            </div>
+            <div class="visible-xs visible-sm">
+                <div ng-repeat="collector in device.collectors" ng-if="collector.isEnabled && collector.frequencyInMinutes !== 0">
+                    <dl class="dl-horizontal">
+                        <dt>{{"Name" | translate}}</dt>
+                        <dd>
+                            <div ng-class="{'text-success':!collector.isBeingCollected && collector.successfullyCollected && collector.lastCollectedAt !== null,'text-danger':collector.successfullyCollected === false}">
+                                <span ng-if="collector.isBeingCollected" class="glyphicon glyphicon-asterisk"></span>
+                                <span ng-if="!collector.isBeingCollected && collector.successfullyCollected && collector.lastCollectedAt !== null"
+                                    class="glyphicon glyphicon-ok"></span>
+                                <span ng-if="!collector.isBeingCollected && collector.successfullyCollected && collector.lastCollectedAt === null"
+                                    class="glyphicon glyphicon-question-sign"></span>
+                                <span ng-if="!collector.isBeingCollected && !collector.successfullyCollected" class="glyphicon glyphicon-remove"></span>
+                                {{collector.name}}
+                            </div>
+                            <a class="btn btn-default btn-xs" ng-click="vm.onCollectNow(collector.id);">{{"Collect Now"
+                                | translate}}</a>
+                        </dd>
+                        <dt>{{"Next Collection Time" | translate}}</dt>
+                        <dd>{{collector.nextCollectionTime | commonDate}}</dd>
+                        <dt>{{"Last Collection Attempt" | translate}}</dt>
+                        <dd>{{collector.lastCollectionAttempt | commonDate}}</dd>
+                        <dt>{{"Last Successful Collection" | translate}}</dt>
+                        <dd>{{collector.lastCollectedAt | commonDate}}</dd>
+                        <dt>{{"Frequency (minutes)" | translate}}</dt>
+                        <dd>{{collector.frequencyInMinutes}}</dd>
+                    </dl>
+                </div>
+            </div>
+            <br />
+            <a ng-if="device.type !== 4" class="btn btn-default" ng-click="vm.onCollectAll(device.id);">{{"Collect All
+                Now" | translate}}</a>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{"Legend" | translate}}</h5>
+        </div>
+        <div class="panel-body">
+            <div class="row col-md-12 col-sm-12 col-xs-12">
+                <span class="glyphicon glyphicon-asterisk" /> {{"Is currently being collected" | translate}}
+            </div>
+            <div class="row col-md-12 col-sm-12 col-xs-12 text-success">
+                <span class="glyphicon glyphicon-ok" /> {{"Was successfully collected" | translate}}
+            </div>
+            <div class="row col-md-12 col-sm-12 col-xs-12 text-danger">
+                <span class="glyphicon glyphicon-remove" /> {{"Collection failed" | translate}}
+            </div>
+            <div class="row col-md-12 col-sm-12 col-xs-12">
+                <span class="glyphicon glyphicon-question-sign" /> {{"Has not been collected" | translate}}
+            </div>
+        </div>
+    </div>
+</div>

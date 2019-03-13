@@ -1,0 +1,19 @@
+﻿<div ng-include="'app/reports/daystoretrieve.partial.html'"></div>
+
+<div id="report" class="col-md-12 container">
+    <div class="col-md-12 row">
+        <img src="/Content/common_header.png" width="400" />
+    </div>
+    <!-- <pre>{{vm.report | json}}</pre> -->
+    <div class="col-md-12 container">
+        <h1 class="reportheadertitle text-nowrap row">{{vm.reportName | translate}}</h1>
+        <h4 class="text-nowrap reportsubheader row">{{vm.report.siteName}}</h4>
+        <h4 class="text-nowrap reportsubheader row">{{vm.currentDate | commonDate}}</h4>
+        <br />
+        <h4 class="reportsubheader text-nowrap row" ng-show="vm.report.networkStatus.length !== 0">{{"Last Ping Attempt" | translate}}: {{vm.report.mostRecentAttempt | commonDate}}</h4>
+        <h4 class="reportsubheader text-nowrap row" ng-show="vm.report.networkStatus.length === 0" translate="No Ping Attempts" />
+    </div>
+    <hr class="reporthr col-md-12" />
+    <!--<div ng-include="'app/reports/network.partial.html'" />-->
+    <cm-network-table data="vm.report.networkStatus" chart-settings="vm.networkChartSettings"></cm-network-table>
+</div>

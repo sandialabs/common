@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="COMMONConfig.Frontend.Views.UserContols.CollectorsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:p="clr-namespace:COMMONConfig.Properties"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:localization="clr-namespace:COMMONConfig.Localization"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:customControls="clr-namespace:COMMONConfig.Utils.CustomControls"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:ResxLocalizationProvider.DefaultAssembly="COMMONConfig"
+             lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+             mc:Ignorable="d"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <DockPanel LastChildFill="True">
+        <GroupBox DockPanel.Dock="Bottom" Header="{lex:Loc StringMonitoredDrives}" Name="MonitoredDrives">
+            <DockPanel LastChildFill="True">
+                <Button DockPanel.Dock="Right" Content="{lex:Loc StringChoose}" Click="OnChooseDrives"></Button>
+                <StackPanel DockPanel.Dock="Left" Name="DriveStack"></StackPanel>
+            </DockPanel>
+        </GroupBox>
+        <Grid Name="collectorsGrid" DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold"
+                   Content="{lex:Loc StringEnabled}" />
+            <Label Grid.Row="0" Grid.Column="1" FontWeight="Bold"
+                   Content="{lex:Loc StringName}" />
+            <Label Grid.Row="0" Grid.Column="2" FontWeight="Bold"
+                   Content="{lex:Loc StringFrequency}" />
+            <!--<StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" ZIndex="1">
+                <Button Name="ToggleAll" Content="Toggle All" Margin="3"
+                                       Command="{Binding ToggleAllCommand}" HorizontalAlignment="Right" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="3">
+                    <Label FontWeight="Bold" Content="{lex:Loc StringGlobalFrequency}" />
+                    <customControls:IntegerTextBox Width="{Binding Path=ActualWidth, ElementName=ToggleAll}"
+                                                   x:Name="FreqAll" TextChanged="FreqAll_OnTextChanged"
+                                                   
+                                                   controls:TextBoxHelper.ClearTextButton="True"
+                                                   HorizontalAlignment="Right" />
+                </StackPanel>
+                
+                
+            </StackPanel>-->
+        </Grid>
+    </DockPanel>
+</UserControl>

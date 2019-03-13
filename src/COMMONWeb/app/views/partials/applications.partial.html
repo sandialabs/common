@@ -1,0 +1,52 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Installed Applications"></h5>
+    </div>
+    <div class="panel-body standardsize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Applications]">
+            <h3 ng-show="vm.machine.applications === null || vm.machine.applications.applications.applications.length === 0" translate="There are no applications to report"></h3>
+            <div ng-if="vm.machine.applications !== null && vm.machine.applications.applications.applications.length !== 0" class="table-responsive">
+                <!--<h3>{{"Applications as of" | translate}}</h3>-->
+                <dl class="dl-horizontal">
+                    <dt translate="Last Update"></dt>
+                    <dd>{{vm.machine.applications.applications.timestamp | commonDate}}</dd>
+                    <dt translate="Number of Applications"></dt>
+                    <dd>{{vm.machine.applications.applications.applications.length}}</dd>
+                </dl>
+                <table class="table table-super-condensed table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th translate="Application"></th>
+                            <th translate="Version"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="appData in vm.machine.applications.applications.applications | itemsPerPage: 10" pagination-id="applications">
+                            <td><a ng-click="vm.machine.applications.onSelectApplication(appData.name);">{{appData.name}}</a></td>
+                            <td>{{appData.version}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls pagination-id="applications" boundary-links="true"></dir-pagination-controls>
+            </div>
+            <div ng-if="vm.machine.applications.applicationHistory && vm.machine.applications.applicationHistory.history.length !== 0">
+                <h3>{{vm.machine.applications.applicationHistory.name}}</h3>
+                <table class="table table-super-condensed table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th translate="Version"></th>
+                            <th translate="Timestamp"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="version in vm.machine.applications.applicationHistory.history | itemsPerPage: 10" pagination_id="applicationHistory">
+                            <td>{{version.version}}</td>
+                            <td>{{version.timestamp | commonDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination_controls pagination-id="applicationHistory" boundary-links="true"></dir-pagination_controls>
+            </div>
+        </treasure-overlay-spinner>
+    </div>
+</div>

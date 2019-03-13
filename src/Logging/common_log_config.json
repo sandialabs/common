@@ -1,0 +1,6 @@
+﻿{
+  "path": "c:\\common\\logfiles\\logfile.txt",
+  "level": "error",
+  "isEnabled": "true",
+  "keepDays": "90"
+}

@@ -1,0 +1,28 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Running Services"></h5>
+    </div>
+    <div class="panel-body smallersize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Services]">
+            <h3 ng-show="!vm.machine.services || vm.machine.services.services.length === 0" translate="There are no running services to report"></h3>
+            <div ng-if="vm.machine.services && vm.machine.services.services.length !== 0" class="table-responsive">
+                <!-- <h3 translate="Current Services Running"></h3> -->
+                <dl class="dl-horizontal">
+                    <dt translate="Last Update"></dt>
+                    <dd>{{vm.machine.services.timestamp | commonDate}}</dd>
+                    <dt translate="Number of Services"></dt>
+                    <dd>{{vm.machine.services.services.length}}</dd>
+                </dl>
+                <br />
+                <table class="table table-super-condensed table-striped table-borderless">
+                    <tbody>
+                        <tr dir-paginate="service in vm.machine.services.services | itemsPerPage: 10" pagination_id="services">
+                            <td>{{service}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls pagination_id="services" boundary-links="true"></dir-pagination-controls>
+            </div>
+        </treasure-overlay-spinner>
+    </div>
+</div>

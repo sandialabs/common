@@ -1,0 +1,19 @@
+﻿<div ng-include="'app/reports/daystoretrieve.partial.html'"></div>
+
+<div id="report" class="col-md-12 col-sm-12">
+    <div class="col-md-12 col-sm-12 row">
+        <img src="/Content/common_header.png" width="400" />
+    </div>
+    <div class="col-md-12 col-sm-12 container">
+        <h1 class="reportheadertitle text-nowrap row">{{vm.reportName | translate}} {{"Report" | translate }}</h1>
+        <h4 class="text-nowrap reportsubheader row">{{vm.siteName}}</h4>
+        <h4 class="text-nowrap reportsubheader row">{{"Report Date" | translate}}: {{vm.currentDate | commonDate}}</h4>
+        <h4 class="text-nowrap reportsubheader row" ng-if="vm.daysToRetrieve">{{vm.daysToRetrieve}} {{"days" | translate}}</h4>
+        <h4 class="text-nowrap reportsubheader row" ng-if="vm.startDate && vm.endDate">{{"From" | translate}} {{vm.startDate}} - {{vm.endDate}}</h4>
+        <br />
+        <h4 class="text-nowrap reportsubheader row">{{"Last boot time" | translate}}: {{vm.report.machine.details.lastBootTime | commonDate}}</h4>
+        <h4 class="text-nowrap reportsubheader row">{{"Uptime" | translate}}: {{vm.report.machine.details.uptime}}</h4>
+    </div>
+    <hr class="reporthr col-md-12 col-sm-12" />
+    <div ng-include="'app/reports/computer.partial.html'"></div>
+</div>

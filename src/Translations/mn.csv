@@ -1,0 +1,191 @@
+% of time reading/writing,% of time reading/writing
+About,Тухай
+Add Camera,Камер нэмэх
+Add RPM,Цацраг илрүүлэх төхөөрөмж нэмэх
+Add Workstation,Ажлын компьютер нэмэх
+Address,Хаяг
+Address (required),Хаяг (шаардлагатай)
+Administration,Удирдлага
+Alerts,Сэрэмжлүүлэг
+Application,Програм
+Application Added,Нэмэгдсэн програм
+Application Changes,Програмын өөрчлөлтүүд
+Application Deleted,Устгагдсан програм
+Application Error Messages,Програмын алдааны мэссэжүүд
+Applications as of, -ийн програмууд
+Apps,Програмууд
+Average Disk Queue Length,Average Disk Queue Length
+Battery Status,Батарейн байдал
+Bytes Per Second,Байтс секундээр
+Camera,Камер
+Cancel,Хүчингүй болгох
+cannot exceed 50 characters in length,Урт нь 50 үсгээс хэтрэхгүй байх
+CAS Load,CAS-ийн ачаалал
+Collectors,Коллекторууд
+COMMON Tool Assistance:,COMMON багажийн тусламж:
+Configuration Parameters,Тохиргооны параметрууд
+Contact Email is required,Харилцах имэйл шаардлагатай
+Contact Name,Холбоо барих нэр
+Contact Name (required),Холбоо барих нэр (шаардлагатай)
+Count,Count
+CPU,CPU
+CPU Usage,CPU-ийн хэрэглээ
+CPU Usage Over Time,CPU ашиглалтын хэтэрсэн хугацаа
+Current CPU Usage,Одоогийн CPU ашиглалт
+Current Database Information,Current Database Information
+Current Disk Performance,Current Disk Performance
+Current Disk Usage,Одоогийн дискний хэрэглээ
+Current Memory Usage,Санах ойн одоогийн хэрэглээ
+Current Network Interface Usage,Одоогийн сүлжээний интерфэйс хэрэглээ
+Current Processes Running,Одоогийн үйл явцууд ажиллаж байна
+Current Services Running,Одоогийн үйлчилгээнүүд ажиллаж байна
+Database,Мэдээллийн сан
+Database Data,Мэдээллийн сангийн дата
+Days to Retrieve:,Сэргээх өдрүүд:
+Delete,Устгах
+Device Configuration,Төхөөрөмжийн тохиргоо
+Devices,Багаж хэрэгсэл
+Disk,Диск
+Disk Capacity,Дискний багтаамж
+Disk Free,Сул диск
+Disk Performance,Disk Performance
+Disk Performance Over Time,Disk Performance Over Time
+Disk Usage,Disk Usage
+Disk Usage Over Time,Диск ашиглалтын хэтэрсэн хугацаа
+Disk Used,Ашигласан диск
+Disks,Дискнүүд
+Download,Татаж авах
+Email,Имэйл
+Enabled,Идэвхжүүлсэн
+English,Англи
+Errors,Алдаанууд
+Estimated Charge,Цэнэгийн хэмжээ
+Estimated Run Time,Ажиллах хугацаа
+Event Log Errors -- Applications,Үйл явдал бүртгэлийн алдаанууд - - Програмууд
+Event Log Errors -- System,Үйл явдал бүртгэлийн алдаа -- Систем
+false,худал
+For COMMON tool assistance, contact:,For COMMON tool assistance, contact:
+Frequency (in minutes),Давтамж (минутаар)
+Frequency in Minutes,Давтамж минутаар
+Get All CPU Data,Бүх CPU-ийн мэдээллийг авах
+Get All Disk Data,Бүх дискний мэдээллийг авах
+Get All Memory Data,Бүх санах ойн мэдээллийг авах
+Get All NIC Data,Бүх NIC-ийн мэдээллийг авах
+Good Ping response (less than 100ms),Пинг-ийн эерэг хариу (100 милисекундээс бага)
+Has adequate free disk space,Дискэнд сул зай хангалттай байна
+Has adequate free memory,Сул санах ой хангалттай байгаа
+Has been recently rebooted,Саяхан унтрааж эхлүүлсэн
+Has excessive CPU usage,CPU ашиглалт хэтэрсэн
+Has normal CPU usage,CPU ашиглалт хэвийн
+Has not been rebooted recently,Ойрд унтрааж эхлүүлээгүй
+Help,Тусламж
+Home,Эхлэл
+Installed Applications,Суулгасан програмууд
+IP Address,IP хаяг
+IP Address (required),IP хаяг (шаардлагатай)
+is already in use,ашиглалтанд байна
+Is critically low on disk space,Дискэнд зай маш бага үлдсэн
+Is critically low on free memory,Сул санах ой маш бага үлдсэн
+Is Enabled,Идэвхжсэн
+Is low on free disk space,Дискэнд сул зай бага байна
+Is low on free memory,Сул санах ой бага үлдсэн
+Is not a valid IP Address,Хүчинтэй IP хаяг биш
+Is offline,Сүлжээнд холбогдоогүй
+Is online,Сүлжээнд холбогдсон
+is required,шаардлагатай
+Issues,Асуудлууд
+Language,Хэл
+Last boot time,Сүүлд асаасан хугацаа
+Last Ping Attempt,Пинг-ийн сүүлийн оролдлого
+Last Successful Ping,Сүүлийн амжилттай Пинг
+Last Update,Хамгийн сүүлд шинэчилсэн
+License,Лиценз
+Max CPU Spike,Maкс CPU-ийн өсөлт
+Max Memory Spike,Maкс санах ойн өсөлт
+Megabytes Per Second,Мегабайтс секундээр
+Memory,Санах ой
+Memory Capacity,Санах ойн багтаамж
+Memory Free,Сул санах ой
+Memory Usage Over Time,Санах ойн ашиглалтын хэтэрсэн хугацаа
+Memory Used,Ашигласан санах ой
+Message,Мэссэж
+minutes,минутаар
+Mongolian,Монгол
+More Days,Илүү олон өдрүүд
+must be at least 3 characters in length,Урт нь хамгийн багадаа 3 үсэгтэй байх
+Name,Нэр
+Name (required),Нэр (шаардлагатай)
+Name of Database,Name of Database
+Network,Сүлжээ
+Network Interface,Сүлжээний интерфэйс
+NIC Usage Over Time,NIC-ийн хэрэглээний хэтэрсэн хугацаа
+No application error messages have been recorded,No application error messages have been recorded
+No Ping Attempts,Пинг-ийн оролдлого байхгүй
+No processes have been recorded,No processes have been recorded
+No system error messages have been recorded,No system error messages have been recorded
+Not a valid email address,Имэйл хаяг хүчингүй
+Number of Databases,Número de Bases de Datos
+Number of Processes,Number of Processes
+Number of Services,Number of Services
+Off,Унтарсан
+Offline,Холбогдоогүй
+OK,OК
+Online,Холбогдсон
+Password,Нууц үг
+Password (if required),Нууц үг (хэрэв шаардлагатай бол)
+PDF User's Manual,PDF User's Manual
+Percent of Capacity,Percent of Capacity
+Process,Үйл явц
+Processes,Үйл явцууд
+Processes Used,Ашигласан үйл явц
+Product,Бүтээгдэхүүн
+Report,Тайлан мэдээ
+Reports,Мэдээнүүд
+Restore,Сэргээх
+Retrieve,Сэргээх
+RPM,Цацраг илрүүлэх төхөөрөмж
+Running Services,Үйлчилгээнүүд явагдаж байна
+Save Changes,Өөрчлөлтийг хадгалах
+Server,Сервер
+Services,Үйлчилгээ
+Site,Сайт
+Site Configuration,Сайтын тохиргоо
+Site Name,Сайтын нэр
+Site Name (required),Сайтын нэр (шаардлагатай)
+Size in MB,Size in MB
+Size in Megabytes,Size in Megabytes
+Slow Ping response (greater than 100ms),Пинг-ийн удаан хариу (100 милисекундээс их)
+Software Tools Used in COMMON Development,Software Tools Used in COMMON Development
+Spanish,Испани
+State,State
+Status,Байдал
+System,Систем
+System Error Messages,Системийн алдааны мэссэжүүд
+There are no application errors,'Програмын алдаа алга байна
+There are no applications to report,Мэдээлэх програмууд алга байна
+There are no CPU reports,CPU-ийн мэдээнүүд алга байна
+There are no current alerts,Одоогоор сэрэмжлүүлэг алга байна
+There are no current status updates,Одоогоор статус шинэчлэлт алга байна
+There are no database Data reports,Мэдээллийн сангийн дата алга байна
+There are no disk performance reports,There are no disk performance reports
+There are no disk reports,Дискийн мэдээ алга байна
+There are no memory reports,Санах ойн мэдээ алга байна
+There are no NIC reports,NIC-ийн талаар мэдээ алга байна
+There are no processes to report,Мэдээлэх үйл явц алга байна
+There are no running services to report,Мэдээлэх ажиллаж буй үйлчилгээ байхгүй
+There are no system errors,Системийн алдаа байхгүй
+There is no report for,Дараах мэдээ алга байна
+Time,Хугацаа
+Time Change Recorded,Бүртгэгдсэн хугацааны өөрчлөлт
+Timestamp,Тэмдэглэгээ
+true,үнэн
+Unknown,Үл мэдэгдэх
+UPS,UPS
+UPS Status,UPS-ийн байдал
+UPS status is unknown,UPS-ийн байдал мэдэгдэхгүй байна
+Uptime,Ашиглалтын хугацаа
+Username,Хэрэглэгчийн нэр
+Username (if required),Хэрэглэгчийн нэр (хэрэв шаардлагатай бол)
+Version,Хувилбар
+Version Before,Өмнөх хувилбар
+Workstation,Ажлын компьютер

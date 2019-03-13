@@ -1,0 +1,36 @@
+﻿<div class="container-fluid">
+    <!--<pre>{{vm | json}}</pre>-->
+    <div class="row col-md-offset-6">
+        <div class="col-md-5">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <label class="control-label">{{"Start" | translate}}</label>
+                </span>
+                <input type="text" class="form-control" uib-datepicker-popup ng-model="vm.popupStartDate" ng-change="vm.onDateChange()" is-open="vm.popupIsOpen.start" datepicker-options="vm.dateOptions"
+                       ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.openStartPopup()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <label class="control-label">{{"End" | translate}}</label>
+                </span>
+                <input type="text" class="form-control" uib-datepicker-popup ng-model="vm.popupEndDate" ng-change="vm.onDateChange()" is-open="vm.popupIsOpen.end" datepicker-options="vm.dateOptions"
+                       ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="vm.openEndPopup()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <!--<button class="btn btn-primary col-md-2" ng-click="vm.downloadReport()">{{"Download" | translate}}</button>-->
+        <button class="btn btn-primary" cm-print print-element-id="report">{{"Print" | translate}}</button>
+    </div>
+    <br />
+</div>

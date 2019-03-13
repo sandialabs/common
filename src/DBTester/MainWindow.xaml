@@ -1,0 +1,46 @@
+﻿<Window x:Class="DBTester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBTester"
+        mc:Ignorable="d"
+        Title="DB Tester" Height="350" Width="525">
+    <DockPanel LastChildFill="True">
+        <DockPanel DockPanel.Dock="Bottom">
+            <GroupBox Header="Setup">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Connection String:</Label>
+                    <Label Grid.Row="0" Grid.Column="1" Name="ConnectionString" DockPanel.Dock="Left" Content="{Binding ConnString}"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Data Source:</Label>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="DataSource" DockPanel.Dock="Left"></TextBox>
+                    <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">Initial Catalog:</Label>
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="InitialCatalog" DockPanel.Dock="Left"></TextBox>
+                    <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"># of Inserts:</Label>
+                    <TextBox Grid.Row="3" Grid.Column="1" Name="NumBatches" DockPanel.Dock="Left"></TextBox>
+                </Grid>
+            </GroupBox>
+        </DockPanel>
+        <GroupBox Header="Actions" DockPanel.Dock="Bottom">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Padding="10 0" Click="OnAddData" Margin="10 0" Name="AddDataButton">Add Data</Button>
+                <Button Padding="10 0" Click="OnTruncate" Margin="10 0" Name="TruncateButton">Shrink DB</Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Status" DockPanel.Dock="Top">
+            <ScrollViewer Name="StatusScrollbar">
+                <TextBlock Name="StatusText"/>
+            </ScrollViewer>
+        </GroupBox>
+    </DockPanel>
+</Window>

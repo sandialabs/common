@@ -1,0 +1,31 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Memory"></h5>
+    </div>
+    <div class="panel-body smallersize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Memory]">
+            <h3 ng-show="vm.machine.memory.current === null" translate="There are no memory reports"></h3>
+            <div ng-show="vm.machine.memory.current !== null">
+                <!-- <h3 translate="Current Memory Usage"></h3> -->
+                <dl class="dl-horizontal">
+                    <dt translate="Last Update"></dt>
+                    <dd>{{vm.machine.memory.current.timestamp | commonDate}}</dd>
+                    <dt translate="Current Usage"></dt>
+                    <dd>{{vm.machine.memory.current.used | number:2}} {{vm.machine.memory.type}} ({{vm.machine.memory.current.percentUsed | number:1}} %)</dd>
+                    <dt translate="Current Free"></dt>
+                    <dd>{{vm.machine.memory.current.free | number:2}} {{vm.machine.memory.type}}</dd>
+                    <dt translate="Peak Usage"></dt>
+                    <dd>{{vm.machine.memory.peak.used | number:2}} {{vm.machine.memory.type}} ({{vm.machine.memory.peak.percentUsed | number:1}} %) {{"at" | translate}} {{vm.machine.memory.peak.timestamp | commonDate}}</dd>
+                    <dt translate="Total Capacity"></dt>
+                    <dd>{{vm.machine.memory.current.capacity | number:2}} {{vm.machine.memory.type}}</dd>
+                </dl>
+
+                <div ng-if="vm.machine.memory && vm.machine.memory.memoryData.length !== 0">
+                    <h5 translate="Memory Usage Over Time"></h5>
+                    <cm-graph data="vm.machine.memory" settings="vm.chartSettings.memory" class="col-md-12 col-sm-12 col-xs-12" />
+                </div>
+            </div>
+            <button class="btn btn-default" ng-click="vm.getMoreMemory()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
+        </treasure-overlay-spinner>
+    </div>
+</div>

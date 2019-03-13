@@ -1,0 +1,47 @@
+﻿<div ng-include="'app/reports/daystoretrieve.partial.html'"></div>
+
+<div id="report" class="col-md-12 col-sm-12">
+    <div class="col-md-12 col-sm-12 row">
+        <img src="/Content/common_header.png" width="400" />
+    </div>
+    <div class="col-md-12 col-xs-12 container">
+        <h1 class="reportheadertitle text-nowrap row">{{vm.reportName | translate }}</h1>
+        <h4 class="text-nowrap reportsubheader row">{{vm.siteName}}</h4>
+        <h4 class="text-nowrap reportsubheader row">{{vm.currentDate | commonDate}}</h4>
+    </div>
+    <hr class="reporthr col-md-12 col-xs-12" />
+    <h2 class="reporth1 row">{{"Device Configuration" | translate}}</h2>
+    <br />
+    <div ng-repeat="device in vm.report.configData.devices" class="col-md-12 col-xs-12">
+        <h3 class="reporth2 row">{{device.name}}</h3>
+        <div ng-if="device.ipAddress !== '0.0.0.0'" class="row col-md-2 col-xs-6">
+            <cm-data-block heading="{{'IP Address' | translate}}" line1="{{device.ipAddress}}"></cm-data-block>
+        </div>
+
+        <div ng-if="device.collectors && device.collectors.length !== 0" class="col-md-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-2 col-xs-4">
+                    <b>{{"Collectors"|translate}}</b>
+                </div>
+                <div class="col-md-1 col-xs-2">
+                    <b>{{"Is Enabled"|translate}}</b>
+                </div>
+                <div class="col-md-2 col-xs-4">
+                    <b>{{"Frequency in Minutes"|translate}}</b>
+                </div>
+            </div>
+            <div ng-repeat="collector in device.collectors" class="col-md-12 col-xs-12 row">
+                <div class="col-md-2 col-xs-4 reportp">{{collector.name}}</div>
+                <div class="col-md-1 col-xs-2 reportp" ng-if="collector.isEnabled">{{"yes"|translate}}</div>
+                <div class="col-md-1 col-xs-2 reportp" ng-if="!collector.isEnabled">{{"no"|translate}}</div>
+                <div class="col-md-2 col-xs-4 reportp">{{collector.frequencyInMinutes}}</div>
+            </div>
+        </div>
+    </div>
+    <hr class="reporthr col-md-12 col-xs-12" />
+    <h2 class="reporth1 row">{{"Configuration Parameters" | translate}}</h2>
+    <div class="col-md-12 col-xs-12 row" ng-repeat="config in vm.report.configData.configuration">
+        <div class="col-md-4 col-xs-4">{{config.path}}</div>
+        <div class="col-md-8 col-xs-8">{{config.value}}</div>
+    </div>
+</div>

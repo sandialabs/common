@@ -1,0 +1,26 @@
+﻿<div ng-include="'app/reports/daystoretrieve.partial.html'"></div>
+
+<div id="report" class="col-md-12 col-sm-12">
+    <div class="col-md-12 col-sm-12 row">
+        <img src="/Content/common_header.png" width="400" />
+    </div>
+    <div class="col-md-12 col-sm-12 container">
+        <h1 class="reportheadertitle text-nowrap row">{{vm.reportName | translate }}</h1>
+        <h4 class="text-nowrap reportsubheader row">{{vm.siteName}}</h4>
+        <h4 class="text-nowrap reportsubheader row">{{vm.currentDate | commonDate}}</h4>
+    </div>
+    <hr class="reporthr col-md-12 col-sm-12" />
+    <div ng-repeat="device in vm.report.devices" class="col-md-12 col-sm-12">
+        <h3 class="reporth2">{{device.name}}</h3>
+        <ul class="list-unstyled">
+            <li ng-if="device.alarms.length === 0" translate="There are no current alerts"></li>
+            <li ng-if="device.alarms.length !== 0" ng-repeat="a in device.alarms">
+                <div ng-if="a.message.length === 0">{{a.status | translate}}</div>
+                <div ng-if="a.message.length !== 0">{{a.status | translate}}  --  {{a.message|translate}}</div>
+            </li>
+        </ul>
+        <!-- <h3 class="reportsubheader">{{device.name}}</h3>
+        <span class="reportp" ng-if="device.alarms.length === 0" translate="There are no current alerts"></span>
+        <span class="reportp" ng-if="device.alarms.length !== 0" ng-repeat="a in device.alarms">{{a.status | translate}}</span> -->
+    </div>
+</div>

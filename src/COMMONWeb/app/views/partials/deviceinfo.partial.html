@@ -1,0 +1,8 @@
+﻿<div class="panel" ng-class="{'panel-success': device.alarms.length === 0, 'panel-danger': device.alarms.length !== 0}">
+    <div class="panel-heading">
+        <div ng-include="'app/views/partials/deviceinfo.header.partial.html'"></div>
+    </div>
+    <div class="panel-body">
+        <div ng-include="'app/views/partials/deviceinfo.body.partial.html'"></div>
+    </div>
+</div>

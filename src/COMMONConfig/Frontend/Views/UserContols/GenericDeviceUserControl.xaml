@@ -1,0 +1,52 @@
+﻿<userContols:AbstractUserControl x:Class="COMMONConfig.Frontend.Views.UserContols.GenericDeviceUserControl"
+                                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                 xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                                 xmlns:db="clr-namespace:gov.sandia.sld.common.db;assembly=Database"
+                                 xmlns:dbmodels="clr-namespace:gov.sandia.sld.common.db.models;assembly=Database"
+                                 xmlns:userContols="clr-namespace:COMMONConfig.Frontend.Views.UserContols"
+                                 mc:Ignorable="d"
+                                 lex:LocalizeDictionary.DesignCulture="en"
+                                 lex:ResxLocalizationProvider.DefaultAssembly="COMMONConfig"
+                                 lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                                 d:DataContext="{d:DesignInstance dbmodels:DeviceInfo}"
+                                 d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel Margin="5">
+        
+
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringName}" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Name="MachineNameTextBox" TabIndex="0"
+                             Text="{Binding Path=name, Mode=TwoWay}" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringIPAddress}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="2" x:Name="IpAddress" TabIndex="1"
+                             Text="{Binding Path=ipAddress, Mode=TwoWay}" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringGroup}" />
+                    <DockPanel Grid.Row="2" Grid.Column="1" LastChildFill="True">
+                        <Button DockPanel.Dock="Right" Padding="5" Name="LeaveGroup" Content="{lex:Loc StringLeaveGroup}" Margin="2" Click="OnLeaveGroup"/>
+                        <ComboBox Margin="2" Name="groupComboBox" SelectionChanged="onGroupChange" />
+                    </DockPanel>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</userContols:AbstractUserControl>

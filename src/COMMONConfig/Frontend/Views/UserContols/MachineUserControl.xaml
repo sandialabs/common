@@ -1,0 +1,71 @@
+﻿<userContols:AbstractUserControl x:Class="COMMONConfig.Frontend.Views.UserContols.MachineUserControl"
+                                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                 xmlns:p="clr-namespace:COMMONConfig.Properties"
+                                 xmlns:local="clr-namespace:COMMONConfig"
+                                 xmlns:localization="clr-namespace:COMMONConfig.Localization"
+                                 xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                                 xmlns:db="clr-namespace:gov.sandia.sld.common.db;assembly=Database"
+                                 xmlns:dbmodels="clr-namespace:gov.sandia.sld.common.db.models;assembly=Database"
+                                 xmlns:userContols="clr-namespace:COMMONConfig.Frontend.Views.UserContols"
+                                 lex:LocalizeDictionary.DesignCulture="en"
+                                 lex:ResxLocalizationProvider.DefaultAssembly="COMMONConfig"
+                                 lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                                 mc:Ignorable="d"
+                                 d:DataContext="{d:DesignInstance dbmodels:DeviceInfo}"
+                                 d:DesignHeight="300" d:DesignWidth="400">
+    <DockPanel Margin="5">
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto">
+            <DockPanel>
+                <Grid DockPanel.Dock="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" MinWidth="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringName}" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Name="machineNameTextBox"
+                             Text="{Binding Path=name, Mode=TwoWay}" TabIndex="0" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringIPAddress}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="2" x:Name="ipAddress"
+                             Text="{Binding Path=ipAddress, Mode=TwoWay}" TabIndex="1" />
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringUsername}" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Margin="2" Name="usernameTextBox"
+                             Text="{Binding Path=username, Mode=TwoWay}" TabIndex="2" />
+                    <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" IsReadOnly="True" Margin="2"
+                     Text="Please enter Username as: MachineName\Username (Server1234\Admin)" FontStyle="Italic" FontSize="12" TextAlignment="Center" Background="LightYellow" />
+                    <TextBlock Grid.Row="4" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringPassword}" />
+                    <PasswordBox Grid.Row="4" Grid.Column="1" Margin="2" Name="Password" TabIndex="3" />
+                    <!--<TextBlock Grid.Row="5" Grid.Column="0" Padding="5" Name="TestConnectionLabel" Text="{lex:Loc StringTestConnection}" />-->
+                    <Button Grid.Row="5" Grid.Column="1" Padding="5" Name="TestConnection" Content="{lex:Loc StringTestConnection}" Margin="2" Click="OnTestConnection"/>
+                    <TextBlock Grid.Row="6" Grid.Column="0" Padding="5" HorizontalAlignment="Right"
+                               Text="{lex:Loc StringGroup}" />
+                    <DockPanel Grid.Row="6" Grid.Column="1" LastChildFill="True">
+                        <Button DockPanel.Dock="Right" Padding="5" Name="LeaveGroup" Content="{lex:Loc StringLeaveGroup}" Margin="2" Click="OnLeaveGroup"/>
+                        <ComboBox Margin="2" DockPanel.Dock="Left" Name="groupComboBox" SelectionChanged="onGroupChange" />
+                    </DockPanel>
+                </Grid>
+                <GroupBox DockPanel.Dock="Bottom" Header="{lex:Loc StringCollectors}">
+                    <userContols:CollectorsUserControl x:Name="CollectorsControl" />
+                </GroupBox>
+            </DockPanel>
+        </ScrollViewer>
+    </DockPanel>
+</userContols:AbstractUserControl>

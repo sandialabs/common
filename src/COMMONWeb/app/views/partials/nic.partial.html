@@ -1,0 +1,29 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Network Interface"></h5>
+    </div>
+    <div class="panel-body smallersize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.NIC]">
+            <h3 ng-show="vm.machine.nic.current === null" translate="There are no NIC reports"></h3>
+            <div ng-show="vm.machine.nic.current !== null">
+                <!-- <h3 translate="Current Network Interface Usage" /> -->
+                <dl class="dl-horizontal-wide">
+                    <dt translate="Last Update"></dt>
+                    <dd>{{vm.machine.nic.current.timestamp | commonDate}}</dd>
+                    <dt translate="Current Bytes/Second"></dt>
+                    <dd>{{vm.machine.nic.current.bps | number}} ({{vm.machine.nic.current.percent | number:1}} %)</dd>
+                    <dt translate="Peak Bytes/Second"></dt>
+                    <dd>{{vm.machine.nic.peak.bps}} ({{vm.machine.nic.peak.percent | number:1}} %) {{"at" | translate}} {{vm.machine.nic.peak.timestamp | commonDate}}</dd>
+                    <dt translate="Capacity Bytes/Second"></dt>
+                    <dd>{{vm.machine.nic.current.capacity | number}}</dd>
+                </dl>
+
+                <div ng-if="vm.machine.nic && vm.machine.nic.nicData.length !== 0">
+                    <h5 translate="NIC Usage Over Time"></h5>
+                    <cm-graph data="vm.machine.nic" settings="vm.chartSettings.nic" class="col-md-12 col-sm-12 col-xs-12" />
+                </div>
+            </div>
+            <button class="btn btn-default" ng-click="vm.getMoreNIC()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
+        </treasure-overlay-spinner>
+    </div>
+</div>

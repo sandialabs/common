@@ -1,0 +1,40 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Disk Performance"></h5>
+    </div>
+    <div class="panel-body smallersize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.DiskPerformance]">
+            <h3 ng-show="!vm.machine.diskPerformance || vm.machine.diskPerformance.driveLetters.length === 0" translate="There are no disk performance reports"></h3>
+            <div ng-show="vm.machine.diskPerformance && vm.machine.diskPerformance.driveLetters.length !== 0">
+                <uib-tabset active="vm.machine.diskPerformance.selectedDriveLetter">
+                    <uib-tab ng-repeat="disk in vm.machine.diskPerformance.disks"
+                             index="disk.driveLetter"
+                             select="vm.machine.onDiskPerformanceSelection(disk.driveLetter)">
+                        <uib-tab-heading>
+                            {{disk.driveLetter}} ({{vm.machine.devInfo.driveNames[disk.driveLetter]}})
+                        </uib-tab-heading>
+                        <!--<p ng-show="vm.machine.diskPerformance.selectedDisk === null">{{"There is no report for" | translate}} {{diskName}}</p>-->
+                        <!--<div ng-show="vm.machine.diskPerformance.selectedDisk !== null">-->
+                        <!--<h3>{{"Current Disk Performance" | translate}}</h3>-->
+                        <dl class="dl-horizontal-wide">
+                            <dt translate="Last Update"></dt>
+                            <dd>{{disk.current.timestamp | commonDate}}</dd>
+                            <dt translate="% of time reading/writing"></dt>
+                            <dd>{{disk.current.percentTime | number:1}} %</dd>
+                            <dt translate="Average Disk Queue Length"></dt>
+                            <dd>{{disk.current.avgDiskQLength | number:0}}</dd>
+                            <dt translate="Peak Disk Queue Length"></dt>
+                            <dd>{{disk.peak.avgDiskQLength | number:0}} {{"at" | translate}} {{disk.peak.timestamp | commonDate}}</dd>
+                        </dl>
+                        <!--</div>-->
+                        <div ng-if="disk && disk.diskData.length !== 0">
+                            <h5 translate="Disk Performance Over Time"></h5>
+                            <cm-graph data="disk" settings="vm.chartSettings.diskPerformance" class="col-md-12 col-sm-12 col-xs-12" />
+                        </div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+            <button class="btn btn-default" ng-click="vm.getMoreDiskPerformance()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
+        </treasure-overlay-spinner>
+    </div>
+</div>

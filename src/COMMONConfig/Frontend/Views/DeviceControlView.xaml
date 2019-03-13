@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="COMMONConfig.Frontend.Views.DeviceControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             mc:Ignorable="d"
+             d:DesignHeight="500" d:DesignWidth="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Width="30" Height="30" Padding="5" Margin="2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Command="{Binding AddDevice}">
+                    <Rectangle Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_add}" Stretch="Fill"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+                <Button Width="30" Height="30" Padding="5" Margin="2" HorizontalContentAlignment="Stretch" Command="{Binding RemoveDevice}">
+                    <Rectangle Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" Height="4">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_minus}"/> 
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </StackPanel>
+            <ListBox
+                VerticalAlignment="Stretch"
+                TabIndex="0"
+                ItemsSource="{Binding DevicesView}"
+                SelectedItem="{Binding SelectedDevice, Mode=TwoWay}"
+                Name="DeviceList"
+                DisplayMemberPath="Name" />
+        </DockPanel>
+
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" />
+        <DockPanel Grid.Column="2"
+                   Name="DeviceSettings"
+                   HorizontalAlignment="Stretch">
+            <UserControl TabIndex="1" Content="{Binding SelectedDevice.Control, Mode=TwoWay}" />
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,32 @@
+﻿<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h5>{{"Graphs are response time in ms"|translate}}</h5>
+    <br />
+</div>
+<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+    <dl class="dl-horizontal">
+        <dt ng-if="device.type != 0 && device.type != 4" ng-repeat-start="device in vm.devices">{{device.name}}</dt>
+        <dd ng-if="device.type != 0 && device.type != 4" ng-repeat-end>
+            <div ng-if="device.networkStatus">
+                <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12" />
+            </div>
+        </dd>
+    </dl>
+    <div class="panel panel-primary" ng-repeat="group in vm.groups">
+        <div class="panel-heading">
+            <h5 class="panel-title">{{group.name}}</h5>
+        </div>
+        <div class="panel-body">
+            <dl class="dl-horizontal">
+                <dt ng-repeat-start="device in group.devices">{{device.name}}</dt>
+                <dd ng-repeat-end>
+                    <div ng-if="device.networkStatus">
+                        <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12" />
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <a class="btn btn-default" ng-click="vm.getEarlierRange()" translate="Show more"></a>
+</div>

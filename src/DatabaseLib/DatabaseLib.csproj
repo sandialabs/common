@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{290995A0-F79C-4155-B87C-E2432E5C9916}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gov.sandia.sld.common.db</RootNamespace>
+    <AssemblyName>Database</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LOG_PERFORMANCE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.2\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.109.0\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeingCollected.cs" />
+    <Compile Include="Cleaner.cs" />
+    <Compile Include="CollectionTime.cs" />
+    <Compile Include="COMMONDatabaseInfo.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="dailyreport\DailyReport.cs" />
+    <Compile Include="dailyreport\Retriever.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="Attribute.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="changers\Deleter.cs" />
+    <Compile Include="DBCollectionTimeRetriever.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="changers\Inserter.cs" />
+    <Compile Include="changers\Changer.cs" />
+    <Compile Include="changers\Updater.cs" />
+    <Compile Include="DataStorage.cs" />
+    <Compile Include="files\FileRecord.cs" />
+    <Compile Include="files\FileRetriever.cs" />
+    <Compile Include="IDataStore.cs" />
+    <Compile Include="IDataInterpreter.cs" />
+    <Compile Include="Initializer.cs" />
+    <Compile Include="interpreters\BaseInterpreter.cs" />
+    <Compile Include="interpreters\SMARTInterpreter.cs" />
+    <Compile Include="interpreters\CPUUsageInterpreter.cs" />
+    <Compile Include="interpreters\MemoryInterpreter.cs" />
+    <Compile Include="interpreters\DiskSpaceInterpreter.cs" />
+    <Compile Include="interpreters\OfflineInterpreter.cs" />
+    <Compile Include="interpreters\PingInterpreter.cs" />
+    <Compile Include="interpreters\TimeInterpreter.cs" />
+    <Compile Include="interpreters\UPSInterpreter.cs" />
+    <Compile Include="models\AllApplicationsHistory.cs" />
+    <Compile Include="models\ApplicationHistory.cs" />
+    <Compile Include="models\ApplicationInfo.cs" />
+    <Compile Include="models\CollectorInfo.cs" />
+    <Compile Include="models\ConfigurationData.cs" />
+    <Compile Include="models\CPUReport.cs" />
+    <Compile Include="models\CurrentPeakReportBase.cs" />
+    <Compile Include="models\DatabaseDetail.cs" />
+    <Compile Include="models\DatabaseHistory.cs" />
+    <Compile Include="models\DeviceApplications.cs" />
+    <Compile Include="models\DeviceData.cs" />
+    <Compile Include="models\DeviceDetails.cs" />
+    <Compile Include="models\DeviceErrors.cs" />
+    <Compile Include="models\DeviceInfo.cs" />
+    <Compile Include="models\DeviceProcessInfo.cs" />
+    <Compile Include="models\DeviceStatus.cs" />
+    <Compile Include="models\DiskReport.cs" />
+    <Compile Include="models\DiskUsageData.cs" />
+    <Compile Include="models\DiskUsageWithSmartData.cs" />
+    <Compile Include="models\ErrorInfo.cs" />
+    <Compile Include="models\FullDeviceStatus.cs" />
+    <Compile Include="models\Group.cs" />
+    <Compile Include="models\LanguageConfiguration.cs" />
+    <Compile Include="models\MachineData.cs" />
+    <Compile Include="models\MemoryReport.cs" />
+    <Compile Include="models\NetworkStatus.cs" />
+    <Compile Include="models\NICReport.cs" />
+    <Compile Include="models\PingAttempt.cs" />
+    <Compile Include="models\ProcessHistory.cs" />
+    <Compile Include="models\ReportData.cs" />
+    <Compile Include="models\Services.cs" />
+    <Compile Include="models\SingleDeviceStatus.cs" />
+    <Compile Include="models\SystemConfiguration.cs" />
+    <Compile Include="models\UPSStatus.cs" />
+    <Compile Include="models\ValueInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reports\CPU.cs" />
+    <Compile Include="reports\Disk.cs" />
+    <Compile Include="reports\Memory.cs" />
+    <Compile Include="reports\NIC.cs" />
+    <Compile Include="reports\Report.cs" />
+    <Compile Include="responders\AttributeResponder.cs" />
+    <Compile Include="responders\COMMONDBSizeResponder.cs" />
+    <Compile Include="responders\DatabaseInfoResponder.cs" />
+    <Compile Include="responders\EventLogResponders.cs" />
+    <Compile Include="responders\FileInformationResponder.cs" />
+    <Compile Include="responders\IPAddressResponder.cs" />
+    <Compile Include="responders\MonitoredDrivesResponder.cs" />
+    <Compile Include="responders\SMARTFailureResponder.cs" />
+    <Compile Include="StartStopTime.cs" />
+    <Compile Include="SystemConfigurationStore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationLib\ConfigurationLib.csproj">
+      <Project>{e213219f-edaa-4f8a-8ba8-e1e8feb30e4c}</Project>
+      <Name>ConfigurationLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLib\DataLib.csproj">
+      <Project>{2ff27550-7f6d-4427-97c9-1a86f36eacb3}</Project>
+      <Name>DataLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{8540801e-73bb-4337-a1ce-6a93ab6250ba}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RequestResponseLib\RequestResponseLib.csproj">
+      <Project>{9a2e3544-09d0-4191-9873-b855e255ab58}</Project>
+      <Name>RequestResponseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilitiesLib\UtilitiesLib.csproj">
+      <Project>{7c699500-c198-403a-9a0c-52f72a1404c5}</Project>
+      <Name>UtilitiesLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>2.0</SsdtUnitTestVersion>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net40\System.Data.SQLite.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

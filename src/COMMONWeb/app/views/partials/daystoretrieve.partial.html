@@ -1,0 +1,16 @@
+﻿<div class="container-fluid">
+    <div class="row btn-group pull-right">
+        <!--<pre>{{vm | json}}</pre>-->
+        <div class="btn-group" ng-if="vm.daysToRetrieveChoices.length !== 0" uib-dropdown>
+            <button id="resultsCountButton" type="button" class="btn btn-info" uib-dropdown-toggle>
+                {{"Days to Retrieve" | translate}}: {{vm.daysToRetrieve}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="resultsCountButton">
+                <li ng-repeat="days in vm.daysToRetrieveChoices">
+                    <a ng-click="vm.changeDaysToRetrieve(days)">{{days}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

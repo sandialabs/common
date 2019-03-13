@@ -1,0 +1,43 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Disk"></h5>
+    </div>
+    <div class="panel-body smallersize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.DiskUsage]">
+            <h3 ng-show="!vm.machine.diskUsage || vm.machine.diskUsage.disks.length === 0" translate="There are no disk reports"></h3>
+            <div ng-show="vm.machine.diskUsage && vm.machine.diskUsage.disks.length !== 0">
+                <uib-tabset active="vm.machine.diskUsage.selectedDriveLetter">
+                    <uib-tab ng-repeat="disk in vm.machine.diskUsage.disks"
+                             index="disk.driveLetter"
+                             select="vm.machine.onDiskUsageSelection(disk.driveLetter)">
+                        <uib-tab-heading>
+                            {{disk.driveLetter}} ({{vm.machine.devInfo.driveNames[disk.driveLetter]}}) <span ng-if="disk.smart && disk.smart.failureIsPredicted === true" class="glyphicon glyphicon-alert"></span>
+                        </uib-tab-heading>
+                        <!--<pre>{{disk.smart|json}}</pre>-->
+                        <dl class="dl-horizontal">
+                            <dt translate="Last Update"></dt>
+                            <dd>{{disk.current.timestamp | commonDate}}</dd>
+                            <dt translate="Current Usage"></dt>
+                            <dd>{{disk.current.used | number:2}} {{vm.machine.diskUsage.type}} ({{disk.current.percentUsed | number:1}} %)</dd>
+                            <dt translate="Current Free"></dt>
+                            <dd>{{disk.current.free | number:2}} {{vm.machine.diskUsage.type}}</dd>
+                            <dt translate="Peak Usage"></dt>
+                            <dd>{{disk.peak.used | number:2}} {{vm.machine.diskUsage.type}} ({{disk.peak.percentUsed | number:1}} %) {{"at" | translate}} {{disk.peak.timestamp | commonDate}}</dd>
+                            <dt translate="Total Capacity"></dt>
+                            <dd>{{disk.current.capacity | number:2}} {{vm.machine.diskUsage.type}}</dd>
+                        </dl>
+                        <h4 ng-if="!disk.smart"><span class="label label-warning">{{"No SMART data is available"|translate}}</span></h4>
+                        <button class="btn btn-info btn-xs" ng-if="disk.smart" ng-click="vm.showSMART(disk);">
+                            {{"Show SMART Data for "|translate}} {{disk.driveLetter}}
+                        </button>
+                        <div ng-if="disk && disk.diskData.length !== 0">
+                            <h5 translate="Disk Usage Over Time"></h5>
+                            <cm-graph data="disk" settings="vm.chartSettings.diskUsage" class="col-md-12 col-sm-12 col-xs-12" />
+                        </div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+            <button class="btn btn-default" ng-click="vm.getMoreDiskUsage()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
+        </treasure-overlay-spinner>
+    </div>
+</div>

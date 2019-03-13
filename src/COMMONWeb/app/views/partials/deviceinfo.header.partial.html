@@ -1,0 +1,6 @@
+﻿{{device.name}}
+<span ng-if="device.type !== 0 && device.networkStatus.successfulPing === true" class="badge">{{"Online"|translate}}</span>
+<span ng-if="device.type !== 0 && device.networkStatus.successfulPing !== true" class="badge">{{"Offline"|translate}}</span>
+<a class="btn btn-default btn-xs pull-right" ng-href="#/server/{{device.id}}" ng-if="device.type === 0" translate="Details"></a>
+<a class="btn btn-default btn-xs pull-right" ng-href="#/workstation/{{device.id}}" ng-if="device.type === 1" translate="Details"></a>
+<a class="btn btn-default btn-xs pull-right" ng-href="#/device/{{device.id}}" ng-if="device.type > 1 && device.type <= 5" translate="Details"></a>

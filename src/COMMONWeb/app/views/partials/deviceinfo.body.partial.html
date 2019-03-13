@@ -1,0 +1,24 @@
+﻿<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div ng-if="device.statuses !== null && device.statuses.length !== 0">
+        <dl class="dl-horizontal">
+            <dt ng-if="device.type !== 0">{{"IP Address"|translate}}</dt>
+            <dd ng-if="device.type !== 0">{{device.ipAddress}}</dd>
+
+            <dt translate="Details"></dt>
+            <dd ng-if="device.statuses.length === 0" translate="There are no current status updates"></dd>
+            <dd ng-repeat="s in device.statuses" ng-class="{'text-danger': s.alertLevel === 1, 'text-warning': s.alertLevel == 2}">
+                <div ng-if="s.message.length === 0">{{s.status|translate}}</div>
+                <div ng-if="s.message.length !== 0">{{s.status|translate}}  --  {{s.message}}</div>
+            </dd>
+        </dl>
+    </div>
+    <div ng-if="device.statuses === null || device.statuses.length === 0">
+        <h3 translate="Unknown device status"></h3>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div ng-if="device.networkStatus && device.networkStatus.attempts.length !== 0">
+        <h5 translate="Network status"></h5>
+        <cm-graph data="device.networkStatus" settings="networkChartSettings" class="col-md-12 col-sm-12 col-xs-12" />
+    </div>
+</div>

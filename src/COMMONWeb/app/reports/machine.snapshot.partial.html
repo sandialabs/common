@@ -1,0 +1,47 @@
+﻿<div class="col-md-12 container">
+    <h3 class="reporthr"> {{data.machine.name}} </h3>
+    <div class="col-md-8 row">
+        <cm-data-block class="col-md-6 col-sm-12" heading="{{'IP Address'|translate}}" line1="{{data.machine.devInfo.ipAddress}}"></cm-data-block>
+    </div>
+    <div class="col-md-8 row">
+        <cm-data-block class="col-md-6 col-sm-12" heading="{{'Last boot time' | translate}}" line1="{{data.machine.details.lastBootTime | commonDate}}"></cm-data-block>
+        <!-- <cm-data-block class="col-md-6 col-sm-12" heading="{{'Uptime' | translate}}" line1="{{data.machine.details.uptime}}"></cm-data-block> -->
+    </div>
+    <div class="col-md-8">
+        <div class="container">
+            <h4 class="row">{{"Memory"|translate}}</h4>
+            <div class="row">
+                <cm-data-block class="col-md-2 col-sm-6" heading="{{'Current'|translate}}" line1="{{data.memory.currentPercentUsed}} %"></cm-data-block>
+                <cm-data-block class="col-md-2 col-sm-6" heading="{{'Maximum'|translate}}" line1="{{data.memory.peakPercentUsed}} %"
+                               line2="{{data.memory.peakTimestamp | commonDate}}"></cm-data-block>
+            </div>
+        </div>
+        <div class="container">
+            <h4 class="row">{{"Disks"|translate}}</h4>
+            <div ng-repeat="disk in data.disks.disks">
+                <div class="row">
+                    <h5 class="col-md-1 col-sm-1">{{disk.name}}</h5>
+                    <cm-data-block class="col-md-2 col-sm-5" heading="{{'Current'|translate}}" line1="{{disk.currentPercentUsed}} %"></cm-data-block>
+                    <cm-data-block class="col-md-2 col-sm-5" heading="{{'Maximum'|translate}}" line1="{{disk.peakPercentUsed}} %"
+                                   line2="{{disk.peakTimestamp|commonDate}}"></cm-data-block>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h4 class="row">{{"CPU"|translate}}</h4>
+            <div class="row">
+                <cm-data-block class="col-md-2 col-sm-6" heading="{{'Current'|translate}}" line1="{{data.cpu.currentPercentUsed}} %"></cm-data-block>
+                <cm-data-block class="col-md-2 col-sm-6" heading="{{'Maximum'|translate}}" line1="{{data.cpu.peakPercentUsed}} %"
+                               line2="{{data.cpu.peakTimestamp | commonDate}}"></cm-data-block>
+            </div>
+        </div>
+        <div class="container">
+            <h4 class="row">{{"NIC"|translate}}</h4>
+            <div class="row">
+                <cm-data-block class="col-md-2 col-sm-6" heading="{{'Current'|translate}}" line1="{{data.nic.currentPercentUsed}} %"></cm-data-block>
+                <cm-data-block class="col-md-2 col-sm-6" heading="{{'Maximum'|translate}}" line1="{{data.nic.peakPercentUsed}} %"
+                               line2="{{data.nic.peakTimestamp | commonDate}}"></cm-data-block>
+            </div>
+        </div>
+    </div>
+</div>

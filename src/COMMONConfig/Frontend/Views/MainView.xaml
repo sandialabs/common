@@ -1,0 +1,164 @@
+﻿<!-- 
+The MainView markup acts as a sort of container that ties the rest of the view together.
+    
+Most of this stuff can be ignored as it is just boilerplate for making the app look the
+way it does. I'll add comments to things of particular importance as I see them.
+    
+You'll notice that I've given this View a DataContext. This is how we pair Views with
+ViewModels. Any "Bindings" calls in the xml will necesarilly refer to some value in the
+ViewModel determined by the assigned DataContext.
+-->
+<controls:MetroWindow x:Class="COMMONConfig.Frontend.Views.MainView"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:ignore="http://www.galasoft.ch/ignore"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+                      xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                      xmlns:views="clr-namespace:COMMONConfig.Frontend.Views"
+                      Icon="/COMMONConfig;component/common_icon.ico"
+                      lex:LocalizeDictionary.DesignCulture="en"
+                      lex:ResxLocalizationProvider.DefaultAssembly="COMMONConfig"
+                      lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                      mc:Ignorable="d ignore"
+                      BorderThickness="0"
+                      GlowBrush="Black"
+                      ResizeMode="CanResizeWithGrip"
+                      WindowTransitionsEnabled="False"
+                      SizeToContent="Width"
+                      DataContext="{Binding Main, Source={StaticResource Locator}}"
+                      Title="{lex:Loc StringTitle}" MinHeight="600" MinWidth="600">
+
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <ToggleButton Content="{lex:Loc StringSettings}" IsChecked="{Binding ElementName=FlyoutRight, Path=IsOpen}"
+                          Cursor="Hand" />
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout x:Name="FlyoutRight" Header="{lex:Loc StringSettings}" Position="Right" Width="350">
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" Content="{lex:Loc StringSaveJSON}" Command="{Binding SaveConfigurationToJSONFile}" />
+                        <Button Grid.Row="0" Grid.Column="1" Content="{lex:Loc StringLoadJSON}" Command="{Binding LoadConfigurationFromJSONFile}" IsEnabled="False" />
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" Content="{lex:Loc StringSaveCSV}" Command="{Binding SaveConfigurationToCSVFile}" />
+                        <Button Grid.Row="0" Grid.Column="1" Content="{lex:Loc StringLoadCSV}" Command="{Binding LoadConfigurationFromCSVFile}" />
+                    </Grid>
+                    <GroupBox Header="{lex:Loc StringLanguages}">
+                        <views:LanguageSelectionView x:Name="LanguageSelectionControl" />
+                    </GroupBox>
+                </StackPanel>
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Bottom" Margin="5">
+            <Button DockPanel.Dock="Right" Content="{lex:Loc StringUpdateConfiguration}"
+                    Command="{Binding SaveConfigurationCommand}" />
+        </DockPanel>
+
+        <!--
+        This is your basic table control made to act and look fancy.
+        
+        What I want to point out is the binding between this controls "SelectedIndex" and some other things
+        "SelectedIndex". You'll also note that this binding is TwoWay, which means any change to this
+        "SelectedIndex" results in a change to the other "SelectedIndex" and vice versa.
+        
+        To try to further clarify, we bind the controls "SelectedIndex" to the DataContext's "Selected Index"
+        -->
+        <dragablz:TabablzControl Style="{DynamicResource MahAppsTabablzControlStyle}"
+                                 Name="TabController"
+                                 ItemContainerStyle="{DynamicResource MahAppsTrapezoidDragableTabItemStyle}"
+                                 SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                                 Margin="5">
+
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController />
+            </dragablz:TabablzControl.InterTabController>
+
+            <!--
+            Tab items should mostly look the same. You'll notice that each one is localized, which will work as
+            long as the files in COMMONConfig/Localization contain the named string (in this case "StringSite")
+            and its corresponding localization.
+            
+            Next you'll notice that each tab has a name, this is the the ViewModel can refer to these particular
+            tabs if it ever needs to (which it probably will).
+            
+            Lastly you'll see that I nested another view here, and gave it a name. You could write up the xaml
+            in place, but it's preferable to write the tab as its own view and then include the view wherever
+            it needs to be included.
+            
+            One more thing, you'll notice there is a bit of a name scheme here. I try to stick to it as best I
+            can, but basically you have View's appended with "View", and ViewModel's appended with "ViewModel",
+            and classes that share the same prefix should be paired. For example:
+                
+                SiteSettingsView is paired with SiteSettingsViewModel
+            
+            This should alleviate some of the pain in finding the corresponding View/ViewModel.
+            -->
+            <TabItem Header="{lex:Loc StringSite}" Name="SiteSettingsTab">
+                <views:SiteSettingsView x:Name="SiteSettingsView" />
+            </TabItem>
+
+            <TabItem Header="{lex:Loc StringConfiguration}" Name="CommonSettings">
+                <views:ConfigurationView x:Name="CommonSettingsView" />
+            </TabItem>
+
+            <!--
+            Each of the following tabs have the same View, which is largely because the views aren't very different.
+            Instead of making one view for each of the tabs I decided to make a single View, and pair an instance
+            of each View to a different ViewModel.
+            
+            It would be clearer to make classes inherit or extend this class to make the pairing more explicit, but
+            it hasn't been necesarry yet. You'll see this same architecture pop up in the ViewModels, which do inherit
+            from an abstract class.
+            
+            I will also point out that I've added the DataContext for these view here, and bound them to a Static
+            Resource called Locator. The Locator has the definition for where WmiDevices lives, and serves as a nice
+            container for anything that might serves as a dependency.
+            
+            Those definitions are contained in COMMONConfig/Frontend/Viewmodel/ViewModelLocator
+            -->
+            <TabItem Header="{lex:Loc StringSystem}" Name="SystemDeviceView">
+                <views:SystemControlView x:Name="SystemDeviceControlView"
+                                         DataContext="{Binding SystemDevices, Source={StaticResource Locator}}" />
+            </TabItem>
+            
+            <TabItem Header="{lex:Loc StringWindowsDevices}" Name="WindowsDevicesView">
+                <views:DeviceControlView x:Name="WorkstationDeviceControlView"
+                                         DataContext="{Binding WmiDevices, Source={StaticResource Locator}}" />
+            </TabItem>
+
+            <TabItem Header="{lex:Loc StringNetworkDevices}" Name="GenericDevicesView">
+                <views:DeviceControlView x:Name="GenericDeviceControlView"
+                                         DataContext="{Binding GenericDevices, Source={StaticResource Locator}}" />
+            </TabItem>
+
+            <TabItem Header="{lex:Loc StringGroups}" Name="GroupsView">
+                <views:GroupsControlView x:Name="GroupsControlView" DataContext="{Binding Groups, Source={StaticResource Locator}}" />
+            </TabItem>
+
+        </dragablz:TabablzControl>
+    </DockPanel>
+</controls:MetroWindow>

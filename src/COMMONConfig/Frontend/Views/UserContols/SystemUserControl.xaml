@@ -1,0 +1,23 @@
+﻿<userContols:AbstractUserControl x:Class="COMMONConfig.Frontend.Views.UserContols.SystemUserControl"
+                                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                 xmlns:p="clr-namespace:COMMONConfig.Properties"
+                                 xmlns:local="clr-namespace:COMMONConfig"
+                                 xmlns:localization="clr-namespace:COMMONConfig.Localization"
+                                 xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                                 xmlns:userContols="clr-namespace:COMMONConfig.Frontend.Views.UserContols"
+                                 lex:LocalizeDictionary.DesignCulture="en"
+                                 lex:ResxLocalizationProvider.DefaultAssembly="COMMONConfig"
+                                 lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                                 mc:Ignorable="d"
+                                 d:DesignHeight="300" d:DesignWidth="300">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <DockPanel>
+            <GroupBox DockPanel.Dock="Top" Header="{lex:Loc StringCollectors}">
+                <userContols:CollectorsUserControl x:Name="collectorsControl" />
+            </GroupBox>
+        </DockPanel>
+    </ScrollViewer>
+</userContols:AbstractUserControl>

@@ -1,0 +1,39 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Processes"></h5>
+    </div>
+    <div class="panel-body standardsize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Processes]">
+            <h3 ng-show="vm.machine.processes === undefined || vm.machine.processes.values.length == 0"
+                translate="There are no processes to report"></h3>
+            <div ng-if="vm.machine.processes !== null && vm.machine.processes.values.length > 0" class="table-responsive">
+                <!-- <h3 translate="Current Processes Running"></h3> -->
+                <dl class="dl-horizontal">
+                    <dt translate="Last Update"></dt>
+                    <dd>{{vm.machine.processes.processes.timestamp | commonDate}}</dd>
+                    <dt translate="Number of Processes"></dt>
+                    <dd>{{vm.machine.processes.values.length}}</dd>
+                </dl>
+                <table class="table table-super-condensed table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th translate="Process"></th>
+                            <th>{{"CPU Usage" | translate}} &#37;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="process in vm.machine.processes.values | itemsPerPage: 10" pagination_id="processes">
+                            <td><a ng-click="vm.machine.processes.onSelectProcess(process[1]);">{{process[1]}}</a></td>
+                            <td>{{process[0]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls pagination_id="processes" boundary-links="true"></dir-pagination-controls>
+            </div>
+            <div ng-if="vm.machine.processes.processHistory && vm.machine.processes.processHistory.details.length !== 0 && vm.machine.processes.processHistory.processName !== ''">
+                <h3>{{vm.machine.processes.processHistory.processName}}</h3>
+                <cm-graph data="vm.machine.processes.processHistory" settings="vm.chartSettings.processes" class="col-md-12 col-sm-12 col-xs-12" />
+            </div>
+        </treasure-overlay-spinner>
+    </div>
+</div>

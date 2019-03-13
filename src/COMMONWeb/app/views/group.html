@@ -1,0 +1,32 @@
+﻿<div class="well row">
+    <h1>{{vm.group.name}}</h1>
+</div>
+<div class="panel panel-primary" ng-repeat="device in vm.group.devices">
+    <div class="panel-heading">
+        {{device.name}}
+        <a class="btn btn-default btn-xs pull-right" ng-if="device.type === 0" ng-href="#/server/{{device.id}}" translate="Details"></a>
+        <a class="btn btn-default btn-xs pull-right" ng-if="device.type === 1" ng-href="#/workstation/{{device.id}}" translate="Details"></a>
+        <a class="btn btn-default btn-xs pull-right" ng-if="device.type > 1 && device.type <= 5" ng-href="#/device/{{device.id}}" translate="Details"></a>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <dt translate="Status"></dt>
+            <dd ng-if="device.networkStatus.successfulPing === true"><span class="label label-success" translate="Online"></span></dd>
+            <dd ng-if="device.networkStatus.successfulPing !== true"><span class="label label-danger" translate="Offline"></span></dd>
+
+            <dt ng-if="device.networkStatus" translate="Last Ping Attempt"></dt>
+            <dd ng-if="device.networkStatus && device.networkStatus.hasBeenPinged === false" translate="No Ping Replies"></dd>
+            <dd ng-if="device.networkStatus && device.networkStatus.hasBeenPinged === true">{{device.networkStatus.datePingAttempted | commonDate}}</dd>
+
+            <dt ng-if="device.networkStatus" translate="Last Successful Ping"></dt>
+            <dd ng-if="device.networkStatus && device.networkStatus.hasBeenPinged === false" translate="No Ping Replies"></dd>
+            <dd ng-if="device.networkStatus && device.networkStatus.hasBeenPinged === true">{{device.networkStatus.dateSuccessfulPingOccurred | commonDate}}</dd>
+
+            <dt ng-if="device" translate="IP Address"></dt>
+            <dd ng-if="device">{{device.ipAddress}}</dd>
+        </dl>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="device.networkStatus">
+            <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12" />
+        </div>
+    </div>
+</div>

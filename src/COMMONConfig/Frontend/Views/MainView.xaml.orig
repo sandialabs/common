@@ -1,0 +1,93 @@
+﻿<controls:MetroWindow x:Class="COMMONConfig.Views.MainView"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:l="clr-namespace:COMMONConfig.Localization"
+                      xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+                      xmlns:views="clr-namespace:COMMONConfig.Views"
+                      xmlns:viewModels="clr-namespace:COMMONConfig.ViewModels"
+                      xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                      lex:LocalizeDictionary.DesignCulture="en"
+                      lex:ResxLocalizationProvider.DefaultAssembly="COMMONConfig"
+                      lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+                      mc:Ignorable="d"
+                      BorderThickness="0"
+                      GlowBrush="Black"
+                      ResizeMode="CanResizeWithGrip"
+                      WindowTransitionsEnabled="False"
+                      SizeToContent="Width"
+                      d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
+                      Title="{lex:Loc StringTitle}" MinHeight="600" MinWidth="800">
+
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Content="{lex:Loc StringSave}" Command="{Binding SaveConfigurationToFile}" />
+            <Button Content="{lex:Loc StringLoad}" Command="{Binding LoadConfigurationFromFile}" />
+            <ToggleButton Content="{lex:Loc StringSettings}" IsChecked="{Binding ElementName=FlyoutRight, Path=IsOpen}"
+                          Cursor="Hand" />
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout x:Name="FlyoutRight" Header="{lex:Loc StringSettings}" Position="Right" Width="350">
+                <views:LanguageSelectionView x:Name="LanguageSelectionControl" />
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Bottom" Margin="5">
+            <Button DockPanel.Dock="Right" Content="{lex:Loc StringUpdateConfiguration}"
+                    Command="{Binding SaveConfigurationCommand}" />
+        </DockPanel>
+        <views:AddDevicesView x:Name="AddDevicesView" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+
+        <dragablz:TabablzControl Style="{DynamicResource MahAppsTabablzControlStyle}"
+                                 Name="TabController"
+                                 ItemContainerStyle="{DynamicResource MahAppsTrapezoidDragableTabItemStyle}"
+                                 SelectionChanged="Selector_OnSelectionChanged"
+                                 SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                                 Margin="5">
+
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController />
+            </dragablz:TabablzControl.InterTabController>
+
+            <TabItem Header="{lex:Loc StringSite}" Name="SiteSettingsTab">
+                <views:SiteSettingsView x:Name="SiteSettingsView" />
+            </TabItem>
+
+            <TabItem Header="{lex:Loc StringConfiguration}" Name="CommonSettings">
+                <views:CommonSettingsView x:Name="CommonSettingsView" />
+            </TabItem>
+
+<<<<<<< HEAD
+            <TabItem Header="{lex:Loc StringWindowsDevices}" Name="WindowsDevicesView">
+                <views:DeviceControlView x:Name="WorkstationDeviceControlView" />
+            </TabItem>
+
+            <TabItem Header="{lex:Loc StringNetworkDevices}" Name="GenericDevicesView">
+                <views:DeviceControlView x:Name="GenericDeviceControlView" />
+            </TabItem>
+           
+            <TabItem Header="{lex:Loc StringLaneDevices}" Name="LaneDevicesView">
+=======
+            <TabItem Header="{lex:Loc StringWindowsDevices}">
+                <views:DeviceControlView x:Name="WorkstationDeviceControlView" />
+            </TabItem>
+
+            <TabItem Header="{lex:Loc StringNetworkDevices}">
+                <views:DeviceControlView x:Name="GenericDeviceControlView" />
+            </TabItem>
+            
+            <TabItem Header="{lex:Loc StringLaneDevices}">
+>>>>>>> master
+                <views:DeviceControlView x:Name="LaneDeviceControlView" />
+            </TabItem>
+
+        </dragablz:TabablzControl>
+    </DockPanel>
+</controls:MetroWindow>

@@ -1,0 +1,32 @@
+﻿<div class="well row" ng-cloak>
+    <h1>{{vm.device.name}}</h1>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <dl class="dl-horizontal">
+            <dt translate="Status"></dt>
+            <dd ng-if="vm.device.networkStatus.successfulPing === true"><span class="label label-success" translate="Online"></span></dd>
+            <dd ng-if="vm.device.networkStatus.successfulPing !== true"><span class="label label-danger" translate="Offline"></span></dd>
+
+            <dt translate="Last boot time"></dt>
+            <dd>{{vm.machine.details.lastBootTime | commonDate}}</dd>
+
+            <dt translate="Uptime"></dt>
+            <dd>{{vm.machine.details.uptime}}</dd>
+
+            <dt ng-if="vm.device.networkStatus" translate="Last Ping Attempt"></dt>
+            <dd ng-if="vm.device.networkStatus && vm.device.networkStatus.hasBeenPinged === false" translate="No Ping Replies"></dd>
+            <dd ng-if="vm.device.networkStatus && vm.device.networkStatus.hasBeenPinged === true">{{vm.device.networkStatus.datePingAttempted | commonDate}}</dd>
+
+            <dt ng-if="vm.device.networkStatus" translate="Last Successful Ping"></dt>
+            <dd ng-if="vm.device.networkStatus && vm.device.networkStatus.hasBeenPinged === false" translate="No Ping Replies"></dd>
+            <dd ng-if="vm.device.networkStatus && vm.device.networkStatus.hasBeenPinged === true">{{vm.device.networkStatus.dateSuccessfulPingOccurred | commonDate}}</dd>
+
+            <dt ng-if="vm.device" translate="IP Address"></dt>
+            <dd ng-if="vm.device">{{vm.device.ipAddress}}</dd>
+        </dl>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" ng-if="vm.device.networkStatus && vm.device.networkStatus.length !== 0">
+        <cm-graph data="vm.device.networkStatus" settings="vm.networkChartSettings" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" />
+    </div>
+</div>
+
+<div ng-include="'app/views/partials/collectorbricks.partial.html'"></div>

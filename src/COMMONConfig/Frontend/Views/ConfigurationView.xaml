@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="COMMONConfig.Frontend.Views.ConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="en"
+             lex:ResxLocalizationProvider.DefaultAssembly="COMMONConfig"
+             lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+             mc:Ignorable="d"
+             DataContext="{Binding Configuration, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel LastChildFill="True">
+        <Border DockPanel.Dock="Bottom">
+            <TextBox DockPanel.Dock="Bottom" x:Name="CommonSettingsHelp" TextWrapping="Wrap" IsReadOnly="True"
+                     Text="&lt;machine&gt;.database.type: Valid types are 'SqlServer' and 'Oracle'.&#xA;&lt;machine&gt;.database.connection_string: should look something like one of the following&#xA;1) data source=&lt;machine name&gt;\&lt;database name&gt;;user id=commonuser;password=&lt;password&gt;;&#xA;2) data source=(local);user id=commonuser;password=&lt;password&gt;;&#xA;3) data source=&lt;machine name&gt;\SQLEXPRESS;user id=commonuser;password=&lt;password&gt;;&#xD;&#xA;4) data source=&lt;machine name&gt;\SCADAReports;user id=commonuser;password=&lt;password&gt;;&#xA;* The user specified in 'user id' must have sysadmin privileges on SQL Server" />
+        </Border>
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Visible">
+            <StackPanel CanVerticallyScroll="True">
+                <Expander Header="{lex:Loc StringAlerts}" IsExpanded="True">
+                    <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Alerts}"
+                              Name="DataGridAlerts">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{lex:Loc StringPath}"
+                                                Binding="{Binding Path=DisplayName}"
+                                                SortDirection="Ascending" IsReadOnly="True" CanUserSort="False" />
+                            <DataGridTextColumn Header="{lex:Loc StringValue}"
+                                                Binding="{Binding Path=value, Mode=TwoWay}" CanUserSort="False" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Expander>
+
+                <Expander Header="{lex:Loc StringSettings}" IsExpanded="True">
+                    <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Settings}"
+                              Name="DataGridSettings">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{lex:Loc StringPath}"
+                                                Binding="{Binding Path=DisplayName}"
+                                                SortDirection="Ascending" IsReadOnly="True" CanUserSort="False"/>
+                            <DataGridTextColumn Header="{lex:Loc StringValue}"
+                                                Binding="{Binding Path=value, Mode=TwoWay}" CanUserSort="False" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Expander>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

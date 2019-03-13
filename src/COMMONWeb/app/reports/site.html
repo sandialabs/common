@@ -1,0 +1,28 @@
+﻿<div ng-include="'app/reports/monthstoretrieve.partial.html'"></div>
+
+<div id="report" class="col-md-12 col-sm-12 container">
+    <div class="col-md-12 col-sm-12 row">
+        <img src="/Content/common_header.png" width="400" />
+    </div>
+    <div class="col-md-12 col-sm-12 container">
+        <h1 class="reportheadertitle text-nowrap row">{{vm.reportName | translate}}</h1>
+        <h4 class="text-nowrap reportsubheader row">{{vm.siteName}}</h4>
+        <h4 class="text-nowrap reportsubheader row">{{"From" | translate}} {{vm.startDate | commonDay}} {{"to" | translate}} {{vm.endDate | commonDay}}</h4>
+        <br />
+        <h4 class="text-nowrap reportsubheader row">{{"Report generated at"|translate}}: {{vm.currentDate | commonDate}}</h4>
+    </div>
+    <hr class="reporthr col-md-12 col-sm-12" />
+    <!--<pre>{{vm.report|json}}</pre>-->
+    <h3 class="reporthr col-md-12">
+        {{"Network Report"|translate}}
+    </h3>
+    <!--<div ng-include="'app/reports/network.partial.html'" />-->
+    <cm-network-table data="vm.report.networkStatus" chart-settings="vm.networkChartSettings"></cm-network-table>
+
+    <hr class="reporthr col-md-12 col-sm-12" />
+
+    <div ng-repeat="machine in vm.machineReports" class="col-md-12">
+        <!--<pre>{{machine.machine | json}}</pre>-->
+        <cm-machine-snapshot data="machine"></cm-machine-snapshot>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Event Log Errors -- System"></h5>
+    </div>
+    <div class="panel-body smallersize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.SystemErrors]">
+            <h3 ng-show="!vm.machine.systemErrors || vm.machine.systemErrors.errors.length === 0" translate="There are no system errors"></h3>
+            <div ng-if="vm.machine.systemErrors && vm.machine.systemErrors.errors.length !== 0" class="table-responsive">
+                <table class="table table-super-condensed table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th translate="Message"></th>
+                            <th translate="Count"></th>
+                            <th translate="Time"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="errorData in vm.machine.systemErrors.errors | itemsPerPage: 10" pagination-id="systemErrors">
+                            <td>{{errorData.message}}</td>
+                            <td ng-if="errorData.count === 1"></td>
+                            <td ng-if="errorData.count !== 1">{{errorData.count}}</td>
+                            <td ng-if="errorData.count === 1">{{errorData.timestamp | commonDate}}</td>
+                            <td ng-if="errorData.count !== 1">{{errorData.firstTimestamp | commonDate}} -- {{errorData.lastTimestamp | commonDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls pagination-id="systemErrors" boundary-links="true"></dir-pagination-controls>
+            </div>
+            <button class="btn btn-default" ng-click="vm.getMoreSystemErrors()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
+        </treasure-overlay-spinner>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="Database"></h5>
+    </div>
+    <div class="panel-body standardsize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Database]">
+            <h3 ng-show="!vm.machine.database || vm.machine.database.values.length === 0"
+                translate="There are no database reports"></h3>
+            <div ng-if="vm.machine.database && vm.machine.database.values.length !== 0" class="table-responsive">
+                <!-- <h3 translate="Current Database Information"></h3> -->
+                <dl class="dl-horizontal">
+                    <dt translate="Last Update"></dt>
+                    <dd>{{vm.machine.database.databases.timestamp | commonDate}}</dd>
+                    <dt translate="Number of Databases"></dt>
+                    <dd>{{vm.machine.database.values.length}}</dd>
+                </dl>
+                <table class="table table-super-condensed table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th translate="Name"></th>
+                            <th translate="Size in Megabytes"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="database in vm.machine.database.values | itemsPerPage: 10" pagination_id="databases">
+                            <td><a ng-click="vm.machine.database.onSelectProcess(database.name);">{{database.name}}</a></td>
+                            <td>{{database.size}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <dir-pagination-controls pagination_id="databases" boundary-links="true"></dir-pagination-controls>
+            </div>
+            <div ng-if="vm.machine.database.databaseHistory && vm.machine.database.databaseHistory.details.length !== 0">
+                <h3>{{vm.machine.database.databaseHistory.databaseName}}</h3>
+                <cm-graph data="vm.machine.database.databaseHistory" settings="vm.chartSettings.database" class="col-md-12 col-sm-12 col-xs-12" />
+            </div>
+        </treasure-overlay-spinner>
+    </div>
+</div>

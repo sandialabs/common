@@ -1,0 +1,53 @@
+﻿<div ng-include="'app/reports/daystoretrieve.partial.html'"></div>
+
+<div id="report" class="col-md-8 col-sm-12 container">
+    <div class="col-md-12 col-sm-12 row">
+        <img src="/Content/common_header.png" width="400" />
+    </div>
+    <div class="col-md-12 col-sm-12 container">
+        <h1 class="reportheadertitle text-nowrap row">{{vm.reportName | translate}}</h1>
+        <h4 class="text-nowrap reportsubheader row">{{vm.siteName}}</h4>
+        <h4 class="text-nowrap reportsubheader row">{{vm.currentDate | commonDate}}</h4>
+    </div>
+    <hr class="reporthr col-md-12 col-sm-12" />
+    <div ng-repeat="device in vm.report.devices" class="col-md-12 col-sm-12">
+        <h2 class="reporth1 row">{{device.devInfo.name}}</h2>
+        <div class="row">
+            <cm-data-block class="col-md-3 col-xs-6" heading="{{'Last boot time' | translate}}" line1="{{device.details.lastBootTime | commonDate}}"></cm-data-block>
+            <cm-data-block class="col-md-3 col-xs-6" heading="{{'Uptime' | translate}}" line1="{{device.details.uptime}}"></cm-data-block>
+        </div>
+        <br />
+        <div ng-if="device.devInfo.isCollectorEnabled(ECollectorType.Memory)" class="col-md-12 col-sm-12">
+            <h3 class="reportsubheader row">{{"Memory"|translate}}</h3>
+            <div ng-if="device.memory" class="row">
+                <cm-data-block class="col-md-3 col-xs-6" heading="{{'Current'|translate}}" line1="{{device.memory.current.percentUsed | number:1}} %"></cm-data-block>
+                <cm-data-block class="col-md-3 col-xs-6" heading="{{'Maximum'|translate}}" line1="{{device.memory.peak.percentUsed | number:1}} %" line2="{{device.memory.peak.timestamp | commonDate}}"></cm-data-block>
+            </div>
+        </div>
+        <div ng-if="device.devInfo.isCollectorEnabled(ECollectorType.Disk)" class="col-md-12 col-sm-12">
+            <h3 class="reportsubheader row" translate="Disks"></h3>
+            <h5 class="reportp row" ng-if="!device.diskUsage || !device.diskUsage.driveLetters || device.diskUsage.driveLetters.length === 0"
+                translate="There are no disk reports"></h5>
+            <div ng-if="device.diskUsage && device.diskUsage.driveLetters && device.diskUsage.driveLetters.length !== 0" class="row">
+                <div ng-if="device.diskUsage && device.diskUsage.driveLetters">
+                    <cm-data-block class="col-md-3 col-xs-6" ng-repeat="driveLetter in device.diskUsage.driveLetters" heading="{{driveLetter}}" line1="{{device.diskUsage.diskMap[driveLetter].current.percentUsed | number:1}} %"></cm-data-block>
+                </div>
+            </div>
+        </div>
+        <div ng-if="device.devInfo.isCollectorEnabled(ECollectorType.CPUUsage)" class="col-md-12 col-sm-12">
+            <h3 class="reportsubheader row" translate="CPU"></h3>
+            <div ng-show="device.cpu" class="row">
+                <cm-data-block class="col-md-3 col-xs-6" heading="{{'Current' | translate}}" line1="{{device.cpu.current.percent}} %"></cm-data-block>
+                <cm-data-block class="col-md-3 col-xs-6" heading="{{'Maximum' | translate}}" line1="{{device.cpu.peak.percent}} %" line2="{{device.cpu.peak.timestamp | commonDate}}"></cm-data-block>
+            </div>
+        </div>
+        <div ng-if="device.devInfo.isCollectorEnabled(ECollectorType.NICUsage)" class="col-md-12 col-sm-12">
+            <h3 class="reportsubheader row" translate="Network Interface"></h3>
+            <div ng-show="device.nic" class="row">
+                <cm-data-block class="col-md-3 col-xs-6" heading="{{'Current' | translate}}" line1="{{device.nic.current.bps}} {{'Bytes Per Second' | translate}}"></cm-data-block>
+                <cm-data-block class="col-md-3 col-xs-6" heading="{{'Maximum' | translate}}" line1="{{device.nic.peak.bps}} {{'Bytes Per Second' | translate}}"
+                               line2="{{device.nic.peak.timestamp | commonDate}}"></cm-data-block>
+            </div>
+        </div>
+    </div>
+</div>

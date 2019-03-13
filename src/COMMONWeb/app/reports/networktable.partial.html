@@ -1,0 +1,64 @@
+﻿<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 container">
+    <!-- <div class="row reportsubheader col-md-12">
+        {{data.length}} {{"Devices" | translate}}
+    </div> -->
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+            <caption><b>{{data.length}} {{"Devices" | translate}}</b></caption>
+            <thead>
+                <tr>
+                    <th>{{"Status"|translate}}</th>
+                    <th>{{"Name"|translate}}</th>
+                    <th>{{"IP Address"|translate}}</th>
+                    <th>{{"Avg Response Time (ms)"|translate}}</th>
+                    <th>{{"Uptime %"|translate}}</th>
+                    <th>{{"Last Successful Ping"|translate}}</th>
+                    <th ng-if="chartSettings">{{"Offline"|translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="status in data">
+                    <td ng-if="status.successfulPing === true">{{"Online"|translate}}</td>
+                    <td ng-if="status.successfulPing !== true">{{"Offline"|translate}}</td>
+                    <td>{{status.name}}</td>
+                    <td>{{status.ipAddress}}</td>
+                    <td>{{status.avgResponseTimeMS | number:1}}</td>
+                    <td>{{status.percentSuccessfulPing | number:1}}</td>
+                    <td>{{status.dateSuccessfulPingOccurred | commonDate}}</td>
+                    <td ng-if="chartSettings">
+                        <cm-graph ng-if="status.status.length !== 0" data="status" settings="chartSettings" style="display: block; height: 50px;" />
+                        <div ng-if="status.status.length === 0">{{"No network data"|translate}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row divTableHeader">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">{{"Status"|translate}}</div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{"Name"|translate}}</div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{"IP Address"|translate}}</div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">{{"Avg Response Time (ms)"|translate}}</div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">{{"Uptime %"|translate}}</div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{"Last Successful Ping"|translate}}</div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="chartSettings">{{"Offline"|translate}}</div>
+        </div>
+        <div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row divTableRow" ng-repeat="status in data">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    <div class="reportp" ng-if="status.successfulPing === true">{{"Online"|translate}}</div>
+                    <div class="reportp" ng-if="status.successfulPing !== true">{{"Offline"|translate}}</div>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reportp">{{status.name}}</div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reportp">{{status.ipAddress}}</div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 reportp">{{status.avgResponseTimeMS | number:1}}</div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 reportp">{{status.percentSuccessfulPing | number:1}}</div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reportp">{{status.dateSuccessfulPingOccurred | commonDate}}</div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="chartSettings">
+                    <cm-graph ng-if="status.status.length !== 0" data="status" settings="chartSettings" style="display: block; height: 50px;" />
+                    <div ng-if="status.status.length === 0">{{"No network data"|translate}}</div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

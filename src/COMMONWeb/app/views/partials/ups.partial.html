@@ -1,0 +1,36 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h5 class="panel-title" translate="UPS"></h5>
+    </div>
+    <div class="panel-body standardsize">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.UPS]">
+            <h3 ng-show="!vm.machine.ups.current" translate="UPS status is unknown"></h3>
+            <div ng-show="vm.machine.ups.current">
+                <dl class="dl-horizontal">
+                    <dt translate="Name"></dt>
+                    <dd>{{vm.machine.ups.current.name}}</dd>
+
+                    <dt translate="Timestamp"></dt>
+                    <dd>{{vm.machine.ups.current.timestamp | commonDate}}</dd>
+
+                    <dt translate="UPS Status"></dt>
+                    <dd>{{vm.machine.ups.current.upsStatus}}</dd>
+
+                    <dt translate="Battery Status"></dt>
+                    <dd>{{vm.machine.ups.current.batteryStatus}}</dd>
+
+                    <dt translate="Estimated Charge"></dt>
+                    <dd>{{vm.machine.ups.current.estimatedChargeRemainingPercentage}}%</dd>
+
+                    <dt translate="Estimated Run Time"></dt>
+                    <dd>{{vm.machine.ups.current.estimatedRunTimeInMinutes}} {{"minutes" | translate}}</dd>
+                </dl>
+            </div>
+
+            <div ng-if="vm.machine.ups && vm.machine.ups.upsData.length !== 0">
+                <cm-graph data="vm.machine.ups" settings="vm.chartSettings.ups" class="col-md-12 col-sm-12 col-xs-12" />
+            </div>
+            <button class="btn btn-default" ng-click="vm.getMoreUPS()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
+        </treasure-overlay-spinner>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿<div class="well">
+    <h3>COMMON -- version {{vm.softwareVersionShort}}</h3>
+    <p />
+    <p>Copyright {{vm.date.getFullYear()}} National Technology & Engineering Solutions of Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with NTESS, the U.S. Government retains certain rights in this software.</p>
+</div>
+<div class="col-md-6">
+    <div class="panel panel-default logo">
+        <a href="http://www.sandia.gov" target="_blank"><img src="Content/snl.png" class="img-responsive center-block" style="width: 400px;"  /></a>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="panel panel-default logo">
+        <a href="http://nnsa.energy.gov/aboutus/ourprograms/dnn/gms/nsdd" target="_blank"><img src="Content/nsdd_logo_2color.png" style="width: 400px;" class="img-responsive center-block" /></a>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 translate="Software Tools Used in COMMON Development" />
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive col-md-4">
+                <table class="table table-borderless table-condensed">
+                    <thead>
+                        <tr>
+                            <th translate="Product" />
+                            <th translate="License" />
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in vm.attributions">
+                            <td><a href="{{product.nameURL}}" target="_blank">{{product.name}}</a></td>
+                            <td>{{product.license}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

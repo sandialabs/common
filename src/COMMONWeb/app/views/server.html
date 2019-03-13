@@ -1,0 +1,13 @@
+﻿<div class="well row" ng-cloak>
+    <h1 class="row col-md-12">{{vm.device.name}}</h1>
+    <!--<pre>{{vm.machine|json}}</pre>-->
+    <dl class="dl-horizontal col-md-12">
+        <dt translate="Last boot time"></dt>
+        <dd>{{vm.machine.details.lastBootTime | commonDate}}</dd>
+
+        <dt translate="Uptime"></dt>
+        <dd>{{vm.machine.details.uptime}}</dd>
+    </dl>
+</div>
+
+<div ng-include="'app/views/partials/collectorbricks.partial.html'"></div>
