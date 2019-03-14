@@ -139,7 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="dj_doraleh container terminal_2016-07-01.json">
+    <None Include="testdailyfile.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

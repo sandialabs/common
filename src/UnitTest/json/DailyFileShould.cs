@@ -60,7 +60,7 @@ namespace UnitTest.json
         [Fact]
         public void ProperlyDeserializeFileToObject()
         {
-            string text = File.ReadAllText(@"dj_doraleh container terminal_2016-07-01.json");
+            string text = File.ReadAllText(@"testdailyfile.json");
             CommonData2 cData = JsonConvert.DeserializeObject<CommonData2>(text);
             string val = cData.Records[0].Timestamp.ToString("o");
             Assert.Equal("2016-07-01T00:17:17.5123804+03:00", val);
