@@ -1,16 +1,15 @@
 ![COMMON image](src/COMMONWeb/Content/common_header.png)
 
 ## NSDD - Nuclear Smuggling Detection and Deterrence
-Used to monitor the communications systems at NSDD installations.
 
-    Copyright 2018 National Technology & Engineering Solutions of Sandia, LLC (NTESS).  
-    Under the terms of Contract DE-NA0003525 with NTESS, the U.S. Government retains  
-    certain rights in this software.
+Communications systems are a frequent cause of problems in radiation detection systems. These problems create headaches for partner countries’ staff and the local maintenance providers responsible for keeping commerce moving. These problems also threaten the ability of radiation detection systems to identify and signal the potential illicit movement of nuclear and radiological materials.
 
-# Installation
+Sandia National Laboratories’ COMMON software is designed to help by pointing to system issues before they affect system operation. This free, easy to use tool helps partner countries monitor hardware and operating system software for potential problems, then pinpoint those problems to make them easier to fix. **The result:** Less downtime resulting in improved smuggling deterrence.
 
-### Current Release
-Download [here](https://github.com/sandialabs/common/releases)  
+> Copyright 2018 National Technology & Engineering Solutions of Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with NTESS, the U.S. Government retains certain rights in this software.
+
+# Current Release
+Download [here](releases)  
 [Installation/Configuration Manual](docs/COMMONInstallationConfiguration_v1.5.pdf)  
 [User's Manual](docs/COMMONUserManual_v1.5.pdf)  
 
