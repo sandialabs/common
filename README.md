@@ -9,8 +9,8 @@ Used to monitor the communications systems at NSDD installations.
 
 # Installation
 
-## The current version is 1.5.0
-[Windows Installer](installers/COMMONInstaller-1.5.0.68-final.exe)  
+### Current Release
+Download [here](https://github.com/sandialabs/common/releases)  
 [Installation/Configuration Manual](docs/COMMONInstallationConfiguration_v1.5.pdf)  
 [User's Manual](docs/COMMONUserManual_v1.5.pdf)  
 
