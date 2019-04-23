@@ -80,7 +80,7 @@ class URLQueue {
         while (this.held.length > 0 && this.executing.length < this.maxLength) {
             let url = this.held.shift();
             url.transmittedAt = new Date();
-            console.log("executing " + url.toString());
+            //console.log("executing " + url.toString());
             this.executing.push(url);
             url.get();
         }
@@ -90,8 +90,8 @@ class URLQueue {
         for (let i = 0; i < this.executing.length; ++i) {
             if (this.executing[i].urlID == url.urlID) {
                 let url = this.executing[i];
-                let ms = Math.abs(new Date().getTime() - url.transmittedAt.getTime());
-                console.log("completed " + url.toString() + " after " + ms.toString() + " ms");
+                //let ms = Math.abs(new Date().getTime() - url.transmittedAt.getTime());
+                //console.log("completed " + url.toString() + " after " + ms.toString() + " ms");
                 this.executing.splice(i, 1);
                 break;
             }

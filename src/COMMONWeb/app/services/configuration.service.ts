@@ -28,10 +28,7 @@ export class ConfigurationService {
                 let t = this;
                 this.ds.getConfiguration()
                     .then((result: ISystemConfiguration) => {
-                        let start = new Date().getTime();
                         let config = new SystemConfiguration(result);
-                        let ms = new Date().getTime() - start;
-                        console.log("new SystemConfiguration took " + ms.toString() + " ms");
                         t.keeper.resolve(config);
 
                         ConfigurationService.config = config;

@@ -1714,7 +1714,7 @@ System.register("charts/chartjs", ["chart.js"], function (exports_22, context_22
                         },
                         elements: {
                             point: {
-                                radius: 3,
+                                radius: 2,
                             },
                             line: {
                                 tension: 0 // disable bezier curves
@@ -3227,10 +3227,7 @@ System.register("services/configuration.service", ["classes/systemconfiguration"
                             var t_2 = this;
                             this.ds.getConfiguration()
                                 .then(function (result) {
-                                var start = new Date().getTime();
                                 var config = new systemconfiguration_1.SystemConfiguration(result);
-                                var ms = new Date().getTime() - start;
-                                console.log("new SystemConfiguration took " + ms.toString() + " ms");
                                 t_2.keeper.resolve(config);
                                 ConfigurationService.config = config;
                             });
@@ -3613,7 +3610,7 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                     while (this.held.length > 0 && this.executing.length < this.maxLength) {
                         var url = this.held.shift();
                         url.transmittedAt = new Date();
-                        console.log("executing " + url.toString());
+                        //console.log("executing " + url.toString());
                         this.executing.push(url);
                         url.get();
                     }
@@ -3622,8 +3619,8 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                     for (var i = 0; i < this.executing.length; ++i) {
                         if (this.executing[i].urlID == url.urlID) {
                             var url_1 = this.executing[i];
-                            var ms = Math.abs(new Date().getTime() - url_1.transmittedAt.getTime());
-                            console.log("completed " + url_1.toString() + " after " + ms.toString() + " ms");
+                            //let ms = Math.abs(new Date().getTime() - url.transmittedAt.getTime());
+                            //console.log("completed " + url.toString() + " after " + ms.toString() + " ms");
                             this.executing.splice(i, 1);
                             break;
                         }
@@ -3918,6 +3915,7 @@ System.register("controllers/overview.controller", ["charts/chartjs"], function 
                     this.devicemanagerService = devicemanagerService;
                     var vm = this;
                     this.networkChartSettings = new chartjs_10.ChartJSSettings("Response time in ms", 100);
+                    this.networkChartSettings.displayLegend = false;
                     devicemanagerService.get()
                         .then(function (deviceManager) {
                         vm.deviceManager = deviceManager;
@@ -5004,13 +5002,13 @@ System.register("charts/graph.directive", [], function (exports_54, context_54) 
                             scope: scope,
                             window: _this.$window
                         };
-                        var start = new Date().getTime();
+                        //let start: number = new Date().getTime();
                         var f = _this.chartBridgeFactoryService.$get();
                         var cb = f.createChartBridge(scope.data, scope.settings);
                         if (cb)
                             cb.makeChart(context);
-                        var duration = new Date().getTime() - start;
-                        console.log("makeChart: " + duration.toString() + " ms");
+                        //let duration = new Date().getTime() - start;
+                        //console.log("makeChart: " + duration.toString() + " ms");
                     };
                 }
                 GraphDirective.Factory = function () {
