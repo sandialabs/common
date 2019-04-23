@@ -8,7 +8,7 @@ import { IDatabaseHistory } from "../classes/database";
 import { IDeviceDetails, EMachineParts, IMachineData } from "../classes/machine";
 import { EReportSubTypes, ISubReport } from "../reports/report";
 import { IServices } from "../classes/services";
-import * as moment from '../../lib/moment/min/moment-with-locales';
+import moment from 'moment';
 
 interface resultCallback<T> { (result: T): void }
 
@@ -80,9 +80,7 @@ class URLQueue {
         while (this.held.length > 0 && this.executing.length < this.maxLength) {
             let url = this.held.shift();
             url.transmittedAt = new Date();
-            let ms = Math.abs(url.transmittedAt.getTime() - url.requestedAt.getTime());
-            // if(ms > 500)
-            //     console.log("Held for " + ms.toString() + " ms: " + url.toString());
+            console.log("executing " + url.toString());
             this.executing.push(url);
             url.get();
         }
@@ -93,8 +91,7 @@ class URLQueue {
             if (this.executing[i].urlID == url.urlID) {
                 let url = this.executing[i];
                 let ms = Math.abs(new Date().getTime() - url.transmittedAt.getTime());
-                // if(ms > 500)
-                //     console.log("Completed after " + ms.toString() + " ms: " + url.toString());
+                console.log("completed " + url.toString() + " after " + ms.toString() + " ms");
                 this.executing.splice(i, 1);
                 break;
             }
@@ -110,7 +107,7 @@ class URLQueue {
             let doomed = this.executing[i];
             let ms = Math.abs(now - doomed.transmittedAt.getTime());
             if (ms >= this.timeoutInMS) {
-                // console.log("Doomed after " + ms.toString() + " ms: " + doomed.toString());
+                console.log("doomed " + doomed.toString() + " after " + ms.toString() + " ms");
                 this.executing.splice(i--, 1);
             }
         }

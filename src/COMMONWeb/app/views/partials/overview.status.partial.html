@@ -3,18 +3,18 @@
         <h5 class="panel-title" translate="Status" />
     </div>
     <div class="panel-body">
-        <div ng-repeat="device in vm.devices">
+        <div ng-repeat="device in ::vm.devices">
             <cm-device-info device="device" network-chart-settings="vm.networkChartSettings" />
         </div>
-        <div ng-repeat="group in vm.groups">
+        <div ng-repeat="group in vm.groups track by group.id">
             <div ng-if="group.devices.length !== 0">
                 <div class="panel" ng-class="{'panel-success': group.hasAlarm === false, 'panel-danger': group.hasAlarm === true}">
                     <div class="panel-heading">
-                        {{group.name}}
-                        <a class="btn btn-default btn-xs pull-right" ng-href="#/group/{{group.id}}" translate="Details"></a>
+                        {{::group.name}}
+                        <a class="btn btn-default btn-xs pull-right" ng-href="#/group/{{::group.id}}" translate="Details"></a>
                     </div>
                     <div class="panel-body">
-                        <div ng-repeat="device in group.devices">
+                        <div ng-repeat="device in ::group.devices">
                             <cm-device-info device="device" network-chart-settings="vm.networkChartSettings" />
                         </div>
                     </div>

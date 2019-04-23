@@ -7,9 +7,11 @@ import { PromiseKeeper } from "../classes/promisekeeper";
 export class ConfigurationService {
     private static config: SystemConfiguration;
     private keeper: PromiseKeeper<SystemConfiguration>;
+    private requested: boolean;
 
     constructor(private ds: DataService, private $q: ng.IQService) {
         this.keeper = new PromiseKeeper<SystemConfiguration>($q);
+        this.requested = false;
         // console.log("ConfigurationService.constructor");
     }
 
@@ -18,16 +20,23 @@ export class ConfigurationService {
         if (ConfigurationService.config)
             deferred.resolve(ConfigurationService.config);
         else {
-            let t = this;
-
             this.keeper.push(deferred);
-            this.ds.getConfiguration()
-                .then((result: ISystemConfiguration) => {
-                    let config = new SystemConfiguration(result);
-                    t.keeper.resolve(config);
 
-                    ConfigurationService.config = config;
-                });
+            if (this.requested == false) {
+                this.requested = true;
+
+                let t = this;
+                this.ds.getConfiguration()
+                    .then((result: ISystemConfiguration) => {
+                        let start = new Date().getTime();
+                        let config = new SystemConfiguration(result);
+                        let ms = new Date().getTime() - start;
+                        console.log("new SystemConfiguration took " + ms.toString() + " ms");
+                        t.keeper.resolve(config);
+
+                        ConfigurationService.config = config;
+                    });
+            }
         }
         return deferred.promise;
     }

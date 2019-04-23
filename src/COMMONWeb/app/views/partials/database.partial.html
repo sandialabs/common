@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Database"></h5>
     </div>
     <div class="panel-body standardsize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Database]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.Database]">
             <h3 ng-show="!vm.machine.database || vm.machine.database.values.length === 0"
                 translate="There are no database reports"></h3>
             <div ng-if="vm.machine.database && vm.machine.database.values.length !== 0" class="table-responsive">
