@@ -168,7 +168,7 @@ class ChartJSConfiguration implements Chart.ChartConfiguration {
             },
             elements: {
                 point: {
-                    radius: 3,
+                    radius: 2,
                 },
                 line: {
                     tension: 0  // disable bezier curves

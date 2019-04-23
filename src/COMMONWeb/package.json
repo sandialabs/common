@@ -41,8 +41,6 @@
     "gulp": "^3.9.1",
     "gulp-rename": "^1.4.0",
     "moment": "^2.24.0",
-    "requirejs": "^2.3.6",
-    "systemjs": "^0.21.6",
-    "typescript": "^2.9.2"
+    "systemjs": "^0.21.6"
   }
 }
