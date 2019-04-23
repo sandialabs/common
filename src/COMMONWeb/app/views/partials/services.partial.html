@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Running Services"></h5>
     </div>
     <div class="panel-body smallersize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Services]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.Services]">
             <h3 ng-show="!vm.machine.services || vm.machine.services.services.length === 0" translate="There are no running services to report"></h3>
             <div ng-if="vm.machine.services && vm.machine.services.services.length !== 0" class="table-responsive">
                 <!-- <h3 translate="Current Services Running"></h3> -->

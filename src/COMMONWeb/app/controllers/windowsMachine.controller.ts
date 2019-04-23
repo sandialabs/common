@@ -37,7 +37,8 @@ export abstract class WindowsMachineController implements ng.IController {
     windowsMachineScope: IWindowsMachineScope;
     smartModal: ng.ui.bootstrap.IModalInstanceService;
     factory: any;
-    chartSettings: IWindowsMachineChartSettings
+    chartSettings: IWindowsMachineChartSettings;
+    EMachineParts: any;
 
     constructor(protected dataService: DataService,
         protected $routeParams: ng.route.IRouteParamsService,
@@ -66,6 +67,8 @@ export abstract class WindowsMachineController implements ng.IController {
         this.chartSettings.database.chartSizeInGB = false;
         this.chartSettings.processes.yaxis2 = "Memory in MB";
         this.chartSettings.processes.valueRange = [0, 100];
+
+        this.EMachineParts = EMachineParts;
 
         this.changeDaysToRetrieve(15);
     }
@@ -121,8 +124,10 @@ export abstract class WindowsMachineController implements ng.IController {
     }
 
     private getMore(part: EMachineParts) {
-        if (this.machine)
+        if (this.machine) {
+            this.machine.loading[part] = true;
             this.machine.getMoreDays(this.daysToRetrieve, part);
+        }
     }
 
     showSMART(disk: DiskUsage) {

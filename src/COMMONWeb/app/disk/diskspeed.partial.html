@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Disk Performance"></h5>
     </div>
     <div class="panel-body smallersize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.DiskPerformance]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.DiskPerformance]">
             <h3 ng-show="!vm.machine.diskPerformance || vm.machine.diskPerformance.driveLetters.length === 0" translate="There are no disk performance reports"></h3>
             <div ng-show="vm.machine.diskPerformance && vm.machine.diskPerformance.driveLetters.length !== 0">
                 <uib-tabset active="vm.machine.diskPerformance.selectedDriveLetter">

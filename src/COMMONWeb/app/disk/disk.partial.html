@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Disk"></h5>
     </div>
     <div class="panel-body smallersize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.DiskUsage]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.DiskUsage]">
             <h3 ng-show="!vm.machine.diskUsage || vm.machine.diskUsage.disks.length === 0" translate="There are no disk reports"></h3>
             <div ng-show="vm.machine.diskUsage && vm.machine.diskUsage.disks.length !== 0">
                 <uib-tabset active="vm.machine.diskUsage.selectedDriveLetter">

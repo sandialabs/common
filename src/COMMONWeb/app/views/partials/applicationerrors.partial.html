@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Event Log Errors -- Applications"></h5>
     </div>
     <div class="panel-body smallersize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.ApplicationErrors]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.ApplicationErrors]">
             <h3 ng-show="!vm.machine.applicationErrors || vm.machine.applicationErrors.errors.length === 0" translate="There are no application errors"></h3>
             <div ng-if="vm.machine.applicationErrors && vm.machine.applicationErrors.errors.length !== 0" class="table-responsive">
                 <table class="table table-super-condensed table-striped table-borderless">

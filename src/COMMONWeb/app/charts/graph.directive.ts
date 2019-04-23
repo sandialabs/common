@@ -6,8 +6,8 @@ import { ChartBridge } from "./chartbridge";
 export class GraphDirective implements ng.IDirective {
     restrict: string = 'E';
     scope = {
-        data: '=',
-        settings: '='
+        data: '<',
+        settings: '<'
     };
     template = '<canvas></canvas>';
     link: ng.IDirectiveLinkFn = (scope: IDataScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
@@ -17,11 +17,14 @@ export class GraphDirective implements ng.IDirective {
             scope: scope,
             window: this.$window
         };
+        let start: number = new Date().getTime();
         let f: ChartJSChartBridgeFactory = this.chartBridgeFactoryService.$get();
         let cb: ChartBridge = f.createChartBridge(scope.data, scope.settings);
 
         if (cb)
             cb.makeChart(context);
+        let duration = new Date().getTime() - start;
+        console.log("makeChart: " + duration.toString() + " ms");
     };
 
     constructor(private $window: ng.IWindowService, private $rootScope: ng.IRootScopeService, private chartBridgeFactoryService: ChartBridgeFactoryService) {
