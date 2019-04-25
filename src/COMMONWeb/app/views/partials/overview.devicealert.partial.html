@@ -1,5 +1,5 @@
-﻿<h4 class="list-group-item-heading">{{device.name}}</h4>
+﻿<h4 class="list-group-item-heading">{{::device.name}}</h4>
 <div ng-repeat="a in device.alarms" ng-class="{'text-danger':a.alertLevel === 1,'text-warning':a.alertLevel === 2}">
-    <div class="list-group-item-text" ng-if="a.message.length === 0">{{a.status|translate}}</div>
-    <div class="list-group-item-text" ng-if="a.message.length !== 0">{{a.status|translate}}  --  {{a.message|translate}}</div>
+    <div class="list-group-item-text" ng-if="a.message.length === 0">{{::a.status|translate}}</div>
+    <div class="list-group-item-text" ng-if="a.message.length !== 0">{{::a.status|translate}}  --  {{::a.message|translate}}</div>
 </div>

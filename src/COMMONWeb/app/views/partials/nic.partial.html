@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Network Interface"></h5>
     </div>
     <div class="panel-body smallersize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.NIC]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.NIC]">
             <h3 ng-show="vm.machine.nic.current === null" translate="There are no NIC reports"></h3>
             <div ng-show="vm.machine.nic.current !== null">
                 <!-- <h3 translate="Current Network Interface Usage" /> -->

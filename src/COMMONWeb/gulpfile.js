@@ -38,7 +38,6 @@ gulp.task("copy", function () {
 
     var npm = {
         "dygraphs": "dist/**/*.{js,css,map}",
-        "requirejs": "*.js",
         "angular-animate": "*.{js,css,map}",
         "angular-aria": "*.{js,map}",
         "angular-material": "*.{js,css}",
@@ -46,6 +45,7 @@ gulp.task("copy", function () {
         "angular-chart.js": "dist/*.js",
         "angular-treasure-overlay-spinner": "dist/*.{js,css}",
         "moment": "**/*.{js,css,map}",
+        "systemjs": "dist/*.js"
     };
 
     for (var dest in npm) {

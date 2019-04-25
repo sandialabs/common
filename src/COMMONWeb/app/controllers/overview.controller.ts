@@ -15,6 +15,7 @@ export class OverviewController {
         var vm = this;
 
         this.networkChartSettings = new ChartJSSettings("Response time in ms", 100);
+        this.networkChartSettings.displayLegend = false;
 
         devicemanagerService.get()
             .then((deviceManager: DeviceManager) => {

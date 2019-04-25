@@ -13,8 +13,8 @@ export interface IDeviceInfoScope extends ng.IScope {
 export class DeviceInfoDirective implements ng.IDirective {
     restrict: string = 'E';
     scope = {
-        device: '=',
-        networkChartSettings: '=',
+        device: '<',
+        networkChartSettings: '<',
         //isOpen: '=?',
     };
     templateUrl = 'app/views/partials/deviceinfo.partial.html';

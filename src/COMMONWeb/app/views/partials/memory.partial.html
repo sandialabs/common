@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Memory"></h5>
     </div>
     <div class="panel-body smallersize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Memory]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.Memory]">
             <h3 ng-show="vm.machine.memory.current === null" translate="There are no memory reports"></h3>
             <div ng-show="vm.machine.memory.current !== null">
                 <!-- <h3 translate="Current Memory Usage"></h3> -->

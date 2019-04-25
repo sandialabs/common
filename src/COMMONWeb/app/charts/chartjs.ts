@@ -1,5 +1,4 @@
-﻿/// <reference types="chart.js" />
-import { Chart } from "../../lib/chart.js/Chart.js";
+﻿import Chart from "chart.js";
 
 import { IChartTypes } from "./icharttypes.js";
 
@@ -150,6 +149,9 @@ class ChartJSConfiguration implements Chart.ChartConfiguration {
     options: Chart.ChartOptions;
 
     constructor(public type: Chart.ChartType, displayLegend: boolean) {
+        Chart.defaults.global.animation.duration = 0;
+
+        let t = this;
         this.data = {
             datasets: []
         };
@@ -166,13 +168,18 @@ class ChartJSConfiguration implements Chart.ChartConfiguration {
             },
             elements: {
                 point: {
-                    radius: 3,
+                    radius: 2,
+                },
+                line: {
+                    tension: 0  // disable bezier curves
                 }
             },
             animation: {
-                duration: 0
+                duration: 0,
             },
+            responsiveAnimationDuration: 0,
             spanGaps: false,
+            showLines: false
         }
     }
 
@@ -186,12 +193,15 @@ class ChartJSConfiguration implements Chart.ChartConfiguration {
 export abstract class ChartJSChart {
     config: ChartJSConfiguration;
     chart: Chart;
+    id: number;
+    static next_id: number = 1;
 
     constructor(public chartContext: IChartContext, protected settings: IChartJSSettings, type: Chart.ChartType) {
         //// We'll use displayAxes to also indicate whether the legend at the top of the graph should be displayed
         //var displayAxes: boolean = (settings.displayAxes !== undefined && settings.displayAxes !== null) ? settings.displayAxes : true;
         this.config = new ChartJSConfiguration(type, settings.displayLegend);
         this.fixAxes();
+        this.id = ChartJSChart.next_id++;
 
         // I'm calling it makeResponsive, but really it's just watching the size of the parent
         // of the chart, and resizing the chart if the parent size changes.
@@ -225,6 +235,8 @@ export abstract class ChartJSChart {
         if (!this.chart)
             return;
 
+        //console.log("Resizing " + this.id.toString());
+
         let e = this.chartContext.element;
         e.parent().height(height);
         e.width(width).height(height);
@@ -235,6 +247,8 @@ export abstract class ChartJSChart {
     }
 
     refresh(data: ChartJSData[]) {
+        //console.log("Refreshing " + this.id.toString());
+
         let dataSets: Chart.ChartDataSets[] = [];
         if (data.length > 0)
             dataSets.push(this.createDataSet(data[0], this.settings.yaxis, true));
@@ -243,8 +257,10 @@ export abstract class ChartJSChart {
 
         this.config.setData(dataSets);
 
-        if (this.chart)
+        if (this.chart) {
+            //console.log("Refresh/update " + this.id.toString());
             this.chart.update(this.config);
+        }
     }
 
     fixAxes() {
