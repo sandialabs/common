@@ -1076,9 +1076,6 @@
     <Content Include="lib\moment\templates\default.js" />
     <Content Include="lib\moment\templates\locale-header.js" />
     <Content Include="lib\moment\templates\test-header.js" />
-    <Content Include="lib\requirejs\require.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="lib\systemjs\s.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

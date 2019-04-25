@@ -38,7 +38,6 @@ gulp.task("copy", function () {
 
     var npm = {
         "dygraphs": "dist/**/*.{js,css,map}",
-        "requirejs": "*.js",
         "angular-animate": "*.{js,css,map}",
         "angular-aria": "*.{js,map}",
         "angular-material": "*.{js,css}",
