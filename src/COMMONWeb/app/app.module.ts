@@ -40,6 +40,9 @@ import { DataBlockDirective } from "./reports/datablock.directive";
 import { PrintDirective } from "./reports/print.directive";
 import { DeviceInfoDirective } from "./directives/deviceinfo.directive";
 import { EMachineParts } from "./classes/machine";
+import { OverviewDeviceAlertDirective } from "./directives/overview.devicealert.directive";
+import { CPUBrickDirective, MemoryBrickDirective, DiskBrickDirective, DiskSpeedBrickDirective, NICBrickDirective, ServicesBrickDirective, DatabaseBrickDirective, ProcessesBrickDirective, ApplicationsBrickDirective, UPSBrickDirective, SystemErrorsBrickDirective, ApplicationErrorsBrickDirective } from "./directives/collector.brick.directive";
+import { DaysToRetrieveDirective } from "./directives/daystoretrieve.directive";
 
 interface ICOMMONRootScope extends ng.IRootScopeService {
     ECollectorType: any;
@@ -52,9 +55,7 @@ export class App {
     dateFilter: ng.IFilterDate;
 
     constructor() {
-        let t = this;
-
-        let app: ng.IModule = angular.module('app', [
+        this.app = angular.module('app', [
             'ngRoute',
             'ui.bootstrap',
             'ngAnimate',
@@ -65,8 +66,11 @@ export class App {
             'ngCookies',
             'treasure-overlay-spinner'
         ]);
-        app.config(Configuration.Factory());
-        app.run([
+        this.app.config(Configuration.Factory());
+    }
+
+    public Run() {
+        this.app.run([
             '$rootScope',
             '$filter',
             'devicemanagerService',
@@ -102,10 +106,10 @@ export class App {
                                 deviceManager.setConfiguration(data);
 
                                 deviceManager.startAutomaticUpdate();
-                                networkService.get()
-                                    .then((n: Network) => {
-                                        n.startAutomaticUpdate();
-                                    });
+                                //networkService.get()
+                                //    .then((n: Network) => {
+                                //        n.startAutomaticUpdate();
+                                //    });
 
                                 devicemanagerService.setConfigured();
                             });
@@ -115,51 +119,63 @@ export class App {
             }]
         );
 
-        app.factory('dataService', DataService.Factory());
-        app.factory('devicemanagerService', DeviceManagerService.Factory());
-        app.factory('networkService', NetworkService.Factory());
-        app.factory('languagesService', LanguagesService.Factory());
-        app.factory('configurationService', ConfigurationService.Factory());
-        app.factory('chartBridgeFactoryService', ChartBridgeFactoryService.Factory());
+        this.app.factory('dataService', DataService.Factory());
+        this.app.factory('devicemanagerService', DeviceManagerService.Factory());
+        this.app.factory('networkService', NetworkService.Factory());
+        this.app.factory('languagesService', LanguagesService.Factory());
+        this.app.factory('configurationService', ConfigurationService.Factory());
+        this.app.factory('chartBridgeFactoryService', ChartBridgeFactoryService.Factory());
 
-        app.controller('OverviewController', OverviewController.Factory());
-        app.controller('HeaderController', HeaderController.Factory());
-        app.controller('ServerController', ServerController.Factory());
-        app.controller('WorkstationController', WorkstationController.Factory());
-        app.controller('DataCollectionController', DataCollectionController.Factory());
-        app.controller('AboutController', AboutController.Factory());
-        app.controller('AdminController', AdminController.Factory());
-        app.controller('DeviceController', DeviceController.Factory());
-        app.controller('HelpController', HelpController.Factory());
-        app.controller('GroupController', GroupController.Factory());
-        app.controller('SiteReportController', SiteReportController.Factory());
-        app.controller('NetworkHistoryController', NetworkHistoryController.Factory());
-        app.controller('MachineReportController', MachineReportController.Factory());
-        app.controller('NetworkReportController', NetworkReportController.Factory());
-        app.controller('CASLoadReportController', CASLoadReportController.Factory());
-        app.controller('IssuesReportController', IssuesReportController.Factory());
-        app.controller('SiteConfigurationReportController', SiteConfigurationReportController.Factory());
+        this.app.controller('OverviewController', OverviewController.Factory());
+        this.app.controller('HeaderController', HeaderController.Factory());
+        this.app.controller('ServerController', ServerController.Factory());
+        this.app.controller('WorkstationController', WorkstationController.Factory());
+        this.app.controller('DataCollectionController', DataCollectionController.Factory());
+        this.app.controller('AboutController', AboutController.Factory());
+        this.app.controller('AdminController', AdminController.Factory());
+        this.app.controller('DeviceController', DeviceController.Factory());
+        this.app.controller('HelpController', HelpController.Factory());
+        this.app.controller('GroupController', GroupController.Factory());
+        this.app.controller('SiteReportController', SiteReportController.Factory());
+        this.app.controller('NetworkHistoryController', NetworkHistoryController.Factory());
+        this.app.controller('MachineReportController', MachineReportController.Factory());
+        this.app.controller('NetworkReportController', NetworkReportController.Factory());
+        this.app.controller('CASLoadReportController', CASLoadReportController.Factory());
+        this.app.controller('IssuesReportController', IssuesReportController.Factory());
+        this.app.controller('SiteConfigurationReportController', SiteConfigurationReportController.Factory());
 
-        app.directive('cmGraph', GraphDirective.Factory());
-        app.directive('cmNetworkTable', NetworkTableDirective.Factory());
-        app.directive('cmMachineSnapshot', MachineSnapshotDirective.Factory());
-        app.directive('cmDataBlock', DataBlockDirective.Factory());
-        app.directive('cmPrint', PrintDirective.Factory());
-        app.directive('cmDeviceInfo', DeviceInfoDirective.Factory());
+        this.app.directive('cmGraph', GraphDirective.Factory());
+        this.app.directive('cmNetworkTable', NetworkTableDirective.Factory());
+        this.app.directive('cmMachineSnapshot', MachineSnapshotDirective.Factory());
+        this.app.directive('cmDataBlock', DataBlockDirective.Factory());
+        this.app.directive('cmPrint', PrintDirective.Factory());
+        this.app.directive('cmDeviceInfo', DeviceInfoDirective.Factory());
+        this.app.directive('cmOverviewDeviceAlert', OverviewDeviceAlertDirective.Factory());
+        this.app.directive('cmCpuBrick', CPUBrickDirective.Factory());
+        this.app.directive('cmMemoryBrick', MemoryBrickDirective.Factory());
+        this.app.directive('cmDiskBrick', DiskBrickDirective.Factory());
+        this.app.directive('cmDiskSpeedBrick', DiskSpeedBrickDirective.Factory());
+        this.app.directive('cmNicBrick', NICBrickDirective.Factory());
+        this.app.directive('cmServicesBrick', ServicesBrickDirective.Factory());
+        this.app.directive('cmDatabaseBrick', DatabaseBrickDirective.Factory());
+        this.app.directive('cmProcessesBrick', ProcessesBrickDirective.Factory());
+        this.app.directive('cmApplicationsBrick', ApplicationsBrickDirective.Factory());
+        this.app.directive('cmUpsBrick', UPSBrickDirective.Factory());
+        this.app.directive('cmSystemErrorsBrick', SystemErrorsBrickDirective.Factory());
+        this.app.directive('cmApplicationErrorsBrick', ApplicationErrorsBrickDirective.Factory());
+        this.app.directive('cmDaysToRetrieve', DaysToRetrieveDirective.Factory());
 
-        app.filter('commonDate', () => {
+        this.app.filter('commonDate', () => {
             let t = this;
             return (theDate: Date): string => {
                 return t.dateFilter(theDate, 'yyyy-MM-dd HH:mm:ss');
             }
         });
-        app.filter('commonDay', () => {
+        this.app.filter('commonDay', () => {
             let t = this;
             return (theDate: Date): string => {
                 return t.dateFilter(theDate, 'yyyy-MM-dd');
             }
         });
-
-        this.app = app;
     }
 }

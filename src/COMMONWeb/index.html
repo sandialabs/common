@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<!--<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">-->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" ng-app="app"> -->
+<html xmlns="http://www.w3.org/1999/xhtml" ng-strict-di=ng-strict-di>
 
 <head runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -143,15 +143,36 @@
     <script src="lib/angularutils-pagination/dirPagination.js" type="text/javascript"></script>
     <script src="lib/angular-translate/angular-translate.min.js" type="text/javascript"></script>
     <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" type="text/javascript"></script>
-    <script src="lib/moment/min/moment-with-locales.min.js" type="text/javascript"></script>
-    <script src="lib/downloadjs/download.min.js" type="text/javascript"></script>
     <script src="lib/angular-animate/angular-animate.min.js" type="text/javascript"></script>
     <script src="lib/angular-aria/angular-aria.min.js" type="text/javascript"></script>
     <script src="lib/angular-material/angular-material.js" type="text/javascript"></script>
+    <script src="lib/moment/moment.js" type="text/javascript"></script>
     <script src="lib/chart.js/Chart.min.js" type="text/javascript"></script>
     <script src="lib/angular-chart.js/angular-chart.min.js" type="text/javascript"></script>
     <script src="lib/angular-treasure-overlay-spinner/treasure-overlay-spinner.min.js" type="text/javascript"></script>
-    <script src="lib/requirejs/require.js" data-main="app/main" type="text/javascript"></script>
+    <script src="lib/systemjs/system.js"></script>
+    <script src="app/everything.js" type="text/javascript"></script>
 
+    <script>
+        System.config({
+            map: {
+                "moment": "lib/moment",
+                "chart.js": "lib/chart.js"
+            },
+            packages: {
+                "moment": { main: "moment.js", defaultExtension: "js" },
+                "chart.js": { main: "chart.js", defaultExtension: "js" }
+            }
+        });
+        System.import("app.module")
+            .then(function (app) {
+                let a = new app.App();
+                a.Run();
+
+                angular.element(function () {
+                    angular.bootstrap(document, ['app']);
+                });
+            });
+    </script>
 </body>
 </html>

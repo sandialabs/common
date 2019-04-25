@@ -46,6 +46,7 @@ gulp.task("copy", function () {
         "angular-chart.js": "dist/*.js",
         "angular-treasure-overlay-spinner": "dist/*.{js,css}",
         "moment": "**/*.{js,css,map}",
+        "systemjs": "dist/*.js"
     };
 
     for (var dest in npm) {

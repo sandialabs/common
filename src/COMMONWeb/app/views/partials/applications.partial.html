@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Installed Applications"></h5>
     </div>
     <div class="panel-body standardsize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Applications]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.Applications]">
             <h3 ng-show="vm.machine.applications === null || vm.machine.applications.applications.applications.length === 0" translate="There are no applications to report"></h3>
             <div ng-if="vm.machine.applications !== null && vm.machine.applications.applications.applications.length !== 0" class="table-responsive">
                 <!--<h3>{{"Applications as of" | translate}}</h3>-->

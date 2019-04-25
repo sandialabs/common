@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="UPS"></h5>
     </div>
     <div class="panel-body standardsize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.UPS]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.UPS]">
             <h3 ng-show="!vm.machine.ups.current" translate="UPS status is unknown"></h3>
             <div ng-show="vm.machine.ups.current">
                 <dl class="dl-horizontal">

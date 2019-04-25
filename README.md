@@ -8,9 +8,10 @@ Sandia National Laboratories’ COMMON software is designed to help by pointing 
 
 # Release History
 
-| Version | Date |
-| ------- | ---- |
-| [1.5.0](https://github.com/sandialabs/common/releases/tag/v1.5.0) | 2019/03/13 |
+| Version | Date | Comment |
+| ------- | ---- | ---- |
+| [1.5.1](https://github.com/sandialabs/common/releases/tag/v1.5.1) | 2019/04/25 | `Fixed missing 'Uptime %' in reports`</br>`Performance improvements` |
+| [1.5.0](https://github.com/sandialabs/common/releases/tag/v1.5.0) | 2019/03/13 | `Initial Commit` |
 
 # COMMON main pieces:
 - A user-interface, accessed via a Web Browser, written in TypeScript and AngularJS (1.6.x).
@@ -109,7 +110,7 @@ Sandia National Laboratories’ COMMON software is designed to help by pointing 
 
 
 # Building
-COMMON is built using Visual Studio 2017. The COMMONWeb part also uses Bower, NPM, and Gulp. Eventually, I plan to do away with Bower and just use NPM, but haven't done that yet.
+COMMON is built using Visual Studio 2019. The COMMONWeb part also uses Bower, NPM, and Gulp. Eventually, I plan to do away with Bower and just use NPM, but haven't done that yet.
 
 There have been cases where Visual Studio doesn't properly do the Bower and NPM stuff, so you may need to install those separately.
 

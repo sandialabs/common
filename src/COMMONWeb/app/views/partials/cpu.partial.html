@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="CPU"></h5>
     </div>
     <div class="panel-body smallersize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.CPU]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.CPU]">
             <h3 ng-show="vm.machine.cpu === null || vm.machine.cpu.current === null" translate="There are no CPU reports"></h3>
             <div ng-show="vm.machine.cpu !== null && vm.machine.cpu.current !== null">
                 <!-- <h3 translate="Current CPU Usage"></h3> -->

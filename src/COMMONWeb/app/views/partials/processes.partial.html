@@ -3,7 +3,7 @@
         <h5 class="panel-title" translate="Processes"></h5>
     </div>
     <div class="panel-body standardsize">
-        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[EMachineParts.Processes]">
+        <treasure-overlay-spinner active="vm.machine && vm.machine.loading[vm.EMachineParts.Processes]">
             <h3 ng-show="vm.machine.processes === undefined || vm.machine.processes.values.length == 0"
                 translate="There are no processes to report"></h3>
             <div ng-if="vm.machine.processes !== null && vm.machine.processes.values.length > 0" class="table-responsive">

@@ -260,6 +260,8 @@ export class Network implements IAutoUpdatable<Network> {
             if (this.maxDate === null || ns.datePingAttempted > this.maxDate)
                 this.maxDate = ns.datePingAttempted;
         }
+
+        //this.startAutomaticUpdate();
     }
 
     public startAutomaticUpdate() {
