@@ -48,10 +48,10 @@ Sandia National Laboratories’ COMMON software is designed to help by pointing 
 - The web-based GUI
 - All of the browser-side code is written in TypeScript
 - The server-side code is C#
-- COMMONWebHost
-  - A small command-line application that fires up an instance of the web site
-  - Is used if you want to have a GUI but don't want to collect data, which the service does
-  - The port to listen on and the database to use can be specified so multiple sites can be hosted at the same time on the same machine.
+### COMMONWebHost
+- A small command-line application that fires up an instance of the web site
+- Is used if you want to have a GUI but don't want to collect data, which the service does
+- The port to listen on and the database to use can be specified so multiple sites can be hosted at the same time on the same machine.
 ### COMMONWebTest
 - Some test suites that test the web server
 - Needs to be more fully fleshed out
