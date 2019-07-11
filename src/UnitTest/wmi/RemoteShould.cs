@@ -75,6 +75,18 @@ namespace UnitTest.wmi
 
             Assert.NotNull(ms);
             Assert.Equal(@"\\1.2.3.4\root\abc", ms.Path.Path);
+
+            r = new Remote("0.0.0.0");
+            ms = r.GetManagementScope("abc");
+
+            Assert.NotNull(ms);
+            Assert.Equal(@"\\.\root\abc", ms.Path.Path);
+
+            r = new Remote("localhost");
+            ms = r.GetManagementScope("abc");
+
+            Assert.NotNull(ms);
+            Assert.Equal(@"\\.\root\abc", ms.Path.Path);
         }
     }
 }
