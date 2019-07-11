@@ -26,10 +26,10 @@ namespace gov.sandia.sld.common.data.wmi
         /// things will be handled properly to connect to the remote system.
         /// </summary>
         /// <param name="ns"></param>
-        /// <returns></returns>
+        /// <returns>A ManagementScope object with the proper path and namespace</returns>
         public ManagementScope GetManagementScope(string ns = "CIMV2")
         {
-            ManagementScope scope = RemoteInfo!= null ? RemoteInfo.GetManagementScope(ns) : new ManagementScope(@"root\" + ns);
+            ManagementScope scope = RemoteInfo != null ? RemoteInfo.GetManagementScope(ns) : new ManagementScope(@"root\" + ns);
             return scope;
         }
     }

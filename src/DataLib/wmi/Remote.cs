@@ -39,13 +39,20 @@ namespace gov.sandia.sld.common.data.wmi
         /// <returns></returns>
         public ManagementScope GetManagementScope(string ns = "CIMV2")
         {
-            ManagementScope scope = new ManagementScope(@"\\" + IPAddress + @"\root\" + ns);
+            ManagementScope scope = null;
 
-            if (HasUsernamePassword)
+            if (HasIPAddress)
             {
-                scope.Options = new ConnectionOptions() { Username = Username, Password = Password };
-                scope.Connect();
+                scope = new ManagementScope(@"\\" + IPAddress + @"\root\" + ns);
+
+                if (HasUsernamePassword)
+                {
+                    scope.Options = new ConnectionOptions() { Username = Username, Password = Password };
+                    scope.Connect();
+                }
             }
+            else
+                scope = new ManagementScope(@"root\" + ns);
 
             return scope;
         }

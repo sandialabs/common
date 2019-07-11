@@ -109,6 +109,7 @@
     <Compile Include="RemoteShould.cs" />
     <Compile Include="statustype\DiskSpaceStatusShould.cs" />
     <Compile Include="UtilitiesShould.cs" />
+    <Compile Include="utilities\ExtensionsShould.cs" />
     <Compile Include="wmi\ApplicationShould.cs" />
     <Compile Include="DeviceInfoCreationShould.cs" />
     <Compile Include="DiskUsageDataShould.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="statustype\UPSStatusShould.cs" />
     <Compile Include="ThresholdShould.cs" />
     <Compile Include="statustype\TimeStatusShould.cs" />
+    <Compile Include="wmi\RemoteShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
