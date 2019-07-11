@@ -5,7 +5,7 @@ import os
 import shutil
 from subprocess import call
 
-fullVersion = "1.5.1"
+fullVersion = "1.5.2"
 commonInstaller = "COMMONInstaller-" + fullVersion + ".aip"
 commonPrerequisitesInstaller = "COMMONPrerequisitesInstaller-" + fullVersion + ".aip"
 ai = "C:/Program Files (x86)/Caphyon/Advanced Installer 15.3/bin/x86/AdvancedInstaller.com"

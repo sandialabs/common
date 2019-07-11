@@ -124,3 +124,23 @@ We have a Jenkins CI builder that does these steps:
     MSBuild.exe COMMON.sln /t:ReBuild /p:Configuration=Release
 
 May not need that NuGet restore in there, but it's still part of the build script for now.
+
+# Installer
+We use Advanced Installer (AI) to build our installation executable. The AI files are kept in the `src/Installers` folder
+```
+src/Installers/COMMONInstaller-1.5.2.aip
+```
+
+# Upgrading
+After you make your code changes, upgrading involves updating the version numbers of the EXEs and DLLs. This is pretty simple and follows these steps:  
+- Run the Python script `set_version.py` which updates the version number in each `AssemblyInfo.cs` file (replace the version with whatever is appropriate)  
+    ```
+    python set_version.py 1.5.2
+    ```
+- Update the Advanced Installer file with the new version #.  It's in the "Product Details" section. It will ask you to generate a new Product Code. Click 'Generate New'.
+  - Save the updated Advanced Installer file with a new version # in the filename, using the 'Save As' menu option.
+- You also need to tweak the installer build script to use the file you just saved, which is in `Installers/build.py` This Python script is run to build the installer executable. Tweak the `fullVersion` variable so it's the same version # of the AI file:
+    ```
+    fullVersion = "1.5.2"
+    ```
+That should do it!
