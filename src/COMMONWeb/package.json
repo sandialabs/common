@@ -28,7 +28,9 @@
     "karma-ie-launcher": "^1.0.0",
     "karma-jasmine": "^1.1.2",
     "lodash.template": ">=4.5.0",
-    "lodash": ">=4.17.13"
+    "lodash": ">=4.17.13",
+    "mixin-deep": "^2.0.1",
+    "set-value": "^3.0.1"
   },
   "dependencies": {
     "angular-animate": "^1.7.5",
@@ -37,7 +39,7 @@
     "angular-material": "^1.1.10",
     "angular-messages": "1.7.5",
     "angular-treasure-overlay-spinner": "^1.1.0",
-    "bower": "^1.8.4",
+    "bower": "^1.8.8",
     "chart.js": "^2.7.3",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.4.0",
