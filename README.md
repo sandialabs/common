@@ -11,8 +11,8 @@ Sandia National Laboratories’ COMMON software is designed to help by pointing 
 | Version | Date | Comment |
 | ------- | ---- | ---- |
 | [1.5.2](https://github.com/sandialabs/common/releases/tag/v1.5.2) | 2019/07/22 | `Fixed an issue that could prevent COMMON from collecting WMI data from the server` |
-| [1.5.1](https://github.com/sandialabs/common/releases/tag/v1.5.1) | 2019/04/25 | `Fixed missing 'Uptime %' in reports`</br>`Performance improvements` |
-| [1.5.0](https://github.com/sandialabs/common/releases/tag/v1.5.0) | 2019/03/13 | `Initial Commit` |
+| 1.5.1 | 2019/04/25 | `Fixed missing 'Uptime %' in reports`</br>`Performance improvements` |
+| 1.5.0 | 2019/03/13 | `Initial Commit` |
 
 # COMMON main pieces:
 - A user-interface, accessed via a Web Browser, written in TypeScript and AngularJS (1.6.x).
