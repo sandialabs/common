@@ -14,6 +14,8 @@ Sandia National Laboratories’ COMMON software is designed to help by pointing 
 | 1.5.1 | 2019/04/25 | `Fixed missing 'Uptime %' in reports`</br>`Performance improvements` |
 | 1.5.0 | 2019/03/13 | `Initial Commit` |
 
+The current version is [1.5.2](https://github.com/sandialabs/common/releases/tag/v1.5.2). Older versions can be found [here](https://github.com/sandialabs/common/releases).
+
 # COMMON main pieces:
 - A user-interface, accessed via a Web Browser, written in TypeScript and AngularJS (1.6.x).
   - As of COMMON 1.5 the web server is self-hosted using NancyFX
