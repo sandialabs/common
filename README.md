@@ -6,7 +6,7 @@ Sandia National Laboratories’ COMMON software is designed to help by pointing 
 
 > Copyright 2018 National Technology & Engineering Solutions of Sandia, LLC (NTESS). Under the terms of Contract DE-NA0003525 with NTESS, the U.S. Government retains certain rights in this software.
 
-## Current Release
+# Current Release
 
 The current version is [1.5.2](https://github.com/sandialabs/common/releases/tag/v1.5.2). Older versions can be found [here](https://github.com/sandialabs/common/releases).
 
