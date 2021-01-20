@@ -1,9 +1,0 @@
-{
-  "https-proxy": "http://wwwproxy.sandia.gov:80",
-  "proxy": "http://wwwproxy.sandia.gov:80",
-  "registry": "https://registry.bower.io",
-  "strict-ssl": false,
-  "resolvers": [
-    "bower-npm-resolver"
-  ]
-}

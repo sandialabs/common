@@ -33,16 +33,25 @@
     "set-value": "^3.0.1"
   },
   "dependencies": {
+    "angular": "^1.6.10",
     "angular-animate": "^1.7.5",
     "angular-aria": "^1.7.5",
     "angular-chart.js": "^1.1.1",
+    "angular-cookies": "^1.6.4",
     "angular-material": "^1.1.10",
-    "angular-messages": "1.7.5",
+    "angular-messages": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-translate": "^2.15.1",
     "angular-treasure-overlay-spinner": "^1.1.0",
-    "bower": "^1.8.8",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-utils-pagination": "^0.11.1",
+    "bootstrap": "^3.3.7",
     "chart.js": "^2.7.3",
+    "downloadjs": "^1.4.6",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.4.0",
+    "jquery": "^3.1.1",
     "moment": "^2.24.0",
     "systemjs": "^0.21.6"
   }

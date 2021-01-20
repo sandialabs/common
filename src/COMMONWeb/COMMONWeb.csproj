@@ -383,21 +383,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-aria\index.js" />
-    <Content Include="lib\angular-bootstrap\index.js" />
-    <Content Include="lib\angular-bootstrap\ui-bootstrap-csp.css" />
-    <Content Include="lib\angular-bootstrap\ui-bootstrap-tpls.js" />
-    <Content Include="lib\angular-bootstrap\ui-bootstrap-tpls.min.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="lib\angular-bootstrap\ui-bootstrap.js" />
-    <Content Include="lib\angular-bootstrap\ui-bootstrap.min.js" />
     <Content Include="lib\angular-chart.js\angular-chart.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-chart.js\angular-chart.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\angular-cookies\angular-cookies.js" />
+    <Content Include="lib\angular-cookies\angular-cookies.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\angular-cookies\angular-cookies.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -416,12 +410,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-material\index.js" />
-    <Content Include="lib\angular-messages\angular-messages.js" />
+    <Content Include="lib\angular-messages\angular-messages.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\angular-messages\angular-messages.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-messages\index.js" />
-    <Content Include="lib\angular-resource\angular-resource.js" />
+    <Content Include="lib\angular-resource\angular-resource.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\angular-resource\angular-resource.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -431,8 +429,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-route\index.js" />
-    <Content Include="lib\angular-translate-loader-static-files\angular-translate-loader-static-files.js" />
-    <Content Include="lib\angular-translate-loader-static-files\angular-translate-loader-static-files.min.js">
+    <Content Include="lib\angular-translate\angular-translate-loader-static-files.js" />
+    <Content Include="lib\angular-translate\angular-translate-loader-static-files.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-translate\angular-translate.js" />
@@ -445,13 +443,20 @@
     <Content Include="lib\angular-treasure-overlay-spinner\treasure-overlay-spinner.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\angularUtils-pagination\dirPagination.js">
+    <Content Include="lib\angular-ui-bootstrap\ui-bootstrap-csp.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\angularUtils-pagination\index.js" />
-    <Content Include="lib\angularUtils-pagination\package.js">
+    <Content Include="lib\angular-ui-bootstrap\ui-bootstrap-tpls.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib\angular-ui-bootstrap\ui-bootstrap.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\angular-utils-pagination\dirPagination.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\angular-utils-pagination\index.js" />
+    <Content Include="lib\angular-utils-pagination\package.js" />
     <Content Include="lib\angular\angular-csp.css" />
     <Content Include="lib\angular\angular.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1086,18 +1091,26 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="test-main.js" />
-    <None Include=".bowerrc" />
     <Content Include="app\everything.js.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="bower.json" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <Content Include="lib\angular-cookies\angular-cookies.min.js.map" />
-    <Content Include="lib\angular-messages\angular-messages.min.js.map" />
-    <Content Include="lib\angular-resource\angular-resource.min.js.map" />
-    <Content Include="lib\angular-route\angular-route.min.js.map" />
-    <Content Include="lib\angular\angular.min.js.map" />
+    <Content Include="lib\angular-cookies\angular-cookies.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\angular-messages\angular-messages.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\angular-resource\angular-resource.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\angular-route\angular-route.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\angular\angular.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="lib\bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="lib\bootstrap\css\bootstrap.css.map" />
