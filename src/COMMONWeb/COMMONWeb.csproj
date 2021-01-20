@@ -445,13 +445,11 @@
     <Content Include="lib\angular-treasure-overlay-spinner\treasure-overlay-spinner.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\angularUtils-pagination\dirPagination.js">
+    <Content Include="lib\angular-utils-pagination\dirPagination.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\angularUtils-pagination\index.js" />
-    <Content Include="lib\angularUtils-pagination\package.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="lib\angular-utils-pagination\index.js" />
+    <Content Include="lib\angular-utils-pagination\package.js" />
     <Content Include="lib\angular\angular-csp.css" />
     <Content Include="lib\angular\angular.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

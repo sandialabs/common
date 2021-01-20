@@ -22,7 +22,6 @@ gulp.task("copy", function () {
         "angular-route": "*.{js,css,map}",
         "angular-translate": "*.{js,css,map}",
         "angular-translate-loader-static-files": "*.{js,css,map}",
-        "angularUtils-pagination": "*.{js,css,map}",
     };
 
     for (var dest in bower) {
@@ -46,6 +45,7 @@ gulp.task("copy", function () {
         "jquery": "dist/*.{js,css,map}",
         "bootstrap": "dist/**/*.{js,map,css,ttf,svg,woff,woff2,eat}",
         "downloadjs": "*.js",
+        "angular-utils-pagination": "*.js",
     };
 
     for (var dest in npm) {
