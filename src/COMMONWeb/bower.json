@@ -17,8 +17,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.7",
-    "downloadjs": "~1.4.6",
     "moment": "~2.18.1",
     "angular": "~1.6.10",
     "angular-translate": "~2.15.1",
