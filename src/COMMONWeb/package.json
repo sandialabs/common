@@ -39,6 +39,7 @@
     "angular-material": "^1.1.10",
     "angular-messages": "1.7.5",
     "angular-treasure-overlay-spinner": "^1.1.0",
+    "angular-ui-bootstrap": "^2.5.0",
     "angular-utils-pagination": "^0.11.1",
     "bootstrap": "^3.3.7",
     "bower": "^1.8.8",
