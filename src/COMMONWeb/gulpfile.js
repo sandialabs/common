@@ -15,7 +15,6 @@ var paths = {
 gulp.task("copy", function () {
     var bower = {
         "angular": "*.{js,css,map}",
-        "angular-messages": "*.{js,css,map}",
         "angular-translate": "*.{js,css,map}",
         "angular-translate-loader-static-files": "*.{js,css,map}",
     };
@@ -46,6 +45,7 @@ gulp.task("copy", function () {
         "angular-route": "*.{js,css,map}",
         "angular-resource": "*.{js,css,map}",
         "angular-cookies": "*.{js,css,map}",
+        "angular-messages": "*.{js,css,map}",
     };
 
     for (var dest in npm) {
