@@ -413,7 +413,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-messages\index.js" />
-    <Content Include="lib\angular-resource\angular-resource.js" />
+    <Content Include="lib\angular-resource\angular-resource.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\angular-resource\angular-resource.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1094,7 +1096,9 @@
     <Content Include="package.json" />
     <Content Include="lib\angular-cookies\angular-cookies.min.js.map" />
     <Content Include="lib\angular-messages\angular-messages.min.js.map" />
-    <Content Include="lib\angular-resource\angular-resource.min.js.map" />
+    <Content Include="lib\angular-resource\angular-resource.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\angular-route\angular-route.min.js.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
