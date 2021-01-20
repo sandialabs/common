@@ -7,24 +7,11 @@ var rename = require("gulp-rename");
 
 var paths = {
     webroot: "./",
-    bower: "./bower_components/",
     npm: "./node_modules/",
     lib: "./lib/"
 };
 
 gulp.task("copy", function () {
-    var bower = {
-        "angular": "*.{js,css,map}",
-    };
-
-    for (var dest in bower) {
-        //console.log("src: " + paths.bower + bower[dest]);
-        //console.log("dest: " + paths.lib + dest);
-
-        gulp.src(paths.bower + dest + "/" + bower[dest])
-            .pipe(gulp.dest(paths.lib + dest));
-    }
-
     var npm = {
         "dygraphs": "dist/**/*.{js,css,map}",
         "angular-animate": "*.{js,css,map}",
@@ -45,6 +32,7 @@ gulp.task("copy", function () {
         "angular-cookies": "*.{js,css,map}",
         "angular-messages": "*.{js,css,map}",
         "angular-translate": "dist/*.js",
+        "angular": "*.{js,css,map}",
     };
 
     for (var dest in npm) {

@@ -1091,11 +1091,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="test-main.js" />
-    <None Include=".bowerrc" />
     <Content Include="app\everything.js.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="bower.json" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="lib\angular-cookies\angular-cookies.min.js.map">
@@ -1110,7 +1108,9 @@
     <Content Include="lib\angular-route\angular-route.min.js.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\angular\angular.min.js.map" />
+    <Content Include="lib\angular\angular.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="lib\bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="lib\bootstrap\css\bootstrap.css.map" />

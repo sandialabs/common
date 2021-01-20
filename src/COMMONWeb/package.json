@@ -33,6 +33,7 @@
     "set-value": "^3.0.1"
   },
   "dependencies": {
+    "angular": "^1.6.10",
     "angular-animate": "^1.7.5",
     "angular-aria": "^1.7.5",
     "angular-chart.js": "^1.1.1",
@@ -46,7 +47,6 @@
     "angular-ui-bootstrap": "^2.5.0",
     "angular-utils-pagination": "^0.11.1",
     "bootstrap": "^3.3.7",
-    "bower": "^1.8.8",
     "chart.js": "^2.7.3",
     "downloadjs": "^1.4.6",
     "gulp": "^3.9.1",
