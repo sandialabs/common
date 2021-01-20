@@ -21,7 +21,6 @@
     "angular-translate": "~2.15.1",
     "angular-translate-loader-static-files": "~2.15.1",
     "angular-messages": "~1.6.4",
-    "angular-cookies": "~1.6.4",
   },
   "resolutions": {
     "angular": ">=1.6 <1.7"

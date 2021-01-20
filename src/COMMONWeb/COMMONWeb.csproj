@@ -389,7 +389,9 @@
     <Content Include="lib\angular-chart.js\angular-chart.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="lib\angular-cookies\angular-cookies.js" />
+    <Content Include="lib\angular-cookies\angular-cookies.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\angular-cookies\angular-cookies.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1094,7 +1096,9 @@
     <None Include="bower.json" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <Content Include="lib\angular-cookies\angular-cookies.min.js.map" />
+    <Content Include="lib\angular-cookies\angular-cookies.min.js.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\angular-messages\angular-messages.min.js.map" />
     <Content Include="lib\angular-resource\angular-resource.min.js.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
