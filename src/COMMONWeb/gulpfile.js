@@ -15,8 +15,6 @@ var paths = {
 gulp.task("copy", function () {
     var bower = {
         "angular": "*.{js,css,map}",
-        "angular-translate": "*.{js,css,map}",
-        "angular-translate-loader-static-files": "*.{js,css,map}",
     };
 
     for (var dest in bower) {
@@ -46,12 +44,18 @@ gulp.task("copy", function () {
         "angular-resource": "*.{js,css,map}",
         "angular-cookies": "*.{js,css,map}",
         "angular-messages": "*.{js,css,map}",
+        "angular-translate": "dist/*.js",
     };
 
     for (var dest in npm) {
         gulp.src(paths.npm + dest + "/" + npm[dest])
             .pipe(gulp.dest(paths.lib + dest));
     }
+
+    // We need the static file loader as well. The folder structure for that is slightly different
+    // so let's do it manually here.
+    gulp.src(paths.npm + 'angular-translate/dist/angular-translate-loader-static-files/*.js')
+        .pipe(gulp.dest(paths.lib + 'angular-translate'));
 
     // As a temporary hack, copy the moment.d.ts file into the min
     // folder as moment-with-locales.d.ts

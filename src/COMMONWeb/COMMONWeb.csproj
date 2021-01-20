@@ -429,8 +429,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-route\index.js" />
-    <Content Include="lib\angular-translate-loader-static-files\angular-translate-loader-static-files.js" />
-    <Content Include="lib\angular-translate-loader-static-files\angular-translate-loader-static-files.min.js">
+    <Content Include="lib\angular-translate\angular-translate-loader-static-files.js" />
+    <Content Include="lib\angular-translate\angular-translate-loader-static-files.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\angular-translate\angular-translate.js" />

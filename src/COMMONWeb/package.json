@@ -41,6 +41,7 @@
     "angular-messages": "^1.6.4",
     "angular-resource": "^1.6.4",
     "angular-route": "^1.6.4",
+    "angular-translate": "^2.15.1",
     "angular-treasure-overlay-spinner": "^1.1.0",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-utils-pagination": "^0.11.1",
