@@ -161,10 +161,12 @@ namespace COMMONWeb
                     case EMachinePart.Services:
                         {
                             ValueInfo v = db.GetMostRecentValueForDevice(deviceID, ECollectorType.Services);
-                            var definition = new { Value = new List<string>() };
-                            var value = JsonConvert.DeserializeAnonymousType(v.value, definition);
-
-                            md.services = new Services(value.Value) { timestamp = v.timestamp };
+                            if (v != null)
+                            {
+                                var definition = new { Value = new List<string>() };
+                                var value = JsonConvert.DeserializeAnonymousType(v.value, definition);
+                                md.services = new Services(value.Value) { timestamp = v.timestamp };
+                            }
                         }
                         break;
                     case EMachinePart.UPS:
