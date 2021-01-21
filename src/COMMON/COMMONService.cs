@@ -81,7 +81,7 @@ namespace gov.sandia.sld.common
             logging.EventLog elog = new ApplicationEventLog();
 
             elog.LogInformation("Starting");
-            GlobalIsRunning.IsRunning = true;
+            GlobalIsRunning.Start();
             m_shutdown.Reset();
 
             elog.LogInformation("Initializing database");
@@ -126,7 +126,7 @@ namespace gov.sandia.sld.common
 
             elog.LogInformation("Stopping");
             Stopwatch watch = Stopwatch.StartNew();
-            GlobalIsRunning.IsRunning = false;
+            GlobalIsRunning.Stop();
 
             m_shutdown.Set();
             while (m_thread != null && m_thread.ThreadState == System.Threading.ThreadState.Running)

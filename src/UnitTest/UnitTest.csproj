@@ -110,6 +110,7 @@
     <Compile Include="statustype\DiskSpaceStatusShould.cs" />
     <Compile Include="UtilitiesShould.cs" />
     <Compile Include="utilities\ExtensionsShould.cs" />
+    <Compile Include="utilities\GlobalIsRunningShould.cs" />
     <Compile Include="wmi\ApplicationShould.cs" />
     <Compile Include="DeviceInfoCreationShould.cs" />
     <Compile Include="DiskUsageDataShould.cs" />
