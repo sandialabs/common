@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace gov.sandia.sld.common.data.wmi
 {
@@ -27,8 +28,6 @@ namespace gov.sandia.sld.common.data.wmi
         {
             Context = context;
             Options = options;
-
-            m_retrieval_context = new RetrievalContext(Options.Timeout);
         }
 
         /// <summary>
@@ -45,9 +44,11 @@ namespace gov.sandia.sld.common.data.wmi
         /// <returns></returns>
         public RetrievalContext Retrieve(ILog log)
         {
-            string query_str = string.Format("SELECT {0} FROM {1}", Context.Properties, Context.Class);
+            RetrievalContext retrieval_context = new RetrievalContext();
+
+            string query_str = $"SELECT {Context.Properties} FROM {Context.Class}";
             if (string.IsNullOrEmpty(Context.Where) == false)
-                query_str += " WHERE " + Context.Where;
+                query_str += $" WHERE {Context.Where}";
             string path = string.Empty;
 
             try
@@ -58,33 +59,31 @@ namespace gov.sandia.sld.common.data.wmi
                 {
                     path = scope.Path.Path;
                     if (log != null)
-                        log.Debug("Executing: " + path + " -- " + query_str);
+                        log.Debug($"Executing: {path} -- {query_str}");
 
-                    ManagementOperationObserver results = new ManagementOperationObserver();
-                    results.ObjectReady += new ObjectReadyEventHandler(this.OnNewObject);
-                    results.Completed += new CompletedEventHandler(this.OnComplete);
-
-                    // Start a new Retrieving object so everything is up-to-date right now
-                    m_retrieval_context = new RetrievalContext(Options.Timeout);
-
-                    searcher.Get(results);
-
-                    while (m_retrieval_context.IsCompleted == false)
+                    Task task = new Task(() =>
                     {
-                        if (m_retrieval_context.HasTimedOut)
+                        foreach (ManagementObject queryObj in searcher.Get())
                         {
-                            results.Cancel();
-                            throw new Exception($"Timeout executing '{query_str}', path is '{path}'");
+                            Dictionary<string, object> dict = new Dictionary<string, object>();
+                            foreach (string property in Context.PropertiesList)
+                            {
+                                object o = queryObj[property];
+                                if (o != null)
+                                    dict[property] = o;
+                            }
+                            retrieval_context.Add(dict);
                         }
+                    });
 
-                        if (GlobalIsRunning.IsRunning == false)
-                        {
-                            m_retrieval_context.IsCompleted = true;
-                            results.Cancel();
-                        }
-                        else
-                            Thread.Sleep(250);
-                    }
+                    task.Start();
+
+                    // Returns true if the task completed before the timeout; false if it timed out.
+                    // If the cancellation token is fired, an exception will be thrown.
+                    bool completed = task.Wait((int)Options.Timeout.TotalMilliseconds, GlobalIsRunning.Source.Token);
+                    retrieval_context.IsCompleted = completed;
+                    if (completed == false)
+                        throw new Exception($"Timeout executing '{query_str}', path is '{path}'");
                 }
             }
             catch (Exception e)
@@ -97,78 +96,19 @@ namespace gov.sandia.sld.common.data.wmi
                         log.Error(path);
                 }
             }
-            finally
-            {
-                m_retrieval_context.IsCompleted = true;
-            }
 
-            return m_retrieval_context;
-        }
-
-        /// <summary>
-        /// Callback when part of the WMI data has been retrieved. There may be multiple
-        /// parts to the WMI response, so this may be called repeatedly before OnComplete is
-        /// called.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnNewObject(object sender, ObjectReadyEventArgs args)
-        {
-            Dictionary<string, object> dict = new Dictionary<string, object>();
-
-            try
-            {
-                foreach (string property in Context.PropertiesList)
-                {
-                    object o = args.NewObject[property];
-                    if (o != null)
-                    {
-                        dict[property] = o;
-                        //Console.WriteLine($"Property {property} == {o.ToString()}");
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
-
-            m_retrieval_context.Add(dict);
-
-            // We got something, so let's restart the timer so we don't timeout on a long
-            // response such as when we're getting lots of system errors.
-            m_retrieval_context.OnNewObject();
-        }
-
-        /// <summary>
-        /// Callback for when the WMI data has been completely retrieved.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void OnComplete(object sender, CompletedEventArgs args)
-        {
-            m_retrieval_context.IsCompleted = true;
+            return retrieval_context;
         }
 
         public class RetrievalContext
         {
             public bool IsCompleted { get; set; }
-            public bool HasTimedOut { get { return Watch.ElapsedMilliseconds > Timeout; } }
             public List<Dictionary<string, object>> RetrievedData { get; private set; }
-            public long Timeout { get; private set; }
-            private Stopwatch Watch { get; set; }
-            public uint RetrievedCount { get { lock (RetrievedData) return (uint)RetrievedData.Count; } }
 
-            public RetrievalContext(TimeSpan timeout)
+            public RetrievalContext()
             {
-                IsCompleted = false;
-                Timeout = (long)timeout.TotalMilliseconds;
+                IsCompleted = true;
                 RetrievedData = new List<Dictionary<string, object>>();
-                Watch = Stopwatch.StartNew();
-            }
-
-            public void OnNewObject()
-            {
-                Watch.Restart();
             }
 
             public void Add(Dictionary<string, object> dict)
@@ -180,7 +120,5 @@ namespace gov.sandia.sld.common.data.wmi
                     RetrievedData.Add(dict);
             }
         }
-
-        private RetrievalContext m_retrieval_context;
     }
 }

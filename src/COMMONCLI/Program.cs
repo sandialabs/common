@@ -150,7 +150,7 @@ namespace COMMONCLI
             }
             else
             {
-                GlobalIsRunning.IsRunning = true;
+                GlobalIsRunning.Start();
 
                 for (int i = 0; i < repeat_count; ++i)
                 {
