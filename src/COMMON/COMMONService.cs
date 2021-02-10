@@ -227,7 +227,7 @@ namespace gov.sandia.sld.common
                             m_daily_file_writer.DoWrite(conn);
 
                         if (GlobalIsRunning.IsRunning)
-                            m_db_cleaner.CleanOldData(m_days_to_keep, conn);
+                            m_db_cleaner.CleanOldData(m_days_to_keep, db, conn);
                     }
 
                     // Deletes any old daily files

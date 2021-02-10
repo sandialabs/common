@@ -203,6 +203,12 @@ namespace gov.sandia.sld.common.db
             return collectors;
         }
 
+        public List<CollectorInfo> GetCollectorsOfType(ECollectorType type)
+        {
+            List<CollectorInfo> all_collectors = GetAllCollectors();
+            return all_collectors.Where(c => c.collectorType == type).ToList();
+        }
+
         private List<CollectorInfo> GetCollectors(long device_id, EDeviceType d, SQLiteConnection conn)
         {
             List<CollectorInfo> collectors = new List<CollectorInfo>();

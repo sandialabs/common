@@ -1,10 +1,13 @@
-﻿using gov.sandia.sld.common.db;
+﻿using gov.sandia.sld.common.configuration;
+using gov.sandia.sld.common.db;
 using gov.sandia.sld.common.db.changers;
+using gov.sandia.sld.common.db.models;
 using gov.sandia.sld.common.utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
+using System.Linq;
 using Xunit;
 
 namespace UnitTest.database
@@ -347,6 +350,27 @@ namespace UnitTest.database
                             }
                         }
                     }
+                }
+            }
+        }
+
+        [Fact]
+        public void InitializeConfigurationCollectorProperly()
+        {
+            using (FileDeleter fd = new FileDeleter(Extensions.GetTempDBFile()))
+            {
+                Database db = new Database(new Context(fd.Fi));
+                using (SQLiteConnection conn = db.Connection)
+                {
+                    conn.Open();
+                    Initializer init = new Initializer(null);
+                    init.Initialize(db);
+
+                    List<CollectorInfo> collectors = db.GetCollectorsOfType(ECollectorType.Configuration);
+
+                    Assert.NotEmpty(collectors);
+                    Assert.Single(collectors);
+                    Assert.Equal(ECollectorType.Configuration, collectors[0].collectorType);
                 }
             }
         }
