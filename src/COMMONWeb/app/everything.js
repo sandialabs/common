@@ -6,6 +6,8 @@ var __extends = (this && this.__extends) || (function () {
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -1789,7 +1791,7 @@ System.register("charts/chartjs", ["chart.js"], function (exports_22, context_22
                     this.config.setData(dataSets);
                     if (this.chart) {
                         //console.log("Refresh/update " + this.id.toString());
-                        this.chart.update(this.config);
+                        this.chart.update();
                     }
                 };
                 ChartJSChart.prototype.fixAxes = function () {
@@ -5230,6 +5232,7 @@ System.register("directives/deviceinfo.directive", [], function (exports_59, con
                     this.scope = {
                         device: '<',
                         networkChartSettings: '<',
+                        //isOpen: '=?',
                     };
                     this.templateUrl = 'app/views/partials/deviceinfo.partial.html';
                     this.link = function (scope, element, attrs) {
