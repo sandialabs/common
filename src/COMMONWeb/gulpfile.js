@@ -11,7 +11,7 @@ var paths = {
     lib: "./lib/"
 };
 
-gulp.task("copy", function () {
+gulp.task("copy", function (done) {
     var npm = {
         "dygraphs": "dist/**/*.{js,css,map}",
         "angular-animate": "*.{js,css,map}",
@@ -50,8 +50,8 @@ gulp.task("copy", function () {
     //gulp.src(paths.npm + "moment/moment.d.ts")
     //    .pipe(rename("moment-with-locales.d.ts"))
     //    .pipe(gulp.dest(paths.lib + "moment/min"));
+
+    done();
 });
 
-gulp.task('default', [
-    'copy'
-]);
+gulp.task('default', gulp.series('copy'));
