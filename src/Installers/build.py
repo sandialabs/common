@@ -13,7 +13,6 @@ installers = {
 	"common": commonInstaller,
 	"commonpre": commonPrerequisitesInstaller,
 }
-output = "\\\\snl/Collaborative/common/Installers"
 
 def main(argv):
 	if len(argv) < 2:
@@ -47,50 +46,6 @@ def build(arg, version, fullVersion):
 	# call([ai, "/edit", installers[arg], "/SetVersion", fullVersion])
 	call([ai, "/rebuild", installers[arg]])
 	# consolidate(installers[arg])
-	deploy(arg, version)
-
-# Copy the resulting .exe or .msi files to a common directory
-# def consolidate(aip):
-# 	split = aip.split("/");
-# 	if(len(split) < 2):
-# 		return
-
-# 	directory = split[0];
-# 	for root, dirs, files in os.walk(directory):
-# 		# print(root, dirs, files)
-# 		for f in files:
-# 			if f.endswith(".exe") or f.endswith(".msi"):
-# 				fromFile = "./" + root + "/" + f
-				
-# 				toDirectory = "./AllSetupFiles/"
-# 				os.makedirs(toDirectory, exist_ok=True)
-				
-# 				toFile = toDirectory + f
-# 				print("Copying " + fromFile + " to " + toFile)
-# 				shutil.copy2(fromFile, toFile)
-
-def deploy(arg, version):
-	if arg in installers:
-		filename = installers[arg].replace(".aip", ".exe")
-		removeFile = False
-		if version != "":
-			destFile = filename.replace(".exe", "." + version + ".exe")
-			# print ("Copying " + filename + " to " + destFile)
-			shutil.copyfile(filename, destFile)
-			filename = destFile
-			removeFile = True
-		toFile = output + "/" + filename
-		
-		# print ("source: " + sourceFile)
-		# print ("dest: " + destFile)
-		# print ("to: " + toFile)
-
-		print ("Copying " + filename + " to " + toFile)
-		
-		os.makedirs(output, exist_ok=True)
-		shutil.copyfile(filename, toFile)
-		if removeFile:
-			os.remove(filename)
 
 def show_usage():
 	print ("Usage:")
