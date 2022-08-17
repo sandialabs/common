@@ -3,9 +3,9 @@ using System;
 
 namespace gov.sandia.sld.common.db.responders
 {
-    public class COMMONDBSizeResponder : Responder
+    public class COMMONDBSizeResponder : IResponder
     {
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if (request is COMMONDBSizeRequest)
             {

@@ -43,15 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertMessage.cs" />
     <Compile Include="AttributeRequest.cs" />
     <Compile Include="COMMONDBSizeRequest.cs" />
     <Compile Include="DatabaseTypeRequest.cs" />
     <Compile Include="FileInformationRequest.cs" />
     <Compile Include="IPAddressRequest.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="SystemBus.cs" />
     <Compile Include="MonitoredDrivesRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receiver.cs" />
     <Compile Include="Request.cs" />
-    <Compile Include="RequestBus.cs" />
     <Compile Include="Responder.cs" />
     <Compile Include="SMARTFailureRequest.cs" />
     <Compile Include="SystemErrorsInfoRequest.cs" />

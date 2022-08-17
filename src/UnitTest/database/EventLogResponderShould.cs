@@ -23,7 +23,7 @@ namespace UnitTest.database
                 Initializer init = new Initializer(null);
                 init.Initialize(db);
 
-                RequestBus bus = new RequestBus();
+                SystemBus bus = new SystemBus();
                 EventLogResponder responder = new EventLogResponder() { DB = db };
                 bus.Subscribe(responder);
 
@@ -69,7 +69,7 @@ namespace UnitTest.database
                 Initializer init = new Initializer(null);
                 init.Initialize(db);
 
-                RequestBus bus = new RequestBus();
+                SystemBus bus = new SystemBus();
                 EventLogResponder responder = new EventLogResponder() { DB = db };
                 bus.Subscribe(responder);
 

@@ -127,7 +127,7 @@ namespace gov.sandia.sld.common.data
             // of the devices being monitored, and can also provide a subnet to ping, and
             // also any extra addresses to ping.
             IPAddressRequest request = new IPAddressRequest("PingCollector");
-            RequestBus.Instance.MakeRequest(request);
+            SystemBus.Instance.MakeRequest(request);
             if (request.IsHandled == false)
                 return null;
 

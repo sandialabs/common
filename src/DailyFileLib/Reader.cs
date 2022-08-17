@@ -72,7 +72,7 @@ namespace gov.sandia.sld.common.dailyfiles
                 try
                 {
                     FileInformationRequest req = new FileInformationRequest(EFileType.COMMONDailyFile, file.FullName);
-                    RequestBus.Instance.MakeRequest(req);
+                    SystemBus.Instance.MakeRequest(req);
                     if (req.IsHandled)
                     {
                         // Return a report if the ID isn't in the database, or if it has changed since it's been put in the database

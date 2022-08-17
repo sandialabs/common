@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading;
-using System.IO;
-using gov.sandia.sld.common.utilities;
+﻿using gov.sandia.sld.common.utilities;
 using Newtonsoft.Json;
+using System;
+using System.IO;
+using System.Threading;
 
 namespace gov.sandia.sld.common.logging
 {
@@ -17,7 +17,10 @@ namespace gov.sandia.sld.common.logging
     /// </summary>
     public static class LogManager
     {
-        public enum LogLevel { Fatal, Error, Warn, Info, Debug };
+        public enum LogLevel
+        {
+            Fatal, Error, Warn, Info, Debug,
+        };
 
         public class ConfigOptions
         {
@@ -42,7 +45,7 @@ namespace gov.sandia.sld.common.logging
             get { return c_options; }
             internal set
             {
-                lock(c_lock)
+                lock (c_lock)
                     c_options = value;
                 SetOptions();
             }
@@ -53,7 +56,7 @@ namespace gov.sandia.sld.common.logging
             get { return c_options.level; }
             set
             {
-                if(Enum.IsDefined(typeof(LogLevel), value))
+                if (Enum.IsDefined(typeof(LogLevel), value))
                     c_options.level = value;
             }
         }
@@ -177,12 +180,12 @@ namespace gov.sandia.sld.common.logging
 
         /// <summary>
         /// Class for peridocially checking the log configuration file for changes.
-        /// 
+        ///
         /// The XML in the file looks something like this:
         // <log>
         //   <file enabled="true" fullpath="c:\logs\logfile.txt" level="debug"/>
         // </log>
-        /// 
+        ///
         /// </summary>
         private class ConfigChecker
         {
@@ -196,7 +199,7 @@ namespace gov.sandia.sld.common.logging
                 string base_dir = AppDomain.CurrentDomain.BaseDirectory + filename;
 
                 new ApplicationEventLog().LogInformation("Reading logfile configuration from: " + base_dir);
-        
+
                 m_file = new FileInfo(base_dir);
 
                 m_next_check_time = DateTime.MinValue;
@@ -219,7 +222,7 @@ namespace gov.sandia.sld.common.logging
                         {
                             string text = File.ReadAllText(m_file.FullName);
                             ConfigOptions options = JsonConvert.DeserializeObject<ConfigOptions>(text);
-                            if(options != null)
+                            if (options != null)
                                 LogManager.Options = options;
                         }
                         catch (Exception ex)

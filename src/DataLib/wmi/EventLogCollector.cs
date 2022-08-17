@@ -200,7 +200,7 @@ namespace gov.sandia.sld.common.data.wmi
             }
 
             SystemErrorsInfoRequest request = new SystemErrorsInfoRequest(m_machine_name, req_type);
-            RequestBus.Instance.MakeRequest(request);
+            SystemBus.Instance.MakeRequest(request);
             if (request.IsHandled)
                 m_log_data.Assign(request.LogData);
         }
@@ -283,7 +283,7 @@ namespace gov.sandia.sld.common.data.wmi
 
             SystemErrorsUpdateRequest request = new SystemErrorsUpdateRequest(m_machine_name, req_type);
             request.LogData.Assign(m_log_data);
-            RequestBus.Instance.MakeRequest(request);
+            SystemBus.Instance.MakeRequest(request);
 
             // We want to report that we collected data if we got something, even if it wasn't an error record
             return new CollectedData(Context, records.Count > 0, data);

@@ -23,7 +23,7 @@ namespace gov.sandia.sld.common.db.interpreters
 
                 // Don't alert on drives that aren't being monitored
                 MonitoredDrivesRequest request = new MonitoredDrivesRequest(d.Name);
-                RequestBus.Instance.MakeRequest(request);
+                SystemBus.Instance.MakeRequest(request);
 
                 DiskSpaceLowAlert low_level = new DiskSpaceLowAlert();
                 DiskSpaceCriticallyLowAlert critically_low_level = new DiskSpaceCriticallyLowAlert();

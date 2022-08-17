@@ -1,6 +1,7 @@
 ﻿using gov.sandia.sld.common.configuration;
 using gov.sandia.sld.common.data;
 using gov.sandia.sld.common.db.changers;
+using gov.sandia.sld.common.requestresponse;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -11,10 +12,6 @@ namespace gov.sandia.sld.common.db.interpreters
 {
     public abstract class BaseInterpreter
     {
-        protected BaseInterpreter()
-        {
-        }
-
         protected static long GetDeviceID(Data d, SQLiteConnection conn)
         {
             long device_id = -1;
@@ -44,7 +41,7 @@ namespace gov.sandia.sld.common.db.interpreters
         /// the statuses a device can have.</param>
         /// <param name="message">A message regarding the status</param>
         /// <param name="conn">The DB connection to use</param>
-        protected static void SetDeviceStatus(long device_id, EStatusType? type, List<EStatusType> statuses, string message, SQLiteConnection conn)
+        protected void SetDeviceStatus(long device_id, EStatusType? type, List<EStatusType> statuses, string message, SQLiteConnection conn)
         {
             if (type.HasValue)
                 Debug.Assert(statuses.Contains(type.Value));
@@ -105,6 +102,9 @@ namespace gov.sandia.sld.common.db.interpreters
                     inserter.Set("Message", message, false);
                     inserter.Set("IsValid", 1);
                     inserter.Execute();
+
+                    AlertMessage alert = new AlertMessage(device_id, type.Value, alert_level, message);
+                    SystemBus.Instance.SendMessage(alert);
                 }
             }
             // else, no change

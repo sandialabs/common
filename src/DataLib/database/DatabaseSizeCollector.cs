@@ -29,7 +29,7 @@ namespace gov.sandia.sld.common.data.database
             if (IsServer)
             {
                 COMMONDBSizeRequest common_db_request = new COMMONDBSizeRequest();
-                RequestBus.Instance.MakeRequest(common_db_request);
+                SystemBus.Instance.MakeRequest(common_db_request);
                 if (common_db_request.IsHandled)
                     dict.Item1[common_db_request.Filename] = common_db_request.SizeInMB;
             }
@@ -64,7 +64,7 @@ namespace gov.sandia.sld.common.data.database
         protected void GetDBInfo()
         {
             DatabaseTypeRequest request = new DatabaseTypeRequest("Database Size Request", Context.ID.Name);
-            RequestBus.Instance.MakeRequest(request);
+            SystemBus.Instance.MakeRequest(request);
             if (request.IsHandled)
             {
                 DBType = request.DatabaseType;

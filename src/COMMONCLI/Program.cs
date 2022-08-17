@@ -81,7 +81,7 @@ namespace COMMONCLI
                 }
             }
 
-            RequestBus.Instance.Subscribe(new PingResponder(ip_address));
+            SystemBus.Instance.Subscribe(new PingResponder(ip_address));
             //RequestBus.Instance.Subscribe(new SystemErrorsInfoResponder());
 
             Remote r = null;
@@ -310,7 +310,7 @@ namespace COMMONCLI
         }
     }
 
-    class PingResponder : Responder
+    class PingResponder : IResponder
     {
         public string IP { get; private set; }
 
@@ -319,7 +319,7 @@ namespace COMMONCLI
             IP = ip;
         }
 
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if(request is IPAddressRequest)
             {

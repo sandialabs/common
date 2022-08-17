@@ -8,9 +8,9 @@ using gov.sandia.sld.common.db.models;
 
 namespace gov.sandia.sld.common.db.responders
 {
-    public class IPAddressResponder : Responder
+    public class IPAddressResponder : IResponder
     {
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if (request is IPAddressRequest)
             {

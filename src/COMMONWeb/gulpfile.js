@@ -3,10 +3,8 @@
 "use strict";
 
 var gulp = require("gulp");
-var rename = require("gulp-rename");
 
 var paths = {
-    webroot: "./",
     npm: "./node_modules/",
     lib: "./lib/"
 };
@@ -36,6 +34,10 @@ gulp.task("copy", function (done) {
     };
 
     for (var dest in npm) {
+        // dest is the key (i.e. "angular"), npm[dest] is the value (i.e. "*.{js,css,map}")
+        // So the source becomes './node_modules/angular/*.{js,css,map}'
+        // and the destination becomes './lib/angular'
+        // Everything matching the value will get copied from source to destination.
         gulp.src(paths.npm + dest + "/" + npm[dest])
             .pipe(gulp.dest(paths.lib + dest));
     }
@@ -44,12 +46,6 @@ gulp.task("copy", function (done) {
     // so let's do it manually here.
     gulp.src(paths.npm + 'angular-translate/dist/angular-translate-loader-static-files/*.js')
         .pipe(gulp.dest(paths.lib + 'angular-translate'));
-
-    // As a temporary hack, copy the moment.d.ts file into the min
-    // folder as moment-with-locales.d.ts
-    //gulp.src(paths.npm + "moment/moment.d.ts")
-    //    .pipe(rename("moment-with-locales.d.ts"))
-    //    .pipe(gulp.dest(paths.lib + "moment/min"));
 
     done();
 });

@@ -19,7 +19,7 @@ namespace COMMONConfig.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -147,6 +147,33 @@ namespace COMMONConfig.Localization {
         public static string StringAddWorkstation {
             get {
                 return ResourceManager.GetString("StringAddWorkstation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alert email from address.
+        /// </summary>
+        public static string StringAlertEmailFrom {
+            get {
+                return ResourceManager.GetString("StringAlertEmailFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alert email SMTP server.
+        /// </summary>
+        public static string StringAlertEmailSMTP {
+            get {
+                return ResourceManager.GetString("StringAlertEmailSMTP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alert email to address(es).
+        /// </summary>
+        public static string StringAlertEmailTo {
+            get {
+                return ResourceManager.GetString("StringAlertEmailTo", resourceCulture);
             }
         }
         

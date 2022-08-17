@@ -4,11 +4,11 @@ using System.Data.SQLite;
 
 namespace gov.sandia.sld.common.db.responders
 {
-    public class EventLogResponder : Responder
+    public class EventLogResponder : IResponder
     {
         public Database DB { get; set; }
 
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if (request is SystemErrorsInfoRequest == false && request is SystemErrorsUpdateRequest == false)
                 return;

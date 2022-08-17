@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace gov.sandia.sld.common.logging
 {
@@ -94,8 +91,7 @@ namespace gov.sandia.sld.common.logging
 
         protected virtual void Output(string message, string level_message)
         {
-            string output = string.Format("[{0}] {1} {2}: {3}", DateTimeOffset.Now.ToString("o"), level_message, TypeString, message);
-            DoOutput(output);
+            DoOutput($"[{DateTimeOffset.Now.ToString("o")}] {level_message} {TypeString}: {message}");
         }
 
         protected abstract void DoOutput(string output);

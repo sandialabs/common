@@ -95,6 +95,7 @@
     <Compile Include="COMMONService.Designer.cs">
       <DependentUpon>COMMONService.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlertEmailSender.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>

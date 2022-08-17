@@ -68,6 +68,10 @@
     <Compile Include="UPSStatus.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{8540801E-73BB-4337-A1CE-6A93AB6250BA}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UtilitiesLib\UtilitiesLib.csproj">
       <Project>{7c699500-c198-403a-9a0c-52f72a1404c5}</Project>
       <Name>UtilitiesLib</Name>
