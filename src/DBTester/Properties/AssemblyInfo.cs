@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sandia National Laboratories")]
 [assembly: AssemblyProduct("DBTester")]
-[assembly: AssemblyCopyright("Copyright © Sandia National Laboratories 2019")]
+[assembly: AssemblyCopyright("Copyright © Sandia National Laboratories 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -49,5 +49,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.2")]
-[assembly: AssemblyFileVersion("1.5.2")]
+[assembly: AssemblyVersion("1.5.3")]
+[assembly: AssemblyFileVersion("1.5.3")]

@@ -1,0 +1,1255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="12.7.2" version="15.3" Modules="enterprise" RootPath="." Language="en" Id="{ECA81EB2-A343-4920-8EF8-719B77FD451D}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AutorunComponent;MultipleInstancesComponent;MsiJavaComponent;ActSyncAppComponent;ScheduledTasksComponent;GameUxComponent;FirewallExceptionComponent;SharePointSlnComponent;SilverlightSlnComponent;MsiDirectEditorComponent;AppXAppDetailsComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_ARP_SIZE" Value="1500000"/>
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_BackgroundColor" Value="lightblue" MultiBuildValue="DefaultBuild:lightcoral" MsiKey="AI_BackgroundColor"/>
+    <ROW Property="AI_EXTERNALUIUNINSTALLERNAME" MultiBuildValue="DefaultBuild:aiui"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_FrameBtnsColor" Value="powderblue" MultiBuildValue="DefaultBuild:brown" MsiKey="AI_FrameBtnsColor"/>
+    <ROW Property="AI_FrameColor" Value="powderblue" MultiBuildValue="DefaultBuild:brown" MsiKey="AI_FrameColor"/>
+    <ROW Property="AI_ImagesColor" Value="powderblue" MultiBuildValue="DefaultBuild:brown" MsiKey="AI_ImagesColor"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION"/>
+    <ROW Property="AI_PRODUCTNAME_ARP" Value="[|ProductName]"/>
+    <ROW Property="AI_REQUIRED_DOTNET_DISPLAY" MultiBuildValue="DefaultBuild:4.0" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_VERSION" MultiBuildValue="DefaultBuild:4.0.1" ValueLocId="-"/>
+    <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
+    <ROW Property="COUNTRY_CODE" Value="xx"/>
+    <ROW Property="Manufacturer" Value="Sandia National Laboratories"/>
+    <ROW Property="MsiLogging" MultiBuildValue="DefaultBuild:vp"/>
+    <ROW Property="ProductCode" Value="1033:{F5481456-A5F4-444B-A3A1-294525B39BBD} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="COMMON"/>
+    <ROW Property="ProductVersion" Value="1.5.3" Type="32"/>
+    <ROW Property="SITE_NAME" Value=" "/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{65932F30-EAF5-4A6C-8F5F-978A56FF0F13}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003 RTM, Windows XP/2003 SP1, Windows XP SP2 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="CLI_Dir" Directory_Parent="APPDIR" DefaultDir="CLI"/>
+    <ROW Directory="COMMONConfig_Dir" Directory_Parent="APPDIR" DefaultDir="CONFIG~1|Configuration"/>
+    <ROW Directory="COMMON_Dir" Directory_Parent="APPDIR" DefaultDir="Service"/>
+    <ROW Directory="Content_Dir" Directory_Parent="COMMON_Dir" DefaultDir="Content"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="Localization_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="LOCALI~1|Localization"/>
+    <ROW Directory="LogFiles_Dir" Directory_Parent="APPDIR" DefaultDir="LogFiles"/>
+    <ROW Directory="System64Folder" Directory_Parent="TARGETDIR" DefaultDir="SYSTEM~1|System64Folder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="WindowsVolume" Directory_Parent="TARGETDIR" DefaultDir="WINDOW~1|WindowsVolume" IsPseudoRoot="1"/>
+    <ROW Directory="angularUtilspagination_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~8|angularUtils-pagination"/>
+    <ROW Directory="angular_Dir" Directory_Parent="lib_Dir" DefaultDir="angular"/>
+    <ROW Directory="angularanimate_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~9|angular-animate"/>
+    <ROW Directory="angulararia_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGUL~10|angular-aria"/>
+    <ROW Directory="angularbootstrap_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~1|angular-bootstrap"/>
+    <ROW Directory="angularchart.js_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~1.JS|angular-chart.js"/>
+    <ROW Directory="angularcookies_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~2|angular-cookies"/>
+    <ROW Directory="angularjsbootstrap_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGUL~14|angularjs-bootstrap"/>
+    <ROW Directory="angularmaterial_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGUL~11|angular-material"/>
+    <ROW Directory="angularmessages_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~3|angular-messages"/>
+    <ROW Directory="angularresource_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~4|angular-resource"/>
+    <ROW Directory="angularroute_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~5|angular-route"/>
+    <ROW Directory="angulartranslate_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~6|angular-translate"/>
+    <ROW Directory="angulartranslateloaderstaticfiles_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGULA~7|angular-translate-loader-static-files"/>
+    <ROW Directory="angulartreasureoverlayspinner_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGUL~12|angular-treasure-overlay-spinner"/>
+    <ROW Directory="angularuibootstrap_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGUL~15|angular-ui-bootstrap"/>
+    <ROW Directory="angularutilspagination_Dir" Directory_Parent="lib_Dir" DefaultDir="ANGUL~13|angular-utils-pagination"/>
+    <ROW Directory="apexcharts_1_Dir" Directory_Parent="lib_Dir" DefaultDir="APEXCH~1|apexcharts"/>
+    <ROW Directory="apexcharts_Dir" Directory_Parent="charts_Dir" DefaultDir="APEXCH~1|apexcharts"/>
+    <ROW Directory="app_Dir" Directory_Parent="COMMON_Dir" DefaultDir="app"/>
+    <ROW Directory="bootstrap_Dir" Directory_Parent="lib_Dir" DefaultDir="BOOTST~1|bootstrap"/>
+    <ROW Directory="chart.js_Dir" Directory_Parent="lib_Dir" DefaultDir="chart.js"/>
+    <ROW Directory="chartjs_Dir" Directory_Parent="charts_Dir" DefaultDir="chartjs"/>
+    <ROW Directory="charts_Dir" Directory_Parent="app_Dir" DefaultDir="charts"/>
+    <ROW Directory="classes_Dir" Directory_Parent="app_Dir" DefaultDir="classes"/>
+    <ROW Directory="controllers_Dir" Directory_Parent="app_Dir" DefaultDir="CONTRO~1|controllers"/>
+    <ROW Directory="css_Dir" Directory_Parent="bootstrap_Dir" DefaultDir="css"/>
+    <ROW Directory="de_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="de"/>
+    <ROW Directory="de_2_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="de"/>
+    <ROW Directory="de_Dir" Directory_Parent="CLI_Dir" DefaultDir="de"/>
+    <ROW Directory="directives_Dir" Directory_Parent="app_Dir" DefaultDir="DIRECT~1|directives"/>
+    <ROW Directory="disk_Dir" Directory_Parent="app_Dir" DefaultDir="disk"/>
+    <ROW Directory="downloadjs_Dir" Directory_Parent="lib_Dir" DefaultDir="DOWNLO~1|downloadjs"/>
+    <ROW Directory="en_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="en"/>
+    <ROW Directory="enums_Dir" Directory_Parent="app_Dir" DefaultDir="enums"/>
+    <ROW Directory="es_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="es"/>
+    <ROW Directory="es_2_Dir" Directory_Parent="CLI_Dir" DefaultDir="es"/>
+    <ROW Directory="es_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="es"/>
+    <ROW Directory="fi_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="fi"/>
+    <ROW Directory="fi_2_Dir" Directory_Parent="CLI_Dir" DefaultDir="fi"/>
+    <ROW Directory="fi_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="fi"/>
+    <ROW Directory="fonts_Dir" Directory_Parent="bootstrap_Dir" DefaultDir="fonts"/>
+    <ROW Directory="frFR_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="fr-FR"/>
+    <ROW Directory="fr_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="fr"/>
+    <ROW Directory="fr_2_Dir" Directory_Parent="CLI_Dir" DefaultDir="fr"/>
+    <ROW Directory="fr_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="fr"/>
+    <ROW Directory="ja_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="ja"/>
+    <ROW Directory="ja_2_Dir" Directory_Parent="CLI_Dir" DefaultDir="ja"/>
+    <ROW Directory="ja_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="ja"/>
+    <ROW Directory="jquery_Dir" Directory_Parent="lib_Dir" DefaultDir="jquery"/>
+    <ROW Directory="js_Dir" Directory_Parent="bootstrap_Dir" DefaultDir="js"/>
+    <ROW Directory="languages_Dir" Directory_Parent="COMMON_Dir" DefaultDir="LANGUA~1|languages"/>
+    <ROW Directory="lib_Dir" Directory_Parent="COMMON_Dir" DefaultDir="lib"/>
+    <ROW Directory="locale_Dir" Directory_Parent="moment_Dir" DefaultDir="locale"/>
+    <ROW Directory="min_Dir" Directory_Parent="moment_Dir" DefaultDir="min"/>
+    <ROW Directory="mn_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="mn"/>
+    <ROW Directory="moment_Dir" Directory_Parent="lib_Dir" DefaultDir="moment"/>
+    <ROW Directory="partials_Dir" Directory_Parent="views_Dir" DefaultDir="partials"/>
+    <ROW Directory="reports_Dir" Directory_Parent="app_Dir" DefaultDir="reports"/>
+    <ROW Directory="requirejs_Dir" Directory_Parent="lib_Dir" DefaultDir="REQUIR~1|requirejs"/>
+    <ROW Directory="ro_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="ro"/>
+    <ROW Directory="services_Dir" Directory_Parent="app_Dir" DefaultDir="services"/>
+    <ROW Directory="systemjs_Dir" Directory_Parent="lib_Dir" DefaultDir="systemjs"/>
+    <ROW Directory="views_Dir" Directory_Parent="app_Dir" DefaultDir="views"/>
+    <ROW Directory="x64_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="x64"/>
+    <ROW Directory="x64_3_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="x64"/>
+    <ROW Directory="x86_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="x86"/>
+    <ROW Directory="x86_3_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="x86"/>
+    <ROW Directory="zhCN_1_Dir" Directory_Parent="COMMON_Dir" DefaultDir="zh-CN"/>
+    <ROW Directory="zhCN_2_Dir" Directory_Parent="CLI_Dir" DefaultDir="zh-CN"/>
+    <ROW Directory="zhCN_Dir" Directory_Parent="COMMONConfig_Dir" DefaultDir="zh-CN"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_CustomARPName" ComponentId="{64E80B46-E5D5-4DEE-BE9D-85A0A2F36D4A}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_ExePath" ComponentId="{4446BEE4-ABA0-4B56-A759-15C259B199BA}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{5C90CE08-AC7A-47C8-9F60-1731A2D2BBE9}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="COMMON.exe" ComponentId="{CA3D2943-DF20-4784-88F9-587243CADBD1}" Directory_="COMMON_Dir" Attributes="0" KeyPath="COMMON.exe"/>
+    <ROW Component="COMMON.exe_1" ComponentId="{9FA72633-AB2E-4A40-941E-44B1B7619F7E}" Directory_="CLI_Dir" Attributes="0" KeyPath="COMMON.exe_1"/>
+    <ROW Component="COMMONCLI.vshost.exe.manifest" ComponentId="{F02A121A-738B-4B2C-9A92-888FB3ADBF30}" Directory_="CLI_Dir" Attributes="0" KeyPath="common_log_config.json" Type="0"/>
+    <ROW Component="COMMONConfig.exe" ComponentId="{5B37BAA7-65C0-4BC2-B933-53739A4DBD9F}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="COMMONConfig.exe"/>
+    <ROW Component="COMMONConfig.exe.config" ComponentId="{36C38227-002C-4DE6-963A-1C8FC74E22CA}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="COMMONConfig.exe.config" Type="0"/>
+    <ROW Component="COMMONConfig.resources.dll" ComponentId="{FB92D9BC-7354-41DC-AA08-FB23BD496BD1}" Directory_="en_Dir" Attributes="0" KeyPath="COMMONConfig.resources.dll"/>
+    <ROW Component="COMMONConfig.resources.dll_1" ComponentId="{C5176AA0-1B72-4961-9A5F-A2556953C366}" Directory_="es_Dir" Attributes="0" KeyPath="COMMONConfig.resources.dll_1"/>
+    <ROW Component="COMMONConfig.resources.dll_2" ComponentId="{722A4422-8880-4D92-9F47-4D48EFB1449C}" Directory_="frFR_Dir" Attributes="0" KeyPath="COMMONConfig.resources.dll_2"/>
+    <ROW Component="COMMONConfig.resources.dll_3" ComponentId="{883943CC-FAA8-4321-B97D-70E5810D9503}" Directory_="mn_Dir" Attributes="0" KeyPath="COMMONConfig.resources.dll_3"/>
+    <ROW Component="COMMONConfig.resources.dll_4" ComponentId="{95945E38-0407-40D4-BC7A-D7786A8435F2}" Directory_="ro_Dir" Attributes="0" KeyPath="COMMONConfig.resources.dll_4"/>
+    <ROW Component="COMMONUserManual_v1.4.pdf" ComponentId="{B9B4EB34-3490-4FB3-B6D5-80D363BB01FA}" Directory_="Content_Dir" Attributes="0" KeyPath="GMSfinal_logo.jpg" Type="0"/>
+    <ROW Component="COMMONWeb.dll" ComponentId="{70E25DCF-3744-40FA-BA96-F296550E2425}" Directory_="COMMON_Dir" Attributes="0" KeyPath="COMMONWeb.dll"/>
+    <ROW Component="CSVLib.dll" ComponentId="{CA070757-3BB5-4CCC-B6D9-B9B8CF1F8271}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="CSVLib.dll"/>
+    <ROW Component="Chart.js" ComponentId="{98D1785F-169D-45FA-9EA2-9CB02BE9BB01}" Directory_="chart.js_Dir" Attributes="0" KeyPath="Chart.js_1" Type="0"/>
+    <ROW Component="Configuration.dll" ComponentId="{2D43DC1B-CECA-494A-994E-15BB72701A2C}" Directory_="CLI_Dir" Attributes="0" KeyPath="Configuration.dll"/>
+    <ROW Component="Configuration.dll_1" ComponentId="{5194AD94-47F0-422E-8096-E2E62A8B72C6}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Configuration.dll_1"/>
+    <ROW Component="Configuration.dll_2" ComponentId="{C4284886-BAAA-465F-B63B-F3810315C04A}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Configuration.dll_2"/>
+    <ROW Component="ControlzEx.dll" ComponentId="{D67ADEE8-207A-446B-A54F-2111AF688748}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="ControlzEx.dll"/>
+    <ROW Component="DailyFileLib.dll" ComponentId="{5F641D83-4912-44B6-9A9F-316708DF7836}" Directory_="COMMON_Dir" Attributes="0" KeyPath="DailyFileLib.dll"/>
+    <ROW Component="Data.dll" ComponentId="{B361564F-4548-4959-9B70-2175BCC63C07}" Directory_="CLI_Dir" Attributes="0" KeyPath="Data.dll"/>
+    <ROW Component="Data.dll_1" ComponentId="{1F2A3A78-254C-4687-9EAF-08EEDC2FB53B}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Data.dll_1"/>
+    <ROW Component="Data.dll_2" ComponentId="{C9FD4040-5C7B-41FE-A561-2CE663CCDDCD}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Data.dll_2"/>
+    <ROW Component="Database.dll_1" ComponentId="{D9B87FD4-D624-4763-8F00-F73D19053010}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Database.dll_1"/>
+    <ROW Component="Database.dll_2" ComponentId="{94DE4034-6097-4B35-94A7-369830F67362}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Database.dll_2"/>
+    <ROW Component="DotNetZip.dll" ComponentId="{CDB9C415-5528-465D-A9AF-2DE43B3ADA61}" Directory_="COMMON_Dir" Attributes="0" KeyPath="DotNetZip.dll"/>
+    <ROW Component="Dragablz.dll" ComponentId="{2401D5BA-1670-4A6D-9F80-BFBD2CCC7BC2}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Dragablz.dll"/>
+    <ROW Component="EntityFramework.SqlServer.dll_1" ComponentId="{57D277C8-7D5E-490C-92CA-A9BC556F22CF}" Directory_="COMMON_Dir" Attributes="0" KeyPath="EntityFramework.SqlServer.dll_1"/>
+    <ROW Component="EntityFramework.dll_1" ComponentId="{8EC364DB-9B5E-40AA-A9B8-7DA0D54D5B5D}" Directory_="COMMON_Dir" Attributes="0" KeyPath="EntityFramework.dll_1"/>
+    <ROW Component="GalaSoft.MvvmLight.Extras.dll" ComponentId="{E783F97D-EBBF-411E-AFCC-F4DE12F5B9A4}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="GalaSoft.MvvmLight.Extras.dll"/>
+    <ROW Component="GalaSoft.MvvmLight.dll" ComponentId="{E6C6C979-3DE0-42A1-8A70-FD05F47A2110}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="GalaSoft.MvvmLight.dll"/>
+    <ROW Component="LogFiles" ComponentId="{474366D8-FEAE-4F5C-A4AB-BA0FF226278B}" Directory_="LogFiles_Dir" Attributes="0"/>
+    <ROW Component="Logging.dll" ComponentId="{7D2060BC-7AD1-48CD-9D50-2DCD2F1496B3}" Directory_="CLI_Dir" Attributes="0" KeyPath="Logging.dll"/>
+    <ROW Component="Logging.dll_1" ComponentId="{C0BEDA2F-6C8D-4614-858A-11128E8F7149}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Logging.dll_1"/>
+    <ROW Component="Logging.dll_2" ComponentId="{7C104DA9-28B7-49AA-84E5-069177434353}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Logging.dll_2"/>
+    <ROW Component="MahApps.Metro.dll" ComponentId="{3D781B35-9138-44F8-AFB4-5781D6855D32}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="MahApps.Metro.dll"/>
+    <ROW Component="Microsoft.Practices.ServiceLocation.dll" ComponentId="{434ED28B-0027-470B-8D1C-13262B1E6736}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Microsoft.Practices.ServiceLocation.dll"/>
+    <ROW Component="Mono.Security.dll" ComponentId="{95DFF3E1-6C9E-48B3-A9D4-C7D16F92AC2C}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Mono.Security.dll"/>
+    <ROW Component="Mono.Security.dll_1" ComponentId="{0D63E5C5-0A18-44C9-ACFB-A5BBAE228064}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Mono.Security.dll_1"/>
+    <ROW Component="Mono.Security.dll_2" ComponentId="{71D3E9E2-1F77-45EF-9847-0DB7A18FCF50}" Directory_="CLI_Dir" Attributes="0" KeyPath="Mono.Security.dll_2"/>
+    <ROW Component="Nancy.Hosting.Self.dll" ComponentId="{82435275-6140-4873-8374-474B001B02EB}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Nancy.Hosting.Self.dll"/>
+    <ROW Component="Nancy.Serialization.JsonNet.dll" ComponentId="{E2B58037-5C18-42FC-B18B-2391F645EDA8}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Nancy.Serialization.JsonNet.dll"/>
+    <ROW Component="Nancy.dll" ComponentId="{5E68CAB7-295D-488E-9E4D-5AFF04FCD967}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Nancy.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{3A566673-21EF-4E8C-A132-7C4B884D60B6}" Directory_="CLI_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="Newtonsoft.Json.dll_1" ComponentId="{8576BB2C-833F-47E9-A566-F2267D05D528}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll_1"/>
+    <ROW Component="Newtonsoft.Json.dll_2" ComponentId="{DCF9AC36-7D81-4519-92D2-F863A0BAD34F}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll_2"/>
+    <ROW Component="Npgsql.dll" ComponentId="{6F6B9A19-DEC5-45B6-B105-4F3378FF008D}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Npgsql.dll"/>
+    <ROW Component="Npgsql.dll_1" ComponentId="{2CBCF0B0-1AFB-44AB-BBAD-581ACFA4816D}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Npgsql.dll_1"/>
+    <ROW Component="Npgsql.dll_2" ComponentId="{187B7214-FE05-4EC8-846E-78EB772A30FF}" Directory_="CLI_Dir" Attributes="0" KeyPath="Npgsql.dll_2"/>
+    <ROW Component="Npgsql.resources.dll" ComponentId="{544E482B-3FF0-452A-881A-7FDD165C7C52}" Directory_="es_Dir" Attributes="0" KeyPath="Npgsql.resources.dll"/>
+    <ROW Component="Npgsql.resources.dll_1" ComponentId="{CA22C9F6-3D54-4024-8D98-7DC8FBA07E28}" Directory_="fi_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_1"/>
+    <ROW Component="Npgsql.resources.dll_10" ComponentId="{050CA3DD-1E0F-462A-9DA3-05286099187B}" Directory_="fi_1_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_10"/>
+    <ROW Component="Npgsql.resources.dll_11" ComponentId="{30A376A5-3A79-4545-B3F5-3FB8CFFF1F75}" Directory_="fr_1_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_11"/>
+    <ROW Component="Npgsql.resources.dll_12" ComponentId="{828D8E2A-1EE1-4511-B55D-B5733ABC9D75}" Directory_="de_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_12"/>
+    <ROW Component="Npgsql.resources.dll_13" ComponentId="{13C52326-5BC1-43BD-87AB-7D39E6460F6D}" Directory_="es_2_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_13"/>
+    <ROW Component="Npgsql.resources.dll_14" ComponentId="{F6506970-B4C1-42A0-8D6D-9F8FAB21E5DE}" Directory_="fi_2_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_14"/>
+    <ROW Component="Npgsql.resources.dll_15" ComponentId="{8EFDD1DC-5F0C-4FB4-8AA2-DAFF12EC055F}" Directory_="fr_2_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_15"/>
+    <ROW Component="Npgsql.resources.dll_16" ComponentId="{D579298C-0767-4E81-99B0-D86C0A539283}" Directory_="ja_2_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_16"/>
+    <ROW Component="Npgsql.resources.dll_17" ComponentId="{0B3DA017-8C48-4D0C-9BE1-55031E4C7045}" Directory_="zhCN_2_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_17"/>
+    <ROW Component="Npgsql.resources.dll_2" ComponentId="{03BA7FB5-E3B1-47A0-866D-9E6CC2B367BD}" Directory_="fr_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_2"/>
+    <ROW Component="Npgsql.resources.dll_3" ComponentId="{47291CAC-CCAC-4506-B9C8-D6713FB2ECB8}" Directory_="ja_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_3"/>
+    <ROW Component="Npgsql.resources.dll_4" ComponentId="{9A2F6418-42D5-4D90-B171-A4B6F3CEC23D}" Directory_="de_2_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_4"/>
+    <ROW Component="Npgsql.resources.dll_5" ComponentId="{127CAA87-E752-4F89-B606-155241BB658B}" Directory_="zhCN_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_5"/>
+    <ROW Component="Npgsql.resources.dll_6" ComponentId="{A5FE5AB0-3C6F-4096-AA79-021A2023738A}" Directory_="de_1_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_6"/>
+    <ROW Component="Npgsql.resources.dll_7" ComponentId="{054C5A38-798C-4EEC-A4D8-4D0886323225}" Directory_="ja_1_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_7"/>
+    <ROW Component="Npgsql.resources.dll_8" ComponentId="{56101699-4467-4829-8531-AB9063BB8D66}" Directory_="zhCN_1_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_8"/>
+    <ROW Component="Npgsql.resources.dll_9" ComponentId="{344D203F-DB0F-43B7-9105-7BDC891B74E0}" Directory_="es_1_Dir" Attributes="0" KeyPath="Npgsql.resources.dll_9"/>
+    <ROW Component="Oracle.ManagedDataAccess.dll" ComponentId="{C0A763E0-69AB-4F22-8BDB-B05B9494DF3B}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Oracle.ManagedDataAccess.dll"/>
+    <ROW Component="Oracle.ManagedDataAccess.dll_1" ComponentId="{19793ED6-DA3C-4C77-9D22-A2229A6C9EAA}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Oracle.ManagedDataAccess.dll_1"/>
+    <ROW Component="Oracle.ManagedDataAccess.dll_2" ComponentId="{F4E898D2-1452-4043-8D10-3849B9A46056}" Directory_="CLI_Dir" Attributes="0" KeyPath="Oracle.ManagedDataAccess.dll_2"/>
+    <ROW Component="ProductInformation" ComponentId="{6D7DA2A4-BD70-4DA1-A428-A4322E1CA987}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="RequestResponseLib.dll" ComponentId="{F4F4FF7D-1664-4B25-869C-429936E8D6F0}" Directory_="CLI_Dir" Attributes="0" KeyPath="RequestResponseLib.dll"/>
+    <ROW Component="RequestResponseLib.dll_1" ComponentId="{48BC56BD-A6F8-48B1-8C4E-B6C388C02993}" Directory_="COMMON_Dir" Attributes="0" KeyPath="RequestResponseLib.dll_1"/>
+    <ROW Component="RequestResponseLib.dll_2" ComponentId="{64172531-9B8A-43DE-B949-E637EE7D2CA0}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="RequestResponseLib.dll_2"/>
+    <ROW Component="Resources.Designer.cs" ComponentId="{AA424E23-17D3-46EC-BE26-116194E2B04E}" Directory_="Localization_Dir" Attributes="0" KeyPath="Resources.Designer.cs" Type="0"/>
+    <ROW Component="SQLite.Interop.dll_2" ComponentId="{4A27CBB0-1100-412A-A3A7-BC57AC2E42C9}" Directory_="x64_1_Dir" Attributes="256" KeyPath="SQLite.Interop.dll_2"/>
+    <ROW Component="SQLite.Interop.dll_3" ComponentId="{15CD7160-C4D8-438D-A1C3-B633FB7F6069}" Directory_="x86_1_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_3"/>
+    <ROW Component="SQLite.Interop.dll_6" ComponentId="{5E352305-F7FE-4B10-9C34-1E0B6A732A10}" Directory_="x64_3_Dir" Attributes="256" KeyPath="SQLite.Interop.dll_6"/>
+    <ROW Component="SQLite.Interop.dll_7" ComponentId="{73834E15-CC84-43B9-8039-9DBA32B554A8}" Directory_="x86_3_Dir" Attributes="0" KeyPath="SQLite.Interop.dll_7"/>
+    <ROW Component="System.Data.SQLite.EF6.dll" ComponentId="{CA0170E0-C609-4398-8075-2E269C0210CC}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="System.Data.SQLite.EF6.dll"/>
+    <ROW Component="System.Data.SQLite.EF6.dll_1" ComponentId="{59205949-75F7-4507-B10A-BB3D9E17BC4E}" Directory_="COMMON_Dir" Attributes="0" KeyPath="System.Data.SQLite.EF6.dll_1"/>
+    <ROW Component="System.Data.SQLite.Linq.dll_1" ComponentId="{88A0B121-2A28-44CE-9275-C7A94F39411E}" Directory_="COMMON_Dir" Attributes="0" KeyPath="System.Data.SQLite.Linq.dll_1"/>
+    <ROW Component="System.Data.SQLite.Linq.dll_2" ComponentId="{A5B3A076-82D4-47C0-BD9D-1C16BF70C2B2}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="System.Data.SQLite.Linq.dll_2"/>
+    <ROW Component="System.Data.SQLite.dll_1" ComponentId="{0C9B3F1D-DC89-4B8F-A550-3FD82D95EC64}" Directory_="COMMON_Dir" Attributes="0" KeyPath="System.Data.SQLite.dll_1"/>
+    <ROW Component="System.Data.SQLite.dll_2" ComponentId="{708E0003-11AF-4CC7-8206-04773C6B0983}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="System.Data.SQLite.dll_2"/>
+    <ROW Component="System.Windows.Interactivity.dll" ComponentId="{B73ED97C-C2A3-4B9D-9F2B-B754FC671295}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="System.Windows.Interactivity.dll"/>
+    <ROW Component="Utilities.dll" ComponentId="{DD72AF3C-2A85-4CFB-955B-2104F020517A}" Directory_="CLI_Dir" Attributes="0" KeyPath="Utilities.dll"/>
+    <ROW Component="Utilities.dll_1" ComponentId="{A26ACF01-DE28-4D14-8FF3-2B9B01F31D73}" Directory_="COMMON_Dir" Attributes="0" KeyPath="Utilities.dll_1"/>
+    <ROW Component="Utilities.dll_2" ComponentId="{8B28B311-C299-427B-A95B-6B5B389A3B1B}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="Utilities.dll_2"/>
+    <ROW Component="WPFLocalizeExtension.dll" ComponentId="{1404BB70-2CAD-4603-9A57-1793BBC0CC4E}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="WPFLocalizeExtension.dll"/>
+    <ROW Component="XAMLMarkupExtensions.dll" ComponentId="{F1C66FE8-B988-4522-A094-A016DF8500E4}" Directory_="COMMONConfig_Dir" Attributes="0" KeyPath="XAMLMarkupExtensions.dll"/>
+    <ROW Component="about.controller.js" ComponentId="{A24CBABA-2C47-4A1F-86DD-E988D3E8D8E0}" Directory_="controllers_Dir" Attributes="0" KeyPath="about.controller.ts" Type="0"/>
+    <ROW Component="about.html" ComponentId="{6B8E713C-99E0-49DA-B1CF-3271F0AA6CD2}" Directory_="views_Dir" Attributes="0" KeyPath="about.html" Type="0"/>
+    <ROW Component="af.js" ComponentId="{A565A83A-8DE6-4B4F-B53B-E8EAD898E98E}" Directory_="locale_Dir" Attributes="0" KeyPath="af.js" Type="0"/>
+    <ROW Component="alerts.partial.html" ComponentId="{95C9D900-8C94-431D-92FE-367D6C92ADE6}" Directory_="partials_Dir" Attributes="0" KeyPath="alerts.partial.html" Type="0"/>
+    <ROW Component="angular.min.js" ComponentId="{BE4BD9A0-1F07-4E7B-8784-A0154DEBC9C1}" Directory_="angular_Dir" Attributes="0" KeyPath="angular.min.js" Type="0"/>
+    <ROW Component="angularUtilspagination" ComponentId="{65F742B4-9089-4FCF-8DB5-0BF9B19385AD}" Directory_="angularUtilspagination_Dir" Attributes="0"/>
+    <ROW Component="angularanimate.js" ComponentId="{9E0F2B0C-2B21-4487-8C27-2A2D53934EB0}" Directory_="angularanimate_Dir" Attributes="0" KeyPath="angularanimate.js" Type="0"/>
+    <ROW Component="angulararia.js" ComponentId="{A9B84C2C-024B-4E17-915D-8BD8CE318886}" Directory_="angulararia_Dir" Attributes="0" KeyPath="angulararia.js" Type="0"/>
+    <ROW Component="angularbootstrap" ComponentId="{0A6F4976-11CC-498D-AB19-6E69F988DFA7}" Directory_="angularbootstrap_Dir" Attributes="0"/>
+    <ROW Component="angularchart.js_1" ComponentId="{AF0E842D-9CB1-42F1-9A15-6DCE3989BEC0}" Directory_="angularchart.js_Dir" Attributes="0" KeyPath="angularchart.js" Type="0"/>
+    <ROW Component="angularcookies.min.js" ComponentId="{F3258967-B6C5-439E-B3D3-AAADC02A2D72}" Directory_="angularcookies_Dir" Attributes="0" KeyPath="angularcookies.min.js" Type="0"/>
+    <ROW Component="angularjsbootstrap.js" ComponentId="{CCD075E0-F0DE-436E-85E1-C20936267412}" Directory_="angularjsbootstrap_Dir" Attributes="0" KeyPath="angularjsbootstrap.js" Type="0"/>
+    <ROW Component="angularmaterial.css" ComponentId="{22D63A9B-0417-42A9-B278-07287BD11D25}" Directory_="angularmaterial_Dir" Attributes="0" KeyPath="angularmaterial.css" Type="0"/>
+    <ROW Component="angularmessages.min.js" ComponentId="{FA012C21-C28B-4BE3-B04B-CDF20B34B4EE}" Directory_="angularmessages_Dir" Attributes="0" KeyPath="angularmessages.min.js" Type="0"/>
+    <ROW Component="angularresource.min.js" ComponentId="{08FB7E52-6D17-4ADC-B2A9-BC8DD2A0253F}" Directory_="angularresource_Dir" Attributes="0" KeyPath="angularresource.min.js" Type="0"/>
+    <ROW Component="angularroute.min.js" ComponentId="{90304A91-AB93-47F4-87E2-010044578FBF}" Directory_="angularroute_Dir" Attributes="0" KeyPath="angularroute.min.js" Type="0"/>
+    <ROW Component="angulartranslate.min.js" ComponentId="{5F062AB4-0E74-4828-B240-B64BAE3AE340}" Directory_="angulartranslate_Dir" Attributes="0" KeyPath="angulartranslate.min.js" Type="0"/>
+    <ROW Component="angulartranslateloaderstaticfiles.min.js" ComponentId="{41F337B9-2F06-4D4E-AE7B-39E3FA33AF9E}" Directory_="angulartranslateloaderstaticfiles_Dir" Attributes="0" KeyPath="angulartranslateloaderstaticfiles.min.js" Type="0"/>
+    <ROW Component="apexcharts.js" ComponentId="{927A162F-75F2-431C-8E7C-2810418D26B3}" Directory_="apexcharts_1_Dir" Attributes="0" KeyPath="apexcharts.js" Type="0"/>
+    <ROW Component="apexcharts.ts" ComponentId="{F354CDBE-C480-4D92-B08C-880E56331647}" Directory_="apexcharts_Dir" Attributes="0" KeyPath="apexcharts.ts" Type="0"/>
+    <ROW Component="app.config.js" ComponentId="{BB806C4F-24C8-4577-A9B4-A6662A0CDF43}" Directory_="app_Dir" Attributes="0" KeyPath="app.config.ts" Type="0"/>
+    <ROW Component="applications.js" ComponentId="{D0FFBF98-1758-438B-B85D-D90A8A8836E1}" Directory_="classes_Dir" Attributes="0" KeyPath="applications.ts" Type="0"/>
+    <ROW Component="bootstrap.min.js" ComponentId="{4DCDF9B8-DCF6-4DE7-92EE-37C3DC2708A2}" Directory_="js_Dir" Attributes="0" KeyPath="bootstrap.min.js" Type="0"/>
+    <ROW Component="bootstraptheme.min.css" ComponentId="{B6E86D46-DDFC-49D3-A9C2-3C8CD563FA65}" Directory_="css_Dir" Attributes="0" KeyPath="bootstraptheme.min.css" Type="0"/>
+    <ROW Component="casload.partial.html" ComponentId="{F3BD3BA6-2177-4142-A1B7-555A0A68D3B2}" Directory_="reports_Dir" Attributes="0" KeyPath="casload.partial.html" Type="0"/>
+    <ROW Component="chart.js" ComponentId="{4EB5DE1E-9BD0-4CDA-B7E7-1F6484448B8F}" Directory_="charts_Dir" Attributes="0" KeyPath="graph.directive.ts" Type="0"/>
+    <ROW Component="chartjs.ts" ComponentId="{795EE465-5459-4F68-84F4-548AFA442FC3}" Directory_="chartjs_Dir" Attributes="0" KeyPath="chartjs.ts_1" Type="0"/>
+    <ROW Component="collectortype.enum.js" ComponentId="{8656EA50-5060-4A5B-9A63-C3CC0628BB16}" Directory_="enums_Dir" Attributes="0" KeyPath="collectortype.enum.ts" Type="0"/>
+    <ROW Component="common_log_config.json" ComponentId="{A3A76B40-456F-4223-96EA-6BF86731F9A0}" Directory_="COMMON_Dir" Attributes="0" KeyPath="COMMON.exe.config" Type="0"/>
+    <ROW Component="core.js" ComponentId="{96CF292E-78B0-41BF-89D5-8C39ECADCDDE}" Directory_="jquery_Dir" Attributes="0" KeyPath="jquery.min.js" Type="0"/>
+    <ROW Component="data.service.js" ComponentId="{C4B51A4E-5829-4FD0-AF94-C36EA1658AE3}" Directory_="services_Dir" Attributes="0" KeyPath="configuration.service.ts" Type="0"/>
+    <ROW Component="dirPagination.js_1" ComponentId="{5012A3EB-7A04-4559-BE0C-0180BBA84B5F}" Directory_="angularutilspagination_Dir" Attributes="0" KeyPath="dirPagination.js_1" Type="0"/>
+    <ROW Component="disk.js" ComponentId="{2D35A79B-C6FE-46EE-9974-D430D9CB8824}" Directory_="disk_Dir" Attributes="0" KeyPath="disk.partial.html_1" Type="0"/>
+    <ROW Component="download.min.js" ComponentId="{C540E09A-CC4C-4183-9E88-50271B806C56}" Directory_="downloadjs_Dir" Attributes="0" KeyPath="download.min.js" Type="0"/>
+    <ROW Component="en.json" ComponentId="{82877246-45E6-4023-95D4-4179327B03F5}" Directory_="languages_Dir" Attributes="0" KeyPath="en.json" Type="0"/>
+    <ROW Component="glyphiconshalflingsregular.svg" ComponentId="{6141815A-47E3-43E2-B9CA-AF7641A99E69}" Directory_="fonts_Dir" Attributes="0" KeyPath="glyphiconshalflingsregular.svg" Type="0"/>
+    <ROW Component="moment.js" ComponentId="{4E988FFD-DD32-460F-9336-892604F4D4D7}" Directory_="moment_Dir" Attributes="0" KeyPath="moment.js" Type="0"/>
+    <ROW Component="momentwithlocales.min.js" ComponentId="{1269F61A-35C5-49D3-8163-F809DD6E8745}" Directory_="min_Dir" Attributes="0" KeyPath="moment.min.js" Type="0"/>
+    <ROW Component="ping.directive.js" ComponentId="{0BA84E35-CDEF-48CA-A20A-53B5322A00DD}" Directory_="directives_Dir" Attributes="0" KeyPath="deviceinfo.directive.ts" Type="0"/>
+    <ROW Component="requirejs" ComponentId="{8AF1C183-E9A9-45C6-B316-47673C03567C}" Directory_="requirejs_Dir" Attributes="0"/>
+    <ROW Component="system.js" ComponentId="{27C80D33-2568-4C76-9D6A-AB0AFD9BC6D8}" Directory_="systemjs_Dir" Attributes="0" KeyPath="system.js" Type="0"/>
+    <ROW Component="treasureoverlayspinner.min.css" ComponentId="{7F197CB6-EF88-4213-B0E5-251ABD47A52D}" Directory_="angulartreasureoverlayspinner_Dir" Attributes="0" KeyPath="treasureoverlayspinner.min.css" Type="0"/>
+    <ROW Component="uibootstrapcsp.css" ComponentId="{F30F1BC2-B6A3-4360-9AB0-456FA72FA236}" Directory_="angularuibootstrap_Dir" Attributes="0" KeyPath="uibootstrapcsp.css" Type="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="AI32BitFiles" Title="32-bit" Description="32-bit Executables and Libraries" Display="5" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName APPDIR COMMON.exe COMMONConfig.exe Configuration.dll_1 Configuration.dll_2 Data.dll_1 Data.dll_2 Database.dll_1 Database.dll_2 Logging.dll_1 Logging.dll_2 Newtonsoft.Json.dll_1 Newtonsoft.Json.dll_2 System.Data.SQLite.Linq.dll_1 System.Data.SQLite.dll_1 System.Data.SQLite.dll_2 Utilities.dll_1 Utilities.dll_2"/>
+    <ROW Feature="AI64BitFiles" Title="64-bit" Description="64-bit Executables and Libraries" Display="3" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName APPDIR"/>
+    <ROW Feature="AIOtherFiles" Title="Common" Description="Shared Resource and Regular Files" Display="7" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName APPDIR"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="AI_CustomARPName AI_ExePath APPDIR COMMON.exe_1 COMMONCLI.vshost.exe.manifest COMMONConfig.exe.config COMMONConfig.resources.dll COMMONConfig.resources.dll_1 COMMONConfig.resources.dll_2 COMMONConfig.resources.dll_3 COMMONConfig.resources.dll_4 COMMONUserManual_v1.4.pdf COMMONWeb.dll CSVLib.dll Chart.js Configuration.dll ControlzEx.dll DailyFileLib.dll Data.dll DotNetZip.dll Dragablz.dll EntityFramework.SqlServer.dll_1 EntityFramework.dll_1 GalaSoft.MvvmLight.Extras.dll GalaSoft.MvvmLight.dll LogFiles Logging.dll MahApps.Metro.dll Microsoft.Practices.ServiceLocation.dll Mono.Security.dll Mono.Security.dll_1 Mono.Security.dll_2 Nancy.Hosting.Self.dll Nancy.Serialization.JsonNet.dll Nancy.dll Newtonsoft.Json.dll Npgsql.dll Npgsql.dll_1 Npgsql.dll_2 Npgsql.resources.dll Npgsql.resources.dll_1 Npgsql.resources.dll_10 Npgsql.resources.dll_11 Npgsql.resources.dll_12 Npgsql.resources.dll_13 Npgsql.resources.dll_14 Npgsql.resources.dll_15 Npgsql.resources.dll_16 Npgsql.resources.dll_17 Npgsql.resources.dll_2 Npgsql.resources.dll_3 Npgsql.resources.dll_4 Npgsql.resources.dll_5 Npgsql.resources.dll_6 Npgsql.resources.dll_7 Npgsql.resources.dll_8 Npgsql.resources.dll_9 Oracle.ManagedDataAccess.dll Oracle.ManagedDataAccess.dll_1 Oracle.ManagedDataAccess.dll_2 ProductInformation RequestResponseLib.dll RequestResponseLib.dll_1 RequestResponseLib.dll_2 Resources.Designer.cs SQLite.Interop.dll_2 SQLite.Interop.dll_3 SQLite.Interop.dll_6 SQLite.Interop.dll_7 System.Data.SQLite.EF6.dll System.Data.SQLite.EF6.dll_1 System.Data.SQLite.Linq.dll_2 System.Windows.Interactivity.dll Utilities.dll WPFLocalizeExtension.dll XAMLMarkupExtensions.dll about.controller.js about.html af.js alerts.partial.html angular.min.js angularUtilspagination angularanimate.js angulararia.js angularbootstrap angularchart.js_1 angularcookies.min.js angularjsbootstrap.js angularmaterial.css angularmessages.min.js angularresource.min.js angularroute.min.js angulartranslate.min.js angulartranslateloaderstaticfiles.min.js apexcharts.js apexcharts.ts app.config.js applications.js bootstrap.min.js bootstraptheme.min.css casload.partial.html chart.js chartjs.ts collectortype.enum.js common_log_config.json core.js data.service.js dirPagination.js_1 disk.js download.min.js en.json glyphiconshalflingsregular.svg moment.js momentwithlocales.min.js ping.directive.js requirejs system.js treasureoverlayspinner.min.css uibootstrapcsp.css"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="COMMON.exe" Component_="COMMON.exe" FileName="COMMON.exe" Attributes="0" SourcePath="..\COMMON\bin\Release\COMMON.exe" SelfReg="false" NextFile="Configuration.dll_1" DigSign="true"/>
+    <ROW File="COMMON.exe.config" Component_="common_log_config.json" FileName="COMMON~1.CON|COMMON.exe.config" Attributes="0" SourcePath="..\COMMON\bin\Release\COMMON.exe.config" SelfReg="false" NextFile="COMMONConfig.exe.config"/>
+    <ROW File="COMMON.exe_1" Component_="COMMON.exe_1" FileName="COMMON.exe" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\COMMON.exe" SelfReg="false" NextFile="datablock.directive.ts" DigSign="true"/>
+    <ROW File="COMMONConfig.exe" Component_="COMMONConfig.exe" FileName="COMMON~1.EXE|COMMONConfig.exe" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\COMMONConfig.exe" SelfReg="false" NextFile="Configuration.dll_2" DigSign="true"/>
+    <ROW File="COMMONConfig.exe.config" Component_="COMMONConfig.exe.config" FileName="COMMON~1.CON|COMMONConfig.exe.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\COMMONConfig.exe.config" SelfReg="false" NextFile="CSVLib.dll"/>
+    <ROW File="COMMONConfig.resources.dll" Component_="COMMONConfig.resources.dll" FileName="COMMON~1.DLL|COMMONConfig.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\en\COMMONConfig.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll"/>
+    <ROW File="COMMONConfig.resources.dll_1" Component_="COMMONConfig.resources.dll_1" FileName="COMMON~1.DLL|COMMONConfig.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\es\COMMONConfig.resources.dll" SelfReg="false" NextFile="COMMONConfig.resources.dll_2"/>
+    <ROW File="COMMONConfig.resources.dll_2" Component_="COMMONConfig.resources.dll_2" FileName="COMMON~1.DLL|COMMONConfig.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\fr-FR\COMMONConfig.resources.dll" SelfReg="false" NextFile="Resources.Designer.cs"/>
+    <ROW File="COMMONConfig.resources.dll_3" Component_="COMMONConfig.resources.dll_3" FileName="COMMON~1.DLL|COMMONConfig.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\mn\COMMONConfig.resources.dll" SelfReg="false" NextFile="COMMONConfig.resources.dll_4"/>
+    <ROW File="COMMONConfig.resources.dll_4" Component_="COMMONConfig.resources.dll_4" FileName="COMMON~1.DLL|COMMONConfig.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\ro\COMMONConfig.resources.dll" SelfReg="false" NextFile="applications.ts"/>
+    <ROW File="COMMONUserManual_v1.5.pdf" Component_="COMMONUserManual_v1.4.pdf" FileName="COMMON~2.PDF|COMMONUserManual_v1.5.pdf" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\COMMONUserManual_v1.5.pdf" SelfReg="false" NextFile="treasureoverlayspinner.min.css"/>
+    <ROW File="COMMONWeb.dll" Component_="COMMONWeb.dll" FileName="COMMON~1.DLL|COMMONWeb.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\COMMONWeb.dll" SelfReg="false" NextFile="common_header.png"/>
+    <ROW File="COMMONWeb.dll.config" Component_="common_log_config.json" FileName="COMMON~2.CON|COMMONWeb.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\COMMONWeb.dll.config" SelfReg="false" NextFile="Configuration.dll.config"/>
+    <ROW File="CSVLib.dll" Component_="CSVLib.dll" FileName="CSVLib.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\CSVLib.dll" SelfReg="false" NextFile="COMMONConfig.resources.dll_1"/>
+    <ROW File="Chart.js_1" Component_="Chart.js" FileName="Chart.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\chart.js\Chart.js" SelfReg="false" NextFile="Chart.min.js"/>
+    <ROW File="Chart.min.js" Component_="Chart.js" FileName="CHARTM~1.JS|Chart.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\chart.js\Chart.min.js" SelfReg="false" NextFile="COMMON.exe_1"/>
+    <ROW File="Configuration.dll" Component_="Configuration.dll" FileName="CONFIG~1.DLL|Configuration.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Configuration.dll" SelfReg="false" NextFile="Data.dll"/>
+    <ROW File="Configuration.dll.config" Component_="common_log_config.json" FileName="CONFIG~1.CON|Configuration.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\Configuration.dll.config" SelfReg="false" NextFile="Data.dll.config"/>
+    <ROW File="Configuration.dll.config_1" Component_="COMMONConfig.exe.config" FileName="CONFIG~1.CON|Configuration.dll.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Configuration.dll.config" SelfReg="false" NextFile="Data.dll.config_1"/>
+    <ROW File="Configuration.dll.config_2" Component_="COMMONCLI.vshost.exe.manifest" FileName="CONFIG~1.CON|Configuration.dll.config" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Configuration.dll.config" SelfReg="false" NextFile="Data.dll.config_2"/>
+    <ROW File="Configuration.dll_1" Component_="Configuration.dll_1" FileName="CONFIG~1.DLL|Configuration.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Configuration.dll" SelfReg="false" NextFile="Data.dll_1"/>
+    <ROW File="Configuration.dll_2" Component_="Configuration.dll_2" FileName="CONFIG~1.DLL|Configuration.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Configuration.dll" SelfReg="false" NextFile="Data.dll_2"/>
+    <ROW File="ControlzEx.dll" Component_="ControlzEx.dll" FileName="CONTRO~1.DLL|ControlzEx.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\ControlzEx.dll" SelfReg="false" NextFile="common_log_config.json"/>
+    <ROW File="DailyFileLib.dll" Component_="DailyFileLib.dll" FileName="DAILYF~1.DLL|DailyFileLib.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\DailyFileLib.dll" SelfReg="false" NextFile="DailyFileLib.dll.config"/>
+    <ROW File="DailyFileLib.dll.config" Component_="common_log_config.json" FileName="DAILYF~1.CON|DailyFileLib.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\DailyFileLib.dll.config" SelfReg="false" NextFile="print.directive.ts"/>
+    <ROW File="Data.dll" Component_="Data.dll" FileName="Data.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Data.dll" SelfReg="false" NextFile="Npgsql.resources.dll_12"/>
+    <ROW File="Data.dll.config" Component_="common_log_config.json" FileName="DATADL~1.CON|Data.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\Data.dll.config" SelfReg="false" NextFile="Database.dll.config"/>
+    <ROW File="Data.dll.config_1" Component_="COMMONConfig.exe.config" FileName="DATADL~1.CON|Data.dll.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Data.dll.config" SelfReg="false" NextFile="Database.dll.config_1"/>
+    <ROW File="Data.dll.config_2" Component_="COMMONCLI.vshost.exe.manifest" FileName="DATADL~1.CON|Data.dll.config" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Data.dll.config" SelfReg="false" NextFile="Logging.dll.config_2"/>
+    <ROW File="Data.dll_1" Component_="Data.dll_1" FileName="Data.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Data.dll" SelfReg="false" NextFile="Database.dll_1"/>
+    <ROW File="Data.dll_2" Component_="Data.dll_2" FileName="Data.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Data.dll" SelfReg="false" NextFile="Database.dll_2"/>
+    <ROW File="Database.dll.config" Component_="common_log_config.json" FileName="DATABA~1.CON|Database.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\Database.dll.config" SelfReg="false" NextFile="angularanimate.js"/>
+    <ROW File="Database.dll.config_1" Component_="COMMONConfig.exe.config" FileName="DATABA~1.CON|Database.dll.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Database.dll.config" SelfReg="false" NextFile="Logging.dll.config_1"/>
+    <ROW File="Database.dll_1" Component_="Database.dll_1" FileName="Database.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Database.dll" SelfReg="false" NextFile="Logging.dll_1"/>
+    <ROW File="Database.dll_2" Component_="Database.dll_2" FileName="Database.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Database.dll" SelfReg="false" NextFile="Logging.dll_2"/>
+    <ROW File="DotNetZip.dll" Component_="DotNetZip.dll" FileName="DOTNET~1.DLL|DotNetZip.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\DotNetZip.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.dll"/>
+    <ROW File="Dragablz.dll" Component_="Dragablz.dll" FileName="Dragablz.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Dragablz.dll" SelfReg="false" NextFile="MahApps.Metro.dll"/>
+    <ROW File="EntityFramework.SqlServer.dll_1" Component_="EntityFramework.SqlServer.dll_1" FileName="ENTITY~2.DLL|EntityFramework.SqlServer.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\EntityFramework.SqlServer.dll" SelfReg="false" NextFile="WPFLocalizeExtension.dll"/>
+    <ROW File="EntityFramework.dll_1" Component_="EntityFramework.dll_1" FileName="ENTITY~1.DLL|EntityFramework.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\EntityFramework.dll" SelfReg="false" NextFile="EntityFramework.SqlServer.dll_1"/>
+    <ROW File="GMSfinal_logo.jpg" Component_="COMMONUserManual_v1.4.pdf" FileName="GMS-FI~1.JPG|GMS-final_logo.jpg" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\GMS-final_logo.jpg" SelfReg="false" NextFile="nnsa.png"/>
+    <ROW File="GalaSoft.MvvmLight.Extras.dll" Component_="GalaSoft.MvvmLight.Extras.dll" FileName="GALASO~2.DLL|GalaSoft.MvvmLight.Extras.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\GalaSoft.MvvmLight.Extras.dll" SelfReg="false" NextFile="Microsoft.Practices.ServiceLocation.dll"/>
+    <ROW File="GalaSoft.MvvmLight.dll" Component_="GalaSoft.MvvmLight.dll" FileName="GALASO~1.DLL|GalaSoft.MvvmLight.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\GalaSoft.MvvmLight.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.Extras.dll"/>
+    <ROW File="Logging.dll" Component_="Logging.dll" FileName="Logging.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Logging.dll" SelfReg="false" NextFile="Mono.Security.dll_2"/>
+    <ROW File="Logging.dll.config" Component_="common_log_config.json" FileName="LOGGIN~1.CON|Logging.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\Logging.dll.config" SelfReg="false" NextFile="RequestResponseLib.dll.config"/>
+    <ROW File="Logging.dll.config_1" Component_="COMMONConfig.exe.config" FileName="LOGGIN~1.CON|Logging.dll.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Logging.dll.config" SelfReg="false" NextFile="RequestResponseLib.dll.config_1"/>
+    <ROW File="Logging.dll.config_2" Component_="COMMONCLI.vshost.exe.manifest" FileName="LOGGIN~1.CON|Logging.dll.config" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Logging.dll.config" SelfReg="false" NextFile="RequestResponseLib.dll.config_2"/>
+    <ROW File="Logging.dll_1" Component_="Logging.dll_1" FileName="Logging.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Logging.dll" SelfReg="false" NextFile="Newtonsoft.Json.dll_1"/>
+    <ROW File="Logging.dll_2" Component_="Logging.dll_2" FileName="Logging.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Logging.dll" SelfReg="false" NextFile="Newtonsoft.Json.dll_2"/>
+    <ROW File="MahApps.Metro.dll" Component_="MahApps.Metro.dll" FileName="MAHAPP~1.DLL|MahApps.Metro.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\MahApps.Metro.dll" SelfReg="false" NextFile="Mono.Security.dll"/>
+    <ROW File="Microsoft.Practices.ServiceLocation.dll" Component_="Microsoft.Practices.ServiceLocation.dll" FileName="MICROS~1.DLL|Microsoft.Practices.ServiceLocation.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Microsoft.Practices.ServiceLocation.dll" SelfReg="false" NextFile="System.Data.SQLite.Linq.dll_2"/>
+    <ROW File="Mono.Security.dll" Component_="Mono.Security.dll" FileName="MONOSE~1.DLL|Mono.Security.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Mono.Security.dll" SelfReg="false" NextFile="Npgsql.dll"/>
+    <ROW File="Mono.Security.dll_1" Component_="Mono.Security.dll_1" FileName="MONOSE~1.DLL|Mono.Security.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Mono.Security.dll" SelfReg="false" NextFile="Npgsql.dll_1"/>
+    <ROW File="Mono.Security.dll_2" Component_="Mono.Security.dll_2" FileName="MONOSE~1.DLL|Mono.Security.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Mono.Security.dll" SelfReg="false" NextFile="Newtonsoft.Json.dll"/>
+    <ROW File="NSDD_Logo_2color.png" Component_="COMMONUserManual_v1.4.pdf" FileName="NSDD_L~1.PNG|NSDD_Logo_2color.png" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\NSDD_Logo_2color.png" SelfReg="false" NextFile="scabslogo.jpg"/>
+    <ROW File="Nancy.Hosting.Self.dll" Component_="Nancy.Hosting.Self.dll" FileName="NANCYH~1.DLL|Nancy.Hosting.Self.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Nancy.Hosting.Self.dll" SelfReg="false" NextFile="Nancy.Serialization.JsonNet.dll"/>
+    <ROW File="Nancy.Serialization.JsonNet.dll" Component_="Nancy.Serialization.JsonNet.dll" FileName="NANCYS~1.DLL|Nancy.Serialization.JsonNet.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Nancy.Serialization.JsonNet.dll" SelfReg="false" NextFile="angular.min.js"/>
+    <ROW File="Nancy.dll" Component_="Nancy.dll" FileName="Nancy.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Nancy.dll" SelfReg="false" NextFile="Nancy.Hosting.Self.dll"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Newtonsoft.Json.dll" SelfReg="false" NextFile="Npgsql.dll_2"/>
+    <ROW File="Newtonsoft.Json.dll_1" Component_="Newtonsoft.Json.dll_1" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Newtonsoft.Json.dll" SelfReg="false" NextFile="System.Data.SQLite.dll_1"/>
+    <ROW File="Newtonsoft.Json.dll_2" Component_="Newtonsoft.Json.dll_2" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Newtonsoft.Json.dll" SelfReg="false" NextFile="System.Data.SQLite.dll_2"/>
+    <ROW File="Npgsql.dll" Component_="Npgsql.dll" FileName="Npgsql.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Npgsql.dll" SelfReg="false" NextFile="Npgsql.resources.dll_6"/>
+    <ROW File="Npgsql.dll_1" Component_="Npgsql.dll_1" FileName="Npgsql.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Npgsql.dll" SelfReg="false" NextFile="Oracle.ManagedDataAccess.dll_1"/>
+    <ROW File="Npgsql.dll_2" Component_="Npgsql.dll_2" FileName="Npgsql.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Npgsql.dll" SelfReg="false" NextFile="Oracle.ManagedDataAccess.dll_2"/>
+    <ROW File="Npgsql.resources.dll" Component_="Npgsql.resources.dll" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\es\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_1"/>
+    <ROW File="Npgsql.resources.dll_1" Component_="Npgsql.resources.dll_1" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\fi\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_2"/>
+    <ROW File="Npgsql.resources.dll_10" Component_="Npgsql.resources.dll_10" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\fi\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_11"/>
+    <ROW File="Npgsql.resources.dll_11" Component_="Npgsql.resources.dll_11" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\fr\Npgsql.resources.dll" SelfReg="false" NextFile="Mono.Security.dll_1"/>
+    <ROW File="Npgsql.resources.dll_12" Component_="Npgsql.resources.dll_12" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\de\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_13"/>
+    <ROW File="Npgsql.resources.dll_13" Component_="Npgsql.resources.dll_13" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\es\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_14"/>
+    <ROW File="Npgsql.resources.dll_14" Component_="Npgsql.resources.dll_14" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\fi\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_15"/>
+    <ROW File="Npgsql.resources.dll_15" Component_="Npgsql.resources.dll_15" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\fr\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_16"/>
+    <ROW File="Npgsql.resources.dll_16" Component_="Npgsql.resources.dll_16" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\ja\Npgsql.resources.dll" SelfReg="false" NextFile="Logging.dll"/>
+    <ROW File="Npgsql.resources.dll_17" Component_="Npgsql.resources.dll_17" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\zh-CN\Npgsql.resources.dll" SelfReg="false" NextFile="group.html"/>
+    <ROW File="Npgsql.resources.dll_2" Component_="Npgsql.resources.dll_2" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\fr\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_3"/>
+    <ROW File="Npgsql.resources.dll_3" Component_="Npgsql.resources.dll_3" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\ja\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_4"/>
+    <ROW File="Npgsql.resources.dll_4" Component_="Npgsql.resources.dll_4" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\de\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_5"/>
+    <ROW File="Npgsql.resources.dll_5" Component_="Npgsql.resources.dll_5" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\zh-CN\Npgsql.resources.dll" SelfReg="false" NextFile="Oracle.ManagedDataAccess.dll"/>
+    <ROW File="Npgsql.resources.dll_6" Component_="Npgsql.resources.dll_6" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\de\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_7"/>
+    <ROW File="Npgsql.resources.dll_7" Component_="Npgsql.resources.dll_7" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\ja\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_8"/>
+    <ROW File="Npgsql.resources.dll_8" Component_="Npgsql.resources.dll_8" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\zh-CN\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_9"/>
+    <ROW File="Npgsql.resources.dll_9" Component_="Npgsql.resources.dll_9" FileName="NPGSQL~1.DLL|Npgsql.resources.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\es\Npgsql.resources.dll" SelfReg="false" NextFile="Npgsql.resources.dll_10"/>
+    <ROW File="Oracle.ManagedDataAccess.dll" Component_="Oracle.ManagedDataAccess.dll" FileName="ORACLE~1.DLL|Oracle.ManagedDataAccess.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Oracle.ManagedDataAccess.dll" SelfReg="false" NextFile="System.Windows.Interactivity.dll"/>
+    <ROW File="Oracle.ManagedDataAccess.dll_1" Component_="Oracle.ManagedDataAccess.dll_1" FileName="ORACLE~1.DLL|Oracle.ManagedDataAccess.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Oracle.ManagedDataAccess.dll" SelfReg="false" NextFile="System.Data.SQLite.EF6.dll_1"/>
+    <ROW File="Oracle.ManagedDataAccess.dll_2" Component_="Oracle.ManagedDataAccess.dll_2" FileName="ORACLE~1.DLL|Oracle.ManagedDataAccess.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Oracle.ManagedDataAccess.dll" SelfReg="false" NextFile="RequestResponseLib.dll"/>
+    <ROW File="RequestResponseLib.dll" Component_="RequestResponseLib.dll" FileName="REQUES~1.DLL|RequestResponseLib.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\RequestResponseLib.dll" SelfReg="false" NextFile="Utilities.dll"/>
+    <ROW File="RequestResponseLib.dll.config" Component_="common_log_config.json" FileName="REQUES~1.CON|RequestResponseLib.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\RequestResponseLib.dll.config" SelfReg="false" NextFile="System.Data.SQLite.dll.config"/>
+    <ROW File="RequestResponseLib.dll.config_1" Component_="COMMONConfig.exe.config" FileName="REQUES~1.CON|RequestResponseLib.dll.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\RequestResponseLib.dll.config" SelfReg="false" NextFile="System.Data.SQLite.dll.config_1"/>
+    <ROW File="RequestResponseLib.dll.config_2" Component_="COMMONCLI.vshost.exe.manifest" FileName="REQUES~1.CON|RequestResponseLib.dll.config" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\RequestResponseLib.dll.config" SelfReg="false" NextFile="Utilities.dll.config_2"/>
+    <ROW File="RequestResponseLib.dll_1" Component_="RequestResponseLib.dll_1" FileName="REQUES~1.DLL|RequestResponseLib.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\RequestResponseLib.dll" SelfReg="false" NextFile="RequestResponseLib.dll_2"/>
+    <ROW File="RequestResponseLib.dll_2" Component_="RequestResponseLib.dll_2" FileName="REQUES~1.DLL|RequestResponseLib.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\RequestResponseLib.dll" SelfReg="false" NextFile="COMMON.exe.config"/>
+    <ROW File="Resources.Designer.cs" Component_="Resources.Designer.cs" FileName="RESOUR~1.CS|Resources.Designer.cs" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.Designer.cs" SelfReg="false" NextFile="Resources.en.Designer.cs"/>
+    <ROW File="Resources.en.Designer.cs" Component_="Resources.Designer.cs" FileName="RESOUR~2.CS|Resources.en.Designer.cs" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.en.Designer.cs" SelfReg="false" NextFile="Resources.en.resx"/>
+    <ROW File="Resources.en.resx" Component_="Resources.Designer.cs" FileName="RESOUR~1.RES|Resources.en.resx" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.en.resx" SelfReg="false" NextFile="Resources.es.Designer.cs"/>
+    <ROW File="Resources.es.Designer.cs" Component_="Resources.Designer.cs" FileName="RESOUR~3.CS|Resources.es.Designer.cs" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.es.Designer.cs" SelfReg="false" NextFile="Resources.es.resx"/>
+    <ROW File="Resources.es.resx" Component_="Resources.Designer.cs" FileName="RESOUR~2.RES|Resources.es.resx" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.es.resx" SelfReg="false" NextFile="Resources.frFR.Designer.cs"/>
+    <ROW File="Resources.frFR.Designer.cs" Component_="Resources.Designer.cs" FileName="RESOUR~4.CS|Resources.fr-FR.Designer.cs" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.fr-FR.Designer.cs" SelfReg="false" NextFile="Resources.frFR.resx"/>
+    <ROW File="Resources.frFR.resx" Component_="Resources.Designer.cs" FileName="RESOUR~3.RES|Resources.fr-FR.resx" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.fr-FR.resx" SelfReg="false" NextFile="Resources.resx"/>
+    <ROW File="Resources.mn.Designer.cs" Component_="Resources.Designer.cs" FileName="RESOUR~6.CS|Resources.mn.Designer.cs" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.mn.Designer.cs" SelfReg="false" NextFile="Resources.mn.resx"/>
+    <ROW File="Resources.mn.resx" Component_="Resources.Designer.cs" FileName="RESOUR~6.RES|Resources.mn.resx" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.mn.resx" SelfReg="false" NextFile="Resources.ro.resx"/>
+    <ROW File="Resources.resx" Component_="Resources.Designer.cs" FileName="RESOUR~4.RES|Resources.resx" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.resx" SelfReg="false" NextFile="Resources.test.Designer.cs"/>
+    <ROW File="Resources.ro.resx" Component_="Resources.Designer.cs" FileName="RESOUR~7.RES|Resources.ro.resx" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.ro.resx" SelfReg="false" NextFile="COMMONConfig.resources.dll_3"/>
+    <ROW File="Resources.test.Designer.cs" Component_="Resources.Designer.cs" FileName="RESOUR~5.CS|Resources.test.Designer.cs" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.test.Designer.cs" SelfReg="false" NextFile="Resources.test.resx"/>
+    <ROW File="Resources.test.resx" Component_="Resources.Designer.cs" FileName="RESOUR~5.RES|Resources.test.resx" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Localization\Resources.test.resx" SelfReg="false" NextFile="System.Data.SQLite.EF6.dll"/>
+    <ROW File="SQLite.Interop.dll_2" Component_="SQLite.Interop.dll_2" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\x64\SQLite.Interop.dll" SelfReg="false" NextFile="SQLite.Interop.dll_3"/>
+    <ROW File="SQLite.Interop.dll_3" Component_="SQLite.Interop.dll_3" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\x86\SQLite.Interop.dll" SelfReg="false" NextFile="COMMONConfig.resources.dll"/>
+    <ROW File="SQLite.Interop.dll_6" Component_="SQLite.Interop.dll_6" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\x64\SQLite.Interop.dll" SelfReg="false" NextFile="SQLite.Interop.dll_7"/>
+    <ROW File="SQLite.Interop.dll_7" Component_="SQLite.Interop.dll_7" FileName="SQLITE~1.DLL|SQLite.Interop.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\x86\SQLite.Interop.dll" SelfReg="false" NextFile="RequestResponseLib.dll_1"/>
+    <ROW File="System.Data.SQLite.EF6.dll" Component_="System.Data.SQLite.EF6.dll" FileName="SYSTEM~3.DLL|System.Data.SQLite.EF6.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\System.Data.SQLite.EF6.dll" SelfReg="false" NextFile="Resources.mn.Designer.cs"/>
+    <ROW File="System.Data.SQLite.EF6.dll_1" Component_="System.Data.SQLite.EF6.dll_1" FileName="SYSTEM~3.DLL|System.Data.SQLite.EF6.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\System.Data.SQLite.EF6.dll" SelfReg="false" NextFile="EntityFramework.dll_1"/>
+    <ROW File="System.Data.SQLite.Linq.dll_1" Component_="System.Data.SQLite.Linq.dll_1" FileName="SYSTEM~2.DLL|System.Data.SQLite.Linq.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\System.Data.SQLite.Linq.dll" SelfReg="false" NextFile="Utilities.dll_1"/>
+    <ROW File="System.Data.SQLite.Linq.dll_2" Component_="System.Data.SQLite.Linq.dll_2" FileName="SYSTEM~2.DLL|System.Data.SQLite.Linq.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\System.Data.SQLite.Linq.dll" SelfReg="false" NextFile="SQLite.Interop.dll_6"/>
+    <ROW File="System.Data.SQLite.dll.config" Component_="common_log_config.json" FileName="SYSTEM~1.CON|System.Data.SQLite.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\System.Data.SQLite.dll.config" SelfReg="false" NextFile="Utilities.dll.config"/>
+    <ROW File="System.Data.SQLite.dll.config_1" Component_="COMMONConfig.exe.config" FileName="SYSTEM~1.CON|System.Data.SQLite.dll.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\System.Data.SQLite.dll.config" SelfReg="false" NextFile="Utilities.dll.config_1"/>
+    <ROW File="System.Data.SQLite.dll_1" Component_="System.Data.SQLite.dll_1" FileName="SYSTEM~1.DLL|System.Data.SQLite.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\System.Data.SQLite.dll" SelfReg="false" NextFile="System.Data.SQLite.Linq.dll_1"/>
+    <ROW File="System.Data.SQLite.dll_2" Component_="System.Data.SQLite.dll_2" FileName="SYSTEM~1.DLL|System.Data.SQLite.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\System.Data.SQLite.dll" SelfReg="false" NextFile="Utilities.dll_2"/>
+    <ROW File="System.Windows.Interactivity.dll" Component_="System.Windows.Interactivity.dll" FileName="SYSTEM~4.DLL|System.Windows.Interactivity.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\System.Windows.Interactivity.dll" SelfReg="false" NextFile="Dragablz.dll"/>
+    <ROW File="Utilities.dll" Component_="Utilities.dll" FileName="UTILIT~1.DLL|Utilities.dll" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Utilities.dll" SelfReg="false" NextFile="Npgsql.resources.dll_17"/>
+    <ROW File="Utilities.dll.config" Component_="common_log_config.json" FileName="UTILIT~1.CON|Utilities.dll.config" Attributes="0" SourcePath="..\COMMON\bin\Release\Utilities.dll.config" SelfReg="false" NextFile="Configuration.dll.config_1"/>
+    <ROW File="Utilities.dll.config_1" Component_="COMMONConfig.exe.config" FileName="UTILIT~1.CON|Utilities.dll.config" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Utilities.dll.config" SelfReg="false" NextFile="Configuration.dll.config_2"/>
+    <ROW File="Utilities.dll.config_2" Component_="COMMONCLI.vshost.exe.manifest" FileName="UTILIT~1.CON|Utilities.dll.config" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\Utilities.dll.config" SelfReg="false" NextFile="drivetypes.enum.ts"/>
+    <ROW File="Utilities.dll_1" Component_="Utilities.dll_1" FileName="UTILIT~1.DLL|Utilities.dll" Attributes="0" SourcePath="..\COMMON\bin\Release\Utilities.dll" SelfReg="false" NextFile="COMMONConfig.exe"/>
+    <ROW File="Utilities.dll_2" Component_="Utilities.dll_2" FileName="UTILIT~1.DLL|Utilities.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\Utilities.dll" SelfReg="false" NextFile="SQLite.Interop.dll_2"/>
+    <ROW File="WPFLocalizeExtension.dll" Component_="WPFLocalizeExtension.dll" FileName="WPFLOC~1.DLL|WPFLocalizeExtension.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\WPFLocalizeExtension.dll" SelfReg="false" NextFile="XAMLMarkupExtensions.dll"/>
+    <ROW File="XAMLMarkupExtensions.dll" Component_="XAMLMarkupExtensions.dll" FileName="XAMLMA~1.DLL|XAMLMarkupExtensions.dll" Attributes="0" SourcePath="..\COMMONConfig\bin\Release\XAMLMarkupExtensions.dll" SelfReg="false" NextFile="DotNetZip.dll"/>
+    <ROW File="about.controller.ts" Component_="about.controller.js" FileName="ABOUTC~1.TS|about.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\about.controller.ts" SelfReg="false" NextFile="admin.controller.ts"/>
+    <ROW File="about.html" Component_="about.html" FileName="ABOUT~1.HTM|about.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\about.html" SelfReg="false" NextFile="admin.html"/>
+    <ROW File="admin.controller.ts" Component_="about.controller.js" FileName="ADMINC~1.TS|admin.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\admin.controller.ts" SelfReg="false" NextFile="datacollection.controller.ts"/>
+    <ROW File="admin.html" Component_="about.html" FileName="ADMIN~1.HTM|admin.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\admin.html" SelfReg="false" NextFile="datacollection.html"/>
+    <ROW File="af.js" Component_="af.js" FileName="af.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\af.js" SelfReg="false" NextFile="ardz.js"/>
+    <ROW File="alerts.partial.html" Component_="alerts.partial.html" FileName="ALERTS~1.HTM|alerts.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\alerts.partial.html" SelfReg="false" NextFile="applicationerrors.partial.html"/>
+    <ROW File="angular.js" Component_="angular.min.js" FileName="angular.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular\angular.js" SelfReg="false" NextFile="Chart.js_1"/>
+    <ROW File="angular.min.js" Component_="angular.min.js" FileName="ANGULA~1.JS|angular.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular\angular.min.js" SelfReg="false" NextFile="angularcookies.min.js"/>
+    <ROW File="angular.min.js.map" Component_="angular.min.js" FileName="ANGULA~1.MAP|angular.min.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular\angular.min.js.map" SelfReg="false" NextFile="angularanimate.min.js.map"/>
+    <ROW File="angularanimate.js" Component_="angularanimate.js" FileName="ANGULA~1.JS|angular-animate.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-animate\angular-animate.js" SelfReg="false" NextFile="angularanimate.min.js"/>
+    <ROW File="angularanimate.min.js" Component_="angularanimate.js" FileName="ANGULA~2.JS|angular-animate.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-animate\angular-animate.min.js" SelfReg="false" NextFile="angulararia.js"/>
+    <ROW File="angularanimate.min.js.map" Component_="angularanimate.js" FileName="ANGULA~1.MAP|angular-animate.min.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-animate\angular-animate.min.js.map" SelfReg="false" NextFile="angulararia.min.js.map"/>
+    <ROW File="angulararia.js" Component_="angulararia.js" FileName="ANGULA~1.JS|angular-aria.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-aria\angular-aria.js" SelfReg="false" NextFile="angulararia.min.js"/>
+    <ROW File="angulararia.min.js" Component_="angulararia.js" FileName="ANGULA~2.JS|angular-aria.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-aria\angular-aria.min.js" SelfReg="false" NextFile="angularmaterial.css"/>
+    <ROW File="angulararia.min.js.map" Component_="angulararia.js" FileName="ANGULA~1.MAP|angular-aria.min.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-aria\angular-aria.min.js.map" SelfReg="false" NextFile="angularchart.js"/>
+    <ROW File="angularchart.js" Component_="angularchart.js_1" FileName="ANGULA~1.JS|angular-chart.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-chart.js\angular-chart.js" SelfReg="false" NextFile="angularchart.min.js"/>
+    <ROW File="angularchart.min.js" Component_="angularchart.js_1" FileName="ANGULA~2.JS|angular-chart.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-chart.js\angular-chart.min.js" SelfReg="false" NextFile="angularcookies.js"/>
+    <ROW File="angularcookies.js" Component_="angularcookies.min.js" FileName="ANGULA~2.JS|angular-cookies.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-cookies\angular-cookies.js" SelfReg="false" NextFile="angularcookies.min.js.map"/>
+    <ROW File="angularcookies.min.js" Component_="angularcookies.min.js" FileName="ANGULA~1.JS|angular-cookies.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-cookies\angular-cookies.min.js" SelfReg="false" NextFile="angularmessages.min.js"/>
+    <ROW File="angularcookies.min.js.map" Component_="angularcookies.min.js" FileName="ANGULA~1.MAP|angular-cookies.min.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-cookies\angular-cookies.min.js.map" SelfReg="false" NextFile="angularmessages.js"/>
+    <ROW File="angularjsbootstrap.js" Component_="angularjsbootstrap.js" FileName="ANGULA~1.JS|angularjs-bootstrap.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angularjs-bootstrap\angularjs-bootstrap.js" SelfReg="false" NextFile="angularjsbootstrap.min.js"/>
+    <ROW File="angularjsbootstrap.min.js" Component_="angularjsbootstrap.js" FileName="ANGULA~2.JS|angularjs-bootstrap.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angularjs-bootstrap\angularjs-bootstrap.min.js" SelfReg="false" NextFile="apexcharts.js"/>
+    <ROW File="angularmaterial.css" Component_="angularmaterial.css" FileName="ANGULA~1.CSS|angular-material.css" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-material\angular-material.css" SelfReg="false" NextFile="angularmaterial.js"/>
+    <ROW File="angularmaterial.js" Component_="angularmaterial.css" FileName="ANGULA~1.JS|angular-material.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-material\angular-material.js" SelfReg="false" NextFile="angularmaterial.min.css"/>
+    <ROW File="angularmaterial.min.css" Component_="angularmaterial.css" FileName="ANGULA~2.CSS|angular-material.min.css" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-material\angular-material.min.css" SelfReg="false" NextFile="angularmaterial.min.js"/>
+    <ROW File="angularmaterial.min.js" Component_="angularmaterial.css" FileName="ANGULA~2.JS|angular-material.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-material\angular-material.min.js" SelfReg="false" NextFile="Logging.dll.config"/>
+    <ROW File="angularmessages.js" Component_="angularmessages.min.js" FileName="ANGULA~2.JS|angular-messages.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-messages\angular-messages.js" SelfReg="false" NextFile="angularmessages.min.js.map"/>
+    <ROW File="angularmessages.min.js" Component_="angularmessages.min.js" FileName="ANGULA~1.JS|angular-messages.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-messages\angular-messages.min.js" SelfReg="false" NextFile="angularresource.min.js"/>
+    <ROW File="angularmessages.min.js.map" Component_="angularmessages.min.js" FileName="ANGULA~1.MAP|angular-messages.min.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-messages\angular-messages.min.js.map" SelfReg="false" NextFile="angularresource.js"/>
+    <ROW File="angularresource.js" Component_="angularresource.min.js" FileName="ANGULA~2.JS|angular-resource.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-resource\angular-resource.js" SelfReg="false" NextFile="angularresource.min.js.map"/>
+    <ROW File="angularresource.min.js" Component_="angularresource.min.js" FileName="ANGULA~1.JS|angular-resource.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-resource\angular-resource.min.js" SelfReg="false" NextFile="angularroute.min.js"/>
+    <ROW File="angularresource.min.js.map" Component_="angularresource.min.js" FileName="ANGULA~1.MAP|angular-resource.min.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-resource\angular-resource.min.js.map" SelfReg="false" NextFile="angularroute.min.js.map"/>
+    <ROW File="angularroute.min.js" Component_="angularroute.min.js" FileName="ANGULA~1.JS|angular-route.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-route\angular-route.min.js" SelfReg="false" NextFile="angulartranslate.min.js"/>
+    <ROW File="angularroute.min.js.map" Component_="angularroute.min.js" FileName="ANGULA~1.MAP|angular-route.min.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-route\angular-route.min.js.map" SelfReg="false" NextFile="angulartranslateloaderstaticfiles.min.js_1"/>
+    <ROW File="angulartranslate.min.js" Component_="angulartranslate.min.js" FileName="ANGULA~1.JS|angular-translate.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-translate\angular-translate.min.js" SelfReg="false" NextFile="angulartranslateloaderstaticfiles.min.js"/>
+    <ROW File="angulartranslateloaderstaticfiles.min.js" Component_="angulartranslateloaderstaticfiles.min.js" FileName="ANGULA~1.JS|angular-translate-loader-static-files.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-translate-loader-static-files\angular-translate-loader-static-files.min.js" SelfReg="false" NextFile="bootstraptheme.min.css"/>
+    <ROW File="angulartranslateloaderstaticfiles.min.js_1" Component_="angulartranslate.min.js" FileName="ANGULA~2.JS|angular-translate-loader-static-files.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-translate\angular-translate-loader-static-files.min.js" SelfReg="false" NextFile="uibootstrapcsp.css"/>
+    <ROW File="apexcharts.js" Component_="apexcharts.js" FileName="APEXCH~1.JS|apexcharts.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\apexcharts\apexcharts.js" SelfReg="false" NextFile="apexcharts.min.js"/>
+    <ROW File="apexcharts.min.js" Component_="apexcharts.js" FileName="APEXCH~2.JS|apexcharts.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\apexcharts\apexcharts.min.js" SelfReg="false" NextFile="moment.min.js"/>
+    <ROW File="apexcharts.ts" Component_="apexcharts.ts" FileName="APEXCH~1.TS|apexcharts.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\apexcharts\apexcharts.ts" SelfReg="false" NextFile="apexchartschartbridgefactory.ts"/>
+    <ROW File="apexchartschartbridgefactory.ts" Component_="apexcharts.ts" FileName="APEXCH~2.TS|apexchartschartbridgefactory.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\apexcharts\apexchartschartbridgefactory.ts" SelfReg="false" NextFile="chartjs.ts_1"/>
+    <ROW File="app.config.ts" Component_="app.config.js" FileName="APPCON~1.TS|app.config.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\app.config.ts" SelfReg="false" NextFile="app.module.ts"/>
+    <ROW File="app.module.ts" Component_="app.config.js" FileName="APPMOD~1.TS|app.module.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\app.module.ts" SelfReg="false" NextFile="graph.directive.ts"/>
+    <ROW File="applicationerrors.partial.html" Component_="alerts.partial.html" FileName="APPLIC~1.HTM|applicationerrors.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\applicationerrors.partial.html" SelfReg="false" NextFile="applications.partial.html"/>
+    <ROW File="applications.partial.html" Component_="alerts.partial.html" FileName="APPLIC~2.HTM|applications.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\applications.partial.html" SelfReg="false" NextFile="collectorbricks.partial.html"/>
+    <ROW File="applications.ts" Component_="applications.js" FileName="APPLIC~1.TS|applications.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\applications.ts" SelfReg="false" NextFile="autoupdater.ts"/>
+    <ROW File="ar.js" Component_="af.js" FileName="ar.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ar.js" SelfReg="false" NextFile="az.js"/>
+    <ROW File="ardz.js" Component_="af.js" FileName="ar-dz.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ar-dz.js" SelfReg="false" NextFile="arkw.js"/>
+    <ROW File="arkw.js" Component_="af.js" FileName="ar-kw.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ar-kw.js" SelfReg="false" NextFile="arly.js"/>
+    <ROW File="arly.js" Component_="af.js" FileName="ar-ly.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ar-ly.js" SelfReg="false" NextFile="arma.js"/>
+    <ROW File="arma.js" Component_="af.js" FileName="ar-ma.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ar-ma.js" SelfReg="false" NextFile="arsa.js"/>
+    <ROW File="arsa.js" Component_="af.js" FileName="ar-sa.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ar-sa.js" SelfReg="false" NextFile="artn.js"/>
+    <ROW File="artn.js" Component_="af.js" FileName="ar-tn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ar-tn.js" SelfReg="false" NextFile="ar.js"/>
+    <ROW File="autoupdater.ts" Component_="applications.js" FileName="AUTOUP~1.TS|autoupdater.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\autoupdater.ts" SelfReg="false" NextFile="collectorinfo.ts"/>
+    <ROW File="az.js" Component_="af.js" FileName="az.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\az.js" SelfReg="false" NextFile="be.js"/>
+    <ROW File="be.js" Component_="af.js" FileName="be.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\be.js" SelfReg="false" NextFile="bg.js"/>
+    <ROW File="bg.js" Component_="af.js" FileName="bg.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\bg.js" SelfReg="false" NextFile="bn.js"/>
+    <ROW File="bn.js" Component_="af.js" FileName="bn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\bn.js" SelfReg="false" NextFile="bo.js"/>
+    <ROW File="bo.js" Component_="af.js" FileName="bo.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\bo.js" SelfReg="false" NextFile="br.js"/>
+    <ROW File="bootstrap.min.css" Component_="bootstraptheme.min.css" FileName="BOOTST~2.CSS|bootstrap.min.css" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\css\bootstrap.min.css" SelfReg="false" NextFile="glyphiconshalflingsregular.svg"/>
+    <ROW File="bootstrap.min.js" Component_="bootstrap.min.js" FileName="BOOTST~1.JS|bootstrap.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\js\bootstrap.min.js" SelfReg="false" NextFile="npm.js"/>
+    <ROW File="bootstraptheme.min.css" Component_="bootstraptheme.min.css" FileName="BOOTST~1.CSS|bootstrap-theme.min.css" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\css\bootstrap-theme.min.css" SelfReg="false" NextFile="bootstrap.min.css"/>
+    <ROW File="br.js" Component_="af.js" FileName="br.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\br.js" SelfReg="false" NextFile="bs.js"/>
+    <ROW File="bs.js" Component_="af.js" FileName="bs.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\bs.js" SelfReg="false" NextFile="ca.js"/>
+    <ROW File="ca.js" Component_="af.js" FileName="ca.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ca.js" SelfReg="false" NextFile="cs.js"/>
+    <ROW File="casload.partial.html" Component_="casload.partial.html" FileName="CASLOA~1.HTM|casload.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\casload.partial.html" SelfReg="false" NextFile="computer.partial.html"/>
+    <ROW File="chartbridge.ts" Component_="chart.js" FileName="CHARTB~1.TS|chartbridge.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\chartbridge.ts" SelfReg="false" NextFile="chartbridgefactory.service.ts"/>
+    <ROW File="chartbridgefactory.service.ts" Component_="chart.js" FileName="CHARTB~2.TS|chartbridgefactory.service.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\chartbridgefactory.service.ts" SelfReg="false" NextFile="chartbridgefactory.ts"/>
+    <ROW File="chartbridgefactory.ts" Component_="chart.js" FileName="CHARTB~3.TS|chartbridgefactory.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\chartbridgefactory.ts" SelfReg="false" NextFile="chartjs.ts"/>
+    <ROW File="chartjs.ts" Component_="chart.js" FileName="chartjs.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\chartjs.ts" SelfReg="false" NextFile="angular.min.js.map"/>
+    <ROW File="chartjs.ts_1" Component_="chartjs.ts" FileName="chartjs.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\chartjs\chartjs.ts" SelfReg="false" NextFile="chartjschartbridgefactory.ts"/>
+    <ROW File="chartjschartbridgefactory.ts" Component_="chartjs.ts" FileName="CHARTJ~1.TS|chartjschartbridgefactory.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\chartjs\chartjschartbridgefactory.ts" SelfReg="false" NextFile="ichartcontext.ts"/>
+    <ROW File="collector.brick.directive.ts" Component_="ping.directive.js" FileName="COLLEC~1.TS|collector.brick.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\directives\collector.brick.directive.ts" SelfReg="false" NextFile="daystoretrieve.directive.ts"/>
+    <ROW File="collectorbricks.partial.html" Component_="alerts.partial.html" FileName="COLLEC~1.HTM|collectorbricks.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\collectorbricks.partial.html" SelfReg="false" NextFile="cpu.partial.html"/>
+    <ROW File="collectorinfo.ts" Component_="applications.js" FileName="COLLEC~1.TS|collectorinfo.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\collectorinfo.ts" SelfReg="false" NextFile="cpu.ts"/>
+    <ROW File="collectortype.enum.ts" Component_="collectortype.enum.js" FileName="COLLEC~1.TS|collectortype.enum.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\enums\collectortype.enum.ts" SelfReg="false" NextFile="devicetypes.enum.ts"/>
+    <ROW File="common_header.png" Component_="COMMONUserManual_v1.4.pdf" FileName="COMMON~1.PNG|common_header.png" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\common_header.png" SelfReg="false" NextFile="common_icon.png"/>
+    <ROW File="common_icon.png" Component_="COMMONUserManual_v1.4.pdf" FileName="COMMON~2.PNG|common_icon.png" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\common_icon.png" SelfReg="false" NextFile="doe.png"/>
+    <ROW File="common_log_config.json" Component_="COMMONCLI.vshost.exe.manifest" FileName="COMMON~1.JSO|common_log_config.json" Attributes="0" SourcePath="..\COMMONCLI\bin\Release\common_log_config.json" SelfReg="false" NextFile="Configuration.dll"/>
+    <ROW File="computer.html" Component_="casload.partial.html" FileName="COMPUT~2.HTM|computer.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\computer.html" SelfReg="false" NextFile="daystoretrieve.partial.html"/>
+    <ROW File="computer.partial.html" Component_="casload.partial.html" FileName="COMPUT~1.HTM|computer.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\computer.partial.html" SelfReg="false" NextFile="issues.partial.html"/>
+    <ROW File="configuration.service.ts" Component_="data.service.js" FileName="CONFIG~1.TS|configuration.service.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\services\configuration.service.ts" SelfReg="false" NextFile="languages.service.ts"/>
+    <ROW File="cpu.partial.html" Component_="alerts.partial.html" FileName="CPUPAR~1.HTM|cpu.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\cpu.partial.html" SelfReg="false" NextFile="database.partial.html"/>
+    <ROW File="cpu.ts" Component_="applications.js" FileName="cpu.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\cpu.ts" SelfReg="false" NextFile="database.ts"/>
+    <ROW File="cs.js" Component_="af.js" FileName="cs.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\cs.js" SelfReg="false" NextFile="cv.js"/>
+    <ROW File="cv.js" Component_="af.js" FileName="cv.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\cv.js" SelfReg="false" NextFile="cy.js"/>
+    <ROW File="cy.js" Component_="af.js" FileName="cy.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\cy.js" SelfReg="false" NextFile="da.js"/>
+    <ROW File="da.js" Component_="af.js" FileName="da.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\da.js" SelfReg="false" NextFile="deat.js"/>
+    <ROW File="data.service.ts" Component_="data.service.js" FileName="DATASE~1.TS|data.service.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\services\data.service.ts" SelfReg="false" NextFile="devicemanager.service.ts"/>
+    <ROW File="database.partial.html" Component_="alerts.partial.html" FileName="DATABA~1.HTM|database.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\database.partial.html" SelfReg="false" NextFile="memory.partial.html"/>
+    <ROW File="database.ts" Component_="applications.js" FileName="database.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\database.ts" SelfReg="false" NextFile="devicedata.ts"/>
+    <ROW File="datablock.directive.ts" Component_="casload.partial.html" FileName="DATABL~1.TS|datablock.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\datablock.directive.ts" SelfReg="false" NextFile="datablock.partial.html"/>
+    <ROW File="datablock.partial.html" Component_="casload.partial.html" FileName="DATABL~1.HTM|datablock.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\datablock.partial.html" SelfReg="false" NextFile="DailyFileLib.dll"/>
+    <ROW File="datacollection.controller.ts" Component_="about.controller.js" FileName="DATACO~1.TS|datacollection.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\datacollection.controller.ts" SelfReg="false" NextFile="device.controller.ts"/>
+    <ROW File="datacollection.html" Component_="about.html" FileName="DATACO~1.HTM|datacollection.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\datacollection.html" SelfReg="false" NextFile="help.html"/>
+    <ROW File="daystoretrieve.directive.ts" Component_="ping.directive.js" FileName="DAYSTO~1.TS|daystoretrieve.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\directives\daystoretrieve.directive.ts" SelfReg="false" NextFile="overview.devicealert.directive.ts"/>
+    <ROW File="daystoretrieve.partial.html" Component_="casload.partial.html" FileName="DAYSTO~1.HTM|daystoretrieve.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\daystoretrieve.partial.html" SelfReg="false" NextFile="machine.snapshot.directive.ts"/>
+    <ROW File="daystoretrieve.partial.html_1" Component_="alerts.partial.html" FileName="DAYSTO~1.HTM|daystoretrieve.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\daystoretrieve.partial.html" SelfReg="false" NextFile="angular.js"/>
+    <ROW File="de.js" Component_="af.js" FileName="de.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\de.js" SelfReg="false" NextFile="dv.js"/>
+    <ROW File="deat.js" Component_="af.js" FileName="de-at.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\de-at.js" SelfReg="false" NextFile="dech.js"/>
+    <ROW File="dech.js" Component_="af.js" FileName="de-ch.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\de-ch.js" SelfReg="false" NextFile="de.js"/>
+    <ROW File="device.controller.ts" Component_="about.controller.js" FileName="DEVICE~1.TS|device.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\device.controller.ts" SelfReg="false" NextFile="group.controller.ts"/>
+    <ROW File="device.html" Component_="about.html" FileName="DEVICE~1.HTM|device.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\device.html" SelfReg="false" NextFile="daystoretrieve.partial.html_1"/>
+    <ROW File="devicedata.ts" Component_="applications.js" FileName="DEVICE~1.TS|devicedata.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\devicedata.ts" SelfReg="false" NextFile="deviceprocessinfo.ts"/>
+    <ROW File="deviceinfo.body.partial.html" Component_="alerts.partial.html" FileName="DEVICE~1.HTM|deviceinfo.body.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\deviceinfo.body.partial.html" SelfReg="false" NextFile="deviceinfo.header.partial.html"/>
+    <ROW File="deviceinfo.directive.ts" Component_="ping.directive.js" FileName="DEVICE~1.TS|deviceinfo.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\directives\deviceinfo.directive.ts" SelfReg="false" NextFile="data.service.ts"/>
+    <ROW File="deviceinfo.header.partial.html" Component_="alerts.partial.html" FileName="DEVICE~2.HTM|deviceinfo.header.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\deviceinfo.header.partial.html" SelfReg="false" NextFile="deviceinfo.partial.html"/>
+    <ROW File="deviceinfo.partial.html" Component_="alerts.partial.html" FileName="DEVICE~3.HTM|deviceinfo.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\deviceinfo.partial.html" SelfReg="false" NextFile="overview.devicealert.partial.html"/>
+    <ROW File="devicemanager.service.ts" Component_="data.service.js" FileName="DEVICE~1.TS|devicemanager.service.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\services\devicemanager.service.ts" SelfReg="false" NextFile="deviceinfo.body.partial.html"/>
+    <ROW File="deviceprocessinfo.ts" Component_="applications.js" FileName="DEVICE~2.TS|deviceprocessinfo.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\deviceprocessinfo.ts" SelfReg="false" NextFile="devices.ts"/>
+    <ROW File="devices.ts" Component_="applications.js" FileName="devices.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\devices.ts" SelfReg="false" NextFile="errors.ts"/>
+    <ROW File="devicetypes.enum.ts" Component_="collectortype.enum.js" FileName="DEVICE~1.TS|devicetypes.enum.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\enums\devicetypes.enum.ts" SelfReg="false" NextFile="casload.partial.html"/>
+    <ROW File="dirPagination.js_1" Component_="dirPagination.js_1" FileName="DIRPAG~1.JS|dirPagination.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-utils-pagination\dirPagination.js" SelfReg="false" NextFile="angularjsbootstrap.js"/>
+    <ROW File="disk.partial.html_1" Component_="disk.js" FileName="DISKPA~1.HTM|disk.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\disk\disk.partial.html" SelfReg="false" NextFile="disk.ts"/>
+    <ROW File="disk.ts" Component_="disk.js" FileName="disk.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\disk\disk.ts" SelfReg="false" NextFile="diskspeed.partial.html_1"/>
+    <ROW File="diskspeed.partial.html_1" Component_="disk.js" FileName="DISKSP~1.HTM|diskspeed.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\disk\diskspeed.partial.html" SelfReg="false" NextFile="smart.modal.html_1"/>
+    <ROW File="doe.png" Component_="COMMONUserManual_v1.4.pdf" FileName="doe.png" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\doe.png" SelfReg="false" NextFile="GMSfinal_logo.jpg"/>
+    <ROW File="download.min.js" Component_="download.min.js" FileName="DOWNLO~1.JS|download.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\downloadjs\download.min.js" SelfReg="false"/>
+    <ROW File="drivetypes.enum.ts" Component_="collectortype.enum.js" FileName="DRIVET~1.TS|drivetypes.enum.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\enums\drivetypes.enum.ts" SelfReg="false" NextFile="disk.partial.html_1"/>
+    <ROW File="dv.js" Component_="af.js" FileName="dv.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\dv.js" SelfReg="false" NextFile="el.js"/>
+    <ROW File="el.js" Component_="af.js" FileName="el.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\el.js" SelfReg="false" NextFile="enau.js"/>
+    <ROW File="en.json" Component_="en.json" FileName="EN~1.JSO|en.json" Attributes="0" SourcePath="..\COMMON\bin\Release\languages\en.json" SelfReg="false" NextFile="es.json"/>
+    <ROW File="enau.js" Component_="af.js" FileName="en-au.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\en-au.js" SelfReg="false" NextFile="enca.js"/>
+    <ROW File="enca.js" Component_="af.js" FileName="en-ca.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\en-ca.js" SelfReg="false" NextFile="engb.js"/>
+    <ROW File="engb.js" Component_="af.js" FileName="en-gb.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\en-gb.js" SelfReg="false" NextFile="enie.js"/>
+    <ROW File="enie.js" Component_="af.js" FileName="en-ie.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\en-ie.js" SelfReg="false" NextFile="ennz.js"/>
+    <ROW File="ennz.js" Component_="af.js" FileName="en-nz.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\en-nz.js" SelfReg="false" NextFile="eo.js"/>
+    <ROW File="eo.js" Component_="af.js" FileName="eo.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\eo.js" SelfReg="false" NextFile="esdo.js"/>
+    <ROW File="errors.ts" Component_="applications.js" FileName="errors.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\errors.ts" SelfReg="false" NextFile="idevicedata.ts"/>
+    <ROW File="es.js" Component_="af.js" FileName="es.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\es.js" SelfReg="false" NextFile="et.js"/>
+    <ROW File="es.json" Component_="en.json" FileName="ES~1.JSO|es.json" Attributes="0" SourcePath="..\COMMON\bin\Release\languages\es.json" SelfReg="false" NextFile="mn.json"/>
+    <ROW File="esdo.js" Component_="af.js" FileName="es-do.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\es-do.js" SelfReg="false" NextFile="es.js"/>
+    <ROW File="et.js" Component_="af.js" FileName="et.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\et.js" SelfReg="false" NextFile="eu.js"/>
+    <ROW File="eu.js" Component_="af.js" FileName="eu.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\eu.js" SelfReg="false" NextFile="fa.js"/>
+    <ROW File="everything.js" Component_="app.config.js" FileName="EVERYT~1.JS|everything.js" Attributes="0" SourcePath="..\COMMON\bin\Release\app\everything.js" SelfReg="false" NextFile="everything.js.map"/>
+    <ROW File="everything.js.map" Component_="app.config.js" FileName="EVERYT~1.MAP|everything.js.map" Attributes="0" SourcePath="..\COMMON\bin\Release\app\everything.js.map" SelfReg="false" NextFile="dirPagination.js_1"/>
+    <ROW File="fa.js" Component_="af.js" FileName="fa.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\fa.js" SelfReg="false" NextFile="fi.js"/>
+    <ROW File="fi.js" Component_="af.js" FileName="fi.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\fi.js" SelfReg="false" NextFile="fo.js"/>
+    <ROW File="fo.js" Component_="af.js" FileName="fo.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\fo.js" SelfReg="false" NextFile="frca.js"/>
+    <ROW File="fr.js" Component_="af.js" FileName="fr.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\fr.js" SelfReg="false" NextFile="fy.js"/>
+    <ROW File="frca.js" Component_="af.js" FileName="fr-ca.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\fr-ca.js" SelfReg="false" NextFile="frch.js"/>
+    <ROW File="frch.js" Component_="af.js" FileName="fr-ch.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\fr-ch.js" SelfReg="false" NextFile="fr.js"/>
+    <ROW File="fy.js" Component_="af.js" FileName="fy.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\fy.js" SelfReg="false" NextFile="gd.js"/>
+    <ROW File="gd.js" Component_="af.js" FileName="gd.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\gd.js" SelfReg="false" NextFile="gl.js"/>
+    <ROW File="gl.js" Component_="af.js" FileName="gl.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\gl.js" SelfReg="false" NextFile="gomlatn.js"/>
+    <ROW File="glyphiconshalflingsregular.svg" Component_="glyphiconshalflingsregular.svg" FileName="GLYPHI~1.SVG|glyphicons-halflings-regular.svg" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" SelfReg="false" NextFile="glyphiconshalflingsregular.ttf"/>
+    <ROW File="glyphiconshalflingsregular.ttf" Component_="glyphiconshalflingsregular.svg" FileName="GLYPHI~1.TTF|glyphicons-halflings-regular.ttf" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" SelfReg="false" NextFile="glyphiconshalflingsregular.woff"/>
+    <ROW File="glyphiconshalflingsregular.woff" Component_="glyphiconshalflingsregular.svg" FileName="GLYPHI~1.WOF|glyphicons-halflings-regular.woff" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" SelfReg="false" NextFile="glyphiconshalflingsregular.woff2"/>
+    <ROW File="glyphiconshalflingsregular.woff2" Component_="glyphiconshalflingsregular.svg" FileName="GLYPHI~2.WOF|glyphicons-halflings-regular.woff2" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" SelfReg="false" NextFile="bootstrap.min.js"/>
+    <ROW File="gomlatn.js" Component_="af.js" FileName="gom-latn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\gom-latn.js" SelfReg="false" NextFile="he.js"/>
+    <ROW File="graph.directive.ts" Component_="chart.js" FileName="GRAPHD~1.TS|graph.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\graph.directive.ts" SelfReg="false" NextFile="group.ts"/>
+    <ROW File="group.controller.ts" Component_="about.controller.js" FileName="GROUPC~1.TS|group.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\group.controller.ts" SelfReg="false" NextFile="header.controller.ts"/>
+    <ROW File="group.html" Component_="about.html" FileName="GROUP~1.HTM|group.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\group.html" SelfReg="false" NextFile="networkhistory.html"/>
+    <ROW File="group.ts" Component_="applications.js" FileName="group.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\group.ts" SelfReg="false" NextFile="promisekeeper.ts"/>
+    <ROW File="he.js" Component_="af.js" FileName="he.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\he.js" SelfReg="false" NextFile="hi.js"/>
+    <ROW File="header.controller.ts" Component_="about.controller.js" FileName="HEADER~1.TS|header.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\header.controller.ts" SelfReg="false" NextFile="help.controller.ts"/>
+    <ROW File="help.controller.ts" Component_="about.controller.js" FileName="HELPCO~1.TS|help.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\help.controller.ts" SelfReg="false" NextFile="networkhistory.controller.ts"/>
+    <ROW File="help.html" Component_="about.html" FileName="HELP~1.HTM|help.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\help.html" SelfReg="false" NextFile="overview.html"/>
+    <ROW File="hi.js" Component_="af.js" FileName="hi.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\hi.js" SelfReg="false" NextFile="hr.js"/>
+    <ROW File="hr.js" Component_="af.js" FileName="hr.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\hr.js" SelfReg="false" NextFile="hu.js"/>
+    <ROW File="hu.js" Component_="af.js" FileName="hu.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\hu.js" SelfReg="false" NextFile="hyam.js"/>
+    <ROW File="hyam.js" Component_="af.js" FileName="hy-am.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\hy-am.js" SelfReg="false" NextFile="id.js"/>
+    <ROW File="ichartcontext.ts" Component_="chart.js" FileName="ICHART~2.TS|ichartcontext.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\ichartcontext.ts" SelfReg="false" NextFile="ichartdatascope.ts"/>
+    <ROW File="ichartdatascope.ts" Component_="chart.js" FileName="ICHART~3.TS|ichartdatascope.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\ichartdatascope.ts" SelfReg="false" NextFile="ichartoptions.ts"/>
+    <ROW File="ichartoptions.ts" Component_="chart.js" FileName="ICHART~4.TS|ichartoptions.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\ichartoptions.ts" SelfReg="false" NextFile="ichartsettings.ts"/>
+    <ROW File="ichartsettings.ts" Component_="chart.js" FileName="ICHART~5.TS|ichartsettings.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\ichartsettings.ts" SelfReg="false" NextFile="collector.brick.directive.ts"/>
+    <ROW File="icharttypes.ts" Component_="chart.js" FileName="ICHART~1.TS|icharttypes.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\charts\icharttypes.ts" SelfReg="false" NextFile="deviceinfo.directive.ts"/>
+    <ROW File="id.js" Component_="af.js" FileName="id.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\id.js" SelfReg="false" NextFile="is.js"/>
+    <ROW File="idevicedata.ts" Component_="applications.js" FileName="IDEVIC~1.TS|idevicedata.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\idevicedata.ts" SelfReg="false" NextFile="ivalueinfo.ts"/>
+    <ROW File="index.html" Component_="common_log_config.json" FileName="INDEX~1.HTM|index.html" Attributes="0" SourcePath="..\COMMON\bin\Release\index.html" SelfReg="false" NextFile="en.json"/>
+    <ROW File="is.js" Component_="af.js" FileName="is.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\is.js" SelfReg="false" NextFile="it.js"/>
+    <ROW File="issues.partial.html" Component_="casload.partial.html" FileName="ISSUES~1.HTM|issues.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\issues.partial.html" SelfReg="false" NextFile="siteconfig.partial.html"/>
+    <ROW File="it.js" Component_="af.js" FileName="it.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\it.js" SelfReg="false" NextFile="ja.js"/>
+    <ROW File="ivalueinfo.ts" Component_="applications.js" FileName="IVALUE~1.TS|ivalueinfo.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\ivalueinfo.ts" SelfReg="false" NextFile="languages.ts"/>
+    <ROW File="ja.js" Component_="af.js" FileName="ja.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ja.js" SelfReg="false" NextFile="jv.js"/>
+    <ROW File="jquery.min.js" Component_="core.js" FileName="JQUERY~1.JS|jquery.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\jquery\jquery.min.js" SelfReg="false" NextFile="af.js"/>
+    <ROW File="jv.js" Component_="af.js" FileName="jv.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\jv.js" SelfReg="false" NextFile="ka.js"/>
+    <ROW File="ka.js" Component_="af.js" FileName="ka.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ka.js" SelfReg="false" NextFile="kk.js"/>
+    <ROW File="kk.js" Component_="af.js" FileName="kk.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\kk.js" SelfReg="false" NextFile="km.js"/>
+    <ROW File="km.js" Component_="af.js" FileName="km.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\km.js" SelfReg="false" NextFile="kn.js"/>
+    <ROW File="kn.js" Component_="af.js" FileName="kn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\kn.js" SelfReg="false" NextFile="ko.js"/>
+    <ROW File="ko.js" Component_="af.js" FileName="ko.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ko.js" SelfReg="false" NextFile="ky.js"/>
+    <ROW File="ky.js" Component_="af.js" FileName="ky.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ky.js" SelfReg="false" NextFile="lb.js"/>
+    <ROW File="languages.service.ts" Component_="data.service.js" FileName="LANGUA~1.TS|languages.service.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\services\languages.service.ts" SelfReg="false" NextFile="network.service.ts"/>
+    <ROW File="languages.ts" Component_="applications.js" FileName="LANGUA~1.TS|languages.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\languages.ts" SelfReg="false" NextFile="machine.ts"/>
+    <ROW File="lb.js" Component_="af.js" FileName="lb.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\lb.js" SelfReg="false" NextFile="lo.js"/>
+    <ROW File="lo.js" Component_="af.js" FileName="lo.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\lo.js" SelfReg="false" NextFile="lt.js"/>
+    <ROW File="lt.js" Component_="af.js" FileName="lt.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\lt.js" SelfReg="false" NextFile="lv.js"/>
+    <ROW File="lv.js" Component_="af.js" FileName="lv.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\lv.js" SelfReg="false" NextFile="me.js"/>
+    <ROW File="machine.snapshot.directive.ts" Component_="casload.partial.html" FileName="MACHIN~1.TS|machine.snapshot.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\machine.snapshot.directive.ts" SelfReg="false" NextFile="machine.snapshot.partial.html"/>
+    <ROW File="machine.snapshot.partial.html" Component_="casload.partial.html" FileName="MACHIN~1.HTM|machine.snapshot.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\machine.snapshot.partial.html" SelfReg="false" NextFile="monthstoretrieve.partial.html"/>
+    <ROW File="machine.ts" Component_="applications.js" FileName="machine.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\machine.ts" SelfReg="false" NextFile="memory.ts"/>
+    <ROW File="me.js" Component_="af.js" FileName="me.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\me.js" SelfReg="false" NextFile="mi.js"/>
+    <ROW File="memory.partial.html" Component_="alerts.partial.html" FileName="MEMORY~1.HTM|memory.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\memory.partial.html" SelfReg="false" NextFile="nic.partial.html"/>
+    <ROW File="memory.ts" Component_="applications.js" FileName="memory.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\memory.ts" SelfReg="false" NextFile="network.ts"/>
+    <ROW File="mi.js" Component_="af.js" FileName="mi.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\mi.js" SelfReg="false" NextFile="mk.js"/>
+    <ROW File="mk.js" Component_="af.js" FileName="mk.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\mk.js" SelfReg="false" NextFile="ml.js"/>
+    <ROW File="ml.js" Component_="af.js" FileName="ml.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ml.js" SelfReg="false" NextFile="mr.js"/>
+    <ROW File="mn.json" Component_="en.json" FileName="MN~1.JSO|mn.json" Attributes="0" SourcePath="..\COMMON\bin\Release\languages\mn.json" SelfReg="false" NextFile="ro.json"/>
+    <ROW File="moment.js" Component_="moment.js" FileName="moment.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\moment.js" SelfReg="false" NextFile="system.js"/>
+    <ROW File="moment.min.js" Component_="momentwithlocales.min.js" FileName="MOMENT~3.JS|moment.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\min\moment.min.js" SelfReg="false" NextFile="moment.js"/>
+    <ROW File="monthstoretrieve.partial.html" Component_="casload.partial.html" FileName="MONTHS~1.HTM|monthstoretrieve.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\monthstoretrieve.partial.html" SelfReg="false" NextFile="network.html"/>
+    <ROW File="mr.js" Component_="af.js" FileName="mr.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\mr.js" SelfReg="false" NextFile="msmy.js"/>
+    <ROW File="ms.js" Component_="af.js" FileName="ms.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ms.js" SelfReg="false" NextFile="my.js"/>
+    <ROW File="msmy.js" Component_="af.js" FileName="ms-my.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ms-my.js" SelfReg="false" NextFile="ms.js"/>
+    <ROW File="my.js" Component_="af.js" FileName="my.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\my.js" SelfReg="false" NextFile="nb.js"/>
+    <ROW File="nb.js" Component_="af.js" FileName="nb.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\nb.js" SelfReg="false" NextFile="ne.js"/>
+    <ROW File="ne.js" Component_="af.js" FileName="ne.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ne.js" SelfReg="false" NextFile="nlbe.js"/>
+    <ROW File="network.html" Component_="casload.partial.html" FileName="NETWOR~2.HTM|network.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\network.html" SelfReg="false" NextFile="networktable.directive.ts"/>
+    <ROW File="network.service.ts" Component_="data.service.js" FileName="NETWOR~1.TS|network.service.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\services\network.service.ts" SelfReg="false" NextFile="device.html"/>
+    <ROW File="network.ts" Component_="applications.js" FileName="network.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\network.ts" SelfReg="false" NextFile="nic.ts"/>
+    <ROW File="networkhistory.controller.ts" Component_="about.controller.js" FileName="NETWOR~1.TS|networkhistory.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\networkhistory.controller.ts" SelfReg="false" NextFile="overview.controller.ts"/>
+    <ROW File="networkhistory.html" Component_="about.html" FileName="NETWOR~1.HTM|networkhistory.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\networkhistory.html" SelfReg="false" NextFile="COMMONWeb.dll.config"/>
+    <ROW File="networktable.directive.ts" Component_="casload.partial.html" FileName="NETWOR~1.TS|networktable.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\networktable.directive.ts" SelfReg="false" NextFile="networktable.partial.html"/>
+    <ROW File="networktable.partial.html" Component_="casload.partial.html" FileName="NETWOR~3.HTM|networktable.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\networktable.partial.html" SelfReg="false" NextFile="report.ts"/>
+    <ROW File="nic.partial.html" Component_="alerts.partial.html" FileName="NICPAR~1.HTM|nic.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\nic.partial.html" SelfReg="false" NextFile="overview.alerts.partial.html"/>
+    <ROW File="nic.ts" Component_="applications.js" FileName="nic.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\nic.ts" SelfReg="false" NextFile="processes.ts"/>
+    <ROW File="nl.js" Component_="af.js" FileName="nl.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\nl.js" SelfReg="false" NextFile="nn.js"/>
+    <ROW File="nlbe.js" Component_="af.js" FileName="nl-be.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\nl-be.js" SelfReg="false" NextFile="nl.js"/>
+    <ROW File="nn.js" Component_="af.js" FileName="nn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\nn.js" SelfReg="false" NextFile="pain.js"/>
+    <ROW File="nnsa.png" Component_="COMMONUserManual_v1.4.pdf" FileName="nnsa.png" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\nnsa.png" SelfReg="false" NextFile="nsdd.png"/>
+    <ROW File="npm.js" Component_="bootstrap.min.js" FileName="npm.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\bootstrap\js\npm.js" SelfReg="false" NextFile="jquery.min.js"/>
+    <ROW File="nsdd.png" Component_="COMMONUserManual_v1.4.pdf" FileName="nsdd.png" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\nsdd.png" SelfReg="false" NextFile="NSDD_Logo_2color.png"/>
+    <ROW File="overview.alerts.partial.html" Component_="alerts.partial.html" FileName="OVERVI~1.HTM|overview.alerts.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\overview.alerts.partial.html" SelfReg="false" NextFile="overview.status.partial.html"/>
+    <ROW File="overview.controller.ts" Component_="about.controller.js" FileName="OVERVI~1.TS|overview.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\overview.controller.ts" SelfReg="false" NextFile="server.controller.ts"/>
+    <ROW File="overview.devicealert.directive.ts" Component_="ping.directive.js" FileName="OVERVI~1.TS|overview.devicealert.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\directives\overview.devicealert.directive.ts" SelfReg="false" NextFile="everything.js"/>
+    <ROW File="overview.devicealert.partial.html" Component_="alerts.partial.html" FileName="OVERVI~4.HTM|overview.devicealert.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\overview.devicealert.partial.html" SelfReg="false" NextFile="COMMONUserManual_v1.5.pdf"/>
+    <ROW File="overview.html" Component_="about.html" FileName="OVERVI~1.HTM|overview.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\overview.html" SelfReg="false" NextFile="alerts.partial.html"/>
+    <ROW File="overview.status.partial.html" Component_="alerts.partial.html" FileName="OVERVI~3.HTM|overview.status.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\overview.status.partial.html" SelfReg="false" NextFile="processes.partial.html"/>
+    <ROW File="pain.js" Component_="af.js" FileName="pa-in.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\pa-in.js" SelfReg="false" NextFile="pl.js"/>
+    <ROW File="pl.js" Component_="af.js" FileName="pl.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\pl.js" SelfReg="false" NextFile="ptbr.js"/>
+    <ROW File="print.directive.ts" Component_="casload.partial.html" FileName="PRINTD~1.TS|print.directive.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\print.directive.ts" SelfReg="false" NextFile="icharttypes.ts"/>
+    <ROW File="processes.partial.html" Component_="alerts.partial.html" FileName="PROCES~1.HTM|processes.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\processes.partial.html" SelfReg="false" NextFile="services.partial.html"/>
+    <ROW File="processes.ts" Component_="applications.js" FileName="PROCES~1.TS|processes.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\processes.ts" SelfReg="false" NextFile="services.ts"/>
+    <ROW File="promisekeeper.ts" Component_="applications.js" FileName="PROMIS~1.TS|promisekeeper.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\promisekeeper.ts" SelfReg="false" NextFile="systemconfiguration.ts"/>
+    <ROW File="pt.js" Component_="af.js" FileName="pt.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\pt.js" SelfReg="false" NextFile="ro.js"/>
+    <ROW File="ptbr.js" Component_="af.js" FileName="pt-br.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\pt-br.js" SelfReg="false" NextFile="pt.js"/>
+    <ROW File="report.ts" Component_="casload.partial.html" FileName="report.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\report.ts" SelfReg="false" NextFile="reports.controller.ts"/>
+    <ROW File="reports.controller.ts" Component_="casload.partial.html" FileName="REPORT~2.TS|reports.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\reports.controller.ts" SelfReg="false" NextFile="site.html"/>
+    <ROW File="ro.js" Component_="af.js" FileName="ro.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ro.js" SelfReg="false" NextFile="ru.js"/>
+    <ROW File="ro.json" Component_="en.json" FileName="RO~1.JSO|ro.json" Attributes="0" SourcePath="..\COMMON\bin\Release\languages\ro.json" SelfReg="false" NextFile="Nancy.dll"/>
+    <ROW File="ru.js" Component_="af.js" FileName="ru.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ru.js" SelfReg="false" NextFile="sd.js"/>
+    <ROW File="scabslogo.jpg" Component_="COMMONUserManual_v1.4.pdf" FileName="SCABSL~1.JPG|scabslogo.jpg" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\scabslogo.jpg" SelfReg="false" NextFile="snl.png"/>
+    <ROW File="sd.js" Component_="af.js" FileName="sd.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sd.js" SelfReg="false" NextFile="se.js"/>
+    <ROW File="se.js" Component_="af.js" FileName="se.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\se.js" SelfReg="false" NextFile="si.js"/>
+    <ROW File="server.controller.ts" Component_="about.controller.js" FileName="SERVER~1.TS|server.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\server.controller.ts" SelfReg="false" NextFile="windowsMachine.controller.ts"/>
+    <ROW File="server.html" Component_="about.html" FileName="SERVER~1.HTM|server.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\server.html" SelfReg="false" NextFile="workstation.html"/>
+    <ROW File="services.partial.html" Component_="alerts.partial.html" FileName="SERVIC~1.HTM|services.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\services.partial.html" SelfReg="false" NextFile="systemerrors.partial.html"/>
+    <ROW File="services.ts" Component_="applications.js" FileName="services.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\services.ts" SelfReg="false" NextFile="ups.ts"/>
+    <ROW File="si.js" Component_="af.js" FileName="si.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\si.js" SelfReg="false" NextFile="sk.js"/>
+    <ROW File="site.html" Component_="casload.partial.html" FileName="SITE~1.HTM|site.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\site.html" SelfReg="false" NextFile="configuration.service.ts"/>
+    <ROW File="siteconfig.partial.html" Component_="casload.partial.html" FileName="SITECO~1.HTM|siteconfig.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\reports\siteconfig.partial.html" SelfReg="false" NextFile="about.html"/>
+    <ROW File="sk.js" Component_="af.js" FileName="sk.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sk.js" SelfReg="false" NextFile="sl.js"/>
+    <ROW File="sl.js" Component_="af.js" FileName="sl.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sl.js" SelfReg="false" NextFile="sq.js"/>
+    <ROW File="smart.modal.html_1" Component_="disk.js" FileName="SMARTM~1.HTM|smart.modal.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\disk\smart.modal.html" SelfReg="false" NextFile="smart.ts"/>
+    <ROW File="smart.ts" Component_="disk.js" FileName="smart.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\disk\smart.ts" SelfReg="false" NextFile="app.config.ts"/>
+    <ROW File="snl.png" Component_="COMMONUserManual_v1.4.pdf" FileName="snl.png" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\snl.png" SelfReg="false" NextFile="styles.css"/>
+    <ROW File="sq.js" Component_="af.js" FileName="sq.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sq.js" SelfReg="false" NextFile="srcyrl.js"/>
+    <ROW File="sr.js" Component_="af.js" FileName="sr.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sr.js" SelfReg="false" NextFile="ss.js"/>
+    <ROW File="srcyrl.js" Component_="af.js" FileName="sr-cyrl.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sr-cyrl.js" SelfReg="false" NextFile="sr.js"/>
+    <ROW File="ss.js" Component_="af.js" FileName="ss.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ss.js" SelfReg="false" NextFile="sv.js"/>
+    <ROW File="styles.css" Component_="COMMONUserManual_v1.4.pdf" FileName="styles.css" Attributes="0" SourcePath="..\COMMON\bin\Release\Content\styles.css" SelfReg="false" NextFile="index.html"/>
+    <ROW File="sv.js" Component_="af.js" FileName="sv.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sv.js" SelfReg="false" NextFile="sw.js"/>
+    <ROW File="sw.js" Component_="af.js" FileName="sw.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\sw.js" SelfReg="false" NextFile="ta.js"/>
+    <ROW File="system.js" Component_="system.js" FileName="system.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\systemjs\system.js" SelfReg="false" NextFile="chartbridge.ts"/>
+    <ROW File="systemconfiguration.ts" Component_="applications.js" FileName="SYSTEM~1.TS|systemconfiguration.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\systemconfiguration.ts" SelfReg="false" NextFile="about.controller.ts"/>
+    <ROW File="systemerrors.partial.html" Component_="alerts.partial.html" FileName="SYSTEM~1.HTM|systemerrors.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\systemerrors.partial.html" SelfReg="false" NextFile="ups.partial.html"/>
+    <ROW File="ta.js" Component_="af.js" FileName="ta.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ta.js" SelfReg="false" NextFile="te.js"/>
+    <ROW File="te.js" Component_="af.js" FileName="te.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\te.js" SelfReg="false" NextFile="tet.js"/>
+    <ROW File="tet.js" Component_="af.js" FileName="tet.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\tet.js" SelfReg="false" NextFile="th.js"/>
+    <ROW File="th.js" Component_="af.js" FileName="th.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\th.js" SelfReg="false" NextFile="tlph.js"/>
+    <ROW File="tlh.js" Component_="af.js" FileName="tlh.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\tlh.js" SelfReg="false" NextFile="tr.js"/>
+    <ROW File="tlph.js" Component_="af.js" FileName="tl-ph.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\tl-ph.js" SelfReg="false" NextFile="tlh.js"/>
+    <ROW File="tr.js" Component_="af.js" FileName="tr.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\tr.js" SelfReg="false" NextFile="tzl.js"/>
+    <ROW File="treasureoverlayspinner.min.css" Component_="treasureoverlayspinner.min.css" FileName="TREASU~1.CSS|treasure-overlay-spinner.min.css" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-treasure-overlay-spinner\treasure-overlay-spinner.min.css" SelfReg="false" NextFile="treasureoverlayspinner.min.js"/>
+    <ROW File="treasureoverlayspinner.min.js" Component_="treasureoverlayspinner.min.css" FileName="TREASU~1.JS|treasure-overlay-spinner.min.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-treasure-overlay-spinner\treasure-overlay-spinner.min.js" SelfReg="false" NextFile="apexcharts.ts"/>
+    <ROW File="tzl.js" Component_="af.js" FileName="tzl.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\tzl.js" SelfReg="false" NextFile="tzmlatn.js"/>
+    <ROW File="tzm.js" Component_="af.js" FileName="tzm.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\tzm.js" SelfReg="false" NextFile="uk.js"/>
+    <ROW File="tzmlatn.js" Component_="af.js" FileName="tzm-latn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\tzm-latn.js" SelfReg="false" NextFile="tzm.js"/>
+    <ROW File="uibootstrap.js" Component_="uibootstrapcsp.css" FileName="UI-BOO~2.JS|ui-bootstrap.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-ui-bootstrap\ui-bootstrap.js" SelfReg="false" NextFile="download.min.js"/>
+    <ROW File="uibootstrapcsp.css" Component_="uibootstrapcsp.css" FileName="UI-BOO~1.CSS|ui-bootstrap-csp.css" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-ui-bootstrap\ui-bootstrap-csp.css" SelfReg="false" NextFile="uibootstraptpls.js"/>
+    <ROW File="uibootstraptpls.js" Component_="uibootstrapcsp.css" FileName="UI-BOO~1.JS|ui-bootstrap-tpls.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\angular-ui-bootstrap\ui-bootstrap-tpls.js" SelfReg="false" NextFile="uibootstrap.js"/>
+    <ROW File="uk.js" Component_="af.js" FileName="uk.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\uk.js" SelfReg="false" NextFile="ur.js"/>
+    <ROW File="ups.partial.html" Component_="alerts.partial.html" FileName="UPSPAR~1.HTM|ups.partial.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\partials\ups.partial.html" SelfReg="false" NextFile="server.html"/>
+    <ROW File="ups.ts" Component_="applications.js" FileName="ups.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\ups.ts" SelfReg="false" NextFile="utilities.spec.ts"/>
+    <ROW File="ur.js" Component_="af.js" FileName="ur.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\ur.js" SelfReg="false" NextFile="uzlatn.js"/>
+    <ROW File="utilities.spec.ts" Component_="applications.js" FileName="UTILIT~1.TS|utilities.spec.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\utilities.spec.ts" SelfReg="false" NextFile="utilities.ts"/>
+    <ROW File="utilities.ts" Component_="applications.js" FileName="UTILIT~2.TS|utilities.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\utilities.ts" SelfReg="false" NextFile="valueinfo.ts"/>
+    <ROW File="uz.js" Component_="af.js" FileName="uz.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\uz.js" SelfReg="false" NextFile="vi.js"/>
+    <ROW File="uzlatn.js" Component_="af.js" FileName="uz-latn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\uz-latn.js" SelfReg="false" NextFile="uz.js"/>
+    <ROW File="valueinfo.ts" Component_="applications.js" FileName="VALUEI~1.TS|valueinfo.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\classes\valueinfo.ts" SelfReg="false" NextFile="collectortype.enum.ts"/>
+    <ROW File="vi.js" Component_="af.js" FileName="vi.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\vi.js" SelfReg="false" NextFile="xpseudo.js"/>
+    <ROW File="windowsMachine.controller.ts" Component_="about.controller.js" FileName="WINDOW~1.TS|windowsMachine.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\windowsMachine.controller.ts" SelfReg="false" NextFile="workstation.controller.ts"/>
+    <ROW File="workstation.controller.ts" Component_="about.controller.js" FileName="WORKST~1.TS|workstation.controller.ts" Attributes="0" SourcePath="..\COMMON\bin\Release\app\controllers\workstation.controller.ts" SelfReg="false" NextFile="computer.html"/>
+    <ROW File="workstation.html" Component_="about.html" FileName="WORKST~1.HTM|workstation.html" Attributes="0" SourcePath="..\COMMON\bin\Release\app\views\workstation.html" SelfReg="false" NextFile="COMMONWeb.dll"/>
+    <ROW File="xpseudo.js" Component_="af.js" FileName="x-pseudo.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\x-pseudo.js" SelfReg="false" NextFile="yo.js"/>
+    <ROW File="yo.js" Component_="af.js" FileName="yo.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\yo.js" SelfReg="false" NextFile="zhcn.js"/>
+    <ROW File="zhcn.js" Component_="af.js" FileName="zh-cn.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\zh-cn.js" SelfReg="false" NextFile="zhhk.js"/>
+    <ROW File="zhhk.js" Component_="af.js" FileName="zh-hk.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\zh-hk.js" SelfReg="false" NextFile="zhtw.js"/>
+    <ROW File="zhtw.js" Component_="af.js" FileName="zh-tw.js" Attributes="0" SourcePath="..\COMMON\bin\Release\lib\moment\locale\zh-tw.js" SelfReg="false" NextFile="ControlzEx.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="1" PackageFolder="." Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="..\COMMONConfig\common_icon.ico" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" Options="8" UseLargeSchema="true" ExeName="COMMONInstaller-[|ProductVersion]" MsiPackageType="AI_ALL" UACExecutionLevel="2"/>
+    <ATTRIBUTE name="CompConditionPolicy" value="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.CacheComponent">
+    <ATTRIBUTE name="Enable" value="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\FolderDlg.aip"/>
+    <ROW Fragment="LicenseAgreementDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\LicenseAgreementDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;azure\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;azure\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;azure\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_SqlConfig" Description="Executing install SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlConfig" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlConfig"/>
+    <ROW Action="AI_SqlInstall" Description="Generating actions to configure databases for install SQL script execution" DescriptionLocId="ActionText.Description.AI_SqlInstall"/>
+    <ROW Action="AI_SqlMaint" Description="Executing maintenance SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlMaint" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlMaint"/>
+    <ROW Action="AI_SqlRemove" Description="Executing uninstall SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlRemove" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlRemove"/>
+    <ROW Action="AI_SqlRollback" Description="Executing rollback SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlRollback" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlRollback"/>
+    <ROW Action="AI_SqlUninstall" Description="Generating actions to configure databases for uninstall SQL script execution" DescriptionLocId="ActionText.Description.AI_SqlUninstall"/>
+    <ROW Action="AI_TxtUpdaterCommit" Description="Commit text file changes. " DescriptionLocId="ActionText.Description.AI_TxtUpdaterCommit" Template="Commit text file changes." TemplateLocId="ActionText.Template.AI_TxtUpdaterCommit"/>
+    <ROW Action="AI_TxtUpdaterConfig" Description="Executing text file updates" DescriptionLocId="ActionText.Description.AI_TxtUpdaterConfig" Template="Updating text file: &quot;[1]&quot;" TemplateLocId="ActionText.Template.AI_TxtUpdaterConfig"/>
+    <ROW Action="AI_TxtUpdaterInstall" Description="Generating actions to configure text files updates" DescriptionLocId="ActionText.Description.AI_TxtUpdaterInstall"/>
+    <ROW Action="AI_TxtUpdaterRollback" Description="Rolling back text file changes. " DescriptionLocId="ActionText.Description.AI_TxtUpdaterRollback" Template="Rolling back text file changes." TemplateLocId="ActionText.Template.AI_TxtUpdaterRollback"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="TxtUpdater.dll" SourcePath="&lt;AI_CUSTACTS&gt;TxtUpdater.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="sql.dll" SourcePath="&lt;AI_CUSTACTS&gt;sql.dll"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;AI_CUSTACTS&gt;viewer.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiComboBoxComponent">
+    <ROW Property="COUNTRY_CODE" Order="1" Value="AF" Text="Afghanistan"/>
+    <ROW Property="COUNTRY_CODE" Order="2" Value="AX" Text="Åland Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="3" Value="AL" Text="Albania"/>
+    <ROW Property="COUNTRY_CODE" Order="4" Value="DZ" Text="Algeria"/>
+    <ROW Property="COUNTRY_CODE" Order="5" Value="AS" Text="American Samoa"/>
+    <ROW Property="COUNTRY_CODE" Order="6" Value="AD" Text="Andorra"/>
+    <ROW Property="COUNTRY_CODE" Order="7" Value="AO" Text="Angola"/>
+    <ROW Property="COUNTRY_CODE" Order="8" Value="AI" Text="Anguilla"/>
+    <ROW Property="COUNTRY_CODE" Order="9" Value="AQ" Text="Antarctica"/>
+    <ROW Property="COUNTRY_CODE" Order="10" Value="AG" Text="Antigua and Barbuda"/>
+    <ROW Property="COUNTRY_CODE" Order="11" Value="AR" Text="Argentina"/>
+    <ROW Property="COUNTRY_CODE" Order="12" Value="AM" Text="Armenia"/>
+    <ROW Property="COUNTRY_CODE" Order="13" Value="AW" Text="Aruba"/>
+    <ROW Property="COUNTRY_CODE" Order="14" Value="AU" Text="Australia"/>
+    <ROW Property="COUNTRY_CODE" Order="15" Value="AT" Text="Austria"/>
+    <ROW Property="COUNTRY_CODE" Order="16" Value="AZ" Text="Azerbaijan"/>
+    <ROW Property="COUNTRY_CODE" Order="17" Value="BS" Text="Bahamas"/>
+    <ROW Property="COUNTRY_CODE" Order="18" Value="BH" Text="Bahrain"/>
+    <ROW Property="COUNTRY_CODE" Order="19" Value="BD" Text="Bangladesh"/>
+    <ROW Property="COUNTRY_CODE" Order="20" Value="BB" Text="Barbados"/>
+    <ROW Property="COUNTRY_CODE" Order="21" Value="BY" Text="Belarus"/>
+    <ROW Property="COUNTRY_CODE" Order="22" Value="BE" Text="Belgium"/>
+    <ROW Property="COUNTRY_CODE" Order="23" Value="BZ" Text="Belize"/>
+    <ROW Property="COUNTRY_CODE" Order="24" Value="BJ" Text="Benin"/>
+    <ROW Property="COUNTRY_CODE" Order="25" Value="BM" Text="Bermuda"/>
+    <ROW Property="COUNTRY_CODE" Order="26" Value="BT" Text="Bhutan"/>
+    <ROW Property="COUNTRY_CODE" Order="27" Value="BO" Text="Bolivia (Plurinational State of)"/>
+    <ROW Property="COUNTRY_CODE" Order="28" Value="BQ" Text="Bonaire, Sint Eustatius and Saba"/>
+    <ROW Property="COUNTRY_CODE" Order="29" Value="BA" Text="Bosnia and Herzegovina"/>
+    <ROW Property="COUNTRY_CODE" Order="30" Value="BW" Text="Botswana"/>
+    <ROW Property="COUNTRY_CODE" Order="31" Value="BV" Text="Bouvet Island"/>
+    <ROW Property="COUNTRY_CODE" Order="32" Value="BR" Text="Brazil"/>
+    <ROW Property="COUNTRY_CODE" Order="33" Value="IO" Text="British Indian Ocean Territory"/>
+    <ROW Property="COUNTRY_CODE" Order="34" Value="BN" Text="Brunei Darussalam"/>
+    <ROW Property="COUNTRY_CODE" Order="35" Value="BG" Text="Bulgaria"/>
+    <ROW Property="COUNTRY_CODE" Order="36" Value="BF" Text="Burkina Faso"/>
+    <ROW Property="COUNTRY_CODE" Order="37" Value="BI" Text="Burundi"/>
+    <ROW Property="COUNTRY_CODE" Order="38" Value="CV" Text="Cabo Verde"/>
+    <ROW Property="COUNTRY_CODE" Order="39" Value="KH" Text="Cambodia"/>
+    <ROW Property="COUNTRY_CODE" Order="40" Value="CM" Text="Cameroon"/>
+    <ROW Property="COUNTRY_CODE" Order="41" Value="CA" Text="Canada"/>
+    <ROW Property="COUNTRY_CODE" Order="42" Value="KY" Text="Cayman Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="43" Value="CF" Text="Central African Republic"/>
+    <ROW Property="COUNTRY_CODE" Order="44" Value="TD" Text="Chad"/>
+    <ROW Property="COUNTRY_CODE" Order="45" Value="CL" Text="Chile"/>
+    <ROW Property="COUNTRY_CODE" Order="46" Value="CN" Text="China"/>
+    <ROW Property="COUNTRY_CODE" Order="47" Value="CX" Text="Christmas Island"/>
+    <ROW Property="COUNTRY_CODE" Order="48" Value="CC" Text="Cocos (Keeling) Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="49" Value="CO" Text="Colombia"/>
+    <ROW Property="COUNTRY_CODE" Order="50" Value="KM" Text="Comoros"/>
+    <ROW Property="COUNTRY_CODE" Order="51" Value="CG" Text="Congo"/>
+    <ROW Property="COUNTRY_CODE" Order="52" Value="CD" Text="Congo (Democratic Republic of the)"/>
+    <ROW Property="COUNTRY_CODE" Order="53" Value="CK" Text="Cook Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="54" Value="CR" Text="Costa Rica"/>
+    <ROW Property="COUNTRY_CODE" Order="55" Value="CI" Text="Côte d&apos;Ivoire"/>
+    <ROW Property="COUNTRY_CODE" Order="56" Value="HR" Text="Croatia"/>
+    <ROW Property="COUNTRY_CODE" Order="57" Value="CU" Text="Cuba"/>
+    <ROW Property="COUNTRY_CODE" Order="58" Value="CW" Text="Curaçao"/>
+    <ROW Property="COUNTRY_CODE" Order="59" Value="CY" Text="Cyprus"/>
+    <ROW Property="COUNTRY_CODE" Order="60" Value="CZ" Text="Czechia"/>
+    <ROW Property="COUNTRY_CODE" Order="61" Value="DK" Text="Denmark"/>
+    <ROW Property="COUNTRY_CODE" Order="62" Value="DJ" Text="Djibouti"/>
+    <ROW Property="COUNTRY_CODE" Order="63" Value="DM" Text="Dominica"/>
+    <ROW Property="COUNTRY_CODE" Order="64" Value="DO" Text="Dominican Republic"/>
+    <ROW Property="COUNTRY_CODE" Order="65" Value="EC" Text="Ecuador"/>
+    <ROW Property="COUNTRY_CODE" Order="66" Value="EG" Text="Egypt"/>
+    <ROW Property="COUNTRY_CODE" Order="67" Value="SV" Text="El Salvador"/>
+    <ROW Property="COUNTRY_CODE" Order="68" Value="GQ" Text="Equatorial Guinea"/>
+    <ROW Property="COUNTRY_CODE" Order="69" Value="ER" Text="Eritrea"/>
+    <ROW Property="COUNTRY_CODE" Order="70" Value="EE" Text="Estonia"/>
+    <ROW Property="COUNTRY_CODE" Order="71" Value="SZ" Text="Eswatini"/>
+    <ROW Property="COUNTRY_CODE" Order="72" Value="ET" Text="Ethiopia"/>
+    <ROW Property="COUNTRY_CODE" Order="73" Value="FK" Text="Falkland Islands (Malvinas)"/>
+    <ROW Property="COUNTRY_CODE" Order="74" Value="FO" Text="Faroe Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="75" Value="FJ" Text="Fiji"/>
+    <ROW Property="COUNTRY_CODE" Order="76" Value="FI" Text="Finland"/>
+    <ROW Property="COUNTRY_CODE" Order="77" Value="FR" Text="France"/>
+    <ROW Property="COUNTRY_CODE" Order="78" Value="GF" Text="French Guiana"/>
+    <ROW Property="COUNTRY_CODE" Order="79" Value="PF" Text="French Polynesia"/>
+    <ROW Property="COUNTRY_CODE" Order="80" Value="TF" Text="French Southern Territories"/>
+    <ROW Property="COUNTRY_CODE" Order="81" Value="GA" Text="Gabon"/>
+    <ROW Property="COUNTRY_CODE" Order="82" Value="GM" Text="Gambia"/>
+    <ROW Property="COUNTRY_CODE" Order="83" Value="GE" Text="Georgia"/>
+    <ROW Property="COUNTRY_CODE" Order="84" Value="DE" Text="Germany"/>
+    <ROW Property="COUNTRY_CODE" Order="85" Value="GH" Text="Ghana"/>
+    <ROW Property="COUNTRY_CODE" Order="86" Value="GI" Text="Gibraltar"/>
+    <ROW Property="COUNTRY_CODE" Order="87" Value="GR" Text="Greece"/>
+    <ROW Property="COUNTRY_CODE" Order="88" Value="GL" Text="Greenland"/>
+    <ROW Property="COUNTRY_CODE" Order="89" Value="GD" Text="Grenada"/>
+    <ROW Property="COUNTRY_CODE" Order="90" Value="GP" Text="Guadeloupe"/>
+    <ROW Property="COUNTRY_CODE" Order="91" Value="GU" Text="Guam"/>
+    <ROW Property="COUNTRY_CODE" Order="92" Value="GT" Text="Guatemala"/>
+    <ROW Property="COUNTRY_CODE" Order="93" Value="GG" Text="Guernsey"/>
+    <ROW Property="COUNTRY_CODE" Order="94" Value="GN" Text="Guinea"/>
+    <ROW Property="COUNTRY_CODE" Order="95" Value="GW" Text="Guinea-Bissau"/>
+    <ROW Property="COUNTRY_CODE" Order="96" Value="GY" Text="Guyana"/>
+    <ROW Property="COUNTRY_CODE" Order="97" Value="HT" Text="Haiti"/>
+    <ROW Property="COUNTRY_CODE" Order="98" Value="HM" Text="Heard Island and McDonald Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="99" Value="VA" Text="Holy See"/>
+    <ROW Property="COUNTRY_CODE" Order="100" Value="HN" Text="Honduras"/>
+    <ROW Property="COUNTRY_CODE" Order="101" Value="HK" Text="Hong Kong"/>
+    <ROW Property="COUNTRY_CODE" Order="102" Value="HU" Text="Hungary"/>
+    <ROW Property="COUNTRY_CODE" Order="103" Value="IS" Text="Iceland"/>
+    <ROW Property="COUNTRY_CODE" Order="104" Value="IN" Text="India"/>
+    <ROW Property="COUNTRY_CODE" Order="105" Value="ID" Text="Indonesia"/>
+    <ROW Property="COUNTRY_CODE" Order="106" Value="IR" Text="Iran (Islamic Republic of)"/>
+    <ROW Property="COUNTRY_CODE" Order="107" Value="IQ" Text="Iraq"/>
+    <ROW Property="COUNTRY_CODE" Order="108" Value="IE" Text="Ireland"/>
+    <ROW Property="COUNTRY_CODE" Order="109" Value="IM" Text="Isle of Man"/>
+    <ROW Property="COUNTRY_CODE" Order="110" Value="IL" Text="Israel"/>
+    <ROW Property="COUNTRY_CODE" Order="111" Value="IT" Text="Italy"/>
+    <ROW Property="COUNTRY_CODE" Order="112" Value="JM" Text="Jamaica"/>
+    <ROW Property="COUNTRY_CODE" Order="113" Value="JP" Text="Japan"/>
+    <ROW Property="COUNTRY_CODE" Order="114" Value="JE" Text="Jersey"/>
+    <ROW Property="COUNTRY_CODE" Order="115" Value="JO" Text="Jordan"/>
+    <ROW Property="COUNTRY_CODE" Order="116" Value="KZ" Text="Kazakhstan"/>
+    <ROW Property="COUNTRY_CODE" Order="117" Value="KE" Text="Kenya"/>
+    <ROW Property="COUNTRY_CODE" Order="118" Value="KI" Text="Kiribati"/>
+    <ROW Property="COUNTRY_CODE" Order="119" Value="KP" Text="Korea (Democratic People&apos;s Republic of)"/>
+    <ROW Property="COUNTRY_CODE" Order="120" Value="KR" Text="Korea (Republic of)"/>
+    <ROW Property="COUNTRY_CODE" Order="121" Value="KW" Text="Kuwait"/>
+    <ROW Property="COUNTRY_CODE" Order="122" Value="KG" Text="Kyrgyzstan"/>
+    <ROW Property="COUNTRY_CODE" Order="123" Value="LA" Text="Lao People&apos;s Democratic Republic"/>
+    <ROW Property="COUNTRY_CODE" Order="124" Value="LV" Text="Latvia"/>
+    <ROW Property="COUNTRY_CODE" Order="125" Value="LB" Text="Lebanon"/>
+    <ROW Property="COUNTRY_CODE" Order="126" Value="LS" Text="Lesotho"/>
+    <ROW Property="COUNTRY_CODE" Order="127" Value="LR" Text="Liberia"/>
+    <ROW Property="COUNTRY_CODE" Order="128" Value="LY" Text="Libya"/>
+    <ROW Property="COUNTRY_CODE" Order="129" Value="LI" Text="Liechtenstein"/>
+    <ROW Property="COUNTRY_CODE" Order="130" Value="LT" Text="Lithuania"/>
+    <ROW Property="COUNTRY_CODE" Order="131" Value="LU" Text="Luxembourg"/>
+    <ROW Property="COUNTRY_CODE" Order="132" Value="MO" Text="Macao"/>
+    <ROW Property="COUNTRY_CODE" Order="133" Value="MK" Text="Macedonia (the former Yugoslav Republic of)"/>
+    <ROW Property="COUNTRY_CODE" Order="134" Value="MG" Text="Madagascar"/>
+    <ROW Property="COUNTRY_CODE" Order="135" Value="MW" Text="Malawi"/>
+    <ROW Property="COUNTRY_CODE" Order="136" Value="MY" Text="Malaysia"/>
+    <ROW Property="COUNTRY_CODE" Order="137" Value="MV" Text="Maldives"/>
+    <ROW Property="COUNTRY_CODE" Order="138" Value="ML" Text="Mali"/>
+    <ROW Property="COUNTRY_CODE" Order="139" Value="MT" Text="Malta"/>
+    <ROW Property="COUNTRY_CODE" Order="140" Value="MH" Text="Marshall Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="141" Value="MQ" Text="Martinique"/>
+    <ROW Property="COUNTRY_CODE" Order="142" Value="MR" Text="Mauritania"/>
+    <ROW Property="COUNTRY_CODE" Order="143" Value="MU" Text="Mauritius"/>
+    <ROW Property="COUNTRY_CODE" Order="144" Value="YT" Text="Mayotte"/>
+    <ROW Property="COUNTRY_CODE" Order="145" Value="MX" Text="Mexico"/>
+    <ROW Property="COUNTRY_CODE" Order="146" Value="FM" Text="Micronesia (Federated States of)"/>
+    <ROW Property="COUNTRY_CODE" Order="147" Value="MD" Text="Moldova (Republic of)"/>
+    <ROW Property="COUNTRY_CODE" Order="148" Value="MC" Text="Monaco"/>
+    <ROW Property="COUNTRY_CODE" Order="149" Value="MN" Text="Mongolia"/>
+    <ROW Property="COUNTRY_CODE" Order="150" Value="ME" Text="Montenegro"/>
+    <ROW Property="COUNTRY_CODE" Order="151" Value="MS" Text="Montserrat"/>
+    <ROW Property="COUNTRY_CODE" Order="152" Value="MA" Text="Morocco"/>
+    <ROW Property="COUNTRY_CODE" Order="153" Value="MZ" Text="Mozambique"/>
+    <ROW Property="COUNTRY_CODE" Order="154" Value="MM" Text="Myanmar"/>
+    <ROW Property="COUNTRY_CODE" Order="155" Value="NA" Text="Namibia"/>
+    <ROW Property="COUNTRY_CODE" Order="156" Value="NR" Text="Nauru"/>
+    <ROW Property="COUNTRY_CODE" Order="157" Value="NP" Text="Nepal"/>
+    <ROW Property="COUNTRY_CODE" Order="158" Value="NL" Text="Netherlands"/>
+    <ROW Property="COUNTRY_CODE" Order="159" Value="NC" Text="New Caledonia"/>
+    <ROW Property="COUNTRY_CODE" Order="160" Value="NZ" Text="New Zealand"/>
+    <ROW Property="COUNTRY_CODE" Order="161" Value="NI" Text="Nicaragua"/>
+    <ROW Property="COUNTRY_CODE" Order="162" Value="NE" Text="Niger"/>
+    <ROW Property="COUNTRY_CODE" Order="163" Value="NG" Text="Nigeria"/>
+    <ROW Property="COUNTRY_CODE" Order="164" Value="NU" Text="Niue"/>
+    <ROW Property="COUNTRY_CODE" Order="165" Value="NF" Text="Norfolk Island"/>
+    <ROW Property="COUNTRY_CODE" Order="166" Value="MP" Text="Northern Mariana Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="167" Value="NO" Text="Norway"/>
+    <ROW Property="COUNTRY_CODE" Order="168" Value="OM" Text="Oman"/>
+    <ROW Property="COUNTRY_CODE" Order="169" Value="PK" Text="Pakistan"/>
+    <ROW Property="COUNTRY_CODE" Order="170" Value="PW" Text="Palau"/>
+    <ROW Property="COUNTRY_CODE" Order="171" Value="PS" Text="Palestine, State of"/>
+    <ROW Property="COUNTRY_CODE" Order="172" Value="PA" Text="Panama"/>
+    <ROW Property="COUNTRY_CODE" Order="173" Value="PG" Text="Papua New Guinea"/>
+    <ROW Property="COUNTRY_CODE" Order="174" Value="PY" Text="Paraguay"/>
+    <ROW Property="COUNTRY_CODE" Order="175" Value="PE" Text="Peru"/>
+    <ROW Property="COUNTRY_CODE" Order="176" Value="PH" Text="Philippines"/>
+    <ROW Property="COUNTRY_CODE" Order="177" Value="PN" Text="Pitcairn"/>
+    <ROW Property="COUNTRY_CODE" Order="178" Value="PL" Text="Poland"/>
+    <ROW Property="COUNTRY_CODE" Order="179" Value="PT" Text="Portugal"/>
+    <ROW Property="COUNTRY_CODE" Order="180" Value="PR" Text="Puerto Rico"/>
+    <ROW Property="COUNTRY_CODE" Order="181" Value="QA" Text="Qatar"/>
+    <ROW Property="COUNTRY_CODE" Order="182" Value="RE" Text="Réunion"/>
+    <ROW Property="COUNTRY_CODE" Order="183" Value="RO" Text="Romania"/>
+    <ROW Property="COUNTRY_CODE" Order="184" Value="RU" Text="Russian Federation"/>
+    <ROW Property="COUNTRY_CODE" Order="185" Value="RW" Text="Rwanda"/>
+    <ROW Property="COUNTRY_CODE" Order="186" Value="BL" Text="Saint Barthélemy"/>
+    <ROW Property="COUNTRY_CODE" Order="187" Value="SH" Text="Saint Helena, Ascension and Tristan da Cunha"/>
+    <ROW Property="COUNTRY_CODE" Order="188" Value="KN" Text="Saint Kitts and Nevis"/>
+    <ROW Property="COUNTRY_CODE" Order="189" Value="LC" Text="Saint Lucia"/>
+    <ROW Property="COUNTRY_CODE" Order="190" Value="MF" Text="Saint Martin (French part)"/>
+    <ROW Property="COUNTRY_CODE" Order="191" Value="PM" Text="Saint Pierre and Miquelon"/>
+    <ROW Property="COUNTRY_CODE" Order="192" Value="VC" Text="Saint Vincent and the Grenadines"/>
+    <ROW Property="COUNTRY_CODE" Order="193" Value="WS" Text="Samoa"/>
+    <ROW Property="COUNTRY_CODE" Order="194" Value="SM" Text="San Marino"/>
+    <ROW Property="COUNTRY_CODE" Order="195" Value="ST" Text="Sao Tome and Principe"/>
+    <ROW Property="COUNTRY_CODE" Order="196" Value="SA" Text="Saudi Arabia"/>
+    <ROW Property="COUNTRY_CODE" Order="197" Value="SN" Text="Senegal"/>
+    <ROW Property="COUNTRY_CODE" Order="198" Value="RS" Text="Serbia"/>
+    <ROW Property="COUNTRY_CODE" Order="199" Value="SC" Text="Seychelles"/>
+    <ROW Property="COUNTRY_CODE" Order="200" Value="SL" Text="Sierra Leone"/>
+    <ROW Property="COUNTRY_CODE" Order="201" Value="SG" Text="Singapore"/>
+    <ROW Property="COUNTRY_CODE" Order="202" Value="SX" Text="Sint Maarten (Dutch part)"/>
+    <ROW Property="COUNTRY_CODE" Order="203" Value="SK" Text="Slovakia"/>
+    <ROW Property="COUNTRY_CODE" Order="204" Value="SI" Text="Slovenia"/>
+    <ROW Property="COUNTRY_CODE" Order="205" Value="SB" Text="Solomon Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="206" Value="SO" Text="Somalia"/>
+    <ROW Property="COUNTRY_CODE" Order="207" Value="ZA" Text="South Africa"/>
+    <ROW Property="COUNTRY_CODE" Order="208" Value="GS" Text="South Georgia and the South Sandwich Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="209" Value="SS" Text="South Sudan"/>
+    <ROW Property="COUNTRY_CODE" Order="210" Value="ES" Text="Spain"/>
+    <ROW Property="COUNTRY_CODE" Order="211" Value="LK" Text="Sri Lanka"/>
+    <ROW Property="COUNTRY_CODE" Order="212" Value="SD" Text="Sudan"/>
+    <ROW Property="COUNTRY_CODE" Order="213" Value="SR" Text="Suriname"/>
+    <ROW Property="COUNTRY_CODE" Order="214" Value="SJ" Text="Svalbard and Jan Mayen"/>
+    <ROW Property="COUNTRY_CODE" Order="215" Value="SE" Text="Sweden"/>
+    <ROW Property="COUNTRY_CODE" Order="216" Value="CH" Text="Switzerland"/>
+    <ROW Property="COUNTRY_CODE" Order="217" Value="SY" Text="Syrian Arab Republic"/>
+    <ROW Property="COUNTRY_CODE" Order="218" Value="TW" Text="Taiwan, Province of China"/>
+    <ROW Property="COUNTRY_CODE" Order="219" Value="TJ" Text="Tajikistan"/>
+    <ROW Property="COUNTRY_CODE" Order="220" Value="TZ" Text="Tanzania, United Republic of"/>
+    <ROW Property="COUNTRY_CODE" Order="221" Value="TH" Text="Thailand"/>
+    <ROW Property="COUNTRY_CODE" Order="222" Value="TL" Text="Timor-Leste"/>
+    <ROW Property="COUNTRY_CODE" Order="223" Value="TG" Text="Togo"/>
+    <ROW Property="COUNTRY_CODE" Order="224" Value="TK" Text="Tokelau"/>
+    <ROW Property="COUNTRY_CODE" Order="225" Value="TO" Text="Tonga"/>
+    <ROW Property="COUNTRY_CODE" Order="226" Value="TT" Text="Trinidad and Tobago"/>
+    <ROW Property="COUNTRY_CODE" Order="227" Value="TN" Text="Tunisia"/>
+    <ROW Property="COUNTRY_CODE" Order="228" Value="TR" Text="Turkey"/>
+    <ROW Property="COUNTRY_CODE" Order="229" Value="TM" Text="Turkmenistan"/>
+    <ROW Property="COUNTRY_CODE" Order="230" Value="TC" Text="Turks and Caicos Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="231" Value="TV" Text="Tuvalu"/>
+    <ROW Property="COUNTRY_CODE" Order="232" Value="UG" Text="Uganda"/>
+    <ROW Property="COUNTRY_CODE" Order="233" Value="UA" Text="Ukraine"/>
+    <ROW Property="COUNTRY_CODE" Order="234" Value="AE" Text="United Arab Emirates"/>
+    <ROW Property="COUNTRY_CODE" Order="235" Value="GB" Text="United Kingdom of Great Britain and Northern Ireland"/>
+    <ROW Property="COUNTRY_CODE" Order="236" Value="US" Text="United States of America"/>
+    <ROW Property="COUNTRY_CODE" Order="237" Value="UM" Text="United States Minor Outlying Islands"/>
+    <ROW Property="COUNTRY_CODE" Order="238" Value="UY" Text="Uruguay"/>
+    <ROW Property="COUNTRY_CODE" Order="239" Value="UZ" Text="Uzbekistan"/>
+    <ROW Property="COUNTRY_CODE" Order="240" Value="VU" Text="Vanuatu"/>
+    <ROW Property="COUNTRY_CODE" Order="241" Value="VE" Text="Venezuela (Bolivarian Republic of)"/>
+    <ROW Property="COUNTRY_CODE" Order="242" Value="VN" Text="Viet Nam"/>
+    <ROW Property="COUNTRY_CODE" Order="243" Value="VG" Text="Virgin Islands (British)"/>
+    <ROW Property="COUNTRY_CODE" Order="244" Value="VI" Text="Virgin Islands (U.S.)"/>
+    <ROW Property="COUNTRY_CODE" Order="245" Value="WF" Text="Wallis and Futuna"/>
+    <ROW Property="COUNTRY_CODE" Order="246" Value="EH" Text="Western Sahara"/>
+    <ROW Property="COUNTRY_CODE" Order="247" Value="YE" Text="Yemen"/>
+    <ROW Property="COUNTRY_CODE" Order="248" Value="ZM" Text="Zambia"/>
+    <ROW Property="COUNTRY_CODE" Order="249" Value="ZW" Text="Zimbabwe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiConditionComponent">
+    <ROW Feature_="AI64BitFiles" Level="0" Condition="NOT VersionNT64"/>
+    <ROW Feature_="AI32BitFiles" Level="1" Condition="VersionNT64"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="LicenseAgreementDlg" Control="AgreementText" Type="ScrollableText" X="55" Y="110" Width="372" Height="180" Attributes="3" Property="EulaRead" Text="license.rtf" Order="800" MsiKey="LicenseAgreementDlg#AgreementText"/>
+    <ROW Dialog_="SettingsDlg" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="450" Height="360" Attributes="1048577" Text="[Background]" Order="100"/>
+    <ROW Dialog_="SettingsDlg" Control="Next" Type="PushButton" X="380" Y="330" Width="56" Height="17" Attributes="3" Text="[ButtonText_Next]" Order="200" Options="1"/>
+    <ROW Dialog_="SettingsDlg" Control="Cancel" Type="PushButton" X="450" Y="0" Width="0" Height="0" Attributes="2" Text="[ButtonText_Cancel]" Order="300" Options="1"/>
+    <ROW Dialog_="SettingsDlg" Control="Back" Type="PushButton" X="320" Y="330" Width="56" Height="17" Attributes="3" Text="[ButtonText_Back]" Order="400" Options="1"/>
+    <ROW Dialog_="SettingsDlg" Control="Title" Type="Text" X="33" Y="23" Width="200" Height="15" Attributes="196611" Text="COMMON Settings" TextStyle="TitleFont" Order="500"/>
+    <ROW Dialog_="SettingsDlg" Control="CountryCode_ComboBox" Type="ComboBox" X="98" Y="132" Width="255" Height="14" Attributes="3" Property="COUNTRY_CODE" Text="US" Order="600"/>
+    <ROW Dialog_="SettingsDlg" Control="Text" Type="Text" X="54" Y="68" Width="382" Height="50" Attributes="196611" Text="Please choose the country COMMON is being installed in" Order="700"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL" Ordering="3"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="203"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="204"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="SettingsDlg" Control_="Cancel" Event="SpawnDialog" Argument="CancelDlg" Condition="1" Ordering="100"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL AND NOT OLDPRODUCTS" Ordering="2"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="SettingsDlg" Condition="AI_INSTALL AND NOT OLDPRODUCTS" Ordering="202"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="SettingsDlg" Condition="AI_INSTALL AND NOT OLDPRODUCTS" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND NOT OLDPRODUCTS" Ordering="1"/>
+    <ROW Dialog_="SettingsDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL AND NOT OLDPRODUCTS" Ordering="1"/>
+    <ROW Dialog_="SettingsDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL AND NOT OLDPRODUCTS" Ordering="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="LogFiles_Dir" Component_="LogFiles" ManualDelete="false"/>
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="false"/>
+    <ROW Directory_="angularbootstrap_Dir" Component_="angularbootstrap" ManualDelete="false"/>
+    <ROW Directory_="angularUtilspagination_Dir" Component_="angularUtilspagination" ManualDelete="false"/>
+    <ROW Directory_="requirejs_Dir" Component_="requirejs" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="AI_ExtractFiles" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="CustomActionData" Target="[~]"/>
+    <ROW Action="AI_DATA_SETTER_2" Type="51" Source="CustomActionData" Target="[~]"/>
+    <ROW Action="AI_DATA_SETTER_7" Type="51" Source="CustomActionData" Target="SetCountryCode"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
+    <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_EstimateExtractFiles" Type="1" Source="Prereq.dll" Target="EstimateExtractFiles"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1025" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
+    <ROW Action="AI_SETPROGRAMFILES" Type="51" Source="AI_ProgramFiles" Target="[ProgramFilesFolder]"/>
+    <ROW Action="AI_SETPROGRAMFILES64" Type="51" Source="AI_ProgramFiles" Target="[ProgramFiles64Folder]"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_SqlConfig" Type="11265" Source="sql.dll" Target="OnSqlConfig" WithoutSeq="true"/>
+    <ROW Action="AI_SqlInstall" Type="1" Source="sql.dll" Target="OnSqlInstall" AdditionalSeq="AI_DATA_SETTER_1"/>
+    <ROW Action="AI_SqlMaint" Type="11265" Source="sql.dll" Target="OnSqlMaint" WithoutSeq="true"/>
+    <ROW Action="AI_SqlRemove" Type="11265" Source="sql.dll" Target="OnSqlRemove" WithoutSeq="true"/>
+    <ROW Action="AI_SqlRollback" Type="11521" Source="sql.dll" Target="OnSqlRollback" WithoutSeq="true"/>
+    <ROW Action="AI_SqlUninstall" Type="1" Source="sql.dll" Target="OnSqlUninstall" AdditionalSeq="AI_DATA_SETTER_2"/>
+    <ROW Action="AI_TxtUpdaterCommit" Type="11777" Source="TxtUpdater.dll" Target="OnTxtUpdaterCommit" WithoutSeq="true"/>
+    <ROW Action="AI_TxtUpdaterConfig" Type="11265" Source="TxtUpdater.dll" Target="OnTxtUpdaterConfig" WithoutSeq="true"/>
+    <ROW Action="AI_TxtUpdaterInstall" Type="1" Source="TxtUpdater.dll" Target="OnTxtUpdaterInstall"/>
+    <ROW Action="AI_TxtUpdaterRollback" Type="11521" Source="TxtUpdater.dll" Target="OnTxtUpdaterRollback" WithoutSeq="true"/>
+    <ROW Action="LaunchFile" Type="2" Source="viewer.exe" Target="eventcreate /id 1 /l application /t information /so &quot;COMMONConfig&quot; /d &quot;Installer initial log entry&quot;" WithoutSeq="true" Options="1"/>
+    <ROW Action="LaunchFile_1" Type="2" Source="viewer.exe" Target="eventcreate /id 1 /l application /t information /so &quot;COMMONService&quot; /d &quot;Installer initial log entry&quot;" WithoutSeq="true" Options="1"/>
+    <ROW Action="LaunchFile_2" Type="2" Source="viewer.exe" Target="eventcreate /id 1 /l application /t information /so &quot;COMMONWeb&quot; /d &quot;Installer initial log entry&quot;" WithoutSeq="true" Options="1"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[WindowsVolume][ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+    <ROW Action="SetCONFIG_FILENAME" Type="51" Source="CONFIG_FILENAME" Target="common_config.json"/>
+    <ROW Action="SetCountryCodeAction" Type="1" Source="sql.dll" Target="OnSqlFetch" Options="1" AdditionalSeq="AI_DATA_SETTER_7"/>
+    <ROW Action="SetDB_CONFIG_PATH_COMMONCONFIG" Type="51" Source="DB_CONFIG_PATH_COMMONCONFIG" Target="[APPDIR]\Configuration"/>
+    <ROW Action="SetDB_CONFIG_PATH_COMMONSERVICE" Type="51" Source="DB_CONFIG_PATH_COMMONSERVICE" Target="[System64Folder]\"/>
+    <ROW Action="SetDB_PATH" Type="51" Source="DB_PATH" Target="[APPDIR]common.sqlite"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDialogComponent">
+    <ROW Dialog="SettingsDlg" HCentering="50" VCentering="50" Width="450" Height="360" Attributes="3" Title="[ProductName] [Setup]" Control_Default="Next" Control_Cancel="Cancel"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
+    <ROW IniFile="URL" FileName="COMMON.url" DirProperty="DesktopFolder" Section="InternetShortcut" Key="URL" Value="http://localhost:8080/" Action="0" Component_="Nancy.Serialization.JsonNet.dll"/>
+    <ROW IniFile="WorkingDirectory" FileName="COMMON.url" DirProperty="DesktopFolder" Section="InternetShortcut" Key="WorkingDirectory" Value="[DesktopFolder]" Action="0" Component_="Nancy.Serialization.JsonNet.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="747"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1502"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
+    <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
+    <ROW Action="AI_SETPROGRAMFILES64" Condition="VersionNT64" Sequence="748"/>
+    <ROW Action="AI_SETPROGRAMFILES" Condition="NOT VersionNT64" Sequence="749"/>
+    <ROW Action="SetDB_CONFIG_PATH_COMMONCONFIG" Sequence="1204"/>
+    <ROW Action="SetDB_CONFIG_PATH_COMMONSERVICE" Sequence="1203"/>
+    <ROW Action="SetCONFIG_FILENAME" Sequence="1202"/>
+    <ROW Action="SetDB_PATH" Sequence="1201"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_TxtUpdaterInstall" Sequence="5101"/>
+    <ROW Action="AI_SqlInstall" Condition="(VersionNT &gt;= 500) AND (REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5502"/>
+    <ROW Action="AI_DATA_SETTER_1" Condition="(VersionNT &gt;= 500) AND (REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5501"/>
+    <ROW Action="AI_SqlUninstall" Condition="(VersionNT &gt;= 500) AND (REMOVE=&quot;ALL&quot;)" Sequence="1702"/>
+    <ROW Action="AI_DATA_SETTER_2" Condition="(VersionNT &gt;= 500) AND (REMOVE=&quot;ALL&quot;)" Sequence="1701"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6598" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="3998" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="3997"/>
+    <ROW Action="AI_EstimateExtractFiles" Sequence="3999" Builds="DefaultBuild"/>
+    <ROW Action="SetCountryCodeAction" Condition="( NOT Installed AND NOT OLDPRODUCTS )" Sequence="6602"/>
+    <ROW Action="AI_DATA_SETTER_7" Condition="( NOT Installed AND NOT OLDPRODUCTS )" Sequence="6601"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="747"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+    <ROW Action="AI_SETPROGRAMFILES64" Condition="VersionNT64" Sequence="748"/>
+    <ROW Action="AI_SETPROGRAMFILES" Condition="NOT VersionNT64" Sequence="749"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT64 OR ((VersionNT &lt;&gt; 501) OR (ServicePackLevel = 3))) AND ((VersionNT &lt;&gt; 502) OR (ServicePackLevel = 2))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_DOTNET_VERSION &gt;= AI_REQUIRED_DOTNET_VERSION" Description="[ProductName] cannot be installed on systems with .NET Framework version lower than [AI_REQUIRED_DOTNET_DISPLAY]." DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayIcon" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayIcon" Value="[ARP_ICON_PATH]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayName" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayName" Value="[AI_PRODUCTNAME_ARP]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayVersion" Value="[ProductVersion]" Component_="AI_CustomARPName"/>
+    <ROW Registry="EstimatedSize" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="EstimatedSize" Value="#[AI_ARP_SIZE]" Component_="AI_CustomARPName"/>
+    <ROW Registry="HelpLink" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpLink" Value="[ARPHELPLINK]" Component_="AI_CustomARPName"/>
+    <ROW Registry="HelpTelephone" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpTelephone" Value="[ARPHELPTELEPHONE]" Component_="AI_CustomARPName"/>
+    <ROW Registry="InstallLocation" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="InstallLocation" Value="[APPDIR]" Component_="AI_CustomARPName"/>
+    <ROW Registry="ModifyPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="ModifyPath" Value="[AI_UNINSTALLER] /i [ProductCode]" Component_="AI_CustomARPName"/>
+    <ROW Registry="NoRepair" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="NoRepair" Value="#1" Component_="AI_CustomARPName"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Publisher" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Publisher" Value="[Manufacturer]" Component_="AI_CustomARPName"/>
+    <ROW Registry="URLInfoAbout" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLInfoAbout" Value="[ARPURLINFOABOUT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="URLUpdateInfo" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLUpdateInfo" Value="[ARPURLUPDATEINFO]" Component_="AI_CustomARPName"/>
+    <ROW Registry="UninstallPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallPath" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="UninstallString" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallString" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+    <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#1" Component_="AI_CustomARPName"/>
+    <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#0" Component_="AI_CustomARPName"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiServCtrlComponent">
+    <ROW ServiceControl="COMMON.exe" Name="COMMON.exe" Event="161" Wait="1" Component_="COMMON.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiServInstComponent">
+    <ROW ServiceInstall="COMMON.exe" Name="COMMON.exe" DisplayName="COMMONService" ServiceType="16" StartType="2" ErrorControl="32769" Component_="COMMON.exe" Description="COMMON Data Collection Service"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="azure"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="769" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SqlConnectionComponent">
+    <ROW ConnectionName="SQLite" Condition="1" Dbms="4" OdbcResource="AI_SQLITE_ODBC" Database="[APPDIR]common.sqlite" Flags="22" Order="0" LoginTimeout="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SqlReplaceComponent">
+    <ROW ScriptName="SetCountryCode" Token="{{COUNTRY_CODE}}" Replacement="[COUNTRY_CODE]" Flags="3"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SqlScriptComponent">
+    <ROW ScriptName="SetCountryCode" ConnectionName="SQLite" Condition="1" Separator=";" ScriptInline="-- Inline SQL script&#13;&#10;CREATE TABLE IF NOT EXISTS Configuration (&#13;&#10;    ConfigurationID INTEGER NOT NULL PRIMARY KEY,&#13;&#10;    Path TEXT NOT NULL,&#13;&#10;    Value TEXT,&#13;&#10;    DateAdded TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,&#13;&#10;    IsValid INTEGER NOT NULL DEFAULT 0);&#13;&#10;&#13;&#10;CREATE INDEX IF NOT EXISTS Configuration_IsValid ON Configuration (IsValid);&#13;&#10;&#13;&#10;-- Just in case this is updating an old DB, make sure we mark&#13;&#10;-- the old country.code as invalid.&#13;&#10;UPDATE Configuration SET IsValid = 0 WHERE Path = &apos;country.code&apos;;&#13;&#10;INSERT INTO Configuration (Path, Value, IsValid) Values (&apos;country.code&apos;, &apos;{{COUNTRY_CODE}}&apos;, 1);&#13;&#10;" Flags="400" Order="0" DataBinding="COUNTRY_CODE"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
+    <ROW Directory_="COMMON_Dir" SourcePath="..\COMMON\bin\Release" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store|/*.pdb|/*.xml|/*.zip|*.manifest|/*.vshost.exe|/*.vshost.exe.config|/common_config.json|/common_log_config.json" ExcludeFlags="6"/>
+    <ROW Directory_="COMMONConfig_Dir" SourcePath="..\COMMONConfig\bin\Release" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store|/*.pdb|/*.xml|/*.zip|*.manifest|/*.vshost.exe|/*.vshost.exe.config|/common_config.json|/common_log_config.json" ExcludeFlags="6"/>
+    <ROW Directory_="CLI_Dir" SourcePath="..\COMMONCLI\bin\Release" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store|/*.pdb|/*.xml|/*.manifest" ExcludeFlags="6"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.TxtUpdateComponent">
+    <ROW Name="Append/Create" TxtUpdateSet="common_config.json" FindPattern="[\{] &quot;DBPath&quot;: &quot;[APPDIR]common.sqlite&quot; [\}]" Options="160" Order="0" FileEncoding="1"/>
+    <ROW Name="Replace" TxtUpdateSet="common_config.json" FindPattern="\" ReplacePattern="\\" Options="2" Order="1" FileEncoding="-1"/>
+    <ROW Name="Append/Create" TxtUpdateSet="common_config.json_1" FindPattern="[\{] &quot;DBPath&quot;: &quot;[APPDIR]common.sqlite&quot; [\}]" Options="160" Order="0" FileEncoding="1"/>
+    <ROW Name="Replace" TxtUpdateSet="common_config.json_1" FindPattern="\" ReplacePattern="\\" Options="2" Order="1" FileEncoding="-1"/>
+    <ROW Name="Append/Create" TxtUpdateSet="common_config.json_2" FindPattern="[\{] &quot;DBPath&quot;: &quot;[APPDIR]common.sqlite&quot; [\}]" Options="160" Order="0" FileEncoding="1"/>
+    <ROW Name="Replace" TxtUpdateSet="common_config.json_2" FindPattern="\" ReplacePattern="\\" Options="2" Order="1" FileEncoding="-1"/>
+    <ROW Name="Append/Create" TxtUpdateSet="common_log_config.json" FindPattern="[\{]&#13;&#10;  &quot;path&quot;: &quot;[APPDIR]LogFiles\config-logfile.txt&quot;,&#13;&#10;  &quot;level&quot;: &quot;error&quot;,&#13;&#10;  &quot;isEnabled&quot;: &quot;true&quot;,&#13;&#10;  &quot;keepDays&quot;: &quot;90&quot;&#13;&#10;[\}]&#13;&#10;" Options="160" Order="0" FileEncoding="1"/>
+    <ROW Name="Replace" TxtUpdateSet="common_log_config.json" FindPattern="\" ReplacePattern="\\" Options="2" Order="1" FileEncoding="-1"/>
+    <ROW Name="Append/Create" TxtUpdateSet="common_log_config.json_1" FindPattern="[\{]&#13;&#10;  &quot;path&quot;: &quot;[APPDIR]LogFiles\service-logfile.txt&quot;,&#13;&#10;  &quot;level&quot;: &quot;error&quot;,&#13;&#10;  &quot;isEnabled&quot;: &quot;true&quot;,&#13;&#10;  &quot;keepDays&quot;: &quot;90&quot;&#13;&#10;[\}]&#13;&#10;" Options="160" Order="0" FileEncoding="1"/>
+    <ROW Name="Replace" TxtUpdateSet="common_log_config.json_1" FindPattern="\" ReplacePattern="\\" Options="2" Order="1" FileEncoding="-1"/>
+    <ROW Name="Append/Create" TxtUpdateSet="common_log_config.json_2" FindPattern="[\{]&#13;&#10;  &quot;path&quot;: &quot;[APPDIR]LogFiles\service-logfile.txt&quot;,&#13;&#10;  &quot;level&quot;: &quot;error&quot;,&#13;&#10;  &quot;isEnabled&quot;: &quot;true&quot;,&#13;&#10;  &quot;keepDays&quot;: &quot;90&quot;&#13;&#10;[\}]&#13;&#10;" Options="160" Order="0" FileEncoding="1"/>
+    <ROW Name="Replace" TxtUpdateSet="common_log_config.json_2" FindPattern="\" ReplacePattern="\\" Options="2" Order="1" FileEncoding="-1"/>
+    <ROW Name="Append/Create" TxtUpdateSet="common_config.json_3" FindPattern="[\{] &quot;DBPath&quot;: &quot;[APPDIR]common.sqlite&quot; [\}]" Options="160" Order="0" FileEncoding="1"/>
+    <ROW Name="Replace" TxtUpdateSet="common_config.json_3" FindPattern="\" ReplacePattern="\\" Options="2" Order="1" FileEncoding="-1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.TxtUpdateSetComponent">
+    <ROW Key="common_config.json" Component="COMMON.exe" FileName="common_config.json" Directory="APPDIR" Options="9"/>
+    <ROW Key="common_config.json_1" Component="COMMONConfig.exe" FileName="common_config.json" Directory="COMMONConfig_Dir" Options="9"/>
+    <ROW Key="common_config.json_2" Component="COMMON.exe" FileName="common_config.json" Directory="System64Folder" Options="9"/>
+    <ROW Key="common_config.json_3" Component="Nancy.Serialization.JsonNet.dll" FileName="common_config.json" Directory="COMMON_Dir" Options="9"/>
+    <ROW Key="common_log_config.json" Component="COMMONConfig.exe" FileName="common_log_config.json" Directory="COMMONConfig_Dir" Options="25"/>
+    <ROW Key="common_log_config.json_1" Component="COMMON.exe" FileName="common_log_config.json" Directory="COMMON_Dir" Options="25"/>
+    <ROW Key="common_log_config.json_2" Component="COMMON.exe" FileName="common_log_config.json" Directory="System64Folder" Options="25"/>
+  </COMPONENT>
+</DOCUMENT>
