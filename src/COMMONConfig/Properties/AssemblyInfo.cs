@@ -11,7 +11,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sandia National Laboratories")]
 [assembly: AssemblyProduct("COMMONConfig")]
-[assembly: AssemblyCopyright("Copyright © Sandia National Laboratories 2019")]
+[assembly: AssemblyCopyright("Copyright © Sandia National Laboratories 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -52,5 +52,5 @@ using System.Windows;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.5.2")]
-[assembly: AssemblyFileVersion("1.5.2")]
+[assembly: AssemblyVersion("1.5.3")]
+[assembly: AssemblyFileVersion("1.5.3")]
