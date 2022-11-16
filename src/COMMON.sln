@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyFileImport", "DailyFil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabasePrune", "DatabasePrune\DatabasePrune.csproj", "{0A756EB3-57A1-4350-9908-8D96D185D02E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailTest", "EmailTest\EmailTest.csproj", "{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{0A756EB3-57A1-4350-9908-8D96D185D02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A756EB3-57A1-4350-9908-8D96D185D02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A756EB3-57A1-4350-9908-8D96D185D02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div ng-repeat="device in ::vm.devices">
-            <cm-device-info device="device" network-chart-settings="vm.networkChartSettings" />
+            <cm-device-info device="device" network-chart-settings="vm.networkChartSettings"></cm-device-info>
         </div>
         <div ng-repeat="group in vm.groups track by group.id">
             <div ng-if="group.devices.length !== 0">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="panel-body">
                         <div ng-repeat="device in ::group.devices">
-                            <cm-device-info device="device" network-chart-settings="vm.networkChartSettings" />
+                            <cm-device-info device="device" network-chart-settings="vm.networkChartSettings"></cm-device-info>
                         </div>
                     </div>
                 </div>

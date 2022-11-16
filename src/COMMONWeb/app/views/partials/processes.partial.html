@@ -32,7 +32,7 @@
             </div>
             <div ng-if="vm.machine.processes.processHistory && vm.machine.processes.processHistory.details.length !== 0 && vm.machine.processes.processHistory.processName !== ''">
                 <h3>{{vm.machine.processes.processHistory.processName}}</h3>
-                <cm-graph data="vm.machine.processes.processHistory" settings="vm.chartSettings.processes" class="col-md-12 col-sm-12 col-xs-12" />
+                <cm-graph data="vm.machine.processes.processHistory" settings="vm.chartSettings.processes" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
             </div>
         </treasure-overlay-spinner>
     </div>

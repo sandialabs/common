@@ -26,7 +26,7 @@
             <dd ng-if="device">{{device.ipAddress}}</dd>
         </dl>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" ng-if="device.networkStatus">
-            <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12" />
+            <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
         </div>
     </div>
 </div>

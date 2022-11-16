@@ -22,7 +22,7 @@
 
                 <div ng-if="vm.machine.memory && vm.machine.memory.memoryData.length !== 0">
                     <h5 translate="Memory Usage Over Time"></h5>
-                    <cm-graph data="vm.machine.memory" settings="vm.chartSettings.memory" class="col-md-12 col-sm-12 col-xs-12" />
+                    <cm-graph data="vm.machine.memory" settings="vm.chartSettings.memory" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
                 </div>
             </div>
             <button class="btn btn-default" ng-click="vm.getMoreMemory()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>

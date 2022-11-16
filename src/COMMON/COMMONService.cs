@@ -103,17 +103,7 @@ namespace gov.sandia.sld.common
             string assembly_ver = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             db.SetAttribute("software.version", assembly_ver);
 
-            using (SQLiteConnection conn = db.Connection)
-            {
-                conn.Open();
-
-                AlertsEmailSMTP emailSMTP = new AlertsEmailSMTP();
-                AlertsEmailFrom emailFrom = new AlertsEmailFrom();
-                AlertsEmailTo emailTo = new AlertsEmailTo();
-
-                m_alertReceiver = new AlertReceiver(emailSMTP.GetValue(conn), emailFrom.GetValue(conn), emailTo.GetValue(conn), elog);
-                SystemBus.Instance.Subscribe(m_alertReceiver);
-            }
+            SetupAlertEmails(db, elog);
 
             m_interpreters = BaseInterpreter.AllInterpreters();
 
@@ -137,6 +127,38 @@ namespace gov.sandia.sld.common
 
             elog.LogInformation($"Work thread startup took {watch.ElapsedMilliseconds} ms");
             elog.LogInformation($"Completed startup in {totalWatch.ElapsedMilliseconds} ms");
+        }
+
+        private void SetupAlertEmails(Database db, logging.EventLog elog)
+        {
+            try
+            {
+                using (SQLiteConnection conn = db.Connection)
+                {
+                    conn.Open();
+
+                    AlertsEmailSMTP emailSMTP = new AlertsEmailSMTP();
+                    AlertsEmailFrom emailFrom = new AlertsEmailFrom();
+                    AlertsEmailTo emailTo = new AlertsEmailTo();
+                    string smtp = emailSMTP.GetValue(conn);
+                    string from = emailFrom.GetValue(conn);
+                    string to = emailTo.GetValue(conn);
+
+                    if (string.IsNullOrEmpty(smtp) || string.IsNullOrEmpty(from) || string.IsNullOrEmpty(to))
+                    {
+                        elog.LogInformation($"Empty smtp ({smtp}), from ({from}) address, or to ({to}) addresses. Disabling email alerts.");
+                    }
+                    else
+                    {
+                        m_alertReceiver = new AlertReceiver(smtp, from, to, elog);
+                        SystemBus.Instance.Subscribe(m_alertReceiver);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                elog.Log(ex);
+            }
         }
 
         public void Shutdown()

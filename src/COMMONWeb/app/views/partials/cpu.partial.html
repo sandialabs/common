@@ -18,7 +18,7 @@
 
                 <div ng-if="vm.machine.cpu.cpuData && vm.machine.cpu.cpuData.length !== 0">
                     <h5 translate="CPU Usage Over Time"></h5>
-                    <cm-graph data="vm.machine.cpu" settings="vm.chartSettings.cpu" class="col-md-12 col-sm-12 col-xs-12" />
+                    <cm-graph data="vm.machine.cpu" settings="vm.chartSettings.cpu" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
                 </div>
             </div>
             <button class="btn btn-default" ng-click="vm.getMoreCPU()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
