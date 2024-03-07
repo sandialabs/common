@@ -600,7 +600,7 @@ export class MonitoredDriveManager {
     }
 
     isDriveMonitored(driveLetter: string): boolean {
-        let isMonitored = false;
+        let isMonitored = true;
         let d: MonitoredDrive = this.driveMap[driveLetter];
         if (d)
             isMonitored = d.isMonitored;

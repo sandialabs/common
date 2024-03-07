@@ -614,8 +614,7 @@ System.register("enums/collectortype.enum", [], function (exports_10, context_10
                 ECollectorType[ECollectorType["DiskSpeed"] = 15] = "DiskSpeed";
                 ECollectorType[ECollectorType["Configuration"] = 16] = "Configuration";
                 ECollectorType[ECollectorType["Unknown"] = -1] = "Unknown";
-            })(ECollectorType || (ECollectorType = {}));
-            exports_10("ECollectorType", ECollectorType);
+            })(ECollectorType || (exports_10("ECollectorType", ECollectorType = {})));
             CollectorTypeExtensions = /** @class */ (function () {
                 function CollectorTypeExtensions() {
                 }
@@ -1479,6 +1478,7 @@ System.register("disk/disk", ["disk/smart", "charts/chartjs", "charts/chartbridg
                             t.driveLetters.push(name);
                     });
                     this.driveLetters.sort();
+                    //console.log("DiskUsageDiskPerformanceManager.update", data, this.driveLetters);
                     this.driveLetters.forEach(function (diskName) {
                         var existingDisk = null;
                         for (var i = 0; existingDisk === null && i < t.disks.length; ++i) {
@@ -1614,8 +1614,7 @@ System.register("charts/chartjs", ["chart.js"], function (exports_22, context_22
                 EChartJSColors[EChartJSColors["LightRed"] = 5] = "LightRed";
                 EChartJSColors[EChartJSColors["Black"] = 6] = "Black";
                 EChartJSColors[EChartJSColors["LightGray"] = 7] = "LightGray";
-            })(EChartJSColors || (EChartJSColors = {}));
-            exports_22("EChartJSColors", EChartJSColors);
+            })(EChartJSColors || (exports_22("EChartJSColors", EChartJSColors = {})));
             Color = /** @class */ (function () {
                 // Default color scheme is blue
                 function Color(border, background) {
@@ -2188,8 +2187,7 @@ System.register("enums/devicetypes.enum", [], function (exports_25, context_25) 
                 EDeviceTypes[EDeviceTypes["System"] = 4] = "System";
                 EDeviceTypes[EDeviceTypes["Generic"] = 5] = "Generic";
                 EDeviceTypes[EDeviceTypes["Unknown"] = -1] = "Unknown";
-            })(EDeviceTypes || (EDeviceTypes = {}));
-            exports_25("EDeviceTypes", EDeviceTypes);
+            })(EDeviceTypes || (exports_25("EDeviceTypes", EDeviceTypes = {})));
         }
     };
 });
@@ -2208,8 +2206,7 @@ System.register("enums/drivetypes.enum", [], function (exports_26, context_26) {
                 EDriveTypes[EDriveTypes["NetworkDrive"] = 4] = "NetworkDrive";
                 EDriveTypes[EDriveTypes["CompactDisc"] = 5] = "CompactDisc";
                 EDriveTypes[EDriveTypes["RAMDisk"] = 6] = "RAMDisk";
-            })(EDriveTypes || (EDriveTypes = {}));
-            exports_26("EDriveTypes", EDriveTypes);
+            })(EDriveTypes || (exports_26("EDriveTypes", EDriveTypes = {})));
         }
     };
 });
@@ -2237,8 +2234,7 @@ System.register("classes/devices", ["classes/collectorinfo", "enums/devicetypes.
                 EAlertLevel[EAlertLevel["Normal"] = 0] = "Normal";
                 EAlertLevel[EAlertLevel["Alert"] = 1] = "Alert";
                 EAlertLevel[EAlertLevel["Information"] = 2] = "Information";
-            })(EAlertLevel || (EAlertLevel = {}));
-            exports_27("EAlertLevel", EAlertLevel);
+            })(EAlertLevel || (exports_27("EAlertLevel", EAlertLevel = {})));
             DeviceStatus = /** @class */ (function () {
                 function DeviceStatus(s) {
                     this.status = s.status;
@@ -2665,7 +2661,7 @@ System.register("classes/devices", ["classes/collectorinfo", "enums/devicetypes.
                     });
                 }
                 MonitoredDriveManager.prototype.isDriveMonitored = function (driveLetter) {
-                    var isMonitored = false;
+                    var isMonitored = true;
                     var d = this.driveMap[driveLetter];
                     if (d)
                         isMonitored = d.isMonitored;
@@ -2882,8 +2878,7 @@ System.register("classes/machine", ["classes/memory", "disk/disk", "classes/nic"
                 //Network,
                 //SMART,
                 EMachineParts[EMachineParts["NumMachineParts"] = 12] = "NumMachineParts";
-            })(EMachineParts || (EMachineParts = {}));
-            exports_31("EMachineParts", EMachineParts);
+            })(EMachineParts || (exports_31("EMachineParts", EMachineParts = {})));
             Machine = /** @class */ (function () {
                 /// Let's have a way to retrieve a subset of all things that we can retrieve.
                 /// The third parameter will specify the parts to retrieve. If it's null, retrieve
@@ -3097,6 +3092,7 @@ System.register("classes/machine", ["classes/memory", "disk/disk", "classes/nic"
                     if (data.diskUsage) {
                         if (!this.diskUsage)
                             this.diskUsage = new disk_1.DiskUsageManager(this.devInfo);
+                        //console.log(data.diskUsage);
                         this.diskUsage.update(data.diskUsage);
                         this.loading[EMachineParts.DiskUsage] = false;
                     }
@@ -3287,15 +3283,13 @@ System.register("reports/report", ["enums/collectortype.enum", "classes/machine"
                 EReportTypes[EReportTypes["Issues"] = 4] = "Issues";
                 EReportTypes[EReportTypes["SiteConfiguration"] = 5] = "SiteConfiguration";
                 EReportTypes[EReportTypes["Site"] = 6] = "Site";
-            })(EReportTypes || (EReportTypes = {}));
-            exports_34("EReportTypes", EReportTypes);
+            })(EReportTypes || (exports_34("EReportTypes", EReportTypes = {})));
             (function (EReportSubTypes) {
                 EReportSubTypes[EReportSubTypes["Memory"] = 0] = "Memory";
                 EReportSubTypes[EReportSubTypes["Disk"] = 1] = "Disk";
                 EReportSubTypes[EReportSubTypes["CPU"] = 2] = "CPU";
                 EReportSubTypes[EReportSubTypes["NIC"] = 3] = "NIC";
-            })(EReportSubTypes || (EReportSubTypes = {}));
-            exports_34("EReportSubTypes", EReportSubTypes);
+            })(EReportSubTypes || (exports_34("EReportSubTypes", EReportSubTypes = {})));
             Report = /** @class */ (function () {
                 function Report(settings, dataService, configurationService) {
                     this.settings = settings;

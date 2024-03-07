@@ -319,6 +319,8 @@ export class DiskPerformanceManager {
         });
         this.driveLetters.sort();
 
+        //console.log("DiskUsageDiskPerformanceManager.update", data, this.driveLetters);
+
         this.driveLetters.forEach((diskName: string) => {
             let existingDisk = null;
             for (let i = 0; existingDisk === null && i < t.disks.length; ++i) {
