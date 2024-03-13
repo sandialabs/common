@@ -50,8 +50,12 @@
     <Compile Include="COMMONDBSizeRequest.cs" />
     <Compile Include="DatabaseTypeRequest.cs" />
     <Compile Include="FileInformationRequest.cs" />
+    <Compile Include="IMessageBus.cs" />
     <Compile Include="IPAddressRequest.cs" />
+    <Compile Include="IRequestResponderBus.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="MessageBus.cs" />
+    <Compile Include="RequestResponderBus.cs" />
     <Compile Include="SystemBus.cs" />
     <Compile Include="MonitoredDrivesRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

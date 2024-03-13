@@ -1,99 +1,5 @@
-﻿using gov.sandia.sld.common.logging;
-using System;
-using System.Collections.Generic;
-
-namespace gov.sandia.sld.common.requestresponse
+﻿namespace gov.sandia.sld.common.requestresponse
 {
-    public interface IRequestResponderBus
-    {
-        void Subscribe(IResponder responder);
-        void Unsubscribe(IResponder responder);
-        void MakeRequest(IRequest request);
-    }
-
-    public interface IMessageBus
-    {
-        void Subscribe(IReceiver receiver);
-        void Unsubscribe(IReceiver receiver);
-        void SendMessage(IMessage message);
-    }
-
-    public class RequestResponderBus : IRequestResponderBus
-    {
-        private List<IResponder> m_responders => new List<IResponder>();
-
-        public void Subscribe(IResponder responder)
-        {
-            lock (m_responders)
-                m_responders.Add(responder);
-        }
-
-        public void Unsubscribe(IResponder responder)
-        {
-            lock (m_responders)
-                m_responders.Remove(responder);
-        }
-
-        public void MakeRequest(IRequest request)
-        {
-            // Make a local copy of the responders so we don't hold the lock for very long
-            List<IResponder> responders;
-            lock (m_responders)
-                responders = new List<IResponder>(m_responders);
-
-            responders.ForEach(r =>
-            {
-                try
-                {
-                    r.HandleRequest(request);
-                }
-                catch (Exception e)
-                {
-                    ApplicationEventLog log = new ApplicationEventLog();
-                    log.Log(e);
-                };
-            });
-        }
-    }
-
-    public class MessageBus : IMessageBus
-    {
-        private List<IReceiver> m_receivers => new List<IReceiver>();
-
-        public void Subscribe(IReceiver receiver)
-        {
-            lock (m_receivers)
-                m_receivers.Add(receiver);
-        }
-
-        public void Unsubscribe(IReceiver receiver)
-        {
-            lock (m_receivers)
-                m_receivers.Remove(receiver);
-        }
-
-        public void SendMessage(IMessage message)
-        {
-            // Make a local copy of the receivers so we don't hold the lock for very long
-            List<IReceiver> receivers;
-            lock (m_receivers)
-                receivers = new List<IReceiver>(m_receivers);
-
-            receivers.ForEach(r =>
-            {
-                try
-                {
-                    r.OnMessage(message);
-                }
-                catch (Exception e)
-                {
-                    ApplicationEventLog log = new ApplicationEventLog();
-                    log.Log(e);
-                };
-            });
-        }
-    }
-
     /// <summary>
     /// There's a single instance of the SystemBus. There are two forms:
     /// 
@@ -110,8 +16,8 @@ namespace gov.sandia.sld.common.requestresponse
     /// </summary>
     public class SystemBus : IRequestResponderBus, IMessageBus
     {
-        private RequestResponderBus m_requestResponderBus => new RequestResponderBus();
-        private MessageBus m_messageBus => new MessageBus();
+        private readonly RequestResponderBus m_requestResponderBus;
+        private readonly MessageBus m_messageBus;
 
         private static SystemBus c_instance;
 
@@ -123,6 +29,12 @@ namespace gov.sandia.sld.common.requestresponse
                     c_instance = new SystemBus();
                 return c_instance;
             }
+        }
+
+        public SystemBus()
+        {
+            m_requestResponderBus = new RequestResponderBus();
+            m_messageBus = new MessageBus();
         }
 
         public void Subscribe(IResponder responder)

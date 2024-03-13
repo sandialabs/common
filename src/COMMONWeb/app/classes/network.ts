@@ -280,8 +280,10 @@ export class Network implements IAutoUpdatable<Network> {
 
     private gather(range: [Date, Date]) {
         let t: Network = this;
+        //console.debug("Network.gather.getNetworkStatus", range);
         this.dataService.getNetworkStatus(range[0], range[1])
             .then((data: INetworkStatus[]) => {
+                //console.debug("Network.gather.getNetworkStatus.return", data);
                 if (!data)
                     return;
 

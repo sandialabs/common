@@ -157,16 +157,32 @@ export class DataService {
     // Fortunately, moment.format() does exactly what we want. Well, almost. format() doesn't
     // put the milliseconds in there, so we'll have to
 
+    // Another issue occurs in the eastern hemisphere. There, the timezone offset will be something
+    // like +08:00, where the western hemisphere has timezone offsets like -06:00. The '-' character
+    // isn't a problem, but the '+' is because + is a reserved character in a URL.
+    // Ideally, we should use some sort of URL sanitizer, but as a quick-and-dirty solution,
+    // just replace any '+' characters with "__"
+
+    private static sanitizeDate(date?: string): string | null {
+        if (!date)
+            return null;
+        return date.replace('+', '__');
+    }
+
     private static getIDAndDatesTuple(id: number, starting?: Date, ending?: Date): [number, string, string] {
-        let s = starting == null ? null : moment(starting).format(DataService.dateFormat);
-        let e = ending == null ? null : moment(ending).format(DataService.dateFormat);
-        return [id, s, e];
+        let s = starting == null ? null : DataService.sanitizeDate(moment(starting).format(DataService.dateFormat));
+        let e = ending == null ? null : DataService.sanitizeDate(moment(ending).format(DataService.dateFormat));
+        let tup: [number, string, string] = [id, s, e];
+        //console.debug('getIDAndDatesTuple', tup);
+        return tup;
     }
 
     private static getDatesTuple(starting?: Date, ending?: Date): [string, string] {
-        let s = starting == null ? null : moment(starting).format(DataService.dateFormat);
-        let e = ending == null ? null : moment(ending).format(DataService.dateFormat);
-        return [s, e];
+        let s = starting == null ? null : DataService.sanitizeDate(moment(starting).format(DataService.dateFormat));
+        let e = ending == null ? null : DataService.sanitizeDate(moment(ending).format(DataService.dateFormat));
+        let tup: [string, string] = [s, e];
+        //console.debug('getDatesTuple', tup);
+        return tup;
     }
 
     private static getIDAndDatesAndMachinePartsTuple(id: number, parts: EMachineParts[], starting?: Date, ending?: Date): [number, string, string, string] {
@@ -175,7 +191,9 @@ export class DataService {
         };
         let json = JSON.stringify(mp.machineParts);
         let t1 = DataService.getIDAndDatesTuple(id, starting, ending);
-        return [t1[0], json, t1[1], t1[2]];
+        let tup: [number, string, string, string] = [t1[0], json, t1[1], t1[2]];
+        //console.debug('getIDAndDatesAndMachinePartsTuple', tup);
+        return tup;
     }
 
     private static getIDAndDAtesAndReportPartsTuple(id: number, types: EReportSubTypes[], starting?: Date, ending?: Date): [number, string, string, string] {
@@ -184,7 +202,9 @@ export class DataService {
         };
         let json = JSON.stringify(mp.reportTypes);
         let t1 = DataService.getIDAndDatesTuple(id, starting, ending);
-        return [t1[0], json, t1[1], t1[2]];
+        let tup: [number, string, string, string] = [t1[0], json, t1[1], t1[2]];
+        //console.debug('getIDAndDAtesAndReportPartsTuple', tup);
+        return tup;
     }
 
     private get<T>(method: string, data?: any): ng.IPromise<T> {

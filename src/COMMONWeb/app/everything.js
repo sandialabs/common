@@ -2108,8 +2108,10 @@ System.register("classes/network", ["classes/autoupdater", "charts/chartjs", "ch
                 };
                 Network.prototype.gather = function (range) {
                     var t = this;
+                    //console.debug("Network.gather.getNetworkStatus", range);
                     this.dataService.getNetworkStatus(range[0], range[1])
                         .then(function (data) {
+                        //console.debug("Network.gather.getNetworkStatus.return", data);
                         if (!data)
                             return;
                         t.updateData(data);
@@ -3092,7 +3094,6 @@ System.register("classes/machine", ["classes/memory", "disk/disk", "classes/nic"
                     if (data.diskUsage) {
                         if (!this.diskUsage)
                             this.diskUsage = new disk_1.DiskUsageManager(this.devInfo);
-                        //console.log(data.diskUsage);
                         this.diskUsage.update(data.diskUsage);
                         this.loading[EMachineParts.DiskUsage] = false;
                     }
@@ -3675,15 +3676,29 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                 //
                 // Fortunately, moment.format() does exactly what we want. Well, almost. format() doesn't
                 // put the milliseconds in there, so we'll have to
+                // Another issue occurs in the eastern hemisphere. There, the timezone offset will be something
+                // like +08:00, where the western hemisphere has timezone offsets like -06:00. The '-' character
+                // isn't a problem, but the '+' is because + is a reserved character in a URL.
+                // Ideally, we should use some sort of URL sanitizer, but as a quick-and-dirty solution,
+                // just replace any '+' characters with "__"
+                DataService.sanitizeDate = function (date) {
+                    if (!date)
+                        return null;
+                    return date.replace('+', '__');
+                };
                 DataService.getIDAndDatesTuple = function (id, starting, ending) {
-                    var s = starting == null ? null : moment_1.default(starting).format(DataService.dateFormat);
-                    var e = ending == null ? null : moment_1.default(ending).format(DataService.dateFormat);
-                    return [id, s, e];
+                    var s = starting == null ? null : DataService.sanitizeDate(moment_1.default(starting).format(DataService.dateFormat));
+                    var e = ending == null ? null : DataService.sanitizeDate(moment_1.default(ending).format(DataService.dateFormat));
+                    var tup = [id, s, e];
+                    //console.debug('getIDAndDatesTuple', tup);
+                    return tup;
                 };
                 DataService.getDatesTuple = function (starting, ending) {
-                    var s = starting == null ? null : moment_1.default(starting).format(DataService.dateFormat);
-                    var e = ending == null ? null : moment_1.default(ending).format(DataService.dateFormat);
-                    return [s, e];
+                    var s = starting == null ? null : DataService.sanitizeDate(moment_1.default(starting).format(DataService.dateFormat));
+                    var e = ending == null ? null : DataService.sanitizeDate(moment_1.default(ending).format(DataService.dateFormat));
+                    var tup = [s, e];
+                    //console.debug('getDatesTuple', tup);
+                    return tup;
                 };
                 DataService.getIDAndDatesAndMachinePartsTuple = function (id, parts, starting, ending) {
                     var mp = {
@@ -3691,7 +3706,9 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                     };
                     var json = JSON.stringify(mp.machineParts);
                     var t1 = DataService.getIDAndDatesTuple(id, starting, ending);
-                    return [t1[0], json, t1[1], t1[2]];
+                    var tup = [t1[0], json, t1[1], t1[2]];
+                    //console.debug('getIDAndDatesAndMachinePartsTuple', tup);
+                    return tup;
                 };
                 DataService.getIDAndDAtesAndReportPartsTuple = function (id, types, starting, ending) {
                     var mp = {
@@ -3699,7 +3716,9 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                     };
                     var json = JSON.stringify(mp.reportTypes);
                     var t1 = DataService.getIDAndDatesTuple(id, starting, ending);
-                    return [t1[0], json, t1[1], t1[2]];
+                    var tup = [t1[0], json, t1[1], t1[2]];
+                    //console.debug('getIDAndDAtesAndReportPartsTuple', tup);
+                    return tup;
                 };
                 DataService.prototype.get = function (method, data) {
                     var url = '/' + method;
