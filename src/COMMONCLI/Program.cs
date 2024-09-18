@@ -21,7 +21,7 @@ namespace COMMONCLI
         {
             //gov.sandia.sld.common.logging.EventLog.GlobalSource = "COMMONCLI";
 
-            string ip_address = string.Empty;
+            System.Net.IPAddress ip_address = null;
             string username = string.Empty;
             string password = string.Empty;
             string connection_string = string.Empty;
@@ -45,7 +45,22 @@ namespace COMMONCLI
                         break;
                     case "/i":
                         if (i + 1 < args.Length)
-                            ip_address = args[++i].Trim();
+                        {
+                            string addr = args[++i].Trim();
+                            try
+                            {
+                                ip_address = addr.GetIPAddress();
+                            }
+                            catch(Exception ex)
+                            {
+                                WriteLine($"Error parsing IP address {addr}: {ex.Message}");
+                            }
+                            if (ip_address == null)
+                            {
+                                WriteLine("Unable to parse IP address. Exiting.");
+                                return;
+                            }
+                        }
                         break;
                     case "/d":
                         {
@@ -81,18 +96,25 @@ namespace COMMONCLI
                 }
             }
 
-            SystemBus.Instance.Subscribe(new PingResponder(ip_address));
+            if(ip_address != null)
+                SystemBus.Instance.Subscribe(new PingResponder(ip_address));
+
             //RequestBus.Instance.Subscribe(new SystemErrorsInfoResponder());
 
             Remote r = null;
             string device_name = "local";
 
-            if (string.IsNullOrEmpty(ip_address) == false &&
-                string.IsNullOrEmpty(username) == false &&
-                string.IsNullOrEmpty(password) == false)
+            if (ip_address != null)
             {
-                r = new Remote(ip_address, username, password);
-                device_name = ip_address;
+                device_name = ip_address.ToString();
+
+                if (string.IsNullOrEmpty(username) == false &&
+                    string.IsNullOrEmpty(password) == false)
+                {
+                    r = new Remote(ip_address, username, password);
+                }
+                else
+                    r = new Remote(ip_address);
             }
 
             CollectorID c_id = new CollectorID(-1, device_name);
@@ -130,6 +152,13 @@ namespace COMMONCLI
             {
                 foreach (string collector in collector_map.Keys)
                     to_collect.Add(collector);
+            }
+
+            if(to_collect.Contains("ping") && ip_address == null)
+            {
+                WriteLine("Error: IP address is required if ping is being collected");
+                ShowUsage(collector_map.Keys);
+                return;
             }
 
             List<DataCollector> c = new List<DataCollector>();
@@ -312,11 +341,16 @@ namespace COMMONCLI
 
     class PingResponder : IResponder
     {
-        public string IP { get; private set; }
+        private System.Net.IPAddress _ipAddr;
 
-        public PingResponder(string ip)
+        public string IP { get { return _ipAddr.ToString(); } }
+
+        public PingResponder(System.Net.IPAddress addr)
         {
-            IP = ip;
+            if (addr == null)
+                throw new Exception("PingResponder: Null IP address");
+
+            _ipAddr = addr;
         }
 
         public void HandleRequest(IRequest request)
