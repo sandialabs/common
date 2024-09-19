@@ -8,18 +8,19 @@ Sandia National Laboratories’ COMMON software is designed to help by pointing 
 
 # Current Release
 
-The current version is [1.5.2](https://github.com/sandialabs/common/releases/tag/v1.5.2). Older versions can be found [here](https://github.com/sandialabs/common/releases).
+The current version is [1.5.3](https://github.com/sandialabs/common/releases/tag/v1.5.3). Older versions can be found [here](https://github.com/sandialabs/common/releases).
 
 # Release History
 
 | Version | Date | Comment |
 | ------- | ---- | ---- |
-| [1.5.2](https://github.com/sandialabs/common/releases/tag/v1.5.2) | 2019/07/22 | `Fixed an issue that could prevent COMMON from collecting WMI data from the server` |
+| [1.5.3](https://github.com/sandialabs/common/releases/tag/v1.5.3) | 2024/09/19 | `Fixed an issue that kept COMMON from collecting data from Windows 10 and 11 machines` |
+| 1.5.2 | 2019/07/22 | `Fixed an issue that could prevent COMMON from collecting WMI data from the server` |
 | 1.5.1 | 2019/04/25 | `Fixed missing 'Uptime %' in reports`</br>`Performance improvements` |
 | 1.5.0 | 2019/03/13 | `Initial Commit` |
 
 # COMMON main pieces:
-- A user-interface, accessed via a Web Browser, written in TypeScript and AngularJS (1.6.x).
+- A user-interface, accessed via a Web Browser, written in TypeScript and AngularJS (1.8.x).
   - As of COMMON 1.5 the web server is self-hosted using NancyFX
 - A Windows service, written in C#, that collects data using WMI from other Windows machines, and also pings non-Windows machines to test network connectivity.
   - The collected data is stored in a SQLite database
