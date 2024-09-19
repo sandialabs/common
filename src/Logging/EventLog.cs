@@ -5,7 +5,7 @@ namespace gov.sandia.sld.common.logging
     /// <summary>
     /// Helper for making event log entries. For this one you can specify your own log name.
     /// </summary>
-    public class EventLog
+    public class EventLog : ILog
     {
         /// <summary>
         /// The name of the application making the log entry
@@ -20,7 +20,14 @@ namespace gov.sandia.sld.common.logging
         public bool IsLogging { get; private set; }
         public String ErrorMessage { get; private set; }
 
+        public LogManager.LogLevel Level { get; set; }
+
         public static string GlobalSource { get; set; }
+
+        public virtual bool IsDebugEnabled { get { return IsLogging && Level >= LogManager.LogLevel.Debug; } }
+        public virtual bool IsErrorEnabled { get { return IsLogging && Level >= LogManager.LogLevel.Error; } }
+        public virtual bool IsInfoEnabled { get { return IsLogging && Level >= LogManager.LogLevel.Info; } }
+        public virtual bool IsWarnEnabled { get { return IsLogging && Level >= LogManager.LogLevel.Warn; } }
 
         protected EventLog(string source, string log_name)
         {
@@ -41,55 +48,46 @@ namespace gov.sandia.sld.common.logging
             LogName = log_name;
             IsLogging = true;
 
+            // Default to error level
+            Level = LogManager.LogLevel.Debug;
+
             try
             {
-                //if (System.Diagnostics.EventLog.Exists(Source) == false)
-                //{
-                //    try
-                //    {
-                //        string logname = System.Diagnostics.EventLog.LogNameFromSourceName(Source, ".");
-                //        if(logname != log_name)
-                //        {
-                //            try
-                //            {
-                //                System.Diagnostics.EventLog.Delete(logname);
-                //            }
-                //            catch (Exception)
-                //            {
-                //            }
-                //        }
-                //        System.Diagnostics.EventLog.DeleteEventSource(Source);
-                //        System.Diagnostics.EventLog.CreateEventSource(Source, LogName);
-                //    }
-                //    catch (Exception)
-                //    {
-                //    }
-
-                //    //System.Diagnostics.EventLog.WriteEntry(Source, "Created log", System.Diagnostics.EventLogEntryType.Information);
-                //}
+                CreateLog(source, log_name);
             }
             catch(Exception e)
             {
+                System.Diagnostics.Trace.WriteLine(e.Message);
+
                 IsLogging = false;
                 ErrorMessage = e.Message;
             }
         }
 
+        public static void CreateLog(string source, string log_name)
+        {
+            if (System.Diagnostics.EventLog.SourceExists(source) == false)
+            {
+                System.Diagnostics.EventLog.CreateEventSource(source, log_name);
+                System.Diagnostics.EventLog.WriteEntry(source, $"Created log '{log_name}'", System.Diagnostics.EventLogEntryType.Information);
+            }
+        }
+
         public void LogInformation(string message)
         {
-            if (IsLogging)
+            if (IsInfoEnabled)
                 System.Diagnostics.EventLog.WriteEntry(Source, message, System.Diagnostics.EventLogEntryType.Information);
         }
 
         public void LogError(string message)
         {
-            if(IsLogging)
+            if(IsErrorEnabled)
                 System.Diagnostics.EventLog.WriteEntry(Source, message, System.Diagnostics.EventLogEntryType.Error);
         }
 
         public void Log(Exception e)
         {
-            if(IsLogging)
+            if(IsErrorEnabled)
             {
                 string message = e.StackTrace;
                 while(e != null)
@@ -101,10 +99,69 @@ namespace gov.sandia.sld.common.logging
             }
         }
 
-        public void LogWarning(string message)
+        public void Fatal(string message)
         {
-            if(IsLogging)
+            if (IsErrorEnabled)
+                System.Diagnostics.EventLog.WriteEntry(Source, message, System.Diagnostics.EventLogEntryType.Error);
+        }
+
+        public void Error(string message)
+        {
+            if (IsErrorEnabled)
+                System.Diagnostics.EventLog.WriteEntry(Source, message, System.Diagnostics.EventLogEntryType.Error);
+        }
+
+        public void Warn(string message)
+        {
+            if (IsWarnEnabled)
                 System.Diagnostics.EventLog.WriteEntry(Source, message, System.Diagnostics.EventLogEntryType.Warning);
+        }
+
+        public void Info(string message)
+        {
+            if (IsInfoEnabled)
+                System.Diagnostics.EventLog.WriteEntry(Source, message, System.Diagnostics.EventLogEntryType.Information);
+        }
+
+        public void Debug(string message)
+        {
+            if (IsDebugEnabled)
+                System.Diagnostics.EventLog.WriteEntry(Source, message, System.Diagnostics.EventLogEntryType.Information);
+        }
+
+        public void Error(Exception ex)
+        {
+            Log(ex);
+        }
+
+        public void FatalFormat(string fmt, params object[] args)
+        {
+            if (IsErrorEnabled)
+                Fatal(string.Format(fmt, args));
+        }
+
+        public void ErrorFormat(string fmt, params object[] args)
+        {
+            if (IsErrorEnabled)
+                Error(string.Format(fmt, args));
+        }
+
+        public void WarnFormat(string fmt, params object[] args)
+        {
+            if (IsWarnEnabled)
+                Warn(string.Format(fmt, args));
+        }
+
+        public void InfoFormat(string fmt, params object[] args)
+        {
+            if (IsInfoEnabled)
+                Info(string.Format(fmt, args));
+        }
+
+        public void DebugFormat(string fmt, params object[] args)
+        {
+            if (IsDebugEnabled)
+                Debug(string.Format(fmt, args));
         }
 
         static EventLog()

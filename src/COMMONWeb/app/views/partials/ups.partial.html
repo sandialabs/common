@@ -28,7 +28,7 @@
             </div>
 
             <div ng-if="vm.machine.ups && vm.machine.ups.upsData.length !== 0">
-                <cm-graph data="vm.machine.ups" settings="vm.chartSettings.ups" class="col-md-12 col-sm-12 col-xs-12" />
+                <cm-graph data="vm.machine.ups" settings="vm.chartSettings.ups" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
             </div>
             <button class="btn btn-default" ng-click="vm.getMoreUPS()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>
         </treasure-overlay-spinner>

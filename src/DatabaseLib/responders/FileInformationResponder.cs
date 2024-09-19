@@ -3,9 +3,9 @@ using gov.sandia.sld.common.requestresponse;
 
 namespace gov.sandia.sld.common.db.responders
 {
-    public class FileInformationResponder : Responder
+    public class FileInformationResponder : IResponder
     {
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if(request is FileInformationRequest)
             {

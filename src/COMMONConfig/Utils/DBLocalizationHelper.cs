@@ -1,8 +1,7 @@
-﻿using System;
+﻿using COMMONConfig.Localization;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using COMMONConfig.Localization;
 using static gov.sandia.sld.common.db.ConfigStrings;
 
 namespace COMMONConfig.Utils
@@ -25,7 +24,10 @@ namespace COMMONConfig.Utils
             {databaseType, " " + Resources.StringDBType},
             {dailyfileLocation, Resources.StringDailyFileLocation},
             {deleteDays, Resources.StringDeleteDays},
-            {unknown, Resources.StringUnknown}
+            {unknown, Resources.StringUnknown},
+            {alertsEmailSMTP, Resources.StringAlertEmailSMTP},
+            {alertsEmailFrom, Resources.StringAlertEmailFrom},
+            {alertsEmailTo, Resources.StringAlertEmailTo},
         };
 
         public static string LocalizeDBString(this string s)

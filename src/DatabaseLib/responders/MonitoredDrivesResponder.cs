@@ -6,9 +6,9 @@ using System.Data.SQLite;
 
 namespace gov.sandia.sld.common.db.responders
 {
-    public class MonitoredDrivesResponder : Responder
+    public class MonitoredDrivesResponder : IResponder
     {
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if(request is MonitoredDrivesRequest)
             {

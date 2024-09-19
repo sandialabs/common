@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMMON", "COMMON\COMMON.csproj", "{AFEC7287-063D-43F0-8B56-4F87B6AA37F1}"
 EndProject
@@ -27,6 +27,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMMONConfig", "COMMONConfig\COMMONConfig.csproj", "{88596819-A2ED-4045-97BC-10A5BB9CD351}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{322435B1-C7C8-4F4B-8040-D6CE56790E66}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{8E800C3B-09C9-4162-8832-EFD0E7F22A4E}"
 EndProject
@@ -51,6 +54,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyFileImport", "DailyFileImport\DailyFileImport.csproj", "{F2C3A373-6634-44F1-B248-2248BC23154A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabasePrune", "DatabasePrune\DatabasePrune.csproj", "{0A756EB3-57A1-4350-9908-8D96D185D02E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailTest", "EmailTest\EmailTest.csproj", "{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -138,6 +143,10 @@ Global
 		{0A756EB3-57A1-4350-9908-8D96D185D02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A756EB3-57A1-4350-9908-8D96D185D02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A756EB3-57A1-4350-9908-8D96D185D02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC81BCC6-0ADA-4484-BFF9-A44D8FE66510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

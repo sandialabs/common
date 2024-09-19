@@ -1,4 +1,5 @@
 ﻿using COMMONWeb;
+using gov.sandia.sld.common.configuration;
 using gov.sandia.sld.common.dailyfiles;
 using gov.sandia.sld.common.data;
 using gov.sandia.sld.common.db;
@@ -19,11 +20,18 @@ using System.Threading;
 
 namespace gov.sandia.sld.common
 {
-    partial class COMMONService : ServiceBase
+    internal partial class COMMONService : ServiceBase
     {
         public COMMONService()
         {
             InitializeComponent();
+
+#if DEBUG
+            Console.CancelKeyPress += delegate {
+                Shutdown();
+                Environment.Exit(0);
+            };
+#endif
 
             logging.EventLog.GlobalSource = "COMMONService";
 
@@ -37,6 +45,7 @@ namespace gov.sandia.sld.common
 
             m_daily_file_writer = new Writer();
             m_shutdown = new ManualResetEvent(false);
+            m_startup = new ManualResetEvent(false);
 
             m_last_configuration_update = DateTimeOffset.MinValue;
             m_system_device = null;
@@ -44,7 +53,7 @@ namespace gov.sandia.sld.common
             m_daily_file_cleaner = new dailyfiles.Cleaner(m_days_to_keep);
             m_db_cleaner = new db.Cleaner();
 
-            m_responders = new List<Responder>(new Responder[] {
+            m_responders = new List<IResponder>(new IResponder[] {
                 new EventLogResponder(),
                 new DatabaseInfoResponder(),
                 new AttributeResponder(),
@@ -53,8 +62,6 @@ namespace gov.sandia.sld.common
                 new MonitoredDrivesResponder(),
                 //new SMARTFailureResponder(),
             });
-
-            m_interpreters = BaseInterpreter.AllInterpreters();
 
             m_host_configuration = new HostConfiguration()
             {
@@ -78,10 +85,12 @@ namespace gov.sandia.sld.common
             if (m_thread != null)
                 throw new Exception("Startup: Starting while already running");
 
+            Stopwatch totalWatch = Stopwatch.StartNew();
+
             logging.EventLog elog = new ApplicationEventLog();
 
             elog.LogInformation("Starting");
-            GlobalIsRunning.IsRunning = true;
+            GlobalIsRunning.Start();
             m_shutdown.Reset();
 
             elog.LogInformation("Initializing database");
@@ -90,18 +99,16 @@ namespace gov.sandia.sld.common
             new Initializer(null).Initialize(db);
             elog.LogInformation($"Database initialization took {watch.ElapsedMilliseconds} ms");
 
-            using (SQLiteConnection conn = db.Connection)
-            {
-                conn.Open();
+            db.SetAttribute("service.startup_time", DateTimeOffset.Now.ToString("o"));
+            string assembly_ver = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            db.SetAttribute("software.version", assembly_ver);
 
-                db.Attribute attr = new db.Attribute();
-                attr.Set("service.startup_time", DateTimeOffset.Now.ToString("o"), conn);
-                string assembly_ver = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                attr.Set("software.version", assembly_ver, conn);
-            }
+            SetupAlertEmails(db, elog);
+
+            m_interpreters = BaseInterpreter.AllInterpreters();
 
             elog.LogInformation("Setting up responders");
-            m_responders.ForEach(r => RequestBus.Instance.Subscribe(r));
+            m_responders.ForEach(r => SystemBus.Instance.Subscribe(r));
 
             elog.LogInformation("Starting web server");
             watch.Restart();
@@ -111,61 +118,96 @@ namespace gov.sandia.sld.common
             elog.LogInformation("Starting work thread");
             watch.Restart();
             m_thread = new Thread(new ThreadStart(ThreadFunc));
-            m_thread.Start();
-            // Wait for the thread to start
-            while (!m_thread.IsAlive)
-                Thread.Sleep(25);
-            elog.LogInformation($"Work thread startup took {watch.ElapsedMilliseconds} ms");
 
-            elog.LogInformation("Completed startup");
+            m_startup.Reset();
+            m_thread.Start();
+
+            // Wait for the thread to start
+            m_startup.WaitOne();
+
+            elog.LogInformation($"Work thread startup took {watch.ElapsedMilliseconds} ms");
+            elog.LogInformation($"Completed startup in {totalWatch.ElapsedMilliseconds} ms");
+        }
+
+        private void SetupAlertEmails(Database db, logging.EventLog elog)
+        {
+            try
+            {
+                using (SQLiteConnection conn = db.Connection)
+                {
+                    conn.Open();
+
+                    AlertsEmailSMTP emailSMTP = new AlertsEmailSMTP();
+                    AlertsEmailFrom emailFrom = new AlertsEmailFrom();
+                    AlertsEmailTo emailTo = new AlertsEmailTo();
+                    string smtp = emailSMTP.GetValue(conn);
+                    string from = emailFrom.GetValue(conn);
+                    string to = emailTo.GetValue(conn);
+
+                    if (string.IsNullOrEmpty(smtp) || string.IsNullOrEmpty(from) || string.IsNullOrEmpty(to))
+                    {
+                        elog.LogInformation($"Empty smtp ({smtp}), from ({from}) address, or to ({to}) addresses. Disabling email alerts.");
+                    }
+                    else
+                    {
+                        m_alertReceiver = new AlertReceiver(smtp, from, to, elog);
+                        SystemBus.Instance.Subscribe(m_alertReceiver);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                elog.Log(ex);
+            }
         }
 
         public void Shutdown()
         {
+            Stopwatch totalWatch = Stopwatch.StartNew();
+
             logging.EventLog elog = new ApplicationEventLog();
 
             elog.LogInformation("Stopping");
-            Stopwatch watch = Stopwatch.StartNew();
-            GlobalIsRunning.IsRunning = false;
 
+            Stopwatch watch = Stopwatch.StartNew();
+            GlobalIsRunning.Stop();
             m_shutdown.Set();
-            while (m_thread != null && m_thread.ThreadState == System.Threading.ThreadState.Running)
-                Thread.Sleep(100);
+
+            m_thread.Join();
 
             elog.LogInformation($"Stopping worker thread took {watch.ElapsedMilliseconds} ms");
 
             Database db = new Database();
-            using (SQLiteConnection conn = db.Connection)
-            {
-                conn.Open();
-                db.Attribute attr = new db.Attribute();
-                attr.Set("service.stop_time", DateTimeOffset.Now.ToString("o"), conn);
-            }
+            db.SetAttribute("service.stop_time", DateTimeOffset.Now.ToString("o"));
 
             elog.LogInformation("Stopping web server");
             m_host.Stop();
             m_host.Dispose();
 
             elog.LogInformation("Clearing responders");
-            m_responders.ForEach(r => RequestBus.Instance.Unsubscribe(r));
+            m_responders.ForEach(r => SystemBus.Instance.Unsubscribe(r));
+
+            SystemBus.Instance.Unsubscribe(m_alertReceiver);
 
             m_thread = null;
-            elog.LogInformation("Completed stopping");
+            elog.LogInformation($"Completed stopping in {totalWatch.ElapsedMilliseconds} ms");
         }
 
         protected void ThreadFunc()
         {
             try
             {
-                int max_collections_per_pass = 10;
+                //int max_collections_per_pass = 10;
                 logging.EventLog elog = new ApplicationEventLog();
                 Database db = new Database();
                 DataStorage storage = new DataStorage();
                 m_interpreters.ForEach(i => storage.AddInterpreter(i));
 
+                m_startup.Set();
+
                 while (GlobalIsRunning.IsRunning)
                 {
-                    int collector_count = 0;
+                    //int collector_count = 0;
 
                     using (SQLiteConnection conn = db.Connection)
                     {
@@ -184,14 +226,19 @@ namespace gov.sandia.sld.common
                             // Gets the list of things that need to be collected right now. They'll
                             // be in the order they should be collected.
                             List<DataCollector> collectors = m_system_device.GetCollectors(retriever);
-                            collector_count = collectors.Count;
 
-                            // Limit this to the top 10 or so
-                            while (collectors.Count > max_collections_per_pass)
-                                collectors.RemoveAt(collectors.Count - 1);
+                            // Keep track of how many collecters there are to collect from
+                            //collector_count = collectors.Count;
+
+                            //// Limit this to the top 10 or so
+                            //while (collectors.Count > max_collections_per_pass)
+                            //    collectors.RemoveAt(collectors.Count - 1);
 
                             foreach (DataCollector collector in collectors)
                             {
+                                if (GlobalIsRunning.IsRunning == false)
+                                    break;  // out of the foreach loop
+
                                 collector_name = collector.Context.Name;
                                 //elog.LogInformation($"Collecting {collector_name}");
 
@@ -211,9 +258,6 @@ namespace gov.sandia.sld.common
                                 //long elapsed_ms = watch.ElapsedMilliseconds;
                                 //if(elapsed_ms > 500)
                                 //    elog.LogInformation($"Collecting {collector_name} took {elapsed_ms} ms");
-
-                                if (GlobalIsRunning.IsRunning == false)
-                                    break;  // out of the foreach loop
                             }
                         }
                         catch (Exception e)
@@ -223,7 +267,7 @@ namespace gov.sandia.sld.common
                         }
 
                         // Will write the daily file when it's the right time to do so; otherwise, it does nothing.
-                        if(GlobalIsRunning.IsRunning)
+                        if (GlobalIsRunning.IsRunning)
                             m_daily_file_writer.DoWrite(conn);
 
                         if (GlobalIsRunning.IsRunning)
@@ -244,11 +288,12 @@ namespace gov.sandia.sld.common
 
                     // m_shutdown will be reset when the thread starts, and set when it's time to
                     // stop the thread. So this will wait if this event hasn't been
-                    // set, but will return immediately if it has been set.
+                    // set, but will return immediately if it has been set. That way we can shut
+                    // down immediately if we're in the middle of sleeping.
                     //
-                    // If there's still more data to collect let's make another run right away
-                    if(GlobalIsRunning.IsRunning && collector_count < max_collections_per_pass)
-                        m_shutdown.WaitOne(TimeSpan.FromSeconds(10));
+                    // We wait up to 10 seconds so we're using minimal resources. Better than busy looping
+                    // to find there's nothing to collect.
+                    m_shutdown.WaitOne(TimeSpan.FromSeconds(10));
                 }
 
                 m_interpreters.ForEach(i => storage.RemoveInterpreter(i));
@@ -295,6 +340,7 @@ namespace gov.sandia.sld.common
         private db.Cleaner m_db_cleaner;
         private Thread m_thread;
         private ManualResetEvent m_shutdown;
+        private ManualResetEvent m_startup;
 
         private SystemDevice m_system_device;
         private DateTimeOffset m_last_configuration_update;
@@ -303,7 +349,9 @@ namespace gov.sandia.sld.common
         private HostConfiguration m_host_configuration;
         private NancyHost m_host;
 
-        private List<Responder> m_responders;
+        private List<IResponder> m_responders;
         private List<IDataInterpreter> m_interpreters;
+
+        private AlertReceiver m_alertReceiver;
     }
 }

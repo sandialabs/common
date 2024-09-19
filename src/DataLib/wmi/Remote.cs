@@ -1,4 +1,5 @@
 ﻿using gov.sandia.sld.common.utilities;
+using System;
 using System.Management;
 
 namespace gov.sandia.sld.common.data.wmi
@@ -8,7 +9,9 @@ namespace gov.sandia.sld.common.data.wmi
     /// </summary>
     public class Remote
     {
-        public string IPAddress { get; set; }
+        private System.Net.IPAddress _ipAddr;
+
+        public string IPAddress { get { return _ipAddr.ToString(); } }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool HasIPAddress { get { return IPAddress.IsIPAddress(); } }
@@ -16,18 +19,46 @@ namespace gov.sandia.sld.common.data.wmi
 
         public Remote()
         {
-            IPAddress = Username = Password = string.Empty;
+            _ipAddr = null;
+            Username = Password = string.Empty;
         }
 
         public Remote(string ip_address)
         {
-            IPAddress = ip_address;
+            _ipAddr = ip_address.GetIPAddress();
+
+            if (_ipAddr == null)
+                throw new Exception("Remote: Invalid IP address");
+
             Username = Password = string.Empty;
         }
 
         public Remote(string ip_address, string username, string password)
         {
-            IPAddress = ip_address;
+            _ipAddr = ip_address.GetIPAddress();
+
+            if (_ipAddr == null)
+                throw new Exception("Remote: Invalid IP address");
+
+            Username = username;
+            Password = password;
+        }
+
+        public Remote (System.Net.IPAddress addr)
+        {
+            if (addr == null)
+                throw new Exception("Remote: Null IP address");
+
+            _ipAddr = addr;
+            Username = Password = string.Empty;
+        }
+
+        public Remote(System.Net.IPAddress addr, string username, string password)
+        {
+            if (addr == null)
+                throw new Exception("Remote: Null IP address");
+
+            _ipAddr = addr;
             Username = username;
             Password = password;
         }
@@ -41,9 +72,9 @@ namespace gov.sandia.sld.common.data.wmi
         {
             ManagementScope scope = null;
 
-            if (HasIPAddress)
+            if (_ipAddr != null)
             {
-                scope = new ManagementScope(@"\\" + IPAddress + @"\root\" + ns);
+                scope = new ManagementScope($@"\\{_ipAddr.ToString()}\root\{ns}");
 
                 if (HasUsernamePassword)
                 {
@@ -52,7 +83,7 @@ namespace gov.sandia.sld.common.data.wmi
                 }
             }
             else
-                scope = new ManagementScope(@"root\" + ns);
+                scope = new ManagementScope($@"root\{ns}");
 
             return scope;
         }

@@ -20,7 +20,7 @@
 
                 <div ng-if="vm.machine.nic && vm.machine.nic.nicData.length !== 0">
                     <h5 translate="NIC Usage Over Time"></h5>
-                    <cm-graph data="vm.machine.nic" settings="vm.chartSettings.nic" class="col-md-12 col-sm-12 col-xs-12" />
+                    <cm-graph data="vm.machine.nic" settings="vm.chartSettings.nic" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
                 </div>
             </div>
             <button class="btn btn-default" ng-click="vm.getMoreNIC()">{{"Retrieve" | translate}} {{vm.daysToRetrieve}} {{"More Days" | translate}}</button>

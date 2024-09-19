@@ -7,9 +7,9 @@ namespace gov.sandia.sld.common.db.responders
     /// <summary>
     /// Get DB type and DB connection string for the device specified in the request.
     /// </summary>
-    public class DatabaseInfoResponder : Responder
+    public class DatabaseInfoResponder : IResponder
     {
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if(request is DatabaseTypeRequest)
             {

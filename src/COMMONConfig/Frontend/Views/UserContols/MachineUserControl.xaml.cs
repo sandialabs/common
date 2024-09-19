@@ -92,7 +92,7 @@ namespace COMMONConfig.Frontend.Views.UserContols
             Remote r = new Remote(ipAddress.Text, usernameTextBox.Text, Password.Password);
             CollectorID c_id = new CollectorID(-1, "Configuration.Disk");
             DataCollector c = new DiskNameCollector(c_id, r);
-            GlobalIsRunning.IsRunning = true;
+            GlobalIsRunning.Start();
 
             c.AttachDataAcquiredHandler(OnDataAcquired);
             c.Acquire();

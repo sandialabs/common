@@ -259,7 +259,7 @@ export abstract class ChartJSChart {
 
         if (this.chart) {
             //console.log("Refresh/update " + this.id.toString());
-            this.chart.update(this.config);
+            this.chart.update();
         }
     }
 

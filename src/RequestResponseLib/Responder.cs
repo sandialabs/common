@@ -1,7 +1,7 @@
 ﻿namespace gov.sandia.sld.common.requestresponse
 {
-    public abstract class Responder
+    public interface IResponder
     {
-        public abstract void HandleRequest(Request request);
+        void HandleRequest(IRequest request);
     }
 }

@@ -405,4 +405,13 @@
   <data name="StringLeaveGroup" xml:space="preserve">
     <value>Leave Group</value>
   </data>
+	<data name="StringAlertEmailSMTP" xml:space="preserve">
+    <value>Alert email SMTP server</value>
+  </data>
+	<data name="StringAlertEmailFrom" xml:space="preserve">
+    <value>Alert email from address</value>
+  </data>
+	<data name="StringAlertEmailTo" xml:space="preserve">
+    <value>Alert email to address(es)</value>
+  </data>
 </root>

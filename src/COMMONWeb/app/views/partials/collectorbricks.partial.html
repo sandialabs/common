@@ -1,42 +1,42 @@
-﻿<cm-days-to-retrieve vm="vm" />
+﻿<cm-days-to-retrieve vm="vm"></cm-days-to-retrieve>
 <br class="clearfix" />
 <br />
 <div ng-include="'app/views/partials/alerts.partial.html'" class="clearfix"></div>
 <div class="clearfix">
     <div ng-if="vm.device.isCollectorEnabled(2)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-cpu-brick vm="vm" />
+        <cm-cpu-brick vm="vm"></cm-cpu-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(0)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-memory-brick vm="vm" />
+        <cm-memory-brick vm="vm"></cm-memory-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(1)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-disk-brick vm="vm" />
+        <cm-disk-brick vm="vm"></cm-disk-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(15)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-disk-speed-brick vm="vm" />
+        <cm-disk-speed-brick vm="vm"></cm-disk-speed-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(3)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-nic-brick vm="vm" />
+        <cm-nic-brick vm="vm"></cm-nic-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(9)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-services-brick vm="vm" />
+        <cm-services-brick vm="vm"></cm-services-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(13)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-database-brick vm="vm" />
+        <cm-database-brick vm="vm"></cm-database-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(6)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-processes-brick vm="vm" />
+        <cm-processes-brick vm="vm"></cm-processes-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(8)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-applications-brick vm="vm" />
+        <cm-applications-brick vm="vm"></cm-applications-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(14)" class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <cm-ups-brick vm="vm" />
+        <cm-ups-brick vm="vm"></cm-ups-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(11)" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <cm-system-errors-brick vm="vm" />
+        <cm-system-errors-brick vm="vm"></cm-system-errors-brick>
     </div>
     <div ng-if="vm.device.isCollectorEnabled(12)" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <cm-application-errors-brick vm="vm" />
+        <cm-application-errors-brick vm="vm"></cm-application-errors-brick>
     </div>
 </div>

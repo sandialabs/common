@@ -70,7 +70,7 @@ namespace DailyFileImport
             Console.WriteLine("Reading Daily Files");
 
             FileInformationResponder responder = new FileInformationResponder();
-            RequestBus.Instance.Subscribe(responder);
+            SystemBus.Instance.Subscribe(responder);
 
             string here = AppDomain.CurrentDomain.BaseDirectory;
             Reader reader = new Reader(here);
@@ -91,7 +91,7 @@ namespace DailyFileImport
             Dictionary<string, DataCollectorContext> collector_id_cache = GetCollectorIDCache(config);
 
             DataStorage data_storage = new DataStorage();
-            BaseInterpreter.AllInterpreters().ForEach(i => data_storage.AddInterpreter(i));
+            BaseInterpreter.AllInterpreters();
 
             using (SQLiteConnection conn = db.Connection)
             {

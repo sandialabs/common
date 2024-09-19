@@ -11,7 +11,7 @@ av = "[assembly: AssemblyVersion("
 afv = "[assembly: AssemblyFileVersion("
 ac = "[assembly: AssemblyCopyright("
 
-p = re.compile("\"(\d+\.\d+\.\d+)(.\d+)?\"")
+p = re.compile("\"(\\d+\\.\\d+\\.\\d+)(.\\d+)?\"")
 version = ""
 revision = None
 year = str(datetime.datetime.now().year)

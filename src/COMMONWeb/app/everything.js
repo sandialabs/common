@@ -2,10 +2,12 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -612,8 +614,7 @@ System.register("enums/collectortype.enum", [], function (exports_10, context_10
                 ECollectorType[ECollectorType["DiskSpeed"] = 15] = "DiskSpeed";
                 ECollectorType[ECollectorType["Configuration"] = 16] = "Configuration";
                 ECollectorType[ECollectorType["Unknown"] = -1] = "Unknown";
-            })(ECollectorType || (ECollectorType = {}));
-            exports_10("ECollectorType", ECollectorType);
+            })(ECollectorType || (exports_10("ECollectorType", ECollectorType = {})));
             CollectorTypeExtensions = /** @class */ (function () {
                 function CollectorTypeExtensions() {
                 }
@@ -1477,6 +1478,7 @@ System.register("disk/disk", ["disk/smart", "charts/chartjs", "charts/chartbridg
                             t.driveLetters.push(name);
                     });
                     this.driveLetters.sort();
+                    //console.log("DiskUsageDiskPerformanceManager.update", data, this.driveLetters);
                     this.driveLetters.forEach(function (diskName) {
                         var existingDisk = null;
                         for (var i = 0; existingDisk === null && i < t.disks.length; ++i) {
@@ -1612,8 +1614,7 @@ System.register("charts/chartjs", ["chart.js"], function (exports_22, context_22
                 EChartJSColors[EChartJSColors["LightRed"] = 5] = "LightRed";
                 EChartJSColors[EChartJSColors["Black"] = 6] = "Black";
                 EChartJSColors[EChartJSColors["LightGray"] = 7] = "LightGray";
-            })(EChartJSColors || (EChartJSColors = {}));
-            exports_22("EChartJSColors", EChartJSColors);
+            })(EChartJSColors || (exports_22("EChartJSColors", EChartJSColors = {})));
             Color = /** @class */ (function () {
                 // Default color scheme is blue
                 function Color(border, background) {
@@ -1789,7 +1790,7 @@ System.register("charts/chartjs", ["chart.js"], function (exports_22, context_22
                     this.config.setData(dataSets);
                     if (this.chart) {
                         //console.log("Refresh/update " + this.id.toString());
-                        this.chart.update(this.config);
+                        this.chart.update();
                     }
                 };
                 ChartJSChart.prototype.fixAxes = function () {
@@ -2107,8 +2108,10 @@ System.register("classes/network", ["classes/autoupdater", "charts/chartjs", "ch
                 };
                 Network.prototype.gather = function (range) {
                     var t = this;
+                    //console.debug("Network.gather.getNetworkStatus", range);
                     this.dataService.getNetworkStatus(range[0], range[1])
                         .then(function (data) {
+                        //console.debug("Network.gather.getNetworkStatus.return", data);
                         if (!data)
                             return;
                         t.updateData(data);
@@ -2186,8 +2189,7 @@ System.register("enums/devicetypes.enum", [], function (exports_25, context_25) 
                 EDeviceTypes[EDeviceTypes["System"] = 4] = "System";
                 EDeviceTypes[EDeviceTypes["Generic"] = 5] = "Generic";
                 EDeviceTypes[EDeviceTypes["Unknown"] = -1] = "Unknown";
-            })(EDeviceTypes || (EDeviceTypes = {}));
-            exports_25("EDeviceTypes", EDeviceTypes);
+            })(EDeviceTypes || (exports_25("EDeviceTypes", EDeviceTypes = {})));
         }
     };
 });
@@ -2206,8 +2208,7 @@ System.register("enums/drivetypes.enum", [], function (exports_26, context_26) {
                 EDriveTypes[EDriveTypes["NetworkDrive"] = 4] = "NetworkDrive";
                 EDriveTypes[EDriveTypes["CompactDisc"] = 5] = "CompactDisc";
                 EDriveTypes[EDriveTypes["RAMDisk"] = 6] = "RAMDisk";
-            })(EDriveTypes || (EDriveTypes = {}));
-            exports_26("EDriveTypes", EDriveTypes);
+            })(EDriveTypes || (exports_26("EDriveTypes", EDriveTypes = {})));
         }
     };
 });
@@ -2235,8 +2236,7 @@ System.register("classes/devices", ["classes/collectorinfo", "enums/devicetypes.
                 EAlertLevel[EAlertLevel["Normal"] = 0] = "Normal";
                 EAlertLevel[EAlertLevel["Alert"] = 1] = "Alert";
                 EAlertLevel[EAlertLevel["Information"] = 2] = "Information";
-            })(EAlertLevel || (EAlertLevel = {}));
-            exports_27("EAlertLevel", EAlertLevel);
+            })(EAlertLevel || (exports_27("EAlertLevel", EAlertLevel = {})));
             DeviceStatus = /** @class */ (function () {
                 function DeviceStatus(s) {
                     this.status = s.status;
@@ -2663,7 +2663,7 @@ System.register("classes/devices", ["classes/collectorinfo", "enums/devicetypes.
                     });
                 }
                 MonitoredDriveManager.prototype.isDriveMonitored = function (driveLetter) {
-                    var isMonitored = false;
+                    var isMonitored = true;
                     var d = this.driveMap[driveLetter];
                     if (d)
                         isMonitored = d.isMonitored;
@@ -2880,8 +2880,7 @@ System.register("classes/machine", ["classes/memory", "disk/disk", "classes/nic"
                 //Network,
                 //SMART,
                 EMachineParts[EMachineParts["NumMachineParts"] = 12] = "NumMachineParts";
-            })(EMachineParts || (EMachineParts = {}));
-            exports_31("EMachineParts", EMachineParts);
+            })(EMachineParts || (exports_31("EMachineParts", EMachineParts = {})));
             Machine = /** @class */ (function () {
                 /// Let's have a way to retrieve a subset of all things that we can retrieve.
                 /// The third parameter will specify the parts to retrieve. If it's null, retrieve
@@ -3285,15 +3284,13 @@ System.register("reports/report", ["enums/collectortype.enum", "classes/machine"
                 EReportTypes[EReportTypes["Issues"] = 4] = "Issues";
                 EReportTypes[EReportTypes["SiteConfiguration"] = 5] = "SiteConfiguration";
                 EReportTypes[EReportTypes["Site"] = 6] = "Site";
-            })(EReportTypes || (EReportTypes = {}));
-            exports_34("EReportTypes", EReportTypes);
+            })(EReportTypes || (exports_34("EReportTypes", EReportTypes = {})));
             (function (EReportSubTypes) {
                 EReportSubTypes[EReportSubTypes["Memory"] = 0] = "Memory";
                 EReportSubTypes[EReportSubTypes["Disk"] = 1] = "Disk";
                 EReportSubTypes[EReportSubTypes["CPU"] = 2] = "CPU";
                 EReportSubTypes[EReportSubTypes["NIC"] = 3] = "NIC";
-            })(EReportSubTypes || (EReportSubTypes = {}));
-            exports_34("EReportSubTypes", EReportSubTypes);
+            })(EReportSubTypes || (exports_34("EReportSubTypes", EReportSubTypes = {})));
             Report = /** @class */ (function () {
                 function Report(settings, dataService, configurationService) {
                     this.settings = settings;
@@ -3679,15 +3676,29 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                 //
                 // Fortunately, moment.format() does exactly what we want. Well, almost. format() doesn't
                 // put the milliseconds in there, so we'll have to
+                // Another issue occurs in the eastern hemisphere. There, the timezone offset will be something
+                // like +08:00, where the western hemisphere has timezone offsets like -06:00. The '-' character
+                // isn't a problem, but the '+' is because + is a reserved character in a URL.
+                // Ideally, we should use some sort of URL sanitizer, but as a quick-and-dirty solution,
+                // just replace any '+' characters with "__"
+                DataService.sanitizeDate = function (date) {
+                    if (!date)
+                        return null;
+                    return date.replace('+', '__');
+                };
                 DataService.getIDAndDatesTuple = function (id, starting, ending) {
-                    var s = starting == null ? null : moment_1.default(starting).format(DataService.dateFormat);
-                    var e = ending == null ? null : moment_1.default(ending).format(DataService.dateFormat);
-                    return [id, s, e];
+                    var s = starting == null ? null : DataService.sanitizeDate(moment_1.default(starting).format(DataService.dateFormat));
+                    var e = ending == null ? null : DataService.sanitizeDate(moment_1.default(ending).format(DataService.dateFormat));
+                    var tup = [id, s, e];
+                    //console.debug('getIDAndDatesTuple', tup);
+                    return tup;
                 };
                 DataService.getDatesTuple = function (starting, ending) {
-                    var s = starting == null ? null : moment_1.default(starting).format(DataService.dateFormat);
-                    var e = ending == null ? null : moment_1.default(ending).format(DataService.dateFormat);
-                    return [s, e];
+                    var s = starting == null ? null : DataService.sanitizeDate(moment_1.default(starting).format(DataService.dateFormat));
+                    var e = ending == null ? null : DataService.sanitizeDate(moment_1.default(ending).format(DataService.dateFormat));
+                    var tup = [s, e];
+                    //console.debug('getDatesTuple', tup);
+                    return tup;
                 };
                 DataService.getIDAndDatesAndMachinePartsTuple = function (id, parts, starting, ending) {
                     var mp = {
@@ -3695,7 +3706,9 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                     };
                     var json = JSON.stringify(mp.machineParts);
                     var t1 = DataService.getIDAndDatesTuple(id, starting, ending);
-                    return [t1[0], json, t1[1], t1[2]];
+                    var tup = [t1[0], json, t1[1], t1[2]];
+                    //console.debug('getIDAndDatesAndMachinePartsTuple', tup);
+                    return tup;
                 };
                 DataService.getIDAndDAtesAndReportPartsTuple = function (id, types, starting, ending) {
                     var mp = {
@@ -3703,7 +3716,9 @@ System.register("services/data.service", ["moment"], function (exports_35, conte
                     };
                     var json = JSON.stringify(mp.reportTypes);
                     var t1 = DataService.getIDAndDatesTuple(id, starting, ending);
-                    return [t1[0], json, t1[1], t1[2]];
+                    var tup = [t1[0], json, t1[1], t1[2]];
+                    //console.debug('getIDAndDAtesAndReportPartsTuple', tup);
+                    return tup;
                 };
                 DataService.prototype.get = function (method, data) {
                     var url = '/' + method;
@@ -5230,6 +5245,7 @@ System.register("directives/deviceinfo.directive", [], function (exports_59, con
                     this.scope = {
                         device: '<',
                         networkChartSettings: '<',
+                        //isOpen: '=?',
                     };
                     this.templateUrl = 'app/views/partials/deviceinfo.partial.html';
                     this.link = function (scope, element, attrs) {

@@ -19,7 +19,7 @@ namespace gov.sandia.sld.common.data.wmi
         {
             List<string> drive_names = new List<string>();
             AttributeRequest request = new AttributeRequest(Context.ID.Name + ".all.drives.descriptions", true);
-            RequestBus.Instance.MakeRequest(request);
+            SystemBus.Instance.MakeRequest(request);
             if (request.IsHandled)
             {
                 try

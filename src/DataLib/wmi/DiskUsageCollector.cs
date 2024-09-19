@@ -87,7 +87,7 @@ namespace gov.sandia.sld.common.data.wmi
                 // when needed.
                 string json = JsonConvert.SerializeObject(drive_descriptions);
                 AttributeRequest attr_request = new AttributeRequest(Context.ID.Name + ".all.drives.descriptions", false) { Value = json };
-                RequestBus.Instance.MakeRequest(attr_request);
+                SystemBus.Instance.MakeRequest(attr_request);
             }
 
             return return_data;

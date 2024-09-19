@@ -143,6 +143,16 @@ namespace gov.sandia.sld.common.db
             return devices;
         }
 
+        public void SetAttribute(string path, string value)
+        {
+            using (SQLiteConnection conn = Connection)
+            {
+                conn.Open();
+                db.Attribute attr = new db.Attribute();
+                attr.Set(path, value, conn);
+            }
+        }
+
         /// <summary>
         /// Gets the information about the active devices.
         /// </summary>

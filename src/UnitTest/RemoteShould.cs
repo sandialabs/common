@@ -1,8 +1,4 @@
 ﻿using Xunit;
-using gov.sandia.sld.common.data;
-using System.Net;
-using System.Collections.Generic;
-using Newtonsoft.Json;
 using gov.sandia.sld.common.data.wmi;
 
 namespace UnitTest
@@ -12,9 +8,8 @@ namespace UnitTest
         [Fact]
         public void Remote()
         {
-            Remote remote = new Remote()
+            Remote remote = new Remote("192.168.0.1")
             {
-                IPAddress = "192.168.0.1",
                 Username = "test",
                 Password = "password"
             };

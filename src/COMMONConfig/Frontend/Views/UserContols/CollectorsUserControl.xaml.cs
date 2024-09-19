@@ -178,7 +178,7 @@ namespace COMMONConfig.Frontend.Views.UserContols
             Remote r = new Remote(di.ipAddress, di.username, di.password);
             CollectorID c_id = new CollectorID(-1, "CollectorsUserControl.Disk");
             DataCollector c = new DiskNameCollector(c_id, r);
-            GlobalIsRunning.IsRunning = true;
+            GlobalIsRunning.Start();
 
             c.AttachDataAcquiredHandler(OnDataAcquired);
             c.Acquire();

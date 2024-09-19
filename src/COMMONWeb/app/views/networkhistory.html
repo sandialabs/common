@@ -7,7 +7,7 @@
         <dt ng-if="device.type != 0 && device.type != 4" ng-repeat-start="device in ::vm.devices">{{::device.name}}</dt>
         <dd ng-if="device.type != 0 && device.type != 4" ng-repeat-end>
             <div ng-if="device.networkStatus">
-                <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12" />
+                <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
             </div>
         </dd>
     </dl>
@@ -20,7 +20,7 @@
                 <dt ng-repeat-start="device in ::group.devices">{{::device.name}}</dt>
                 <dd ng-repeat-end>
                     <div ng-if="device.networkStatus">
-                        <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12" />
+                        <cm-graph data="device.networkStatus" settings="vm.chartSettings" class="col-md-12 col-sm-12 col-xs-12"></cm-graph>
                     </div>
                 </dd>
             </dl>

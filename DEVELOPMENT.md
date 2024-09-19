@@ -78,15 +78,14 @@ The COMMON project is split into several different subprojects. These are descri
   - Is just used to prevent prying eyes from easily seeing things
 
 # Building
-COMMON is built using Visual Studio 2019. The COMMONWeb part also uses Bower, NPM, and Gulp. Eventually, I plan to do away with Bower and just use NPM, but haven't done that yet.
+COMMON is built using Visual Studio 2019. The COMMONWeb part also uses NPM and Gulp.
 
-There have been cases where Visual Studio doesn't properly do the Bower and NPM stuff, so you may need to install those separately.
+There have been cases where Visual Studio doesn't properly do the NPM stuff, so you may need to install those separately.
 
 We have a Jenkins CI builder that does these steps:  
 
     .nuget\nuget.exe restore COMMON.sln
     cd COMMONWeb
-    bower install
     npm install
     gulp
     cd ..

@@ -135,6 +135,7 @@ namespace gov.sandia.sld.common.db
         {
             SetValue(value.ToString(), timestamp, conn);
         }
+
         public virtual void SetValue(bool value, DateTimeOffset timestamp, SQLiteConnection conn)
         {
             SetValue((int)(value ? 1 : 0), timestamp, conn);
@@ -169,6 +170,9 @@ namespace gov.sandia.sld.common.db
                     new PingNumPingers(),
                     new CompressDailyFile(),
                     new DeleteDailyFileAfterCompression(),
+                    new AlertsEmailSMTP(),
+                    new AlertsEmailFrom(),
+                    new AlertsEmailTo(),
                 });
         }
     }
@@ -249,7 +253,7 @@ namespace gov.sandia.sld.common.db
     public class CPUUsageAlertCounts : ConfigurationWithDefault
     {
         public CPUUsageAlertCounts()
-            :base(cpuUsageAlertCounts, 5)
+            : base(cpuUsageAlertCounts, 5)
         {
         }
     }
@@ -390,6 +394,30 @@ namespace gov.sandia.sld.common.db
         }
     }
 
+    public class AlertsEmailSMTP : ConfigurationWithDefault
+    {
+        public AlertsEmailSMTP()
+            : base(alertsEmailSMTP, "")
+        {
+        }
+    }
+
+    public class AlertsEmailFrom : ConfigurationWithDefault
+    {
+        public AlertsEmailFrom()
+            : base(alertsEmailFrom, "")
+        {
+        }
+    }
+
+    public class AlertsEmailTo : ConfigurationWithDefault
+    {
+        public AlertsEmailTo()
+            : base(alertsEmailTo, "")
+        {
+        }
+    }
+
     [Localizable(false)]
     public static class ConfigStrings
     {
@@ -414,29 +442,36 @@ namespace gov.sandia.sld.common.db
         public static string pingNumPingers = "ping.num_pingers";
         public static string compressDailyFiles = "dailyfile.compress";
         public static string deleteDailyFileAfterCompression = "dailyfile.compress.delete_after_compression";
+        public static string alertsEmailSMTP = "alerts.email.smtp";
+        public static string alertsEmailFrom = "alerts.email.from";
+        public static string alertsEmailTo = "alerts.email.to";
 
-        public static string[] DBStrings = {
-            countryCode
-            , siteName
-            , cpuUsageAlert
-            , cpuUsageAlertCounts
-            , diskLowAlert
-            , diskLowCriticalAlert
-            , memoryLowAlert
-            , memoryLowCriticalAlert
-            , rebootRecentAlert
-            , rebootLongAlert
-            , databaseConnectionString
-            , databaseType
-            , dailyfileLocation
-            , deleteDays
-            , unknown
-            , xx
-            , pingExtras
-            , pingSubnets
-            , pingNumPingers
-            , compressDailyFiles
-            , deleteDailyFileAfterCompression
-        };
+        public static string[] DBStrings =
+            {
+                countryCode,
+                siteName,
+                cpuUsageAlert,
+                cpuUsageAlertCounts,
+                diskLowAlert,
+                diskLowCriticalAlert,
+                memoryLowAlert,
+                memoryLowCriticalAlert,
+                rebootRecentAlert,
+                rebootLongAlert,
+                databaseConnectionString,
+                databaseType,
+                dailyfileLocation,
+                deleteDays,
+                unknown,
+                xx,
+                pingExtras,
+                pingSubnets,
+                pingNumPingers,
+                compressDailyFiles,
+                deleteDailyFileAfterCompression,
+                alertsEmailSMTP,
+                alertsEmailFrom,
+                alertsEmailTo,
+            };
     }
 }

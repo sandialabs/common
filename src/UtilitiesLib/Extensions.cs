@@ -37,7 +37,32 @@ namespace gov.sandia.sld.common.utilities
 
         public static bool IsIPAddress(this string ip)
         {
-            return string.IsNullOrEmpty(ip) == false && string.Compare("0.0.0.0", ip) != 0 && IPAddress.TryParse(ip, out IPAddress address);
+            try
+            {
+                return string.IsNullOrEmpty(ip) == false && string.Compare("0.0.0.0", ip) != 0 && IPAddress.TryParse(ip, out IPAddress address);
+            }
+            catch (Exception)
+            {
+            }
+            return false;
+        }
+
+        public static IPAddress GetIPAddress(this string str)
+        {
+            IPAddress addr = null;
+            try
+            {
+                if(IPAddress.TryParse(str, out addr) == false)
+                {
+                    IPHostEntry host = Dns.GetHostEntry(str);
+                    if(host?.AddressList.Length > 0)
+                        addr = host.AddressList[0];
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return addr;
         }
 
         /// <summary>

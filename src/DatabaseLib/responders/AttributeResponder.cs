@@ -3,9 +3,9 @@ using System.Data.SQLite;
 
 namespace gov.sandia.sld.common.db.responders
 {
-    public class AttributeResponder : Responder
+    public class AttributeResponder : IResponder
     {
-        public override void HandleRequest(Request request)
+        public void HandleRequest(IRequest request)
         {
             if(request is AttributeRequest)
             {

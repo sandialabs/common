@@ -11,7 +11,7 @@ namespace gov.sandia.sld.common.db.interpreters
     /// <summary>
     /// Updates the NetworkStatus table to record ping information about what was pinged
     /// </summary>
-    public class PingInterpreter : IDataInterpreter
+    public class PingInterpreter : BaseInterpreter, IDataInterpreter
     {
         public void Interpret(Data d, SQLiteConnection conn)
         {
